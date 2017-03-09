@@ -1,0 +1,29 @@
+{% macro event_tile(event) -%}
+<div class="event-tile clearfix">
+	<div class="fl" style="width: calc(100% - 111px)">
+		<h4>{{ event.title }}</h4>
+		<div>
+			{% set r = issue_rank(event.issue_score) %}
+			<span class="label issue-rank {{ r.rank | lower }}-rank">
+				<i>{{ r.rank }}</i>
+				<span>{{ r.label }}</span>
+			</span>
+
+			<span class="label">{{ event.type }}</span>
+		</div>
+		<div class="emotions">
+			{% for emotion in event.emotions %}
+				<span class="emotion">
+					<i style="width: {{ emotion.weight * 16 }}px; height: {{ emotion.weight * 16 }}px; background-color: {{ rand_color() }}"></i>
+					<span>{{ emotion.title }}</span>
+				</span>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="fr" style="width: 100px">
+		{% if event.images[0] %}
+		<img src="{{ event.images[0].url }}" width="105">
+		{% endif %}
+	</div>
+</div>
+{% endmacro %}

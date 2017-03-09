@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+section#people-header{
+	position: relative;
+	height: 160px;
+}
+
+section#people-header .background{
+	position: absolute;
+
+	width: 100%;
+	height: 160px;
+	background-image: url('https://placehold.it/370x160');
+	background-size: 100% auto;
+	background-position: center;
+	filter: brightness(80%);
+}
+
+
+section#people-header h1{
+	position: absolute;
+	bottom: 0;
+
+	color: #ff3333;
+
+	font-size: 46px;
+	font-weight: 400;
+	margin: 0;
+	padding: 10px 0 7px 20px;
+}
+section#people-header h1 .sub{
+	font-size: 16px;
+	font-weight: 300;
+	margin-left: -5px;
+}
+
+
+section#in-one-word{
+	/*margin: 40px 0 30px;*/
+	padding: 23px 0;
+	text-align: center;
+	vertical-align: middle;
+}
+
+section#in-one-word > div{ padding: 0 10px }
+
+section#in-one-word .fa{ color: rgba(255, 0, 102, 0.2) }
+section#in-one-word .fa-quote-left{ vertical-align: top }
+section#in-one-word .fa-quote-right{ vertical-align: bottom }
+
+section#in-one-word h2{
+	display: inline-block;
+	margin: 0;
+	padding: 3px 5px;
+	font-size: 30px;
+	font-weight: 300;
+	vertical-align: middle;
+	color: #ff0066;
+}
+
+section#in-one-word .reference{
+	margin: 5px;
+	font-size: 13px;
+	text-align: right;
+	color: #999;
+	font-style: italic;
+	margin-bottom: -10px;
+}
+
+
+section#singer-group{
+	padding: 15px 20px;
+	background-color: #ff3366;
+}
+section#singer-group .title{ color: white }
+
+section#singer-group h4.group-title{
+	margin: 0;
+	font-size: 18px;
+}
+
+section#singer-group ul.member{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+section#singer-group ul li{
+	float: left;
+	margin: 15px 10px 0;
+}
+section#singer-group ul li img{
+	border: 1px solid white;
+	border-radius: 50%
+}
+
+section#singer-group ul li > div{
+	margin-top: 7px;
+	text-align: center;
+	color: white;
+}
+
+
+
+section#timeline{
+	margin: 0;
+}
+
+section#timeline ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+section#timeline ul li{
+	position: relative;
+	margin: 1px 0;
+	padding: 15px 15px 15px 50px;
+	background-color: white;
+}
+
+section#timeline ul li .line{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 27px;
+	width: 3px;
+	height: 100%;
+	background-color: #e0e0e0;
+	z-index: 30;
+}
+
+section#timeline ul li .circle{
+	position: absolute;
+	top: 19px;
+	left: 24px;
+	width: 6px;
+	height: 6px;
+	background: #fff;
+	border-radius: 6px;
+	border: 2px solid #c5c5c5;
+	z-index: 50;
+}
+
+section#timeline ul li h3{
+	margin: 0 0 4px -7px;
+	padding: 0;
+	color: #666;
+	font-weight: normal;
+	font-size: 18px;
+}
+

@@ -1,0 +1,175 @@
+# people.py
+
+people_data = {
+	'수지': {
+		'name': "수지",
+		'real_name': "배수지",
+		'images': [
+			{
+				'url': "http://movie.phinf.naver.net/20120227_135/1330332776326RN3D6_JPEG/movie_image.jpg?type=m665_443_2",
+				'heart': 0
+			}
+		],
+		'in_one_word': [
+			{
+				'keyword': "국민 첫사랑",
+				'reference': "",
+				'order': 0
+			}
+		],
+		'group': {
+			'name': 'Miss A',
+			'belongs': 'JYP Entertainment',
+			'members': [
+				{
+					'name': '지아',
+					'image': 'https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F8%2F201612071901428361.jpg'
+				},
+				{
+					'name': '민',
+					'image': 'https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F6%2F201612071902269531.jpg'
+				},
+				{
+					'name': '수지',
+					'image': 'https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F4%2F201612071904526981.jpg'
+				},
+				{
+					'name': '페이',
+					'image': 'http://img.rsrs.co.kr/artist/images/500/800730/80073014.jpg'
+				},
+			]
+		}
+	},
+
+	'김태희': {
+		'name': "김태희",
+		'images': [
+			{
+				'url': "http://club.draghome.com/folder/10000057/board/10000/10862/kim3.jpg",
+				'heart': 0
+			}
+		],
+		'in_one_word': [
+			{
+				'keyword': '명실상부 대한민국 대표 여배우'
+			},
+			{
+				'keyword': "누군가 한국을 대표하는 대표 여배우를 꼽으라고 한다면, 1초의 망설임도 없이 김태희를 꼽을것이다",
+				'reference': "메멘토 개발자 중 1명",
+				'order': 0
+			}
+		],
+		'timeline': [
+			{
+				'id': 1,
+				'date': "2017-01-01",
+				'title': "김태희-비 열애끝에 결혼",
+				'type': '연예',
+				'issue_score': 250,
+				'emotions': [
+					{
+						'title': "축하해요",
+						'weight': 0.7
+					},
+					{
+						'title': "사랑스러워요",
+						'weight': 0.7
+					},
+					{
+						'title': "부러워요",
+						'weight': 0.5
+					},
+					{
+						'title': "아름다워요",
+						'weight': 0.4
+					},
+				],
+				'images': [
+					{
+						'url': 'https://i.ytimg.com/vi/sg_Z7kspl6E/maxresdefault.jpg',
+					}
+				]
+			},
+			{
+				'id': 2,
+				'date': "2015-01-01",
+				'title': "SBS 드라마 '용팔이' 출연",
+				'type': '미디어',
+				'issue_score': 150,
+				'emotions': [
+					{
+						'title': "멋져요",
+						'weight': 0.4
+					},
+					{
+						'title': "아름다워요",
+						'weight': 0.4
+					},
+				],
+				'images': [
+					{
+						'url': 'http://www.fashionn.com/files/board/2015/image/p1a0ridlphkkvlevf7r1rbptpi1.jpg',
+					}
+				]
+			},
+			{
+				'id': 3,
+				'date': "2012-01-21",
+				'title': "김태희-비 열애",
+				'type': '연예',
+				'issue_score': 230,
+				'emotions': [
+					{
+						'title': "놀라워요",
+						'weight': 0.8
+					},
+					{
+						'title': "축하해요",
+						'weight': 0.7
+					},
+				],
+				'images': [
+					{
+						'url': 'http://cfile1.uf.tistory.com/image/191E223650E2E5F642A8D9',
+					}
+				]
+			},
+			{
+				'id': 4,
+				'date': "2009-01-01",
+				'title': "KBS 드라마 '아이리스' 출연",
+				'type': '미디어',
+				'issue_score': 190,
+				'emotions': [
+					{
+						'title': "재미있어요",
+						'weight': 0.8
+					},
+					{
+						'title': "아름다워요",
+						'weight': 0.5
+					},
+				],
+				'images': [
+					{
+						'url': 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT1Ur3zsQjMWFAMSM7CVeoW0CUXdI7RAEiUaARm_KKLtWr56-wmVA',
+					}
+				]
+			},
+		],
+	}
+}
+
+
+
+def index(name) :
+	global people_data
+	return people_data[name]
+
+
+
+def timeline(name) :
+	global people_data
+	return people_data[name]
+
+

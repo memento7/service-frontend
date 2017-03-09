@@ -1,0 +1,59 @@
+{% extends "/layouts/people_magazine.html" %}
+
+
+{% block head %}
+	{{ super() }}
+	
+{% endblock %}
+
+		
+{% block content %}
+	{{ super() }}
+
+	{% for w in in_one_word %}
+	<section id="in-one-word" class="common-tile">
+		<div>
+			<i class="fa fa-quote-left"></i>
+			<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
+			<i class="fa fa-quote-right"></i>
+		</div>
+		{% if w.reference %}
+		<div class="reference">
+			- {{ w.reference }}
+		</div>
+		{% endif %}
+	</section>
+	{% endfor %}
+
+
+	{% if group %}
+	<section id="singer-group" class="common-tile">
+		<div class="title clearfix">
+			<h4 class="group-title fl">{{ group.name }}</h4>
+			<div class="group-company fr">{{ group.belongs }}</div>
+		</div>
+		<ul class="member clearfix">
+			{% for member in group.members %}
+			<li>
+				<img src="{{ member.image }}" width="60" height="60">
+				<div>{{ member.name }}</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+	{% endif %}
+
+
+	<section id="people-trend" class="common-tile">
+		<h3>왜 떴을까?</h3>
+		<div class="content">
+			<img src="/images/trend_sample.png" width="100%">
+		</div>
+	</section>
+
+	{# <section id="static-info" class="common-tile">
+		<h3>재미로 보는 인물랭킹</h3>
+		<div>ㅇㅁㄴㅇ</div>
+	</section> #}
+	
+{% endblock %}

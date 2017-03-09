@@ -1,0 +1,30 @@
+{% extends "/layouts/people_magazine.html" %}
+{% import "/macros/event_tile.html" as event_tile %}
+
+
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
+		
+{% block content %}
+	{{ super() }}
+	
+	<section id="timeline">
+		<ul>
+			{% for event in timeline %}
+				<li>
+					{% set linecolor = rand_color() %}
+					<div class="line" style="background-color: {{ linecolor }}"></div>
+					<div class="circle" style="border-color: {{ linecolor }}"></div>
+
+					<h3 style="color: {{ linecolor }}">
+						{{ event.date.split('-')[0] }}
+					</h3>
+
+					{{ event_tile.event_tile(event) }}
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+{% endblock %}
