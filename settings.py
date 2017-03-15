@@ -10,19 +10,20 @@ TEMPLATE_ROOT = ROOT_PATH + '/template'
 # Directory that includes Static files (to copied to output)
 STATIC_ROOT = ROOT_PATH + '/static'
 
-# Directory that includes ViewModel files
-VIEWMODEL_ROOT = ROOT_PATH + '/view-model'
+# Directory that includes View files
+VIEW_ROOT = ROOT_PATH + '/views'
 
 # Directory that rendered output will be located
 OUTPUT_ROOT = ROOT_PATH + '/output'
 
 
 
-
-# File that declares views and pages
-PAGES = ROOT_PATH + '/pages.py'
+# Scripts that runned on initializing application
+INIT_SCRIPTS = (
+	ROOT_PATH + '/urls.py',
+	ROOT_PATH + '/pages.py',
+)
 
 
 FILTERS = ROOT_PATH + '/filters.py'
 GLOBALS = ROOT_PATH + '/globals.py'
-

@@ -68,8 +68,10 @@ section.common-tile{
 section.common-tile h3{
 	margin: 0 0 5px 14px;
 	font-size: 18px;
-	font-weight: 500;
+	font-weight: 300;
+	color: #554;
 }
+
 
 section.common-tile .content{
 	padding: 0 20px;

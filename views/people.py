@@ -1,5 +1,7 @@
 # people.py
 
+from jikji.view import render_template, view
+
 people_data = {
 	'수지': {
 		'name': "수지",
@@ -51,17 +53,22 @@ people_data = {
 		],
 		'in_one_word': [
 			{
-				'keyword': '명실상부 대한민국 대표 여배우'
+				'keyword': '완벽 그 자체'
 			},
 			{
-				'keyword': "누군가 한국을 대표하는 대표 여배우를 꼽으라고 한다면, 1초의 망설임도 없이 김태희를 꼽을것이다",
-				'reference': "메멘토 개발자 중 1명",
+				'keyword': "김태희가 듣는 수업은 언제나 학생들로 꽉 차있었다",
+				'reference': "당시 서울대 재학생",
 				'order': 0
 			}
+			# {
+			# 	'keyword': "누군가 한국을 대표하는 대표 여배우를 꼽으라고 한다면, 1초의 망설임도 없이 김태희를 꼽을것이다",
+			# 	'reference': "메멘토 개발자 중 1명",
+			# 	'order': 0
+			# }
 		],
 		'timeline': [
 			{
-				'id': 1,
+				'id': 101,
 				'date': "2017-01-01",
 				'title': "김태희-비 열애끝에 결혼",
 				'type': '연예',
@@ -91,7 +98,7 @@ people_data = {
 				]
 			},
 			{
-				'id': 2,
+				'id': 102,
 				'date': "2015-01-01",
 				'title': "SBS 드라마 '용팔이' 출연",
 				'type': '미디어',
@@ -113,7 +120,7 @@ people_data = {
 				]
 			},
 			{
-				'id': 3,
+				'id': 103,
 				'date': "2012-01-21",
 				'title': "김태희-비 열애",
 				'type': '연예',
@@ -135,7 +142,7 @@ people_data = {
 				]
 			},
 			{
-				'id': 4,
+				'id': 104,
 				'date': "2009-01-01",
 				'title': "KBS 드라마 '아이리스' 출연",
 				'type': '미디어',
@@ -161,15 +168,15 @@ people_data = {
 }
 
 
-
+@view
 def index(name) :
 	global people_data
-	return people_data[name]
+	return render_template('people_magazine/summary.html', people_data[name])
 
 
-
+@view
 def timeline(name) :
 	global people_data
-	return people_data[name]
+	return render_template('people_magazine/timeline.html', people_data[name])
 
 

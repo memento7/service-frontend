@@ -1,0 +1,33 @@
+{% extends "/layouts/event_magazine.html" %}
+
+
+{% block head %}
+	{{ super() }}
+	
+{% endblock %}
+
+		
+{% block content %}
+	{{ super() }}
+
+	<section id="related-news">
+		<ul>
+		{% for news in realted_news %}
+			<li>
+				<div class="image">
+					<img src="{{ news.image }}" width="80">
+				</div>
+				<div class="content">
+					<h4>
+						<a href="{{ news.link }}" target="_blank">{{ news.title }}</a>
+					</h4>
+
+					<div class="description">{{ news.description }}</div>
+					<div class="source">{{ news.source }}</div>
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	</section>
+
+{% endblock %}

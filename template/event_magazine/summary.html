@@ -1,0 +1,97 @@
+{% extends "/layouts/event_magazine.html" %}
+
+
+{% block head %}
+	{{ super() }}
+	
+{% endblock %}
+
+		
+{% block content %}
+	{{ super() }}
+
+	<section id="related-people" class="common-tile">
+		<h3>관련 인물</h3>
+		<div class="content clearfix">
+			{% for person in related_people %}
+				<div class="person fl {{ 'last'|safe if loop.last }}">
+					<a href="/people/{{ person.name }}">
+						<div class="clearfix">
+							<div class="fl left">
+								<span class="image" style="background-image: url('{{ person.images[0].url  }}')"></span>
+							</div>
+							<div class="fl right">
+								<div>{{ person.name }}</div>
+								<div class="role">{{ person.roles | join(',') }}</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+
+
+	<section id="emotions" class="common-tile">
+		<h3>대중의 반응</h3>
+		{# <div class="content emotion-bubbles">
+			{% for emotion in emotions %}
+				<span class="emotion">
+					<i style="width: {{ emotion.weight * 30 }}px; height: {{ emotion.weight * 30 }}px; background-color: {{ rand_color() }}"></i>
+					<span>{{ emotion.title }}</span>
+				</span>
+			{% endfor %}
+		</div> #}
+		<div>
+			<!-- <img src="/images/wordcloud_sample.png" width="100%" style="max-width: 600px"> -->
+			<img src="./wordcloud.png" width="100%" style="max-width: 600px">
+		</div>
+	</section>
+
+
+	<section id="issue-rank" class="common-tile">
+		{% set r = issue_rank(issue_score) %}
+
+		<h3>이슈 등급</h3>
+		<div class="content clearfix">
+			<div class="fl">
+				<div>
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="90" height="50" class="{{ r.rank | lower }}-rank">
+						{% set pos = range_svg_pos(0.9, 38, 45, 45) %}
+						<path d="M {{ pos }}
+								A 38, 38, 0, 0, 0, 7, 45" />
+
+						<path d="M {{ pos }}
+							A 38, 38, 0, 0, 1, 83, 45" class="mask" />
+					</svg>
+				</div>
+				<div>
+					<span class="label issue-rank {{ r.rank | lower }}-rank">
+						<i>{{ r.rank }}</i>
+						<span>{{ r.label }}</span>
+					</span>
+				</div>
+			</div>
+			<div class="comment fr">
+				<h4>정말 화제가 많이 된 사건이었어요!</h4>
+				<div>
+					2017년 들어 <strong>8번째</strong>로 핫한 사건이며, 
+					전체 상위 <strong>5%</strong>안에 들어요
+				</div>
+				<div class="reference">
+					<span >언론 언급수</span>
+					<span class="value value-news">1,231</span>
+
+					<span >SNS</span>
+					<span class="value value-sns">13,131</span>
+
+					<span >댓글</span>
+					<span class="value value-comment">45,211</span>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	
+{% endblock %}

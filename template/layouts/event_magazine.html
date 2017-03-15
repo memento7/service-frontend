@@ -1,0 +1,29 @@
+{% extends '/layouts/default.html' %}
+
+{% block title %}{{ title }} - 메멘토{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="/css/event_magazine.css">
+
+{% endblock %}
+
+
+{% block content %}
+	<section id="event-header">
+		<div class="background" style="background-image: url('{{ images[0].url }}')"></div>
+		
+		<h1>
+			<span>{{ title }}</span>
+			{% if real_name %}<span class="sub">({{ real_name }})</span>{% endif %}
+		</h1>
+	</section>
+
+	<nav class="magazine-nav">
+		<ul class="clearfix">
+			{{ nav_li('/event/%s' % id, '요약', _page.url) }}
+			{{ nav_li('/event/%s/news' % id, '관련기사', _page.url) }}
+			{{ nav_li('/event/%s/comments' % id, '댓글', _page.url) }}
+		</ul>
+	</nav>
+{% endblock %}

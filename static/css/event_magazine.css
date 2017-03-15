@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+section#event-header{
+	position: relative;
+	height: 160px;
+}
+
+section#event-header .background{
+	position: absolute;
+
+	width: 100%;
+	height: 160px;
+	background-image: url('https://placehold.it/370x160');
+	background-size: 100% auto;
+	background-position: center;
+	filter: brightness(65%);
+}
+
+
+section#event-header h1{
+	position: absolute;
+	bottom: 10px;
+
+	width: 230px;
+	color: white;
+
+	font-size: 36px;
+	font-weight: 300;
+	margin: 0;
+	padding: 10px 0 7px 20px;
+}
+
+
+/* 관련 인물 */
+section#related-people{
+
+}
+
+section#related-people .person{ width: 50%; }
+section#related-people .person a{ color: black; text-decoration: none; }
+
+section#related-people .person .left{ margin-right: 10px; }
+
+section#related-people .person .left .image{
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	background-size: 55px auto;
+	background-position: center center;
+}
+
+section#related-people .person .right{
+	margin: 10px 0 0 0;
+}
+
+section#related-people .person .right .role{
+	font-size: 13px;
+	color: #666;
+}
+
+
+
+
+/* 이슈 랭크 */
+section#issue-rank{
+
+}
+
+section#issue-rank svg path{
+	fill: none;
+	stroke: rgb(255, 51, 102);
+	stroke-opacity: .9;
+	stroke-width: 8;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+section#issue-rank svg path.mask{ stroke: #bbb }
+
+section#issue-rank .issue-rank{ display: inline-block; margin: 3px 0 0 2px }
+
+
+section#issue-rank .comment{
+	width: calc(100% - 100px);
+	margin-top: 0px;
+	font-size: 13px;
+	color: #333;
+}
+section#issue-rank .comment h4{
+	margin: 0 0 3px;
+	padding: 0;
+	font-weight: normal;
+	font-size: 17px;
+	color: black;
+}
+
+section#issue-rank .comment strong{
+	font-weight: normal;
+	color: #ff3366;
+}
+
+section#issue-rank .reference{
+	margin-top: 4px;
+	font-size: 12px;
+	color: #666;
+}
+section#issue-rank .reference .value{ margin-right: 8px; }
+section#issue-rank .reference .value-news{ color: #FF3333 }
+section#issue-rank .reference .value-sns{ color: #669900 }
+section#issue-rank .reference .value-comment{ color: #6699CC }
+
+
+/* 관련 기사 */
+section#related-news{
+	margin: 10px 0;
+}
+
+section#related-news ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+section#related-news ul li{
+	position: relative;
+	margin: 3px 0;
+	padding: 15px 10px;
+	background-color: white;
+	color: #666;
+	font-size: 14px;
+}
+
+section#related-news ul li .image{
+	position: absolute;
+}
+
+section#related-news ul li .content{
+	margin-left: 90px
+}
+
+section#related-news ul li h4{
+	margin: 0 0 3px 0;
+	padding: 0;
+	font-size: 16px;
+	font-weight: normal;
+}
+section#related-news ul li h4 a{ color: black; text-decoration: none; }
+section#related-news ul li h4 a:hover{ color: #666 }
+
+section#related-news ul li .source{
+	margin-top: 5px;
+	color: #333;
+}

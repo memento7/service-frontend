@@ -1,18 +1,8 @@
 @charset "utf-8";
 
-.event-tile{
-
-}
-
-.event-tile h4{
-	margin: 0 0 7px;
-	padding: 0;
-	font-weight: 300;
-	font-size: 20px;
-}
 
 
-.event-tile .label{
+.label{
 	font-size: 13px;
 	margin: 1px 7px 1px 0;
 	padding: 2px 5px 1px;
@@ -21,8 +11,8 @@
 	font-weight: 300;
 }
 
-.event-tile .issue-rank{ color: white }
-.event-tile .issue-rank > i{
+.label.issue-rank{ color: white }
+.label.issue-rank > i{
 	display: inline-block;
 	width: 14px;
 	height: 13px;
@@ -37,18 +27,15 @@
 	text-align: center;
 }
 
-.event-tile .issue-rank.s-rank{ background-color: rgba(255, 51, 102, .7) }
-.event-tile .issue-rank.s-rank > i{ color: rgb(255, 51, 102) }
-.event-tile .issue-rank.a-rank{ background-color: rgba(255, 102, 0, .7) }
-.event-tile .issue-rank.a-rank > i{ color: rgb(255, 102, 0) }
-.event-tile .issue-rank.b-rank{ background-color: rgba(0, 204, 153, .7) }
-.event-tile .issue-rank.b-rank > i{ color: rgb(0, 204, 153) }
+.label.issue-rank.s-rank{ background-color: rgba(255, 51, 102, .7) }
+.label.issue-rank.s-rank > i{ color: rgb(255, 51, 102) }
+.label.issue-rank.a-rank{ background-color: rgba(255, 102, 0, .7) }
+.label.issue-rank.a-rank > i{ color: rgb(255, 102, 0) }
+.label.issue-rank.b-rank{ background-color: rgba(0, 204, 153, .7) }
+.label.issue-rank.b-rank > i{ color: rgb(0, 204, 153) }
 
-.event-tile div.emotions{
-	margin-top: 3px;
-}
 
-.event-tile span.emotion{
+.emotion-bubbles .emotion{
 	display: inline-block;
 	padding: 1px;
 
@@ -56,10 +43,33 @@
 	font-weight: 300;
 	vertical-align: middle;
 }
-.event-tile span.emotion > span{ vertical-align: middle; }
-.event-tile span.emotion > i{
+.emotion-bubbles .emotion > span{ vertical-align: middle; }
+.emotion-bubbles .emotion > i{
 	display: inline-block;
 	background-color: #ccc;
 	border-radius: 50%;
 	vertical-align: middle;
 }
+
+
+.event-tile{
+
+}
+
+.event-tile h4{
+	margin: 0 0 7px;
+	padding: 0;
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.event-tile h4 a{
+	color: #333;
+	text-decoration: none;
+}
+
+
+.event-tile .emotion-bubbles{
+	margin-top: 3px;
+}
+

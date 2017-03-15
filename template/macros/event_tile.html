@@ -1,7 +1,10 @@
 {% macro event_tile(event) -%}
 <div class="event-tile clearfix">
 	<div class="fl" style="width: calc(100% - 111px)">
-		<h4>{{ event.title }}</h4>
+		<h4>
+			<a href="/event/{{ event.id }}">{{ event.title }}</a>
+		</h4>
+		
 		<div>
 			{% set r = issue_rank(event.issue_score) %}
 			<span class="label issue-rank {{ r.rank | lower }}-rank">
@@ -11,7 +14,7 @@
 
 			<span class="label">{{ event.type }}</span>
 		</div>
-		<div class="emotions">
+		<div class="emotion-bubbles">
 			{% for emotion in event.emotions %}
 				<span class="emotion">
 					<i style="width: {{ emotion.weight * 16 }}px; height: {{ emotion.weight * 16 }}px; background-color: {{ rand_color() }}"></i>
