@@ -1,10 +1,11 @@
-{% macro event_tile(event) -%}
+{% macro event_tile(event, show_label=True) -%}
 <div class="event-tile clearfix">
 	<div class="fl" style="width: calc(100% - 111px)">
 		<h4>
 			<a href="/event/{{ event.id }}">{{ event.title }}</a>
 		</h4>
 		
+		{% if show_label %}
 		<div>
 			{% set r = issue_rank(event.issue_score) %}
 			<span class="label issue-rank {{ r.rank | lower }}-rank">
@@ -12,8 +13,10 @@
 				<span>{{ r.label }}</span>
 			</span>
 
-			<span class="label">{{ event.type }}</span>
+			<span class="label event-category category-{{ event_category_id(event.category) }}">{{ event.category }}</span>
 		</div>
+		{% endif %}
+
 		<div class="emotion-bubbles">
 			{% for emotion in event.emotions %}
 				<span class="emotion">

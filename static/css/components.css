@@ -34,6 +34,13 @@
 .label.issue-rank.b-rank{ background-color: rgba(0, 204, 153, .7) }
 .label.issue-rank.b-rank > i{ color: rgb(0, 204, 153) }
 
+.label.event-category{ color: white }
+.label.event-category.category-a{ background-color: rgba(255, 51, 51, .7) }
+.label.event-category.category-b{ background-color: rgba(102, 102, 204, .7) }
+.label.event-category.category-c{ background-color: rgba(18, 239, 102, .7) }
+.label.event-category.category-d{ background-color: rgba(255, 153, 0, .7) }
+.label.event-category.category-e{ background-color: rgba(0, 102, 102, .7) }
+
 
 .emotion-bubbles .emotion{
 	display: inline-block;

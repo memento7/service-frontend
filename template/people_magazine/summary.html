@@ -1,5 +1,5 @@
 {% extends "/layouts/people_magazine.html" %}
-
+{% import "/macros/event_tile.html" as event_tile %}
 
 {% block head %}
 	{{ super() }}
@@ -47,7 +47,35 @@
 	<section id="people-trend" class="common-tile">
 		<h3>왜 떴을까?</h3>
 		<div class="content">
-			<img src="/images/trend_sample.png" width="100%">
+			<!-- <img src="/images/trend_sample.png" width="100%"> -->
+			
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 {{ trend_graph | length * 2 }} 100" preserveAspectRatio="none">
+				<path d="M 0, 95
+				{% for d in trend_graph %} L {{ 2 * loop.index }}, {{ 95 - d.value }} {% endfor %}
+				" />
+			</svg>
+			<div class="overlay">
+			{% for event in top_trends %}
+				
+				<span class="number" style="
+					left: {{ event.graph_data.index / (trend_graph | length) * 100 }}%;
+					top: {{ 95 - event.graph_data.value }}px;
+					color: {{ event.color }};
+				">{{ circular_number(loop.index) }}</span>
+
+			{% endfor %}
+			</div>
+			
+
+			<div class="events">
+			{% for event in top_trends %}
+				<span class="number" style="color: {{ event.color }}">
+					{{ circular_number(loop.index) }}
+				</span>
+
+				{{ event_tile.event_tile(event, True) }}
+			{% endfor %}
+			</div>
 		</div>
 	</section>
 

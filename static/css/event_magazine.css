@@ -77,7 +77,7 @@ section#issue-rank svg path{
 	stroke-linejoin: round;
 	stroke-linecap: round;
 }
-section#issue-rank svg path.mask{ stroke: #bbb }
+section#issue-rank svg path.rest{ stroke: #bbb }
 
 section#issue-rank .issue-rank{ display: inline-block; margin: 3px 0 0 2px }
 

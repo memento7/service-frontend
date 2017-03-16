@@ -1,6 +1,7 @@
 # people.py
 
 from jikji.view import render_template, view
+import globals
 
 people_data = {
 	'수지': {
@@ -40,7 +41,8 @@ people_data = {
 					'image': 'http://img.rsrs.co.kr/artist/images/500/800730/80073014.jpg'
 				},
 			]
-		}
+		},
+		'timeline': []
 	},
 
 	'김태희': {
@@ -52,9 +54,9 @@ people_data = {
 			}
 		],
 		'in_one_word': [
-			{
-				'keyword': '완벽 그 자체'
-			},
+			# {
+			# 	'keyword': '김태희 그 자체'
+			# },
 			{
 				'keyword': "김태희가 듣는 수업은 언제나 학생들로 꽉 차있었다",
 				'reference': "당시 서울대 재학생",
@@ -69,9 +71,9 @@ people_data = {
 		'timeline': [
 			{
 				'id': 101,
-				'date': "2017-01-01",
+				'date': "2017-01-19",
 				'title': "김태희-비 열애끝에 결혼",
-				'type': '연예',
+				'category': '연예',
 				'issue_score': 250,
 				'emotions': [
 					{
@@ -99,9 +101,9 @@ people_data = {
 			},
 			{
 				'id': 102,
-				'date': "2015-01-01",
+				'date': "2015-08-15",
 				'title': "SBS 드라마 '용팔이' 출연",
-				'type': '미디어',
+				'category': '미디어',
 				'issue_score': 150,
 				'emotions': [
 					{
@@ -121,9 +123,9 @@ people_data = {
 			},
 			{
 				'id': 103,
-				'date': "2012-01-21",
+				'date': "2013-01-01",
 				'title': "김태희-비 열애",
-				'type': '연예',
+				'category': '연예',
 				'issue_score': 230,
 				'emotions': [
 					{
@@ -143,9 +145,9 @@ people_data = {
 			},
 			{
 				'id': 104,
-				'date': "2009-01-01",
+				'date': "2009-10-14",
 				'title': "KBS 드라마 '아이리스' 출연",
-				'type': '미디어',
+				'category': '미디어',
 				'issue_score': 190,
 				'emotions': [
 					{
@@ -167,11 +169,78 @@ people_data = {
 	}
 }
 
+def get_trend_data(name) :
+	import requests, json
+
+	keyword = name
+	#url = 'https://trends.google.com/trends/api/widgetdata/multiline/csv?req={"time":"2012-03-15 2017-03-15","resolution":"WEEK","locale":"ko","comparisonItem":[{"geo":{"country":"KR"},"complexKeywordsRestriction":{"keyword":[{"type":"BROAD","value":"%s"}]}}],"requestOptions":{"property":"","backend":"IZG","category":0}}' % keyword
+	url = 'http://ca.datalab.naver.com/ca/step1/process.naver'
+
+	r = requests.post(
+		url = url,
+		data = {
+			'qcType': 'N',
+			'queryGroups': '%s__SZLIG__%s' % (name, keyword),
+			'startDate': '20120101',
+			'endDate': '20170331',
+		}
+	)
+	
+	data = json.loads(r.text)
+	gdata = data['result'][0]['data']
+	result = []
+	max_value = 100
+
+	for index, d in enumerate(gdata) :
+		if index % 2 == 1 :
+			value = int(d['value']) + int(gdata[index-1]['value'])
+			max_value = max(max_value, value)
+
+			result.append({
+				'value': value,
+				'period': d['period'],
+				'index': int(index / 2),
+			})
+			# if index > 1 :
+			# 	context['graph_data'][int(index / 2)]['value'] += context['graph_data'][int(index / 2)-1]['value'] * 0.25
+
+	for d in result :
+		d['value'] *= (80 / max_value)
+
+
+	return result
 
 @view
 def index(name) :
 	global people_data
-	return render_template('people_magazine/summary.html', people_data[name])
+	context = people_data[name]
+
+	context['trend_graph'] = get_trend_data(name)
+
+	sorted_trend = sorted(context['trend_graph'], key=lambda d: d['value'], reverse=True)
+	top_trend_graph = sorted_trend[0:2]
+
+	context['top_trends'] = []
+
+
+	from datetime import datetime
+	for event in context['timeline'] :
+		ts = datetime.strptime(event['date'], '%Y-%m-%d').timestamp()
+
+		for tt in top_trend_graph :
+			ts2 = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
+
+			# similar date
+			if ts2 - 86400 * 12 <= ts <= ts2 + 86400 * 12 :
+				context['top_trends'].append( event )
+				event['graph_data'] = tt
+
+				event['color'] = globals.rand_color()
+
+	context['top_trends'].sort(key=lambda d: d['date'])
+
+
+	return render_template('people_magazine/summary.html', context)
 
 
 @view

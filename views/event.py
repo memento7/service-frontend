@@ -115,22 +115,32 @@ def wordcloud(event_id) :
 	data = event_data[event_id]
 
 	from wordcloud import WordCloud
+	from wordcloud.wordcloud import colormap_color_func
+	import math
+
 	text = ''
 	for e in data['emotions'] :
-		text += (e['title'] + ' ') * int(e['weight'] * 10)
+		text += (e['title'] + ' ') * int(math.log(e['weight']+1) * 10)
 
-	wc = WordCloud(background_color="white", font_path='~/Library/Fonts/NanumSquareOTFExtraBold.otf')
+
+	wc = WordCloud(
+		background_color = "white",
+		font_path = '~/Library/Fonts/NanumSquareOTFBold.otf',
+		color_func = colormap_color_func("spring"),
+		width = 600,
+		height = 200,
+	)
 	wc.generate(text)
 
 	image = wc.to_image()
 
 	from io import BytesIO
-	byte_io = BytesIO()
-	image.save(byte_io, 'PNG')
+	virt_file = BytesIO()
+	image.save(virt_file, 'PNG')
 	
-	byte_io.seek(0)
-	content = byte_io.read()
-	byte_io.close()
+	virt_file.seek(0)
+	content = virt_file.read()
+	virt_file.close()
 
 	return content
 

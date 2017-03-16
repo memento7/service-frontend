@@ -71,12 +71,14 @@ section#in-one-word .reference{
 section#singer-group{
 	padding: 15px 20px;
 	background-color: #ff3366;
+	font-weight: 300;
 }
 section#singer-group .title{ color: white }
 
 section#singer-group h4.group-title{
 	margin: 0;
 	font-size: 18px;
+	font-weight: 300;
 }
 
 section#singer-group ul.member{
@@ -98,8 +100,69 @@ section#singer-group ul li > div{
 	margin-top: 7px;
 	text-align: center;
 	color: white;
+	font-weight: 300;
 }
 
+
+section#people-trend{
+	padding-bottom: 0;
+}
+
+section#people-trend .content{
+	position: relative;
+	padding: 0;
+}
+
+section#people-trend svg path{
+	fill: rgba(255, 51, 51, 0.1);
+	stroke: rgb(255, 51, 51);
+	stroke-opacity: .7;
+	stroke-width: 1;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}	
+
+/*section#people-trend .overlay .circle{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border: 4px solid #ccc;
+	border-radius: 50%;
+	margin-left: -6px;
+	margin-top: -6px;
+}
+section#people-trend .overlay .line{
+	position: absolute;
+	width: 4px;
+}*/
+
+section#people-trend .overlay .number{
+	display: inline-block;
+	position: absolute;
+	
+	margin-left: -6px;
+	margin-top: -19px;
+	font-weight: bolder;
+	font-size: 18px;
+}
+section#people-trend .events{
+	position: relative;
+	background-color: #f0f0f0;
+	padding-top: 2px;
+}
+
+section#people-trend .events .number{
+	position: absolute;
+	margin: 14px 0 0 12px;
+	font-weight: bold;
+}
+
+section#people-trend .events .event-tile{
+	margin-bottom: 4px;
+	padding: 12px 15px 6px;
+	padding-left: 35px;
+	background-color: white;
+}
 
 
 section#timeline{
