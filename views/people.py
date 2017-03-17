@@ -173,7 +173,6 @@ def get_trend_data(name) :
 	import requests, json
 
 	keyword = name
-	#url = 'https://trends.google.com/trends/api/widgetdata/multiline/csv?req={"time":"2012-03-15 2017-03-15","resolution":"WEEK","locale":"ko","comparisonItem":[{"geo":{"country":"KR"},"complexKeywordsRestriction":{"keyword":[{"type":"BROAD","value":"%s"}]}}],"requestOptions":{"property":"","backend":"IZG","category":0}}' % keyword
 	url = 'http://ca.datalab.naver.com/ca/step1/process.naver'
 
 	r = requests.post(
@@ -201,14 +200,12 @@ def get_trend_data(name) :
 				'period': d['period'],
 				'index': int(index / 2),
 			})
-			# if index > 1 :
-			# 	context['graph_data'][int(index / 2)]['value'] += context['graph_data'][int(index / 2)-1]['value'] * 0.25
 
 	for d in result :
-		d['value'] *= (80 / max_value)
-
+		d['value'] *= (75 / max_value)
 
 	return result
+
 
 @view
 def index(name) :
@@ -217,11 +214,12 @@ def index(name) :
 
 	context['trend_graph'] = get_trend_data(name)
 
+
+	# process trends
 	sorted_trend = sorted(context['trend_graph'], key=lambda d: d['value'], reverse=True)
 	top_trend_graph = sorted_trend[0:2]
 
 	context['top_trends'] = []
-
 
 	from datetime import datetime
 	for event in context['timeline'] :
@@ -234,11 +232,10 @@ def index(name) :
 			if ts2 - 86400 * 12 <= ts <= ts2 + 86400 * 12 :
 				context['top_trends'].append( event )
 				event['graph_data'] = tt
-
 				event['color'] = globals.rand_color()
 
-	context['top_trends'].sort(key=lambda d: d['date'])
 
+	context['top_trends'].sort(key=lambda d: d['date'])
 
 	return render_template('people_magazine/summary.html', context)
 

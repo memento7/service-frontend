@@ -1,6 +1,7 @@
 # event.py
 
 from jikji.view import render_template, view
+import globals
 
 event_data = {
 	101: {
@@ -122,11 +123,15 @@ def wordcloud(event_id) :
 	for e in data['emotions'] :
 		text += (e['title'] + ' ') * int(math.log(e['weight']+1) * 10)
 
+	
+	def custom_color_func(word, font_size, *arg, **kwarg) :
+		print(word, font_size)
+		return globals.rand_color()
 
 	wc = WordCloud(
 		background_color = "white",
 		font_path = '~/Library/Fonts/NanumSquareOTFBold.otf',
-		color_func = colormap_color_func("spring"),
+		color_func = custom_color_func,#colormap_color_func("spring"),
 		width = 600,
 		height = 200,
 	)

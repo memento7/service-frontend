@@ -10,10 +10,17 @@
 
 
 {% block content %}
+	<header>
+		<div class="fr">
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</div>
+		<div class="logo"></div>
+	</header>
+	
 	<section id="people-header">
 		<div class="background" style="background-image: url('{{ images[0].url }}')"></div>
 		
-		<svg width="100%" height="120" viewBox="0 0 100 120" preserveAspectRatio="none" style="position:relative; top:40px">
+		<svg width="100%" height="120" viewBox="0 0 100 120" preserveAspectRatio="none">
 			<line x1="0" y1="0" x2="100%" y2="120" style="stroke:rgb(255,0,0);stroke-width:3" />
 			<polygon points="0,0 100,120 0,120" style="fill:rgba(255,255,255,0.7)" />
 		</svg>
@@ -28,8 +35,8 @@
 		<ul class="clearfix">
 			{{ nav_li('/people/%s' % name, '요약', _page.url) }}
 			{{ nav_li('/people/%s/timeline' % name, '타임라인', _page.url) }}
-			{{ nav_li('/people/%s/album' % name, '앨범', _page.url) }}
-			{{ nav_li('/people/%s/media' % name, '영화·드라마', _page.url) }}
+<!-- 			{{ nav_li('/people/%s/album' % name, '앨범', _page.url) }}
+			{{ nav_li('/people/%s/media' % name, '영화·드라마', _page.url) }} -->
 
 		</ul>
 	</nav>

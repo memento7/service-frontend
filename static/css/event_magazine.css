@@ -1,15 +1,32 @@
 @charset "utf-8";
 
+header{
+	position: absolute;
+	border-bottom-color: white;
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+	z-index: 11;
+}
+
+header .logo{
+	background-position: 0 60px;
+}
+
+header .fr .fa-bars{
+	color: white;
+}
+
+
+
 section#event-header{
 	position: relative;
-	height: 160px;
+	height: 210px;
 }
 
 section#event-header .background{
 	position: absolute;
 
 	width: 100%;
-	height: 160px;
+	height: 210px;
 	background-image: url('https://placehold.it/370x160');
 	background-size: 100% auto;
 	background-position: center;
@@ -25,7 +42,7 @@ section#event-header h1{
 	color: white;
 
 	font-size: 36px;
-	font-weight: 300;
+	font-weight: 100;
 	margin: 0;
 	padding: 10px 0 7px 20px;
 }

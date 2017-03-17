@@ -1,15 +1,37 @@
 @charset "utf-8";
 
+header{
+	position: absolute;
+	border-bottom-color: white;
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+	z-index: 11;
+}
+
+header .logo{
+	background-position: 0 30px;
+}
+
+header .fr .fa-bars{
+	color: white;
+}
+
+
+
 section#people-header{
 	position: relative;
-	height: 160px;
+	height: 210px;
+}
+
+section#people-header svg{
+	position: relative;
+	top: 90px;
 }
 
 section#people-header .background{
 	position: absolute;
 
 	width: 100%;
-	height: 160px;
+	height: 210px;
 	background-image: url('https://placehold.it/370x160');
 	background-size: 100% auto;
 	background-position: center;
@@ -24,7 +46,7 @@ section#people-header h1{
 	color: #ff3333;
 
 	font-size: 46px;
-	font-weight: 400;
+	font-weight: 300;
 	margin: 0;
 	padding: 10px 0 7px 20px;
 }
@@ -108,47 +130,49 @@ section#people-trend{
 	padding-bottom: 0;
 }
 
-section#people-trend .content{
+section#people-trend .graph-area{
 	position: relative;
-	padding: 0;
+	padding: 0 15px;
 }
 
-section#people-trend svg path{
+section#people-trend .graph-area svg path{
 	fill: rgba(255, 51, 51, 0.1);
 	stroke: rgb(255, 51, 51);
 	stroke-opacity: .7;
 	stroke-width: 1;
 	stroke-linecap: round;
 	stroke-linejoin: round;
-}	
-
-/*section#people-trend .overlay .circle{
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	border: 4px solid #ccc;
-	border-radius: 50%;
-	margin-left: -6px;
-	margin-top: -6px;
 }
-section#people-trend .overlay .line{
+section#people-trend .graph-area .overlay{
 	position: absolute;
-	width: 4px;
-}*/
+	top: 0;
+	width: calc(100% - 30px);
+	height: 105px;
+}
 
-section#people-trend .overlay .number{
+section#people-trend .graph-area .overlay .number{
 	display: inline-block;
 	position: absolute;
 	
 	margin-left: -6px;
-	margin-top: -19px;
+	margin-top: -23px;
 	font-weight: bolder;
 	font-size: 18px;
 }
+section#people-trend .graph-area .overlay .date{
+	display: inline-block;
+	position: absolute;
+	bottom: 0px;
+	margin-left: -16px;
+	font-size: 11px;
+	color: #666;
+}
+
+
 section#people-trend .events{
 	position: relative;
 	background-color: #f0f0f0;
-	padding-top: 2px;
+	padding-top: 3px;
 }
 
 section#people-trend .events .number{
@@ -158,7 +182,7 @@ section#people-trend .events .number{
 }
 
 section#people-trend .events .event-tile{
-	margin-bottom: 4px;
+	margin-bottom: 3px;
 	padding: 12px 15px 6px;
 	padding-left: 35px;
 	background-color: white;

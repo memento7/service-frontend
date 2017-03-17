@@ -46,36 +46,35 @@
 
 	<section id="people-trend" class="common-tile">
 		<h3>왜 떴을까?</h3>
-		<div class="content">
-			<!-- <img src="/images/trend_sample.png" width="100%"> -->
-			
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 {{ trend_graph | length * 2 }} 100" preserveAspectRatio="none">
-				<path d="M 0, 95
-				{% for d in trend_graph %} L {{ 2 * loop.index }}, {{ 95 - d.value }} {% endfor %}
+		<div class="graph-area">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ trend_graph | length * 2 }} 105" preserveAspectRatio="none">
+				<path d="M 0, 90
+				{% for d in trend_graph %} L {{ 2 * loop.index }}, {{ 90 - d.value }} {% endfor %}
 				" />
 			</svg>
 			<div class="overlay">
 			{% for event in top_trends %}
-				
+				{% set x_pos = event.graph_data.index / (trend_graph | length) * 100 %}
 				<span class="number" style="
-					left: {{ event.graph_data.index / (trend_graph | length) * 100 }}%;
+					left: {{ x_pos }}%;
 					top: {{ 95 - event.graph_data.value }}px;
 					color: {{ event.color }};
 				">{{ circular_number(loop.index) }}</span>
 
+				<span class="date" style="
+					left: {{ x_pos }}%;
+				">{{ event.date.split('-')[0:2] | join('.') }}</span>
 			{% endfor %}
 			</div>
-			
+		</div>
+		<div class="events">
+		{% for event in top_trends %}
+			<span class="number" style="color: {{ event.color }}">
+				{{ circular_number(loop.index) }}
+			</span>
 
-			<div class="events">
-			{% for event in top_trends %}
-				<span class="number" style="color: {{ event.color }}">
-					{{ circular_number(loop.index) }}
-				</span>
-
-				{{ event_tile.event_tile(event, True) }}
-			{% endfor %}
-			</div>
+			{{ event_tile.event_tile(event, True) }}
+		{% endfor %}
 		</div>
 	</section>
 

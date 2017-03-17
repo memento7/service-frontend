@@ -1,6 +1,24 @@
 def rand_color() :
+	colorsets = [
+		'#F44336', #Red
+		'#E91E63', #Pink
+		'#9C27B0', #Purple
+		'#673AB7', #Deep Purple
+		'#3F51B5', #Indigo
+		'#2196F3', #Blue
+		'#0097A7', #Cyan 700
+		'#00796B', #Teal 700
+		'#43A047', #Green 600
+		'#64DD17', #LightGreen
+		'#FDD835', #Yellow 600
+		'#EF6C00', #Orange 800
+		'#795548', #Brown
+		'#607D8B', #Blue Grey
+	]
 	import random
-	return 'rgb(%s, %s, %s)' % (random.randrange(1, 255), random.randrange(1, 255), random.randrange(1, 255))
+	return colorsets[ random.randrange(0, len(colorsets)) ]
+
+	#return 'rgb(%s, %s, %s)' % (random.randrange(1, 255), random.randrange(1, 255), random.randrange(1, 255))
 
 def range_svg_pos(ratio, radius, cx, cy) :
 	import math

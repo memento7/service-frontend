@@ -56,6 +56,28 @@ html,body{
 	background-color: #efefef;
 }
 
+header{
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #eee;
+}
+
+header .logo{
+	width: 200px;
+	height: 30px;
+	margin: 10px auto;
+	background-image: url('/images/logo_title.png');
+	background-size: 200px;
+}
+
+header .fr .fa-bars{
+	margin: 12px;
+	font-size: 23px;
+}
+
+
+
+
 section.common-tile{
 	margin: 8px 0;
 	padding: 14px 0;
@@ -91,7 +113,7 @@ nav.magazine-nav ul{
 nav.magazine-nav ul li{
 	float: left;
 	margin: 0 3px;
-	padding: 13px 16px 9px;
+	padding: 13px 10px 9px;
 	font-size: 16px;
 	color: #777;
 }

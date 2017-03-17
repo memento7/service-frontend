@@ -10,6 +10,13 @@
 
 
 {% block content %}
+	<header>
+		<div class="fr">
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</div>
+		<div class="logo"></div>
+	</header>
+
 	<section id="event-header">
 		<div class="background" style="background-image: url('{{ images[0].url }}')"></div>
 		
@@ -22,7 +29,9 @@
 	<nav class="magazine-nav">
 		<ul class="clearfix">
 			{{ nav_li('/event/%s' % id, '요약', _page.url) }}
-			{{ nav_li('/event/%s/news' % id, '관련기사', _page.url) }}
+			{{ nav_li('/event/%s/cimages' % id, '관련 사진', _page.url) }}
+			{{ nav_li('/event/%s/news' % id, '관련 기사', _page.url) }}
+			{{ nav_li('/event/%s/3lines' % id, '3줄 요약', _page.url) }}
 			{{ nav_li('/event/%s/comments' % id, '댓글', _page.url) }}
 		</ul>
 	</nav>
