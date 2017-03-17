@@ -81,6 +81,65 @@ section#related-people .person .right .role{
 
 
 
+/* 3줄 요약 */
+section#three-line-summary{
+
+}
+
+section#three-line-summary .swiper-container{
+	height: 150px
+}
+
+
+section#three-line-summary .more{
+	margin: 0 8px 0 0;
+	font-size: 13px;
+}
+section#three-line-summary .more a{ color: #666; text-decoration: none; }
+
+section#three-line-summary .swiper-slide ol{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+section#three-line-summary .swiper-slide ol li{
+	padding: 4px 0;
+	font-size: 15px;
+}
+
+section#three-line-summary .swiper-slide ol li i{
+	display: inline-block;
+	width: 20px;
+	margin-right: 3px;
+	padding: 4px 0 1px 2px;
+
+	text-align: center;
+	background-color: #444;
+	color: white;
+	font-style: normal;
+	vertical-align: middle;
+
+	border-radius: 0 0 8px 0;
+}
+section#three-line-summary .swiper-slide ol li i.l1{ background-color: #ff3333 }
+section#three-line-summary .swiper-slide ol li i.l2{ background-color: #ff6600 }
+section#three-line-summary .swiper-slide ol li i.l3{ background-color: #33cc00 }
+
+section#three-line-summary .swiper-slide ol li span{
+	display: inline-block;
+	margin-top: 3px;
+	vertical-align: middle;
+	color: #333;
+}
+section#three-line-summary .meta{
+	margin-top: 8px;
+	text-align: right;
+	font-size: 13px;
+	color: #888;
+}
+
+
 /* 이슈 랭크 */
 section#issue-rank{
 

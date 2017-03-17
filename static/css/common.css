@@ -99,6 +99,7 @@ section.common-tile .content{
 	padding: 0 20px;
 }
 
+
 nav.magazine-nav{
 	background-color: white;
 }
@@ -121,4 +122,11 @@ nav.magazine-nav ul li{
 nav.magazine-nav ul li.selected{
 	color: #ff3333;
 	border-bottom: 2px solid #ff3333;
+}
+
+footer{
+	margin: 5px 0 10px 0;
+	font-size: 13px;
+	color: #999;
+	text-align: center;
 }

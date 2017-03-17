@@ -57,6 +57,7 @@ section#people-header h1 .sub{
 }
 
 
+/* 한 마디로 */
 section#in-one-word{
 	/*margin: 40px 0 30px;*/
 	padding: 23px 0;
@@ -90,6 +91,7 @@ section#in-one-word .reference{
 }
 
 
+/* 그룹 틀 */
 section#singer-group{
 	padding: 15px 20px;
 	background-color: #ff3366;
@@ -126,6 +128,7 @@ section#singer-group ul li > div{
 }
 
 
+/* 왜 떴을까 */
 section#people-trend{
 	padding-bottom: 0;
 }
@@ -189,6 +192,7 @@ section#people-trend .events .event-tile{
 }
 
 
+/* 타임라인 */
 section#timeline{
 	margin: 0;
 }

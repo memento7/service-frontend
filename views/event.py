@@ -11,54 +11,57 @@ event_data = {
 		'type': '연예',
 		'issue_score': 250,
 		'emotions': [
-			{
-				'title': "축하해요",
-				'weight': 0.7
-			},
-			{
-				'title': "사랑스러워요",
-				'weight': 0.7
-			},
-			{
-				'title': "부러워요",
-				'weight': 0.5
-			},
-			{
-				'title': "아름다워요",
-				'weight': 0.4
-			},
-
-			
-			{
-				'title': "슬퍼요",
-				'weight': 0.3
-			},
-			{
-				'title': "예뻐요",
-				'weight': 0.3
-			},
-			{
-				'title': "황홀해요",
-				'weight': 0.2
-			},
-			{
-				'title': "멋져요",
-				'weight': 0.2
-			},
-			{
-				'title': "화나요",
-				'weight': 0.1
-			},
-			{
-				'title': "수줍어요",
-				'weight': 0.1
-			},
+			{ 'title': "축하해요", 'weight': 0.7 },
+			{ 'title': "사랑스러워요", 'weight': 0.7 },
+			{ 'title': "부러워요", 'weight': 0.5 },
+			{ 'title': "아름다워요", 'weight': 0.4 },
+			{ 'title': "슬퍼요", 'weight': 0.3 },
+			{ 'title': "예뻐요", 'weight': 0.3 },
+			{ 'title': "황홀해요", 'weight': 0.2 },
+			{ 'title': "멋져요", 'weight': 0.2 },
+			{ 'title': "화나요", 'weight': 0.1 },
+			{ 'title': "수줍어요", 'weight': 0.1 },
+		],
+		'keywords': [
+			{ 'title': "결혼식", 'weight': 0.8 },
+			{ 'title': "편지", 'weight': 0.8 },
+			{ 'title': "5년", 'weight': 0.75 },
+			{ 'title': "신혼여행", 'weight': 0.6 },
+			{ 'title': "인스타그램", 'weight': 0.6 },
+			{ 'title': "최고의 선물", 'weight': 0.45 },
+			{ 'title': "가회동 성당", 'weight': 0.45 },
+			{ 'title': "화보", 'weight': 0.3 },
+			{ 'title': "싸이", 'weight': 0.3 },
+			{ 'title': "연애", 'weight': 0.3 },
+			{ 'title': "경건한", 'weight': 0.1 },
+			{ 'title': "인터뷰", 'weight': 0.1 },
 		],
 		'images': [
 			{
 				'url': 'https://i.ytimg.com/vi/sg_Z7kspl6E/maxresdefault.jpg',
 			}
 		],
+		'three_line_summaries': [
+			{
+				'content': [
+					'배우 김태희와 가수 비가 연애 5년만에 결혼했다.',
+					'비는 자신의 인스타그램에 손편지로 이를 알렸다.',
+					'결혼식은 소박하게 성당에서 진행되었다.'
+				],
+				'author': '요약GO',
+				'like': 130
+			},
+			{
+				'content': [
+					'김태희 정말 예쁘다',
+					'김태희 정~말 예쁘다',
+					'비 도둑놈 새X!!'
+				],
+				'author': 'Prev',
+				'like': 241
+			}
+		],
+
 		'related_people': [
 			{
 				'name': "김태희",
@@ -110,38 +113,10 @@ event_data = {
 }
 
 
-@view
-def wordcloud(event_id) :
-	global event_data
-	data = event_data[event_id]
-
-	from wordcloud import WordCloud
-	from wordcloud.wordcloud import colormap_color_func
-	import math
-
-	text = ''
-	for e in data['emotions'] :
-		text += (e['title'] + ' ') * int(math.log(e['weight']+1) * 10)
-
-	
-	def custom_color_func(word, font_size, *arg, **kwarg) :
-		print(word, font_size)
-		return globals.rand_color()
-
-	wc = WordCloud(
-		background_color = "white",
-		font_path = '~/Library/Fonts/NanumSquareOTFBold.otf',
-		color_func = custom_color_func,#colormap_color_func("spring"),
-		width = 600,
-		height = 200,
-	)
-	wc.generate(text)
-
-	image = wc.to_image()
-
+def image2str(image, type='PNG') :
 	from io import BytesIO
 	virt_file = BytesIO()
-	image.save(virt_file, 'PNG')
+	image.save(virt_file, type)
 	
 	virt_file.seek(0)
 	content = virt_file.read()
@@ -150,13 +125,59 @@ def wordcloud(event_id) :
 	return content
 
 
+def get_wordcloud(data) :
+	from wordcloud import WordCloud
+	import math
+
+	text = ''
+	for e in data :
+		text += (e['title'] + ' ') * int(math.log(e['weight']+1) * 8)
+		
+
+	def custom_color_func(word, font_size, *arg, **kwarg) :
+		return globals.rand_color()
+
+	wc = WordCloud(
+		background_color = "white",
+		font_path = './_fonts/yoon520.ttf',
+		color_func = custom_color_func,
+		width = 600,
+		height = 200,
+		max_font_size = 70,
+	)
+	wc.generate(text)
+
+	image = wc.to_image()
+	return image2str(image)
+
+
+@view
+def emotion_wordcloud(event_id) :
+	global event_data
+	data = event_data[event_id]
+
+	return get_wordcloud(data['emotions'])
+
+@view
+def keyword_wordcloud(event_id) :
+	global event_data
+	data = event_data[event_id]
+
+	return get_wordcloud(data['keywords'])
+
+
+
 @view
 def index(event_id) :
 	global event_data
 	data = event_data[event_id]
 
-
 	return render_template('event_magazine/summary.html', data)
+
+@view
+def images(event_id) :
+	global event_data
+	return render_template('event_magazine/landing.html', event_data[event_id])
 
 @view
 def news(event_id) :
@@ -164,4 +185,17 @@ def news(event_id) :
 	data = event_data[event_id]
 
 	return render_template('event_magazine/news.html', data)
+
+@view
+def three_lines(event_id) :
+	global event_data
+	return render_template('event_magazine/landing.html', event_data[event_id])
+
+@view
+def comments(event_id) :
+	global event_data
+	return render_template('event_magazine/landing.html', event_data[event_id])
+
+
+
 

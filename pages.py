@@ -8,6 +8,10 @@ view('people.index').addpage('김태희')
 view('people.timeline').addpage('김태희')
 
 
-view('event.index').addpage(101)
-view('event.news').addpage(101)
-view('event.wordcloud').addpage(101)
+event_views = ['index', 'images', 'news', 'three_lines',
+			   'comments', 'emotion_wordcloud', 'keyword_wordcloud']
+
+event_pages = [101]
+for p in event_pages :
+	for v in event_views :
+		view('event.' + v).addpage(p)
