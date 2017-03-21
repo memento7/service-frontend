@@ -36,9 +36,10 @@
 			{{ nav_li('/people/%s' % name, '요약', _page.url) }}
 			{{ nav_li('/people/%s/timeline' % name, '타임라인', _page.url) }}
 			{{ nav_li('/people/%s/images' % name, '사진', _page.url) }}
-<!-- 			{{ nav_li('/people/%s/album' % name, '앨범', _page.url) }}
-			{{ nav_li('/people/%s/media' % name, '영화·드라마', _page.url) }} -->
 
+			{% for role in role_datas %}
+				{{ nav_li('/people/%s/%s' % (name, role), role, _page.url) }}
+			{% endfor %}
 		</ul>
 	</nav>
 {% endblock %}

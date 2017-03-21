@@ -27,3 +27,6 @@ INIT_SCRIPTS = (
 
 FILTERS = ROOT_PATH + '/filters.py'
 GLOBALS = ROOT_PATH + '/globals.py'
+
+
+MODEL_ROOT = ROOT_PATH + '/models'

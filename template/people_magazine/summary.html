@@ -3,7 +3,9 @@
 
 {% block head %}
 	{{ super() }}
-	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script type="text/javascript" src="/js/people.js"></script>
 {% endblock %}
 
 		
@@ -78,9 +80,32 @@
 		</div>
 	</section>
 
-	{# <section id="static-info" class="common-tile">
-		<h3>재미로 보는 인물랭킹</h3>
-		<div>ㅇㅁㄴㅇ</div>
-	</section> #}
+	<section id="people-stats" class="common-tile">
+		<h3>재미로 보는 능력치</h3>
+		<div class="content clearfix total-{{ role_datas | length }}stats">
+			{% for role_type, role_data in role_datas.items() %}
+			{% set role_stat_info = People.role_stat_info[role_type] %}
+
+			<div class="stat fl clearfix">
+				<span class="label fl">{{ role_type }} 능력치</span>
+				<span class="fr">
+					<a href="./{{ role_type }}">자세히 보기</a>
+				</span>
+				<canvas id="stat-chart-{{ loop.index }}" width="165" height="125"></canvas>
+			</div>
+
+			<script type="text/javascript">
+				makeStatChart(
+					document.getElementById("stat-chart-{{ loop.index }}"),
+					{{ role_stat_info | safe }},
+					{{ role_data._stats | safe }}
+				);
+			</script>
+			
+			{% endfor %}
+		</div>
+
+		
+	</section>
 	
 {% endblock %}

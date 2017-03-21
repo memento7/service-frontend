@@ -83,13 +83,12 @@ section#related-people .person .right .role{
 
 /* 3줄 요약 */
 section#three-line-summary{
-
+	padding-bottom: 4px;
 }
 
 section#three-line-summary .swiper-container{
-	height: 150px
+	height: 145px;
 }
-
 
 section#three-line-summary .more{
 	margin: 0 8px 0 0;
