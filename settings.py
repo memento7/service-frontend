@@ -20,8 +20,9 @@ OUTPUT_ROOT = ROOT_PATH + '/output'
 
 # Scripts that runned on initializing application
 INIT_SCRIPTS = (
-	ROOT_PATH + '/urls.py',
-	ROOT_PATH + '/pages.py',
+	#ROOT_PATH + '/urls.py',
+	#ROOT_PATH + '/pages.py',
+	ROOT_PATH + '/app.py',
 )
 
 

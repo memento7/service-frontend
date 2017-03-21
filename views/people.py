@@ -1,8 +1,8 @@
 # people.py
 
 from jikji.view import render_template, view
-import globals
 from models.people import People
+import globals
 
 
 def get_trend_data(name) :
@@ -78,6 +78,10 @@ def index(name) :
 def timeline(name) :
 	return render_template('people_magazine/timeline.html', People.get(name))
 
+
+@view
+def images(name) :
+	return render_template('people_magazine/images.html', People.get(name))
 
 @view
 def role_data(name, role_type) :

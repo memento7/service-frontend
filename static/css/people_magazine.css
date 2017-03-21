@@ -250,9 +250,16 @@ section#people-stats{
 section#people-stats .content{ padding: 0 15px }
 
 section#people-stats .content .stat{ margin: 10px 3px; }
+section#people-stats .content .stat .fr a{
+	display: inline-block;
+	font-size: 13px;
+	color: #666;
+	text-decoration: none;
+	margin: 4px 3px 0 0;
+}
+
 section#people-stats .content.total-1stats .stat{ float: none }
 section#people-stats .content.total-1stats .stat canvas{ margin: 0 auto }
-section#people-stats .content.total-1stats .stat .fr a{ font-size: 13px; color: #666; text-decoration: none; }
 
 
 section#people-stats .comments{

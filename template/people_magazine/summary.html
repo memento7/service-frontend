@@ -86,12 +86,16 @@
 			{% for role_type, role_data in role_datas.items() %}
 			{% set role_stat_info = People.role_stat_info[role_type] %}
 
-			<div class="stat fl clearfix">
-				<span class="label fl">{{ role_type }} 능력치</span>
-				<span class="fr">
-					<a href="./{{ role_type }}">자세히 보기</a>
-				</span>
-				<canvas id="stat-chart-{{ loop.index }}" width="165" height="125"></canvas>
+			<div class="stat fl">
+				<div class="clearfix">
+					<span class="label fl">{{ role_type }}</span>
+					<span class="fr">
+						<a href="./{{ role_type }}">자세히</a>
+					</span>
+				</div>
+				<div>
+					<canvas id="stat-chart-{{ loop.index }}" width="165" height="125"></canvas>
+				</div>
 			</div>
 
 			<script type="text/javascript">

@@ -77,7 +77,6 @@ header .fr .fa-bars{
 
 
 
-
 section.common-tile{
 	margin: 8px 0;
 	padding: 14px 0;
@@ -97,6 +96,14 @@ section.common-tile h3{
 
 section.common-tile .content{
 	padding: 0 20px;
+}
+
+
+.no-content{
+	padding: 80px 0;
+	font-size: 16px;
+	color: #666;
+	text-align: center;
 }
 
 
