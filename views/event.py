@@ -32,11 +32,11 @@ def get_wordcloud(data) :
 
 	wc = WordCloud(
 		background_color = "white",
-		font_path = settings.ROOT_PATH + '/_fonts/yoon520.ttf',
+		font_path = settings.ROOT_PATH + '/fonts/NanumSquareOTFBold.otf',
 		color_func = custom_color_func,
-		width = 600,
-		height = 200,
-		max_font_size = 70,
+		width = 800,
+		height = 280,
+		max_font_size = 90,
 	)
 	wc.generate(text)
 

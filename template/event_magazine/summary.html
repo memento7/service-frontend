@@ -32,7 +32,7 @@
 		</div>
 	</section>
 
-	<section id="three-line-summary" class="common-tile">
+	<section id="three-line-summaries" class="common-tile">
 		<div class="more fr">
 			<a href="./3lines">더보기</a>
 		</div>
@@ -43,7 +43,7 @@
 				<div class="swiper-wrapper">
 					{% for summary in three_line_summaries %}
 					<div class="swiper-slide">
-						<ol>
+						<ol class="three-line-summary">
 							{% for line in summary.content %}
 							<li>
 								<i class="l{{ loop.index }}">{{ loop.index }}.</i>

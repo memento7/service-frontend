@@ -242,10 +242,10 @@ section#timeline ul li h3{
 }
 
 
+/* 전적 정보 */
 section#people-stats{
 
 }
-
 
 section#people-stats .content{ padding: 0 15px }
 
@@ -292,4 +292,13 @@ section#people-stats .comments .evaluate-btn{
 	color: white;
 	border: none;
 	border-radius: 4px;
+}
+
+/* 인물 유형 특화 엔티티 */
+section.role-entities{
+
+}
+
+section.role-entities .no-content{
+	padding: 10px 0 25px;
 }

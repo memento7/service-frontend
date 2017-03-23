@@ -82,32 +82,18 @@ section#related-people .person .right .role{
 
 
 /* 3줄 요약 */
-section#three-line-summary{
-	padding-bottom: 4px;
-}
-
-section#three-line-summary .swiper-container{
-	height: 145px;
-}
-
-section#three-line-summary .more{
-	margin: 0 8px 0 0;
-	font-size: 13px;
-}
-section#three-line-summary .more a{ color: #666; text-decoration: none; }
-
-section#three-line-summary .swiper-slide ol{
+ol.three-line-summary{
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-section#three-line-summary .swiper-slide ol li{
+ol.three-line-summary li{
 	padding: 4px 0;
 	font-size: 15px;
 }
 
-section#three-line-summary .swiper-slide ol li i{
+ol.three-line-summary li i{
 	display: inline-block;
 	width: 20px;
 	margin-right: 3px;
@@ -121,22 +107,79 @@ section#three-line-summary .swiper-slide ol li i{
 
 	border-radius: 0 0 8px 0;
 }
-section#three-line-summary .swiper-slide ol li i.l1{ background-color: #ff3333 }
-section#three-line-summary .swiper-slide ol li i.l2{ background-color: #ff6600 }
-section#three-line-summary .swiper-slide ol li i.l3{ background-color: #33cc00 }
-
-section#three-line-summary .swiper-slide ol li span{
+ol.three-line-summary li i.l1{ background-color: #ff3333 }
+ol.three-line-summary li i.l2{ background-color: #ff6600 }
+ol.three-line-summary li i.l3{ background-color: #33cc00 }
+ol.three-line-summary li span{
 	display: inline-block;
 	margin-top: 3px;
 	vertical-align: middle;
 	color: #333;
 }
-section#three-line-summary .meta{
+
+section#three-line-summaries{ padding-bottom: 4px }
+
+section#three-line-summaries .swiper-container{ height: 145px }
+
+section#three-line-summaries .more{
+	margin: 0 8px 0 0;
+	font-size: 13px;
+}
+section#three-line-summaries .more a{ color: #666; text-decoration: none; }
+
+section#three-line-summaries .meta{
 	margin-top: 8px;
 	text-align: right;
 	font-size: 13px;
 	color: #888;
 }
+
+
+section#three-line-summaries-full{ padding: 0 }
+section#three-line-summaries-full .write-container{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+section#three-line-summaries-full button.write{
+	margin: 15px 15px 4px;
+	padding: 7px 0;
+	border: 1px solid #ccc;
+	outline: none;
+	width: calc(100% - 30px);
+	background-color: white;
+
+}
+
+section#three-line-summaries-full .three-line-tile{
+	border-bottom: 1px solid #ddd;
+	padding: 15px 15px 12px;
+}
+section#three-line-summaries-full .three-line-tile h4{
+	display: inline-block;
+	margin: 0 4px 3px 0;
+	font-weight: normal;
+}
+section#three-line-summaries-full .three-line-tile .date{
+	font-size: 12px;
+	color: #666;
+}
+
+section#three-line-summaries-full .three-line-tile .btn-container{
+	text-align: right;
+}
+
+section#three-line-summaries-full .three-line-tile .like-btn,
+section#three-line-summaries-full .three-line-tile .hate-btn{
+	padding: 3px 5px 1px;
+	border: 1px solid #ccc;
+	outline: none;
+	background-color: white;
+	font-weight: bold;
+	font-size: 12px;
+}
+section#three-line-summaries-full .three-line-tile .like-btn{ color: #e94a23 }
+section#three-line-summaries-full .three-line-tile .hate-btn{ color: #007acf }
 
 
 /* 이슈 랭크 */

@@ -1,7 +1,55 @@
 {% extends "/layouts/event_magazine.html" %}
 
+{% block head %}
+	{{ super() }}
+
+	<script type="text/javascript">
+		function like_3line(id) {
+			alert('준비중입니다.')
+		}
+
+		function hate_3line(id) {
+			alert('준비중입니다.')
+		}
+	</script>
+{% endblock %}
+
 {% block content %}
 	{{ super() }}
 	
-	개발중
+	<section id="three-line-summaries-full" class="common-tile">
+		<div class="write-container">
+			<button class="write" onclick="alert('준비중입니다')">3줄 요약 작성하기</button>
+		</div>
+
+		{% for summary in three_line_summaries %}
+		<div class="three-line-tile">
+			<div class="clearfix">
+				<h4>@{{ summary.author }}</h4>
+				<span class="date">{{ summary.date }}</span>
+			</div>
+			
+			<ol class="three-line-summary">
+				{% for line in summary.content %}
+				<li>
+					<i class="l{{ loop.index }}">{{ loop.index }}.</i>
+					<span>{{ line }}</span>
+				</li>
+				{% endfor %}
+			</ol>
+			<div class="btn-container">
+				<button class="like-btn" onclick="like_3line({{ summary.id }})">
+					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+					<span>{{ summary.like }}</span>
+				</button>
+				<button class="hate-btn" onclick="hate_3line({{ summary.id }})">
+					<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
+					<span>{{ summary.hate }}</span>
+				</button>
+			</div>
+		</div>
+		{% endfor %}
+	</section>
+
+
 {% endblock %}

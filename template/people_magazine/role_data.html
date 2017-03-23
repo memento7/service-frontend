@@ -42,8 +42,17 @@
 	{% for entity_type in role_data %}
 	{% if entity_type[0] != '_' %}
 
-	<section class="common-tile">
+	<section class="role-entities common-tile">
 		<h3>{{ entity_type }}</h3>
+		<div class="content">
+			{% if role_data[entity_type] | length == 0 %}
+			<div class="no-content">
+				{{ entity_type }} 정보가 없습니다.
+			</div>
+			{% else %}
+			..
+			{% endif %}
+		</div>
 	</section>
 
 	{% endif %}
