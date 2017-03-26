@@ -28,3 +28,7 @@ FILTERS = ROOT_PATH + '/filters.py'
 GLOBALS = ROOT_PATH + '/globals.py'
 
 
+
+
+#API_BASE_URL = 'http://175.207.13.224:8080/manage/api/publish'
+API_BASE_URL = 'http://api.memento.live/publish'

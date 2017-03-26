@@ -44,9 +44,9 @@ def get_trend_data(name) :
 
 
 @view
-def index(name) :
-	context = People.get(name)
-	context['trend_graph'] = get_trend_data(name)
+def index(id) :
+	context = People.get(id)
+	context['trend_graph'] = get_trend_data(context['nickname'])
 	context['People'] = People
 
 	# process trends
@@ -56,8 +56,8 @@ def index(name) :
 	context['top_trends'] = []
 
 	from datetime import datetime
-	for event in context['timeline'] :
-		ts = datetime.strptime(event['date'], '%Y-%m-%d').timestamp()
+	for event in context['events'] :
+		ts = datetime.strptime(event['date'], '%Y-%m-%d %H:%M:%S').timestamp()
 
 		for tt in top_trend_graph :
 			ts2 = datetime.strptime(tt['period'], '%Y%m%d').timestamp()

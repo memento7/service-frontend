@@ -52,6 +52,7 @@
 			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ trend_graph | length * 2 }} 105" preserveAspectRatio="none">
 				<path d="M 0, 90
 				{% for d in trend_graph %} L {{ 2 * loop.index }}, {{ 90 - d.value }} {% endfor %}
+				L {{ trend_graph | length * 2 }}, 90
 				" />
 			</svg>
 			<div class="overlay">
@@ -80,6 +81,8 @@
 		</div>
 	</section>
 
+
+	{% if role_datas %}
 	<section id="people-stats" class="common-tile">
 		<h3>재미로 보는 능력치</h3>
 		<div class="content clearfix total-{{ role_datas | length }}stats">
@@ -109,7 +112,7 @@
 			{% endfor %}
 		</div>
 
-		
 	</section>
-	
+	{% endif %}
+		
 {% endblock %}

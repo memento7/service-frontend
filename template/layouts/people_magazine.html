@@ -1,6 +1,6 @@
 {% extends '/layouts/default.html' %}
 
-{% block title %}{{ name }} - 메멘토{% endblock %}
+{% block title %}{{ nickname }} - 메멘토{% endblock %}
 
 {% block head %}
 	{{ super() }}
@@ -18,27 +18,27 @@
 	</header>
 	
 	<section id="people-header">
-		<div class="background" style="background-image: url('{{ images[0].url }}')"></div>
-		
+		<div class="background" style="{{ first_image(images, True)  }}"></div>
+
 		<svg width="100%" height="120" viewBox="0 0 100 120" preserveAspectRatio="none">
 			<line x1="0" y1="0" x2="100%" y2="120" style="stroke:rgb(255,0,0);stroke-width:3" />
 			<polygon points="0,0 100,120 0,120" style="fill:rgba(255,255,255,0.7)" />
 		</svg>
 
 		<h1>
-			<span>{{ name }}</span>
-			{% if real_name %}<span class="sub">({{ real_name }})</span>{% endif %}
+			<span>{{ nickname }}</span>
+			{% if realname and realname != nickname %}<span class="sub">({{ realname }})</span>{% endif %}
 		</h1>
 	</section>
 
 	<nav class="magazine-nav">
 		<ul class="clearfix">
-			{{ nav_li('/people/%s' % name, '요약', _page.url) }}
-			{{ nav_li('/people/%s/timeline' % name, '타임라인', _page.url) }}
-			{{ nav_li('/people/%s/images' % name, '사진', _page.url) }}
+			{{ nav_li('/people/%s' % id, '요약', _page.url) }}
+			{{ nav_li('/people/%s/timeline' % id, '타임라인', _page.url) }}
+			{{ nav_li('/people/%s/images' % id, '사진', _page.url) }}
 
 			{% for role in role_datas %}
-				{{ nav_li('/people/%s/%s' % (name, role), role, _page.url) }}
+				{{ nav_li('/people/%s/%s' % (id, role), role, _page.url) }}
 			{% endfor %}
 		</ul>
 	</nav>

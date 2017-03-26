@@ -10,14 +10,14 @@
 
 	<section id="related-news">
 		<ul>
-		{% for news in realted_news %}
+		{% for news in event_articles %}
 			<li>
 				<div class="image">
 					<img src="{{ news.image }}" width="80">
 				</div>
 				<div class="content">
 					<h4>
-						<a href="{{ news.link }}" target="_blank">{{ news.title }}</a>
+						<a href="{{ news.source_url }}" target="_blank">{{ news.title }}</a>
 					</h4>
 
 					<div class="description">{{ news.description }}</div>

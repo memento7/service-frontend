@@ -36,18 +36,26 @@ def iow_size(word) :
 
 
 def issue_rank(issue_score) :
-	if issue_score >= 200 :
+	if issue_score >= 20000 :
 		rank, label = 'S', '세간의 관심'
-	elif issue_score >= 130 :
+		mention = '이 사건도 모르면 간첩이죠! 정말 뜨거웠던 이야기였어요'
+
+	elif issue_score >= 5000 :
 		rank, label = 'A', '이슈 오브 이슈'
-	elif issue_score >= 80 :
+		mention = '꽤 화제가 많이 된 사건이었어요!'
+
+	elif issue_score >= 400 :
 		rank, label = 'B', '세상의 이야기'
+		mention = '꽤 재미있는 소식이었어요'
+
 	else :
 		rank, label = 'C', '이런저런 뉴스'
+		mention = '이런 소식도 있었네요'
 
 	return {
 		'rank': rank,
 		'label': label,
+		'mention': mention,
 	}
 
 def event_category_id(category) :
@@ -63,3 +71,21 @@ def event_category_id(category) :
 def circular_number(number) :
 	cn = ['0', '①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭','⑮']
 	return cn[number]
+
+
+
+def first_image(images, css=False) :
+	if not images or len(images) == 0 :
+		rv = None
+	else :
+		rv = images[0]['url']
+
+
+	if css :
+		if rv is None :
+			return ''
+		else :
+			return "background-image: url('%s')" % rv
+	else :
+		return rv
+

@@ -1,37 +1,40 @@
+import settings
+import requests
+
 class Event :
 
 	event_data = {
-		101: {
-			'id': 101,
-			'date': "2017-01-01",
+		80001: {
+			'id': 80001,
+			'date': "2017-01-01 00:00:00",
 			'title': "김태희-비 열애끝에 결혼",
 			'type': '연예',
-			'issue_score': 250,
+			'issue_score': 30000,
 			'emotions': [
-				{ 'title': "축하해요", 'weight': 0.7 },
-				{ 'title': "사랑스러워요", 'weight': 0.7 },
-				{ 'title': "부러워요", 'weight': 0.5 },
-				{ 'title': "아름다워요", 'weight': 0.4 },
-				{ 'title': "슬퍼요", 'weight': 0.3 },
-				{ 'title': "예뻐요", 'weight': 0.3 },
-				{ 'title': "황홀해요", 'weight': 0.2 },
-				{ 'title': "멋져요", 'weight': 0.2 },
-				{ 'title': "화나요", 'weight': 0.1 },
-				{ 'title': "수줍어요", 'weight': 0.1 },
+				{ 'keyword': "축하해요", 'weight': 0.7 },
+				{ 'keyword': "사랑스러워요", 'weight': 0.7 },
+				{ 'keyword': "부러워요", 'weight': 0.5 },
+				{ 'keyword': "아름다워요", 'weight': 0.4 },
+				{ 'keyword': "슬퍼요", 'weight': 0.3 },
+				{ 'keyword': "예뻐요", 'weight': 0.3 },
+				{ 'keyword': "황홀해요", 'weight': 0.2 },
+				{ 'keyword': "멋져요", 'weight': 0.2 },
+				{ 'keyword': "화나요", 'weight': 0.1 },
+				{ 'keyword': "수줍어요", 'weight': 0.1 },
 			],
 			'keywords': [
-				{ 'title': "결혼식", 'weight': 0.8 },
-				{ 'title': "편지", 'weight': 0.8 },
-				{ 'title': "5년", 'weight': 0.75 },
-				{ 'title': "신혼여행", 'weight': 0.6 },
-				{ 'title': "인스타그램", 'weight': 0.6 },
-				{ 'title': "최고의 선물", 'weight': 0.45 },
-				{ 'title': "가회동 성당", 'weight': 0.45 },
-				{ 'title': "화보", 'weight': 0.3 },
-				{ 'title': "싸이", 'weight': 0.3 },
-				{ 'title': "연애", 'weight': 0.3 },
-				{ 'title': "경건한", 'weight': 0.1 },
-				{ 'title': "인터뷰", 'weight': 0.1 },
+				{ 'keyword': "결혼식", 'weight': 0.8 },
+				{ 'keyword': "편지", 'weight': 0.8 },
+				{ 'keyword': "5년", 'weight': 0.75 },
+				{ 'keyword': "신혼여행", 'weight': 0.6 },
+				{ 'keyword': "인스타그램", 'weight': 0.6 },
+				{ 'keyword': "최고의 선물", 'weight': 0.45 },
+				{ 'keyword': "가회동 성당", 'weight': 0.45 },
+				{ 'keyword': "화보", 'weight': 0.3 },
+				{ 'keyword': "싸이", 'weight': 0.3 },
+				{ 'keyword': "연애", 'weight': 0.3 },
+				{ 'keyword': "경건한", 'weight': 0.1 },
+				{ 'keyword': "인터뷰", 'weight': 0.1 },
 			],
 			'images': [
 				{
@@ -65,9 +68,9 @@ class Event :
 				}
 			],
 
-			'related_people': [
+			'related_entities': [
 				{
-					'name': "김태희",
+					'nickname': "김태희",
 					'roles': ['배우'],
 					'images': [
 						{
@@ -77,8 +80,8 @@ class Event :
 					],
 				},
 				{
-					'name': "비",
-					'real_name': "정지훈",
+					'nickname': "비",
+					'realname': "정지훈",
 					'roles': ['가수', '배우'],
 					'images': [
 						{
@@ -88,7 +91,7 @@ class Event :
 					],
 				}
 			],
-			'realted_news': [
+			'event_articles': [
 				{
 					'title': '비, 김태희와 결혼하더니 더 진해진 남자의 향기',
 					'description': '가수 비가 근황을 공개했다. 비는 2월 26일 자신의 인스타그램에 남자의 향기를 물씬 풍기는 사진 한 장을 게재했다.',
@@ -116,7 +119,16 @@ class Event :
 	}
 
 	@staticmethod
+	def register(id, data) :
+		Event.event_data[id] = data
+		
+		if 'issue_rank' in data:
+			del data['issue_rank']
+		
+
+	@staticmethod
 	def get(id) :
 		return Event.event_data[id]
+
 
 	

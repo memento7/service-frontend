@@ -1,3 +1,4 @@
 wordcloud>=1.2
 image>=1.5
 numpy>=1.12
+requests>=2.11

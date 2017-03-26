@@ -189,7 +189,7 @@ section#issue-rank{
 
 section#issue-rank svg path{
 	fill: none;
-	stroke: rgb(255, 51, 102);
+	stroke: #333;
 	stroke-opacity: .9;
 	stroke-width: 8;
 	stroke-linejoin: round;
@@ -197,11 +197,18 @@ section#issue-rank svg path{
 }
 section#issue-rank svg path.rest{ stroke: #bbb }
 
-section#issue-rank .issue-rank{ display: inline-block; margin: 3px 0 0 2px }
+section#issue-rank svg.s-rank path.pos{ stroke: rgb(255, 51, 102) }
+section#issue-rank svg.a-rank path.pos{ stroke: rgb(255, 102, 0) }
+section#issue-rank svg.b-rank path.pos{ stroke: rgb(0, 204, 153) }
+section#issue-rank svg.c-rank path.pos{ stroke: rgb(84, 72, 171) }
+
+
+
+section#issue-rank .issue-rank{ display: inline-block; margin: 3px 0 0 0 }
 
 
 section#issue-rank .comment{
-	width: calc(100% - 100px);
+	width: calc(100% - 110px);
 	margin-top: 0px;
 	font-size: 13px;
 	color: #333;

@@ -18,8 +18,8 @@
 	</header>
 
 	<section id="event-header">
-		<div class="background" style="background-image: url('{{ images[0].url }}')"></div>
-		
+		<div class="background" style="{{ first_image(images, True) }}"></div>
+
 		<h1>
 			<span>{{ title }}</span>
 			{% if real_name %}<span class="sub">({{ real_name }})</span>{% endif %}

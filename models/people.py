@@ -7,9 +7,10 @@ class People :
 
 
 	people_data = {
-		'수지': {
-			'name': "수지",
-			'real_name': "배수지",
+		70001: {
+			'id': 70001,
+			'nickname': "수지",
+			'realname': "배수지",
 			'images': [
 				{
 					'url': "http://movie.phinf.naver.net/20120227_135/1330332776326RN3D6_JPEG/movie_image.jpg?type=m665_443_2",
@@ -23,6 +24,8 @@ class People :
 					'order': 0
 				}
 			],
+			'role_json': {"ACTOR": {}, "SINGER": {}},
+
 			'role_datas': {
 				'배우': {
 					'_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
@@ -57,11 +60,13 @@ class People :
 					},
 				]
 			},
-			'timeline': []
+			'events': []
 		},
 
-		'김태희': {
-			'name': "김태희",
+		70002: {
+			'id': 70002,
+			'nickname': "김태희",
+			'realname': "김태희",
 			'images': [
 				{
 					'url': "http://club.draghome.com/folder/10000057/board/10000/10862/kim3.jpg",
@@ -83,6 +88,7 @@ class People :
 				# 	'order': 0
 				# }
 			],
+			'role_json': {"ACTOR": {}},
 			'role_datas': {
 				'배우': {
 					'_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
@@ -90,13 +96,13 @@ class People :
 					'드라마': [],
 				}
 			},
-			'timeline': [
+			'events': [
 				{
 					'id': 101,
-					'date': "2017-01-19",
+					'date': "2017-01-19 00:00:00",
 					'title': "김태희-비 열애끝에 결혼",
-					'category': '연예',
-					'issue_score': 250,
+					'type': '연예',
+					'issue_score': 30000,
 					'emotions': [
 						{
 							'title': "축하해요",
@@ -123,10 +129,10 @@ class People :
 				},
 				{
 					'id': 102,
-					'date': "2015-08-15",
+					'date': "2015-08-15 00:00:00",
 					'title': "SBS 드라마 '용팔이' 출연",
-					'category': '미디어',
-					'issue_score': 150,
+					'type': '미디어',
+					'issue_score': 1500,
 					'emotions': [
 						{
 							'title': "멋져요",
@@ -145,10 +151,10 @@ class People :
 				},
 				{
 					'id': 103,
-					'date': "2013-01-01",
+					'date': "2013-01-01 00:00:00",
 					'title': "김태희-비 열애",
-					'category': '연예',
-					'issue_score': 230,
+					'type': '연예',
+					'issue_score': 23000,
 					'emotions': [
 						{
 							'title': "놀라워요",
@@ -167,10 +173,10 @@ class People :
 				},
 				{
 					'id': 104,
-					'date': "2009-10-14",
+					'date': "2009-10-14 00:00:00",
 					'title': "KBS 드라마 '아이리스' 출연",
-					'category': '미디어',
-					'issue_score': 190,
+					'type': '미디어',
+					'issue_score': 1900,
 					'emotions': [
 						{
 							'title': "재미있어요",
@@ -191,7 +197,13 @@ class People :
 		}
 	}
 
+
 	@staticmethod
-	def get(name) :
-		return People.people_data[name]
+	def register(id, data) :
+		People.people_data[id] = data
+		data['name'] = id #tmp
+
+	@staticmethod
+	def get(id) :
+		return People.people_data[id]
 
