@@ -49,27 +49,32 @@ def index(id) :
 	context['trend_graph'] = get_trend_data(context['nickname'])
 	context['People'] = People
 
-	# process trends
+	# Process trends
 	sorted_trend = sorted(context['trend_graph'], key=lambda d: d['value'], reverse=True)
-	top_trend_graph = sorted_trend[0:2]
+	top_trend_graph = sorted_trend[0:3] # 전체 그래프중 가장 높은 3개 날짜
 
-	context['top_trends'] = []
+	top_trends = {}
 
 	from datetime import datetime
 	for event in context['events'] :
-		ts = datetime.strptime(event['date'], '%Y-%m-%d %H:%M:%S').timestamp()
+		event_timestamp = datetime.strptime(event['date'], '%Y-%m-%d %H:%M:%S').timestamp()
 
-		for tt in top_trend_graph :
-			ts2 = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
+		for index, tt in enumerate(top_trend_graph) :
+			tt_timestamp = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
 
-			# similar date
-			if ts2 - 86400 * 12 <= ts <= ts2 + 86400 * 12 :
-				context['top_trends'].append( event )
-				event['graph_data'] = tt
-				event['color'] = globals.rand_color()
+			# Similar date
+			if tt_timestamp - 86400 * 12 <= event_timestamp <= tt_timestamp + 86400 * 12 :
+				
+				if index not in top_trends or top_trends[index]['event']['issue_score'] < event['issue_score'] : 
+					# Update
+					top_trends[index] = {
+						'event': event,
+						'graph_data': tt,
+						'color': globals.rand_color()
+					}
 
 
-	context['top_trends'].sort(key=lambda d: d['date'])
+	context['top_trends'] = top_trends
 
 	return render_template('people_magazine/summary.html', context)
 

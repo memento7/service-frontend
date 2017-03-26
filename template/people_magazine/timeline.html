@@ -19,7 +19,7 @@
 					<div class="circle" style="border-color: {{ linecolor }}"></div>
 
 					<h3 style="color: {{ linecolor }}">
-						{{ event.date.split('-')[0] }}
+						{{ event.date.split(' ')[0].replace('-', '.') }}
 					</h3>
 
 					{{ event_tile.event_tile(event) }}

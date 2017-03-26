@@ -59,7 +59,7 @@ def issue_rank(issue_score) :
 	}
 
 def event_category_id(category) :
-	categories = ['연예', '정치', '스포츠', '미디어', '세계']
+	categories = ['연예', '정치', '스포츠', '미디어', '세계', '기타']
 
 	# 1: 연예, 2: 정치, ... 의 dict 형태로 만듬
 	#d = dict( map( lambda: k, v : (v, k), range(1, len(categories)+1), categories ) )
@@ -70,7 +70,11 @@ def event_category_id(category) :
 
 def circular_number(number) :
 	cn = ['0', '①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭','⑮']
-	return cn[number]
+
+	if 0 <= number < len(cn) :
+		return cn[number]
+	else :
+		return number
 
 
 

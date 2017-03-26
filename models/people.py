@@ -1,3 +1,6 @@
+import re
+from models.event import Event
+
 class People :
 
 	role_stat_info = {
@@ -201,7 +204,10 @@ class People :
 	@staticmethod
 	def register(id, data) :
 		People.people_data[id] = data
-		data['name'] = id #tmp
+		
+		for event in data['events'] :
+			event['title'] = Event.tag_remover.sub('', event['title'])
+
 
 	@staticmethod
 	def get(id) :

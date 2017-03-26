@@ -20,19 +20,17 @@ view('event.keyword_wordcloud').url_rule 	 = '/event/$1/keyword-wordcloud.png'
 
 
 
-
+# Get updated entites
 r = requests.get(settings.API_BASE_URL + '/entities/updated?size=100')
 new_people = r.json()
 
-# Generate Pages
-#people_names = ['수지', '김태희']
 
-new_people.append( People.get(70001) )
-new_people.append( People.get(70002) )
+
+# Register people to model and view
+new_people.append( People.get(70001) ) #가데이터 - 수지
+new_people.append( People.get(70002) ) #가데이터 - 김태희
 
 for person in new_people :
-	#person = People.get(pn)
-
 	People.register(person['id'], person)
 
 	view('people.index').addpage(person['id'])
@@ -46,19 +44,18 @@ for person in new_people :
 
 
 
-
+# Get updated events
 r = requests.get(settings.API_BASE_URL + '/events/updated?size=100')
 new_events = r.json()
 
+new_events.append( Event.get(80001) ) #가데이터 - 김태희,비 결혼
 
-#event_pages = [101]
-
-new_events.append( Event.get( 80001) )
-
+# Register event to model and view
 for event in new_events :
 	Event.register(event['id'], event)
 
-	for v in ['index', 'images', 'news', 'three_lines', 'emotion_wordcloud', 'keyword_wordcloud'] :
+	#for v in ['index', 'images', 'news', 'three_lines', 'emotion_wordcloud', 'keyword_wordcloud'] :
+	for v in ['index', 'images', 'news', 'three_lines', 'keyword_wordcloud'] :
 		view('event.' + v).addpage(event['id'])
 
 

@@ -1,7 +1,8 @@
-import settings
-import requests
+import re
 
 class Event :
+
+	tag_remover = re.compile(r'<[^>]+>')
 
 	event_data = {
 		80001: {
@@ -120,10 +121,13 @@ class Event :
 
 	@staticmethod
 	def register(id, data) :
-		Event.event_data[id] = data
+		
+		data['title'] = Event.tag_remover.sub('', data['title'])
 		
 		if 'issue_rank' in data:
 			del data['issue_rank']
+
+		Event.event_data[id] = data
 		
 
 	@staticmethod
