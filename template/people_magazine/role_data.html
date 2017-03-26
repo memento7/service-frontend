@@ -34,7 +34,7 @@
 		makeStatChart(
 			document.getElementById("stat-chart"),
 			{{ role_stat_info | safe }},
-			{{ role_data._stats | safe }}
+			{{ role_data.record_stats | safe }}
 		);
 	</script>
 	

@@ -81,7 +81,7 @@
 			<div class="fl">
 				<div>
 					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="90" height="50" class="{{ r.rank | lower }}-rank">
-						{% set tmp_angle = {'S': 1, 'A': 0.7, 'B': 0.4, 'C': 0.1} %}
+						{% set tmp_angle = {'S': 1, 'A': 0.75, 'B': 0.5, 'C': 0.25} %}
 						{% set pos = range_svg_pos(tmp_angle[r.rank], 38, 45, 45) %}
 						<path d="M {{ pos }}
 								A 38, 38, 0, 0, 0, 7, 45" class="pos" />
@@ -107,13 +107,13 @@
 				</div>
 				<div class="reference">
 					<span>언론 언급수</span>
-					<span class="value value-news">{{ article_count }}</span>
+					<span class="value value-news">{{ '{0:,}'.format(article_count) }}</span>
 
 					{# <span>SNS</span>
 					<span class="value value-sns">X</span> #}
 
 					<span>댓글</span>
-					<span class="value value-comment">{{ comment_count }}</span>
+					<span class="value value-comment">{{ '{0:,}'.format(comment_count) }}</span>
 				</div>
 			</div>
 

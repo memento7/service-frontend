@@ -1,12 +1,14 @@
 {% extends '/layouts/default.html' %}
 
-{% block title %}메멘토{% endblock %}
+{% block title %}메멘토 - 그 사람에 대한 모든 정보{% endblock %}
 
 {% block head %}
 	{{ super() }}
+
+	<meta property="og:image" content="/images/cover.png">
 	
 	<style type="text/css">
-		body{
+		#wrap{
 			background-color: white;
 		}
 		header{

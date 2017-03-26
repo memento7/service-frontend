@@ -16,12 +16,13 @@
 
 {% block content %}
 	{{ super() }}
-	
+
 	<section id="three-line-summaries-full" class="common-tile">
 		<div class="write-container">
 			<button class="write" onclick="alert('준비중입니다')">3줄 요약 작성하기</button>
 		</div>
 
+	{% if three_line_summaries and three_line_summaries | length %}
 		{% for summary in three_line_summaries %}
 		<div class="three-line-tile">
 			<div class="clearfix">
@@ -49,6 +50,10 @@
 			</div>
 		</div>
 		{% endfor %}
+	{% else %}
+	<div class="no-content">아직 3줄 요약이 없습니다</div>
+	{% endif %}
+
 	</section>
 
 

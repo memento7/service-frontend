@@ -1,4 +1,6 @@
 from models.event import Event
+import settings
+import requests
 
 class People :
 
@@ -31,12 +33,12 @@ class People :
 
 			'role_datas': {
 				'배우': {
-					'_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
+					'record_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
 					'영화': [],
 					'드라마': [],
 				},
 				'가수': {
-					'_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
+					'record_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
 					'앨범': [],
 					'공연': [],
 				}
@@ -87,7 +89,7 @@ class People :
 			'role_json': {"ACTOR": {}},
 			'role_datas': {
 				'배우': {
-					'_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
+					'record_stats': [9.4, 4.0, 7.9, 4.1, 1.6],
 					'영화': [],
 					'드라마': [],
 				}
@@ -205,4 +207,11 @@ class People :
 	@staticmethod
 	def get(id) :
 		return People.people_data[id]
+
+
+
+# Init Role Info
+#r = requests.get(settings.API_BASE_URL + '/entities/roles')
+#r.json()
+
 
