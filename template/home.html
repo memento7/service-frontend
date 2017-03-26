@@ -1,0 +1,106 @@
+{% extends '/layouts/default.html' %}
+
+{% block title %}메멘토{% endblock %}
+
+{% block head %}
+	{{ super() }}
+	
+	<style type="text/css">
+		body{
+			background-color: white;
+		}
+		header{
+			position: absolute;
+		}
+
+		section#main{
+			padding: 70px 0 10px;
+		}
+
+		h2{
+			margin: 5px 0 0 20px;
+			font-size: 20px;
+			font-weight: 300;
+			color: black;
+		}
+
+		section#main ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		section#main ul a{
+			color: white;
+			text-decoration: none;
+		}
+
+		section#main ul a li{
+			position: relative;
+			width: calc(50% - 30px);
+			height: 100px;
+			float: left;
+			margin: 20px 20px 0 20px;
+		}
+		section#main ul a:nth-child(even) li{ margin-left: 0 }
+
+		section#main ul a li .background{
+			position: absolute;
+			width: 100%;
+			height: 100px;
+			background-color: #555;
+			background-size: 100%;
+			filter: brightness(65%);
+		}
+		section#main ul a li .content{
+			position: relative;
+			z-index: 2;
+		}
+		section#main ul a li .content h4{
+			margin: 0;
+			padding: 10px;
+			font-weight: 100;
+			font-size: 30px;
+		}
+
+		section#main ul a li .content .description{
+			font-size: 12px;
+			font-weight: 100;
+			padding: 0 10px 10px;
+		}
+	</style>
+
+{% endblock %}
+
+
+{% block content %}
+	<header>
+		<div class="fr">
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</div>
+		<a href="/">
+			<div class="logo"></div>
+		</a>
+	</header>
+
+	<section id="main">
+		<h2>테스트 가능 인물</h2>
+		<div>
+			<ul class="clearfix">
+				{% for person in people.values() %}
+				<a href="/people/{{ person.id }}">
+					<li>
+						<div class="background" style="{{ first_image(person.images, True) }}"></div>
+						<div class="content">
+							<h4>{{ person.nickname }}</h4>
+							{% if person.is_mockup %}
+							<div class="description">사람이 넣은 가데이터로 만든 페이지입니다</div>
+							{% endif %}
+						</div>
+					</li>
+				</a>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+{% endblock %}

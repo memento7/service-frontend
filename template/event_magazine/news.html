@@ -12,10 +12,14 @@
 		<ul>
 		{% for news in event_articles %}
 			<li>
+				{% if news.image %}
 				<div class="image">
 					<img src="{{ news.image }}" width="80">
 				</div>
 				<div class="content">
+				{% else %}
+				<div class="content no-news">
+				{% endif %}
 					<h4>
 						<a href="{{ news.source_url }}" target="_blank">{{ news.title }}</a>
 					</h4>

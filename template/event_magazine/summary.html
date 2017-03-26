@@ -39,6 +39,7 @@
 		<h3>3줄 요약</h3>
 
 		<div class="content">
+		{% if three_line_summaries and three_line_summaries | length %}
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					{% for summary in three_line_summaries %}
@@ -67,6 +68,9 @@
 			});
 			</script>
 		</div>
+		{% else %}
+			<div class="no-content">데이터가 없습니다</div>
+		{% endif %}
 	</section>
 
 	<section id="issue-rank" class="common-tile">
@@ -88,7 +92,7 @@
 						</svg>
 					</svg>
 				</div>
-				<div>
+				<div class="rank-container">
 					<span class="label issue-rank {{ r.rank | lower }}-rank">
 						<i>{{ r.rank }}</i>
 						<span>{{ r.label }}</span>
@@ -102,14 +106,14 @@
 					전체 상위 <strong>??%</strong>안에 들어요
 				</div>
 				<div class="reference">
-					<span >언론 언급수</span>
-					<span class="value value-news">1,231</span>
+					<span>언론 언급수</span>
+					<span class="value value-news">{{ article_count }}</span>
 
-					<span >SNS</span>
-					<span class="value value-sns">13,131</span>
+					{# <span>SNS</span>
+					<span class="value value-sns">X</span> #}
 
-					<span >댓글</span>
-					<span class="value value-comment">45,211</span>
+					<span>댓글</span>
+					<span class="value value-comment">{{ comment_count }}</span>
 				</div>
 			</div>
 
@@ -119,7 +123,9 @@
 	<section id="emotions" class="common-tile">
 		<h3>대중의 반응</h3>
 		<div>
-			{# <img src="./emotion-wordcloud.png" width="100%" style="max-width: 600px"> #}
+			{% if emotions %}
+			<img src="./emotion-wordcloud.png" width="100%" style="max-width: 600px">
+			{% endif %}
 		</div>
 	</section>
 

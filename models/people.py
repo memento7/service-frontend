@@ -1,4 +1,3 @@
-import re
 from models.event import Event
 
 class People :
@@ -14,6 +13,7 @@ class People :
 			'id': 70001,
 			'nickname': "수지",
 			'realname': "배수지",
+			'is_mockup': True,
 			'images': [
 				{
 					'url': "http://movie.phinf.naver.net/20120227_135/1330332776326RN3D6_JPEG/movie_image.jpg?type=m665_443_2",
@@ -70,6 +70,7 @@ class People :
 			'id': 70002,
 			'nickname': "김태희",
 			'realname': "김태희",
+			'is_mockup': True,
 			'images': [
 				{
 					'url': "http://club.draghome.com/folder/10000057/board/10000/10862/kim3.jpg",
@@ -77,19 +78,11 @@ class People :
 				}
 			],
 			'in_one_word': [
-				# {
-				# 	'keyword': '김태희 그 자체'
-				# },
 				{
 					'keyword': "김태희가 듣는 수업은\n언제나 학생들로 꽉 차있었다",
 					'reference': "당시 서울대 재학생",
 					'order': 0
 				}
-				# {
-				# 	'keyword': "누군가 한국을 대표하는 대표 여배우를 꼽으라고 한다면, 1초의 망설임도 없이 김태희를 꼽을것이다",
-				# 	'reference': "메멘토 개발자 중 1명",
-				# 	'order': 0
-				# }
 			],
 			'role_json': {"ACTOR": {}},
 			'role_datas': {
@@ -101,7 +94,7 @@ class People :
 			},
 			'events': [
 				{
-					'id': 101,
+					'id': 80001,
 					'date': "2017-01-19 00:00:00",
 					'title': "김태희-비 열애끝에 결혼",
 					'type': '연예',
@@ -131,7 +124,7 @@ class People :
 					]
 				},
 				{
-					'id': 102,
+					'id': 80002,
 					'date': "2015-08-15 00:00:00",
 					'title': "SBS 드라마 '용팔이' 출연",
 					'type': '미디어',
@@ -153,7 +146,7 @@ class People :
 					]
 				},
 				{
-					'id': 103,
+					'id': 80003,
 					'date': "2013-01-01 00:00:00",
 					'title': "김태희-비 열애",
 					'type': '연예',
@@ -175,7 +168,7 @@ class People :
 					]
 				},
 				{
-					'id': 104,
+					'id': 80004,
 					'date': "2009-10-14 00:00:00",
 					'title': "KBS 드라마 '아이리스' 출연",
 					'type': '미디어',

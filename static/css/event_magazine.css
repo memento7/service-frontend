@@ -65,6 +65,7 @@ section#related-people .person .left .image{
 
 	border: 1px solid #ccc;
 	border-radius: 50%;
+	background-image: url('/images/person.png');
 	background-size: 55px auto;
 	background-position: center center;
 }
@@ -202,8 +203,11 @@ section#issue-rank svg.a-rank path.pos{ stroke: rgb(255, 102, 0) }
 section#issue-rank svg.b-rank path.pos{ stroke: rgb(0, 204, 153) }
 section#issue-rank svg.c-rank path.pos{ stroke: rgb(84, 72, 171) }
 
-
-
+section#issue-rank .rank-container{
+	width: 110px;
+	margin-left: -10px;
+	text-align: center;
+}
 section#issue-rank .issue-rank{ display: inline-block; margin: 3px 0 0 0 }
 
 
@@ -262,8 +266,9 @@ section#related-news ul li .image{
 }
 
 section#related-news ul li .content{
-	margin-left: 90px
+	margin-left: 90px;
 }
+section#related-news ul li .content.no-news{ margin-left: 10px }
 
 section#related-news ul li h4{
 	margin: 0 0 3px 0;

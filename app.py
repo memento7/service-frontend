@@ -6,6 +6,9 @@ import settings
 
 
 # Config URLs
+view('home.home').url_rule = '/'
+view('home.home').addpage()
+
 view('people.index').url_rule 	 = '/people/$1/'
 view('people.timeline').url_rule = '/people/$1/timeline/'
 view('people.images').url_rule = '/people/$1/images/'
@@ -21,7 +24,7 @@ view('event.keyword_wordcloud').url_rule 	 = '/event/$1/keyword-wordcloud.png'
 
 
 # Get updated entites
-r = requests.get(settings.API_BASE_URL + '/entities/updated?size=100')
+r = requests.get(settings.API_BASE_URL + '/entities/updated')
 new_people = r.json()
 
 
@@ -45,7 +48,7 @@ for person in new_people :
 
 
 # Get updated events
-r = requests.get(settings.API_BASE_URL + '/events/updated?size=100')
+r = requests.get(settings.API_BASE_URL + '/events/updated?size=500')
 new_events = r.json()
 
 new_events.append( Event.get(80001) ) #가데이터 - 김태희,비 결혼
@@ -57,5 +60,8 @@ for event in new_events :
 	#for v in ['index', 'images', 'news', 'three_lines', 'emotion_wordcloud', 'keyword_wordcloud'] :
 	for v in ['index', 'images', 'news', 'three_lines', 'keyword_wordcloud'] :
 		view('event.' + v).addpage(event['id'])
+
+	if event['emotions'] :
+		view('event.emotion_wordcloud').addpage(event['id'])
 
 
