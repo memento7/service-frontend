@@ -158,7 +158,7 @@ section#people-trend .graph-area .overlay .number{
 	display: inline-block;
 	position: absolute;
 	
-	margin-left: -6px;
+	margin-left: -2px;
 	margin-top: -23px;
 	font-weight: bolder;
 	font-size: 18px;
@@ -170,6 +170,7 @@ section#people-trend .graph-area .overlay .date{
 	margin-left: -16px;
 	font-size: 11px;
 	color: #666;
+	background-color: white;
 }
 
 

@@ -4,11 +4,7 @@ import requests
 
 class People :
 
-	role_stat_info = {
-		'배우': ['외모', '감정 연기', '안정감', '배역 소화도', '액션'],
-		'가수': ['가창력', '외모', '댄스', '작곡', '감정 호소'],
-	}
-
+	role_info = None
 
 	people_data = {
 		70001: {
@@ -195,23 +191,72 @@ class People :
 		}
 	}
 
+	@staticmethod
+	def get_role_info(key=None) :
+		if not People.role_info :
+			r = requests.get(settings.API_BASE_URL + '/entities/roles')
+			role_arr = r.json()
+			rv = {}
+
+			for role in role_arr :
+				rv[role['key']] = role
+
+			People.role_info = rv
+
+		if key :
+			return People.role_info[key]
+		else :
+			return People.role_info
+
 
 	@staticmethod
 	def register(id, data) :
-		People.people_data[id] = data
-		
 		for event in data['events'] :
 			event['title'] = Event.tag_remover.sub('', event['title'])
 
 
+		rj = data['role_json']
+		for role, value in rj.items() :
+			rj[role] = People.get_role_info(role)
+
+			sr = None
+			try :
+				sr = rj[role]['role_template']['data']['score']
+			except KeyError as ke :
+				pass
+			except e :
+				raise e
+
+			if sr :
+				rj[role]['stat_records'] = {
+					'labels': list(sr.keys()),
+					'datas': list(sr.values())
+				}
+
+		People.people_data[id] = data
+		return data
+
+
 	@staticmethod
 	def get(id) :
-		return People.people_data[id]
+		data = People.people_data[id]
+		return data
 
 
-
-# Init Role Info
-#r = requests.get(settings.API_BASE_URL + '/entities/roles')
-#r.json()
+	"""
+	def __init__(self,
+			id,
+			nickname,
+			realname,
+			rolejson,
+			status,
+			created_time,
+			updated_time,
+			published_time,
+			images,
+			events,
+			**kwarg):
+		pass
+	"""
 
 

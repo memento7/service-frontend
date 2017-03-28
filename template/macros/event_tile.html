@@ -1,9 +1,15 @@
-{% macro event_tile(event, show_label=True) -%}
+{% macro event_tile(event, show_label=True, show_date=False) -%}
 <div class="event-tile clearfix">
 	<div class="fl" style="width: calc(100% - 111px)">
 		<h4>
 			<a href="/event/{{ event.id }}">{{ event.title }}</a>
 		</h4>
+
+		{% if show_date %}
+		<div class="date">
+			{{ event.date.split("-")[0:2] | join('.') }}
+		</div>
+		{% endif %}
 		
 		{% if show_label %}
 		<div>

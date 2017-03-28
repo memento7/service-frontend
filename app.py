@@ -34,15 +34,16 @@ new_people.append( People.get(70001) ) #가데이터 - 수지
 new_people.append( People.get(70002) ) #가데이터 - 김태희
 
 for person in new_people :
-	People.register(person['id'], person)
+	person = People.register(person['id'], person)
 
 	view('people.index').addpage(person['id'])
 	view('people.timeline').addpage(person['id'])
 	view('people.images').addpage(person['id'])
 
-	if 'role_datas' in person :
-		for role in person['role_datas'] :
-			view('people.role_data').addpage(person['id'], role)
+	if 'role_json' in person :
+		for role in person['role_json'].values() :
+			if 'stat_records' in role :
+				view('people.role_data').addpage(person['id'], role['name'])
 
 
 

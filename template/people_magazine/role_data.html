@@ -33,19 +33,18 @@
 	<script type="text/javascript">
 		makeStatChart(
 			document.getElementById("stat-chart"),
-			{{ role_stat_info | safe }},
-			{{ role_data.record_stats | safe }}
+			{{ roledata.stat_records.labels | safe }},
+			{{ roledata.stat_records.datas | safe }}
 		);
 	</script>
 	
 
-	{% for entity_type in role_data %}
-	{% if entity_type[0] != '_' %}
+	{% for entity_type, entities in roledata.role_template.related_entities.items() %}
 
 	<section class="role-entities common-tile">
 		<h3>{{ entity_type }}</h3>
 		<div class="content">
-			{% if role_data[entity_type] | length == 0 %}
+			{% if not entities or entities | length == 0 %}
 			<div class="no-content">
 				{{ entity_type }} 정보가 없습니다.
 			</div>
@@ -55,7 +54,6 @@
 		</div>
 	</section>
 
-	{% endif %}
 	{% endfor %}
 
 {% endblock %}

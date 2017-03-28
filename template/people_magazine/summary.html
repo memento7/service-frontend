@@ -49,10 +49,11 @@
 	<section id="people-trend" class="common-tile">
 		<h3>왜 떴을까?</h3>
 		<div class="graph-area">
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ trend_graph | length * 2 }} 105" preserveAspectRatio="none">
+			{% set merge_cnt = 5 %}
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ trend_graph | length * merge_cnt }} 105" preserveAspectRatio="none">
 				<path d="M 0, 90
-					{% for d in trend_graph %} L {{ 2 * loop.index }}, {{ 90 - d.value }} {% endfor %}
-					L {{ trend_graph | length * 2 }}, 90
+					{% for d in trend_graph %} L {{ merge_cnt * loop.index }}, {{ 90 - d.value }} {% endfor %}
+					L {{ trend_graph | length * merge_cnt }}, 90
 				" />
 			</svg>
 			<div class="overlay">
@@ -76,24 +77,25 @@
 				{{ circular_number(loop.index) }}
 			</span>
 
-			{{ event_tile.event_tile(tt.event, True) }}
+			{{ event_tile.event_tile(tt.event, show_date=True) }}
 		{% endfor %}
 		</div>
 	</section>
 
 
-	{% if role_datas %}
+	{% if role_json %}
 	<section id="people-stats" class="common-tile">
 		<h3>재미로 보는 능력치</h3>
-		<div class="content clearfix total-{{ role_datas | length }}stats">
-			{% for role_type, role_data in role_datas.items() %}
-			{% set role_stat_info = People.role_stat_info[role_type] %}
+		<div class="content clearfix total-{{ role_json | length }}stats">
+			{% for roletype, roledata in role_json.items() %}
+			{% if roledata.stat_records %}
+			{# {% set role_stat_info = People.role_stat_info[roletype] %} #}
 
 			<div class="stat fl">
 				<div class="clearfix">
-					<span class="label fl">{{ role_type }}</span>
+					<span class="label fl">{{ roledata.name }}</span>
 					<span class="fr">
-						<a href="./{{ role_type }}">자세히</a>
+						<a href="./{{ roledata.name }}">자세히</a>
 					</span>
 				</div>
 				<div>
@@ -104,11 +106,11 @@
 			<script type="text/javascript">
 				makeStatChart(
 					document.getElementById("stat-chart-{{ loop.index }}"),
-					{{ role_stat_info | safe }},
-					{{ role_data.record_stats | safe }}
+					{{ roledata.stat_records.labels | safe }},
+					{{ roledata.stat_records.datas | safe }}
 				);
 			</script>
-			
+			{% endif %}
 			{% endfor %}
 		</div>
 

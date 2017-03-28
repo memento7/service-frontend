@@ -16,25 +16,34 @@ def get_trend_data(name) :
 		data = {
 			'qcType': 'N',
 			'queryGroups': '%s__SZLIG__%s' % (name, keyword),
-			'startDate': '20120101',
+			'startDate': '20130331',
 			'endDate': '20170331',
+		},
+		headers={
+			'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
+			'Referer': 'http://ca.datalab.naver.com/ca/step1.naver?'
 		}
 	)
+
 	
 	data = json.loads(r.text)
 	gdata = data['result'][0]['data']
 	result = []
 	max_value = 100
+	MERGE_CNT = 5
 
 	for index, d in enumerate(gdata) :
-		if index % 2 == 1 :
-			value = int(d['value']) + int(gdata[index-1]['value'])
+		if index % MERGE_CNT == (MERGE_CNT-1) :
+			value = 0
+			for i in range(-MERGE_CNT + 1, 1) :
+				value += int(gdata[index+i]['value'])
+
 			max_value = max(max_value, value)
 
 			result.append({
 				'value': value,
-				'period': d['period'],
-				'index': int(index / 2),
+				'period': gdata[index-int(MERGE_CNT/2)]['period'],
+				'index': int(index / MERGE_CNT),
 			})
 
 	for d in result :
@@ -46,6 +55,7 @@ def get_trend_data(name) :
 @view
 def index(id) :
 	context = People.get(id)
+	
 	context['trend_graph'] = get_trend_data(context['nickname'])
 	context['People'] = People
 
@@ -63,7 +73,7 @@ def index(id) :
 			tt_timestamp = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
 
 			# Similar date
-			if tt_timestamp - 86400 * 12 <= event_timestamp <= tt_timestamp + 86400 * 12 :
+			if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
 				
 				if index not in top_trends or top_trends[index]['event']['issue_score'] < event['issue_score'] : 
 					# Update
@@ -89,12 +99,17 @@ def images(name) :
 	return render_template('people_magazine/images.html', People.get(name))
 
 @view
-def role_data(name, role_type) :
+def role_data(name, rolename) :
 	data = People.get(name)
 
-	data['role_type'] = role_type
-	data['role_data'] = data['role_datas'][role_type]
-	data['role_stat_info'] = People.role_stat_info[ role_type ]
+	data['rolename'] = rolename
+
+	for role in data['role_json'].values() :
+		if role['name'] == rolename :
+			data['roledata'] = role
+			break
+
+	#data['role_stat_info'] = People.role_stat_info[ roletype ]
 	
 	return render_template('people_magazine/role_data.html', data)
 
