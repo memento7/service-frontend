@@ -27,8 +27,6 @@ def get_wordcloud(data) :
 		text += (e['keyword'] + ' ') * int(math.log(e['weight']+1))
 		#text += (e['keyword'] + ' ') * int(e['weight'] / 3)	
 
-	print(text)
-
 	def custom_color_func(word, font_size, *arg, **kwarg) :
 		return globals.rand_color()
 

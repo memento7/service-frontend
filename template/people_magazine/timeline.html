@@ -4,15 +4,55 @@
 
 {% block head %}
 	{{ super() }}
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" />
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+	<script type="text/javascript">
+		var LEVEL_LABEL = ['essentials', 'hot', 'minor', 'all'];
+
+		$(window).on('hashchange', function (e) {
+			var level;
+			if (location.hash)
+				level = LEVEL_LABEL.indexOf(location.hash.substr(1));
+			else
+				level = 0;
+
+			$('.timeline').hide();
+			$('#timeline' + (level+1)).show();
+		});
+
+		$(window).ready(function () {
+			$('#timeline-filter').on('change', function (e) {
+				var level = $(this).val();
+				location.hash = LEVEL_LABEL[parseInt(level)-1];
+			});
+
+			$('#timeline-filter').niceSelect();
+			$(window).trigger('hashchange');
+		});
+
+	</script>
 {% endblock %}
 
 		
 {% block content %}
 	{{ super() }}
 	
-	<section id="timeline">
+	<div class="timeline-filter-wrap">
+		<select id="timeline-filter" class="right">
+			<option value="1" data-display="핵심 사건">핵심</option>
+			<option value="2" data-display="굵직한 사건">굵직한</option>
+			<option value="3" data-display="사소한 사건">사소한</option>
+			<option value="4" data-display="모든 사건">모두</option>
+		</select>
+	</div>
+
+	{% for timeline in timelines %}
+	<section id="timeline{{ loop.index }}" class="timeline">
 		<ul>
-			{% for event in events %}
+			{% for event in timeline %}
 				<li>
 					{% set linecolor = rand_color() %}
 					<div class="line" style="background-color: {{ linecolor }}"></div>
@@ -27,4 +67,5 @@
 			{% endfor %}
 		</ul>
 	</section>
+	{% endfor %}
 {% endblock %}

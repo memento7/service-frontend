@@ -86,10 +86,9 @@
 	{% if role_json %}
 	<section id="people-stats" class="common-tile">
 		<h3>재미로 보는 능력치</h3>
-		<div class="content clearfix total-{{ role_json | length }}stats">
+		<div class="content clearfix total-{{ stat_record_counts }}stats">
 			{% for roletype, roledata in role_json.items() %}
 			{% if roledata.stat_records %}
-			{# {% set role_stat_info = People.role_stat_info[roletype] %} #}
 
 			<div class="stat fl">
 				<div class="clearfix">

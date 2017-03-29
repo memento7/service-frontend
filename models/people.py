@@ -214,14 +214,15 @@ class People :
 		for event in data['events'] :
 			event['title'] = Event.tag_remover.sub('', event['title'])
 
-
+		stat_record_counts = 0
 		rj = data['role_json']
 		for role, value in rj.items() :
-			rj[role] = People.get_role_info(role)
+			rj[role]['info'] = People.get_role_info(role)
+			rj[role]['name'] = rj[role]['info']['name']
 
 			sr = None
 			try :
-				sr = rj[role]['role_template']['data']['score']
+				sr = rj[role]['data']['score']
 			except KeyError as ke :
 				pass
 			except e :
@@ -232,7 +233,10 @@ class People :
 					'labels': list(sr.keys()),
 					'datas': list(sr.values())
 				}
+				stat_record_counts += 1
 
+
+		data['stat_record_counts'] = stat_record_counts
 		People.people_data[id] = data
 		return data
 

@@ -91,7 +91,19 @@ def index(id) :
 
 @view
 def timeline(name) :
-	return render_template('people_magazine/timeline.html', People.get(name))
+	data = People.get(name)
+
+	date_sorting_lambda = lambda d: d['date']
+	events = sorted(data['events'], key=lambda d: d['issue_score'], reverse=True)
+	
+	data['timelines'] = [
+		sorted(events[0:7], key=date_sorting_lambda, reverse=True),
+		sorted(events[0:20], key=date_sorting_lambda, reverse=True),
+		sorted(events[0:40], key=date_sorting_lambda, reverse=True),
+		sorted(events, key=date_sorting_lambda, reverse=True),
+	]
+
+	return render_template('people_magazine/timeline.html', data)
 
 
 @view

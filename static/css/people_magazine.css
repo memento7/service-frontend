@@ -195,24 +195,48 @@ section#people-trend .events .event-tile{
 
 
 /* 타임라인 */
-section#timeline{
-	margin: 0;
+section.timeline{
+	/*margin: 50px 0 0 0;*/
+	display: none;
+}
+section#timeline1{ display: block; }
+
+
+.timeline-filter-wrap{
+	position: relative;
+	height: 10px;
+	background-color: white;
 }
 
-section#timeline ul{
+.timeline-filter-wrap .nice-select{
+	position: absolute;
+	z-index: 99;
+	top: 6px;
+	right: 10px;
+
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 23px 0 10px;
+}
+.timeline-filter-wrap select{
+	display: none;
+}
+
+section.timeline ul{
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-section#timeline ul li{
+section.timeline ul li{
 	position: relative;
 	margin: 1px 0;
 	padding: 15px 15px 15px 50px;
 	background-color: white;
 }
 
-section#timeline ul li .line{
+section.timeline ul li .line{
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -222,8 +246,14 @@ section#timeline ul li .line{
 	background-color: #e0e0e0;
 	z-index: 30;
 }
+section.timeline ul li:first-child{ margin-top: 0; }
+section.timeline ul li:first-child .line{
+	top: -10px;
+	height: calc(100% + 10px);
+}
 
-section#timeline ul li .circle{
+
+section.timeline ul li .circle{
 	position: absolute;
 	top: 19px;
 	left: 24px;
@@ -235,7 +265,7 @@ section#timeline ul li .circle{
 	z-index: 50;
 }
 
-section#timeline ul li h3{
+section.timeline ul li h3{
 	margin: 0 0 4px -7px;
 	padding: 0;
 	color: #666;

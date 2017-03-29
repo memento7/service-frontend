@@ -36,15 +36,15 @@ def iow_size(word) :
 
 
 def issue_rank(issue_score) :
-	if issue_score >= 20000 :
+	if issue_score >= 300000 :
 		rank, label = 'S', '세간의 관심'
 		mention = '이 사건도 모르면 간첩이죠! 정말 뜨거웠던 이야기였어요'
 
-	elif issue_score >= 5000 :
+	elif issue_score >= 10000 :
 		rank, label = 'A', '이슈 오브 이슈'
 		mention = '꽤 화제가 많이 된 사건이었어요!'
 
-	elif issue_score >= 400 :
+	elif issue_score >= 800 :
 		rank, label = 'B', '세상의 이야기'
 		mention = '꽤 재미있는 소식이었어요'
 
