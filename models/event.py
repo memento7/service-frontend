@@ -10,7 +10,7 @@ class Event :
 			'date': "2017-01-01 00:00:00",
 			'title': "김태희-비 열애끝에 결혼",
 			'type': '연예',
-			'issue_score': 30000,
+			'issue_score': 300000,
 			'article_count': 1231,
 			'comment_count': 41231,
 			'emotions': [
@@ -41,7 +41,7 @@ class Event :
 			],
 			'images': [
 				{
-					'url': 'https://i.ytimg.com/vi/sg_Z7kspl6E/maxresdefault.jpg',
+					'path': 'https://i.ytimg.com/vi/sg_Z7kspl6E/maxresdefault.jpg',
 				}
 			],
 			'three_line_summaries': [
@@ -78,7 +78,7 @@ class Event :
 					'roles': ['배우'],
 					'images': [
 						{
-							'url': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F28%2F201406261348278841.jpg",
+							'path': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F28%2F201406261348278841.jpg",
 							'heart': 0
 						}
 					],
@@ -90,7 +90,7 @@ class Event :
 					'roles': ['가수', '배우'],
 					'images': [
 						{
-							'url': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F71%2F20170123185015611.jpg",
+							'path': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F71%2F20170123185015611.jpg",
 							'heart': 0
 						}
 					],
@@ -129,6 +129,7 @@ class Event :
 		data['title'] = Event.tag_remover.sub('', data['title'])
 		
 		if 'issue_rank' in data:
+			data['issue_score_rank'] = data['issue_rank']
 			del data['issue_rank']
 
 		Event.event_data[id] = data

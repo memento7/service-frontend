@@ -22,9 +22,8 @@
 	<section id="event-header">
 		<div class="background" style="{{ first_image(images, True) }}"></div>
 
-		<h1>
-			<span>{{ title }}</span>
-			{% if real_name %}<span class="sub">({{ real_name }})</span>{% endif %}
+		<h1{% if (title | length) > 25 %} style="font-size:25px"{% endif %}>
+			{{ title }}
 		</h1>
 	</section>
 

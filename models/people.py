@@ -1,6 +1,7 @@
 from models.event import Event
 import settings
 import requests
+import globals
 
 class People :
 
@@ -14,7 +15,7 @@ class People :
 			'is_mockup': True,
 			'images': [
 				{
-					'url': "http://movie.phinf.naver.net/20120227_135/1330332776326RN3D6_JPEG/movie_image.jpg?type=m665_443_2",
+					'path': "http://movie.phinf.naver.net/20120227_135/1330332776326RN3D6_JPEG/movie_image.jpg?type=m665_443_2",
 					'heart': 0
 				}
 			],
@@ -71,7 +72,7 @@ class People :
 			'is_mockup': True,
 			'images': [
 				{
-					'url': "http://club.draghome.com/folder/10000057/board/10000/10862/kim3.jpg",
+					'path': "http://club.draghome.com/folder/10000057/board/10000/10862/kim3.jpg",
 					'heart': 0
 				}
 			],
@@ -96,7 +97,7 @@ class People :
 					'date': "2017-01-19 00:00:00",
 					'title': "김태희-비 열애끝에 결혼",
 					'type': '연예',
-					'issue_score': 30000,
+					'issue_score': 300000,
 					'emotions': [
 						{
 							'title': "축하해요",
@@ -117,7 +118,7 @@ class People :
 					],
 					'images': [
 						{
-							'url': 'https://i.ytimg.com/vi/sg_Z7kspl6E/maxresdefault.jpg',
+							'path': 'https://i.ytimg.com/vi/sg_Z7kspl6E/maxresdefault.jpg',
 						}
 					]
 				},
@@ -126,7 +127,7 @@ class People :
 					'date': "2015-08-15 00:00:00",
 					'title': "SBS 드라마 '용팔이' 출연",
 					'type': '미디어',
-					'issue_score': 1500,
+					'issue_score': 15000,
 					'emotions': [
 						{
 							'title': "멋져요",
@@ -139,7 +140,7 @@ class People :
 					],
 					'images': [
 						{
-							'url': 'http://www.fashionn.com/files/board/2015/image/p1a0ridlphkkvlevf7r1rbptpi1.jpg',
+							'path': 'http://www.fashionn.com/files/board/2015/image/p1a0ridlphkkvlevf7r1rbptpi1.jpg',
 						}
 					]
 				},
@@ -148,7 +149,7 @@ class People :
 					'date': "2013-01-01 00:00:00",
 					'title': "김태희-비 열애",
 					'type': '연예',
-					'issue_score': 23000,
+					'issue_score': 230000,
 					'emotions': [
 						{
 							'title': "놀라워요",
@@ -161,7 +162,7 @@ class People :
 					],
 					'images': [
 						{
-							'url': 'http://cfile1.uf.tistory.com/image/191E223650E2E5F642A8D9',
+							'path': 'http://cfile1.uf.tistory.com/image/191E223650E2E5F642A8D9',
 						}
 					]
 				},
@@ -170,7 +171,7 @@ class People :
 					'date': "2009-10-14 00:00:00",
 					'title': "KBS 드라마 '아이리스' 출연",
 					'type': '미디어',
-					'issue_score': 1900,
+					'issue_score': 19000,
 					'emotions': [
 						{
 							'title': "재미있어요",
@@ -183,7 +184,7 @@ class People :
 					],
 					'images': [
 						{
-							'url': 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT1Ur3zsQjMWFAMSM7CVeoW0CUXdI7RAEiUaARm_KKLtWr56-wmVA',
+							'path': 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT1Ur3zsQjMWFAMSM7CVeoW0CUXdI7RAEiUaARm_KKLtWr56-wmVA',
 						}
 					]
 				},
@@ -230,8 +231,8 @@ class People :
 
 			if sr :
 				rj[role]['stat_records'] = {
-					'labels': list(sr.keys()),
-					'datas': list(sr.values())
+					'labels': [globals.l10n(i) for i in sr.keys()],
+					'datas': [globals.l10n(i) for i in sr.values()],
 				}
 				stat_record_counts += 1
 

@@ -82,7 +82,7 @@ def first_image(images, css=False) :
 	if not images or len(images) == 0 :
 		rv = None
 	else :
-		rv = images[0]['url']
+		rv = images[0]['path']
 
 
 	if css :
@@ -93,3 +93,26 @@ def first_image(images, css=False) :
 	else :
 		return rv
 
+
+def l10n(key) :
+	d = {
+		'roleplay': '배역 소화도',
+		'perform': '액션',
+		'looks': '외모',
+		'stability': '안정감',
+		'empathy': '감정연기',
+
+		'emotional': '감정 호소',
+		'singability': '가창력',
+		'composition': '작곡',
+		'dance': '댄스', 
+
+		'drama': '드라마',
+		'movie': '영화',
+		'album': '앨범',
+	}
+
+	if key in d :
+		return d[key]
+	else :
+		return key
