@@ -11,6 +11,8 @@ class Event :
 			'title': "김태희-비 열애끝에 결혼",
 			'type': '연예',
 			'issue_score': 300000,
+			'issue_score_rank': 8,
+			'top_percentile': 1.3131,
 			'article_count': 1231,
 			'comment_count': 41231,
 			'emotions': [

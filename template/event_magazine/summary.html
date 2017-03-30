@@ -103,7 +103,7 @@
 				<h4>{{ r.mention }}</h4>
 				<div>
 					전체 사건 중 <strong>{{ issue_score_rank }}번째</strong>로 핫한 사건이며, 
-					전체 상위 <strong>{{ top_percent }}%</strong>안에 들어요
+					전체 상위 <strong>{{ top_percentile | round(1) }}%</strong>안에 들어요
 				</div>
 				<div class="reference">
 					<span>언론 언급수</span>
