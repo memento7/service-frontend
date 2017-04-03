@@ -3,7 +3,7 @@ from models.people import People
 
 @view
 def home() :
-	context = {
-		'people': People.people_data
-	}
-	return render_template('home.html', context)
+
+	return render_template('home.html',
+		people= People.people_data
+	)

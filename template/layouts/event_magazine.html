@@ -1,6 +1,6 @@
 {% extends '/layouts/default.html' %}
 
-{% block title %}{{ title }} - 메멘토{% endblock %}
+{% block title %}{{ event.title }} - 메멘토{% endblock %}
 
 {% block head %}
 	{{ super() }}
@@ -20,19 +20,19 @@
 	</header>
 
 	<section id="event-header">
-		<div class="background" style="{{ first_image(images, True) }}"></div>
+		<div class="background" style="{{ first_image(event.images, True) }}"></div>
 
-		<h1{% if (title | length) > 25 %} style="font-size:25px"{% endif %}>
-			{{ title }}
+		<h1{% if (event.title | length) > 25 %} style="font-size:25px"{% endif %}>
+			{{ event.title }}
 		</h1>
 	</section>
 
 	<nav class="magazine-nav">
 		<ul class="clearfix">
-			{{ nav_li('/event/%s' % id, '요약', _page.url) }}
-			{{ nav_li('/event/%s/images' % id, '관련 사진', _page.url) }}
-			{{ nav_li('/event/%s/news' % id, '관련 기사', _page.url) }}
-			{{ nav_li('/event/%s/3lines' % id, '3줄 요약', _page.url) }}
+			{{ nav_li('/event/%s' % event.id, '요약', _page.url) }}
+			{{ nav_li('/event/%s/images' % event.id, '관련 사진', _page.url) }}
+			{{ nav_li('/event/%s/news' % event.id, '관련 기사', _page.url) }}
+			{{ nav_li('/event/%s/3lines' % event.id, '3줄 요약', _page.url) }}
 		</ul>
 	</nav>
 {% endblock %}

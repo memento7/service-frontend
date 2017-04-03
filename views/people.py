@@ -54,19 +54,18 @@ def get_trend_data(name) :
 
 @view
 def index(id) :
-	context = People.get(id)
+	person = People.get(id)
 	
-	context['trend_graph'] = get_trend_data(context['nickname'])
-	context['People'] = People
+	trend_graph = get_trend_data(person['nickname'])
 
 	# Process trends
-	sorted_trend = sorted(context['trend_graph'], key=lambda d: d['value'], reverse=True)
+	sorted_trend = sorted(trend_graph, key=lambda d: d['value'], reverse=True)
 	top_trend_graph = sorted_trend[0:3] # 전체 그래프중 가장 높은 3개 날짜
 
 	top_trends = {}
 
 	from datetime import datetime
-	for event in context['events'] :
+	for event in person['events'] :
 		event_timestamp = datetime.strptime(event['date'], '%Y-%m-%d %H:%M:%S').timestamp()
 
 		for index, tt in enumerate(top_trend_graph) :
@@ -84,9 +83,12 @@ def index(id) :
 					}
 
 
-	context['top_trends'] = top_trends
-
-	return render_template('people_magazine/summary.html', context)
+	return render_template('people_magazine/summary.html',
+		person=person,
+		trend_graph=trend_graph,
+		top_trends=top_trends,
+		People=People,
+	)
 
 
 @view
@@ -96,19 +98,24 @@ def timeline(name) :
 	date_sorting_lambda = lambda d: d['date']
 	events = sorted(data['events'], key=lambda d: d['issue_score'], reverse=True)
 	
-	data['timelines'] = [
+	timelines = [
 		sorted(events[0:7], key=date_sorting_lambda, reverse=True),
 		sorted(events[0:20], key=date_sorting_lambda, reverse=True),
 		sorted(events[0:40], key=date_sorting_lambda, reverse=True),
 		sorted(events, key=date_sorting_lambda, reverse=True),
 	]
 
-	return render_template('people_magazine/timeline.html', data)
+	return render_template('people_magazine/timeline.html',
+		person=data,
+		timelines=timelines,
+	)
 
 
 @view
 def images(name) :
-	return render_template('people_magazine/images.html', People.get(name))
+	return render_template('people_magazine/images.html',
+		person=People.get(name)
+	)
 
 @view
 def role_data(name, rolename) :
@@ -123,7 +130,9 @@ def role_data(name, rolename) :
 
 	#data['role_stat_info'] = People.role_stat_info[ roletype ]
 	
-	return render_template('people_magazine/role_data.html', data)
+	return render_template('people_magazine/role_data.html',
+		person=data
+	)
 
 
 

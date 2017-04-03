@@ -56,21 +56,29 @@ def keyword_wordcloud(event_id) :
 
 @view
 def index(event_id) :
-	return render_template('event_magazine/summary.html', Event.get(event_id))
+	return render_template('event_magazine/summary.html', 
+		event=Event.get(event_id)
+	)
 
 
 @view
 def images(event_id) :
-	return render_template('event_magazine/images.html', Event.get(event_id))
+	return render_template('event_magazine/images.html',
+		event=Event.get(event_id)
+	)
 
 
 @view
 def news(event_id) :
-	return render_template('event_magazine/news.html', Event.get(event_id))
+	return render_template('event_magazine/news.html',
+		event=Event.get(event_id)
+	)
 
 @view
 def three_lines(event_id) :
-	return render_template('event_magazine/3lines.html', Event.get(event_id))
+	return render_template('event_magazine/3lines.html', 
+		event=Event.get(event_id)
+	)
 
 
 

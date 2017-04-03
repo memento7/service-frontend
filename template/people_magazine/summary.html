@@ -12,7 +12,7 @@
 {% block content %}
 	{{ super() }}
 
-	{% for w in in_one_word %}
+	{% for w in person.in_one_word %}
 	<section id="in-one-word" class="common-tile">
 		<div>
 			<i class="fa fa-quote-left"></i>
@@ -28,14 +28,14 @@
 	{% endfor %}
 
 
-	{% if group %}
+	{% if person.group %}
 	<section id="singer-group" class="common-tile">
 		<div class="title clearfix">
-			<h4 class="group-title fl">{{ group.name }}</h4>
-			<div class="group-company fr">{{ group.belongs }}</div>
+			<h4 class="group-title fl">{{ person.group.name }}</h4>
+			<div class="group-company fr">{{ person.group.belongs }}</div>
 		</div>
 		<ul class="member clearfix">
-			{% for member in group.members %}
+			{% for member in person.group.members %}
 			<li>
 				<img src="{{ member.image }}" width="60" height="60">
 				<div>{{ member.name }}</div>
