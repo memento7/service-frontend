@@ -95,19 +95,9 @@ def index(id) :
 def timeline(name) :
 	person = People.get(name)
 
-	date_sorting_lambda = lambda d: d.date
-	events = sorted(person.events, key=lambda d: d.issue_score['score'], reverse=True)
-	
-	timelines = [
-		sorted(events[0:7], key=date_sorting_lambda, reverse=True),
-		sorted(events[0:20], key=date_sorting_lambda, reverse=True),
-		sorted(events[0:40], key=date_sorting_lambda, reverse=True),
-		sorted(events, key=date_sorting_lambda, reverse=True),
-	]
-
 	return render_template('people_magazine/timeline.html',
 		person=person,
-		timelines=timelines,
+		timelines=person.get_timelines(),
 	)
 
 
@@ -120,18 +110,10 @@ def images(name) :
 @view
 def role_data(name, rolename) :
 	person = People.get(name)
-
-	current_role = None
-	for role in person.roles.values() :
-		if role['name'] == rolename :
-			current_role = role
-			break
-
-	#person['role_stat_info'] = People.role_stat_info[ roletype ]
 	
 	return render_template('people_magazine/role_data.html',
 		person=person,
-		current_role=current_role,
+		current_role=person.get_role(rolename),
 	)
 
 

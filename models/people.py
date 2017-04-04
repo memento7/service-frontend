@@ -62,13 +62,6 @@ class People :
 		self.updated_time = updated_time
 		self.published_time = published_time
 
-
-
-		# tmp
-		# self.events = events
-		# for event in self.events :
-		# 	event['title'] = Event.tag_remover.sub('', event['title'])
-
 		self.events = []
 		for event in events :
 			self.events.append( Event(**event) )
@@ -77,6 +70,8 @@ class People :
 
 
 	def init_roles(self) :
+		""" Init role datas from role_json
+		"""
 		roles = {}
 		stat_counts = 0
 
@@ -105,6 +100,37 @@ class People :
 
 		self.roles = roles
 		self.stat_counts = stat_counts
+
+
+	def get_role(self, id=None, name=None) :
+		""" Get specific role by id or name
+		"""
+		if id :
+			return self.roles[id]
+
+		elif name :
+			for role in self.roles.values() :
+				if role['name'] == name :
+					return role
+			return None
+
+		else :
+			return self.roles
+
+
+	def get_timelines(self) :
+		""" Get timelines
+			Temporarily processed in front-end
+		"""
+		date_sorting_lambda = lambda d: d.date
+		events = sorted(self.events, key=lambda d: d.issue_score['score'], reverse=True)
+		
+		return [
+			sorted(events[0:7], key=date_sorting_lambda, reverse=True),
+			sorted(events[0:20], key=date_sorting_lambda, reverse=True),
+			sorted(events[0:40], key=date_sorting_lambda, reverse=True),
+			sorted(events, key=date_sorting_lambda, reverse=True),
+		]
 
 
 
