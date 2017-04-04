@@ -66,7 +66,7 @@ def index(id) :
 
 	from datetime import datetime
 	for event in person.events :
-		event_timestamp = datetime.strptime(event['date'], '%Y-%m-%d %H:%M:%S').timestamp()
+		event_timestamp = datetime.strptime(event.date, '%Y-%m-%d %H:%M:%S').timestamp()
 
 		for index, tt in enumerate(top_trend_graph) :
 			tt_timestamp = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
@@ -74,7 +74,7 @@ def index(id) :
 			# Similar date
 			if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
 				
-				if index not in top_trends or top_trends[index]['event']['issue_score'] < event['issue_score'] : 
+				if index not in top_trends or top_trends[index]['event'].issue_score['score'] < event.issue_score['score'] : 
 					# Update
 					top_trends[index] = {
 						'event': event,
@@ -95,8 +95,8 @@ def index(id) :
 def timeline(name) :
 	person = People.get(name)
 
-	date_sorting_lambda = lambda d: d['date']
-	events = sorted(person.events, key=lambda d: d['issue_score'], reverse=True)
+	date_sorting_lambda = lambda d: d.date
+	events = sorted(person.events, key=lambda d: d.issue_score['score'], reverse=True)
 	
 	timelines = [
 		sorted(events[0:7], key=date_sorting_lambda, reverse=True),

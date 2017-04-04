@@ -24,8 +24,7 @@ view('event.keyword_wordcloud').url_rule 	 = '/event/$1/keyword-wordcloud.png'
 
 
 # Get updated entites
-r = requests.get(settings.API_BASE_URL + '/entities/updated')
-new_people = r.json()
+new_people = requests.get(settings.API_BASE_URL + '/entities/updated').json()
 
 
 
@@ -48,20 +47,18 @@ for data in new_people :
 
 
 # Get updated events
-r = requests.get(settings.API_BASE_URL + '/events/updated?size=00')
-new_events = r.json()
+new_events = requests.get(settings.API_BASE_URL + '/events/updated?size=50').json()
 
 new_events.append( Event.get(80001) ) #가데이터 - 김태희,비 결혼
 
 # Register event to model and view
-for event in new_events :
-	Event.register(event['id'], event)
+for data in new_events :
+	event = Event.register(data)
 
-	#for v in ['index', 'images', 'news', 'three_lines', 'emotion_wordcloud', 'keyword_wordcloud'] :
 	for v in ['index', 'images', 'news', 'three_lines', 'keyword_wordcloud'] :
-		view('event.' + v).addpage(event['id'])
+		view('event.' + v).addpage(event.id)
 
-	if event['emotions'] :
-		view('event.emotion_wordcloud').addpage(event['id'])
+	if event.emotions :
+		view('event.emotion_wordcloud').addpage(event.id)
 
 

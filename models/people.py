@@ -56,21 +56,22 @@ class People :
 		self.nickname = nickname
 		self.role_json = role_json
 		self.status = status
+		self.images = images
+		
 		self.created_time = created_time
 		self.updated_time = updated_time
 		self.published_time = published_time
-		self.images = images
 
 
 
 		# tmp
-		self.events = events
-		for event in self.events :
-			event['title'] = Event.tag_remover.sub('', event['title'])
+		# self.events = events
+		# for event in self.events :
+		# 	event['title'] = Event.tag_remover.sub('', event['title'])
 
-		# self.events = []
-		# for event in events :
-		# 	self.events.append( Event(**event) )
+		self.events = []
+		for event in events :
+			self.events.append( Event(**event) )
 
 		self.init_roles()
 
@@ -207,6 +208,7 @@ People.register({
 			}
 		}
 	},
+
 	'events': [
 		{
 			'id': 80001,
@@ -214,6 +216,7 @@ People.register({
 			'title': "김태희-비 열애끝에 결혼",
 			'type': '연예',
 			'issue_score': 300000,
+			'top_percentile': 1,
 			'emotions': [
 				{
 					'title': "축하해요",
@@ -244,6 +247,7 @@ People.register({
 			'title': "SBS 드라마 '용팔이' 출연",
 			'type': '미디어',
 			'issue_score': 15000,
+			'top_percentile': 40,
 			'emotions': [
 				{
 					'title': "멋져요",
@@ -266,6 +270,7 @@ People.register({
 			'title': "김태희-비 열애",
 			'type': '연예',
 			'issue_score': 230000,
+			'top_percentile': 6,
 			'emotions': [
 				{
 					'title': "놀라워요",
@@ -288,6 +293,7 @@ People.register({
 			'title': "KBS 드라마 '아이리스' 출연",
 			'type': '미디어',
 			'issue_score': 19000,
+			'top_percentile': 60,
 			'emotions': [
 				{
 					'title': "재미있어요",
