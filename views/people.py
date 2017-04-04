@@ -56,7 +56,7 @@ def get_trend_data(name) :
 def index(id) :
 	person = People.get(id)
 	
-	trend_graph = get_trend_data(person['nickname'])
+	trend_graph = get_trend_data(person.nickname)
 
 	# Process trends
 	sorted_trend = sorted(trend_graph, key=lambda d: d['value'], reverse=True)
@@ -65,7 +65,7 @@ def index(id) :
 	top_trends = {}
 
 	from datetime import datetime
-	for event in person['events'] :
+	for event in person.events :
 		event_timestamp = datetime.strptime(event['date'], '%Y-%m-%d %H:%M:%S').timestamp()
 
 		for index, tt in enumerate(top_trend_graph) :
@@ -93,10 +93,10 @@ def index(id) :
 
 @view
 def timeline(name) :
-	data = People.get(name)
+	person = People.get(name)
 
 	date_sorting_lambda = lambda d: d['date']
-	events = sorted(data['events'], key=lambda d: d['issue_score'], reverse=True)
+	events = sorted(person.events, key=lambda d: d['issue_score'], reverse=True)
 	
 	timelines = [
 		sorted(events[0:7], key=date_sorting_lambda, reverse=True),
@@ -106,7 +106,7 @@ def timeline(name) :
 	]
 
 	return render_template('people_magazine/timeline.html',
-		person=data,
+		person=person,
 		timelines=timelines,
 	)
 
@@ -119,19 +119,19 @@ def images(name) :
 
 @view
 def role_data(name, rolename) :
-	data = People.get(name)
+	person = People.get(name)
 
-	data['rolename'] = rolename
-
-	for role in data['role_json'].values() :
+	current_role = None
+	for role in person.roles.values() :
 		if role['name'] == rolename :
-			data['roledata'] = role
+			current_role = role
 			break
 
-	#data['role_stat_info'] = People.role_stat_info[ roletype ]
+	#person['role_stat_info'] = People.role_stat_info[ roletype ]
 	
 	return render_template('people_magazine/role_data.html',
-		person=data
+		person=person,
+		current_role=current_role,
 	)
 
 

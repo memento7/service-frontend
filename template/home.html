@@ -95,7 +95,7 @@
 						<div class="background" style="{{ first_image(person.images, True) }}"></div>
 						<div class="content">
 							<h4>{{ person.nickname }}</h4>
-							{% if person.is_mockup %}
+							{% if person.status == 4 %}
 							<div class="description">사람이 넣은 가데이터로 만든 페이지입니다</div>
 							{% endif %}
 						</div>

@@ -33,23 +33,22 @@ new_people = r.json()
 new_people.append( People.get(70001) ) #가데이터 - 수지
 new_people.append( People.get(70002) ) #가데이터 - 김태희
 
-for person in new_people :
-	person = People.register(person['id'], person)
+for data in new_people :
+	person = People.register(data)
 
-	view('people.index').addpage(person['id'])
-	view('people.timeline').addpage(person['id'])
-	view('people.images').addpage(person['id'])
+	view('people.index').addpage(person.id)
+	view('people.timeline').addpage(person.id)
+	view('people.images').addpage(person.id)
 
-	if 'role_json' in person :
-		for role in person['role_json'].values() :
-			if 'stat_records' in role :
-				view('people.role_data').addpage(person['id'], role['name'])
+	for role in person.role_json.values() :
+		if 'stat_records' in role :
+			view('people.role_data').addpage(person.id, role['name'])
 
 
 
 
 # Get updated events
-r = requests.get(settings.API_BASE_URL + '/events/updated?size=500')
+r = requests.get(settings.API_BASE_URL + '/events/updated?size=00')
 new_events = r.json()
 
 new_events.append( Event.get(80001) ) #가데이터 - 김태희,비 결혼

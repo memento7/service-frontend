@@ -41,8 +41,8 @@
 			{{ nav_li('/people/%s/timeline' % person.id, '타임라인', _page.url) }}
 			{{ nav_li('/people/%s/images' % person.id, '사진', _page.url) }}
 
-			{% for roletype, roledata in person.role_json.items() %}
-			{% if roledata.stat_records %}
+			{% for roleid, roledata in person.roles.items() %}
+			{% if roledata.stats %}
 				{{ nav_li('/people/%s/%s' % (person.id, roledata.name), roledata.name, _page.url) }}
 			{% endif %}
 			{% endfor %}
