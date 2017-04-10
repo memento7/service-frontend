@@ -1,6 +1,6 @@
 # people.py
 
-from jikji.view import render_template, view
+from jikji import render_template, register_view
 from models.people import People
 import globals
 
@@ -52,7 +52,7 @@ def get_trend_data(name) :
 	return result
 
 
-@view
+@register_view
 def index(id) :
 	person = People.get(id)
 	
@@ -91,7 +91,7 @@ def index(id) :
 	)
 
 
-@view
+@register_view
 def timeline(name) :
 	person = People.get(name)
 
@@ -101,13 +101,13 @@ def timeline(name) :
 	)
 
 
-@view
+@register_view
 def images(name) :
 	return render_template('people_magazine/images.html',
 		person=People.get(name)
 	)
 
-@view
+@register_view
 def role_data(name, rolename) :
 	person = People.get(name)
 	

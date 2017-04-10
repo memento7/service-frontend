@@ -1,6 +1,6 @@
 # event.py
 
-from jikji.view import render_template, view
+from jikji import render_template, register_view
 from models.event import Event
 import globals
 import settings
@@ -44,37 +44,37 @@ def get_wordcloud(data) :
 	return image2str(image)
 
 
-@view
+@register_view
 def emotion_wordcloud(event_id) :
 	return get_wordcloud(Event.get(event_id).emotions)
 
-@view
+@register_view
 def keyword_wordcloud(event_id) :
 	return get_wordcloud(Event.get(event_id).keywords)
 
 
 
-@view
+@register_view
 def index(event_id) :
 	return render_template('event_magazine/summary.html', 
 		event=Event.get(event_id)
 	)
 
 
-@view
+@register_view
 def images(event_id) :
 	return render_template('event_magazine/images.html',
 		event=Event.get(event_id)
 	)
 
 
-@view
+@register_view
 def news(event_id) :
 	return render_template('event_magazine/news.html',
 		event=Event.get(event_id)
 	)
 
-@view
+@register_view
 def three_lines(event_id) :
 	return render_template('event_magazine/3lines.html', 
 		event=Event.get(event_id)
