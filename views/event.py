@@ -46,11 +46,11 @@ def get_wordcloud(data) :
 
 @view
 def emotion_wordcloud(event_id) :
-	return get_wordcloud(Event.get(event_id)['emotions'])
+	return get_wordcloud(Event.get(event_id).emotions)
 
 @view
 def keyword_wordcloud(event_id) :
-	return get_wordcloud(Event.get(event_id)['keywords'])
+	return get_wordcloud(Event.get(event_id).keywords)
 
 
 

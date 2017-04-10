@@ -33,13 +33,13 @@
 	<script type="text/javascript">
 		makeStatChart(
 			document.getElementById("stat-chart"),
-			{{ person.roledata.stat_records.labels | safe }},
-			{{ person.roledata.stat_records.datas | safe }}
+			{{ current_role.stats2.labels | safe }},
+			{{ current_role.stats2.datas | safe }}
 		);
 	</script>
 	
 
-	{% for entity_type, entities in person.roledata.related_entities.items() %}
+	{% for entity_type, entities in current_role.related_entities.items() %}
 
 	<section class="role-entities common-tile">
 		<h3>{{ l10n(entity_type) }}</h3>

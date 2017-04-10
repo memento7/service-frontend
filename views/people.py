@@ -56,7 +56,7 @@ def get_trend_data(name) :
 def index(id) :
 	person = People.get(id)
 	
-	trend_graph = get_trend_data(person['nickname'])
+	trend_graph = get_trend_data(person.nickname)
 
 	# Process trends
 	sorted_trend = sorted(trend_graph, key=lambda d: d['value'], reverse=True)
@@ -65,8 +65,8 @@ def index(id) :
 	top_trends = {}
 
 	from datetime import datetime
-	for event in person['events'] :
-		event_timestamp = datetime.strptime(event['date'], '%Y-%m-%d %H:%M:%S').timestamp()
+	for event in person.events :
+		event_timestamp = datetime.strptime(event.date, '%Y-%m-%d %H:%M:%S').timestamp()
 
 		for index, tt in enumerate(top_trend_graph) :
 			tt_timestamp = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
@@ -74,7 +74,7 @@ def index(id) :
 			# Similar date
 			if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
 				
-				if index not in top_trends or top_trends[index]['event']['issue_score'] < event['issue_score'] : 
+				if index not in top_trends or top_trends[index]['event'].issue_score['score'] < event.issue_score['score'] : 
 					# Update
 					top_trends[index] = {
 						'event': event,
@@ -93,21 +93,11 @@ def index(id) :
 
 @view
 def timeline(name) :
-	data = People.get(name)
-
-	date_sorting_lambda = lambda d: d['date']
-	events = sorted(data['events'], key=lambda d: d['issue_score'], reverse=True)
-	
-	timelines = [
-		sorted(events[0:7], key=date_sorting_lambda, reverse=True),
-		sorted(events[0:20], key=date_sorting_lambda, reverse=True),
-		sorted(events[0:40], key=date_sorting_lambda, reverse=True),
-		sorted(events, key=date_sorting_lambda, reverse=True),
-	]
+	person = People.get(name)
 
 	return render_template('people_magazine/timeline.html',
-		person=data,
-		timelines=timelines,
+		person=person,
+		timelines=person.get_timelines(),
 	)
 
 
@@ -119,19 +109,11 @@ def images(name) :
 
 @view
 def role_data(name, rolename) :
-	data = People.get(name)
-
-	data['rolename'] = rolename
-
-	for role in data['role_json'].values() :
-		if role['name'] == rolename :
-			data['roledata'] = role
-			break
-
-	#data['role_stat_info'] = People.role_stat_info[ roletype ]
+	person = People.get(name)
 	
 	return render_template('people_magazine/role_data.html',
-		person=data
+		person=person,
+		current_role=person.get_role(rolename),
 	)
 
 

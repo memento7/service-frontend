@@ -5,5 +5,5 @@ from models.people import People
 def home() :
 
 	return render_template('home.html',
-		people= People.people_data
+		people= People._instances
 	)
