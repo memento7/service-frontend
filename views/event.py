@@ -1,7 +1,7 @@
-# event.py
-
 from jikji import render_template, register_view
+from jikji.view import PageGroup, Page
 from models.event import Event
+
 import globals
 import settings
 
@@ -44,41 +44,61 @@ def get_wordcloud(data) :
 	return image2str(image)
 
 
-@register_view
-def emotion_wordcloud(event_id) :
-	return get_wordcloud(Event.get(event_id).emotions)
 
-@register_view
-def keyword_wordcloud(event_id) :
-	return get_wordcloud(Event.get(event_id).keywords)
+class EventPageGroup(PageGroup) :
+	def __init__(self, model) :
+		self.model = model
+		self.id = model.id
 
 
+	def getpages(self) :
+		pages = [
+			Page(self.index, params=self),
+			Page(self.images, params=self),
+			Page(self.news, params=self),
+			Page(self.three_lines, params=self),
+			Page(self.keyword_wordcloud, params=self),
+		]
 
-@register_view
-def index(event_id) :
-	return render_template('event_magazine/summary.html', 
-		event=Event.get(event_id)
-	)
+		if self.model.emotions :
+			pages.append( Page(self.emotion_wordcloud, params=self) )
 
-
-@register_view
-def images(event_id) :
-	return render_template('event_magazine/images.html',
-		event=Event.get(event_id)
-	)
-
-
-@register_view
-def news(event_id) :
-	return render_template('event_magazine/news.html',
-		event=Event.get(event_id)
-	)
-
-@register_view
-def three_lines(event_id) :
-	return render_template('event_magazine/3lines.html', 
-		event=Event.get(event_id)
-	)
+		return pages
 
 
+
+	@register_view
+	def index(self) :
+		return render_template('event_magazine/summary.html', event=self.model)
+
+
+	@register_view
+	def images(self) :
+		return render_template('event_magazine/images.html', event=self.model)
+
+
+	@register_view
+	def news(self) :
+		return render_template('event_magazine/news.html', event=self.model)
+
+	@register_view
+	def three_lines(self) :
+		return render_template('event_magazine/3lines.html', event=self.model)
+
+
+	@register_view
+	def emotion_wordcloud(self) :
+		return get_wordcloud(self.model.emotions)
+
+	@register_view
+	def keyword_wordcloud(self) :
+		return get_wordcloud(self.model.keywords)
+
+
+
+	def before_rendered(self) :
+		pass
+
+	def after_rendered(self) :
+		pass
 

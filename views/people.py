@@ -1,6 +1,5 @@
-# people.py
-
 from jikji import render_template, register_view
+from jikji.view import PageGroup, Page
 from models.people import People
 import globals
 
@@ -52,69 +51,94 @@ def get_trend_data(name) :
 	return result
 
 
-@register_view
-def index(id) :
-	person = People.get(id)
-	
-	trend_graph = get_trend_data(person.nickname)
-
-	# Process trends
-	sorted_trend = sorted(trend_graph, key=lambda d: d['value'], reverse=True)
-	top_trend_graph = sorted_trend[0:3] # 전체 그래프중 가장 높은 3개 날짜
-
-	top_trends = {}
-
-	from datetime import datetime
-	for event in person.events :
-		event_timestamp = datetime.strptime(event.date, '%Y-%m-%d %H:%M:%S').timestamp()
-
-		for index, tt in enumerate(top_trend_graph) :
-			tt_timestamp = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
-
-			# Similar date
-			if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
-				
-				if index not in top_trends or top_trends[index]['event'].issue_score['score'] < event.issue_score['score'] : 
-					# Update
-					top_trends[index] = {
-						'event': event,
-						'graph_data': tt,
-						'color': globals.rand_color()
-					}
 
 
-	return render_template('people_magazine/summary.html',
-		person=person,
-		trend_graph=trend_graph,
-		top_trends=top_trends,
-		People=People,
-	)
+class PeoplePageGroup(PageGroup) :
+
+	def __init__(self, model) :
+		self.model = model
+		self.id = model.id
 
 
-@register_view
-def timeline(name) :
-	person = People.get(name)
+	def getpages(self) :
+		pages = [
+			Page(self.index, params=self),
+			Page(self.timeline, params=self),
+			Page(self.images, params=self),
+		]
 
-	return render_template('people_magazine/timeline.html',
-		person=person,
-		timelines=person.get_timelines(),
-	)
+		for role in self.model.role_json.values() :
+			if 'stat_records' in role :
+				pages.append( Page(view='people.role_data', params=(self.id, role['name'])) )
 
-
-@register_view
-def images(name) :
-	return render_template('people_magazine/images.html',
-		person=People.get(name)
-	)
-
-@register_view
-def role_data(name, rolename) :
-	person = People.get(name)
-	
-	return render_template('people_magazine/role_data.html',
-		person=person,
-		current_role=person.get_role(rolename),
-	)
+		return pages
 
 
+
+	@register_view
+	def index(self) :
+		trend_graph = get_trend_data(self.model.nickname)
+
+		# Process trends
+		sorted_trend = sorted(trend_graph, key=lambda d: d['value'], reverse=True)
+		top_trend_graph = sorted_trend[0:3] # 전체 그래프중 가장 높은 3개 날짜
+
+		top_trends = {}
+
+		from datetime import datetime
+		for event in self.model.events :
+			event_timestamp = datetime.strptime(event.date, '%Y-%m-%d %H:%M:%S').timestamp()
+
+			for index, tt in enumerate(top_trend_graph) :
+				tt_timestamp = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
+
+				# Similar date
+				if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
+					
+					if index not in top_trends or top_trends[index]['event'].issue_score['score'] < event.issue_score['score'] : 
+						# Update
+						top_trends[index] = {
+							'event': event,
+							'graph_data': tt,
+							'color': globals.rand_color()
+						}
+
+
+		return render_template('people_magazine/summary.html',
+			person = self.model,
+			trend_graph = trend_graph,
+			top_trends = top_trends,
+			People = People,
+		)
+
+
+	@register_view
+	def timeline(self) :
+		return render_template('people_magazine/timeline.html',
+			person = self.model,
+			timelines = self.model.get_timelines(),
+		)
+
+
+	@register_view
+	def images(self) :
+		return render_template('people_magazine/images.html',
+			person = self.model
+		)
+
+	@register_view
+	def role_data(name, rolename) :
+		person = People.get(name)
+		
+		return render_template('people_magazine/role_data.html',
+			person = person,
+			current_role = person.get_role(rolename),
+		)
+
+
+	def before_rendered(self) :
+		pass
+
+	def after_rendered(self) :
+		pass
 
