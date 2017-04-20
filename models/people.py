@@ -81,21 +81,22 @@ class People :
 			roles[roleid] = {
 				'info': roleinfo,
 				'name': roleinfo['name'],
-				'data': value['data']
+				'data': value['data'],
 			}
+			role = roles[roleid]
 
-			stats = None
-			try :
-				stats = roles[roleid]['data']['score']
-			except KeyError as ke : pass
-			except e : raise e
+			role['related_entities'] = value.get('related_entities', {})
+			stats = role['data'].get('stats', None)
+
 
 			if stats :
-				roles[roleid]['stats2'] = {
+				role['stats2'] = {
 					'labels': [globals.l10n(i) for i in stats.keys()],
 					'datas': [globals.l10n(i) for i in stats.values()],
 				}
 				stat_counts += 1
+
+			role['data']['stats'] = stats
 
 
 		self.roles = roles
@@ -156,24 +157,26 @@ People.register({
 	'role_json': {
 		"ACTOR": {
 			'data': {
-				'score': {
+				'stats': {
 					'looks': 9.4,
 					'empathy': 4.0,
 					'perform': 6.8,
 					'roleplay': 4.1,
 					'stability': 1.6,
-				}
+				},
+				'related_entities': [],
 			}
 		},
 		"SINGER": {
 			'data': {
-				'score': {
+				'stats': {
 					'dance': 7.9,
 					'looks': 9.4,
 					'emotional': 3.3,
 					'composition': 2.1,
 					'singability': 3.6,
-				}
+				},
+				'related_entities': [],
 			}
 		}
 	},
@@ -224,13 +227,14 @@ People.register({
 	'role_json': {
 		"ACTOR": {
 			'data': {
-				'score': {
+				'stats': {
 					'looks': 9.4,
 					'empathy': 4.0,
 					'perform': 7.9,
 					'roleplay': 4.1,
 					'stability': 1.6,
-				}
+				},
+				'related_entities': [],
 			}
 		}
 	},

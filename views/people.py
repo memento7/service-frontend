@@ -67,9 +67,9 @@ class PeoplePageGroup(PageGroup) :
 			Page(self.images, params=self),
 		]
 
-		for role in self.model.role_json.values() :
-			if 'stat_records' in role :
-				pages.append( Page(view='people.role_data', params=(self.id, role['name'])) )
+		for role in self.model.roles.values() :
+			if role['data']['stats'] :
+				pages.append( Page(self.role_data, params=(self, role['name'])) )
 
 		return pages
 
@@ -94,7 +94,6 @@ class PeoplePageGroup(PageGroup) :
 
 				# Similar date
 				if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
-					
 					if index not in top_trends or top_trends[index]['event'].issue_score['score'] < event.issue_score['score'] : 
 						# Update
 						top_trends[index] = {
@@ -126,13 +125,12 @@ class PeoplePageGroup(PageGroup) :
 			person = self.model
 		)
 
+
 	@register_view
-	def role_data(name, rolename) :
-		person = People.get(name)
-		
+	def role_data(self, rolename) :		
 		return render_template('people_magazine/role_data.html',
-			person = person,
-			current_role = person.get_role(rolename),
+			person = self.model,
+			current_role = self.model.get_role(name=rolename),
 		)
 
 

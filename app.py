@@ -14,7 +14,7 @@ getview('home.home').url_rule = '/'
 getview('people.index').url_rule 	 = '/people/{ id }/'
 getview('people.timeline').url_rule  = '/people/{ id }/timeline/'
 getview('people.images').url_rule 	 = '/people/{ id }/images/'
-getview('people.role_data').url_rule = '/people/$1/$2/'
+getview('people.role_data').url_rule = '/people/{ $1.id }/{ $2 }/'
 
 getview('event.index').url_rule 	 		 = '/event/{ id }/'
 getview('event.images').url_rule 			 = '/event/{ id }/images/'
@@ -41,7 +41,7 @@ for data in new_people :
 
 
 # Get updated events
-new_events = requests.get(settings.API_BASE_URL + '/events/updated?size=50').json()
+new_events = requests.get(settings.API_BASE_URL + '/events/updated?size=5').json()
 new_events.append( Event.get(80001) ) #가데이터 - 김태희,비 결혼
 
 # Register event to model and view
