@@ -1,4 +1,7 @@
 import os
+from jikji.publisher import LocalPublisher
+import _security
+
 
 # Root Path of Application
 ROOT_PATH = os.path.dirname(__file__)
@@ -13,8 +16,8 @@ STATIC_ROOT = ROOT_PATH + '/static'
 # Directory that includes View files
 VIEW_ROOT = ROOT_PATH + '/views'
 
-# Directory that rendered output will be located
-OUTPUT_ROOT = ROOT_PATH + '/output'
+# Publisher instance used after generation
+PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/output')
 
 
 
@@ -24,11 +27,14 @@ INIT_SCRIPTS = (
 )
 
 
-FILTERS = ROOT_PATH + '/filters.py'
+# FILTERS = ROOT_PATH + '/filters.py'
 GLOBALS = ROOT_PATH + '/globals.py'
 
 
+# Process Core cnt
+PROCESSES = 5
 
 
-#API_BASE_URL = 'http://175.207.13.224:8080/manage/api/publish'
-API_BASE_URL = 'http://api.memento.live/publish'
+
+API_BASE_URL = _security.API_BASE_URL
+BASIC_AUTH_KEY = _security.BASIC_AUTH_KEY

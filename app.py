@@ -1,6 +1,9 @@
 from jikji import getview, addpage, addpagegroup
 from models.people import People
 from models.event import Event
+from models import _mockup
+from models.base import Model
+
 from views.people import PeoplePageGroup
 from views.event import EventPageGroup
 
@@ -8,7 +11,8 @@ import requests
 import settings
 
 
-# Config URLs
+""" Config URLs
+"""
 getview('home.home').url_rule = '/'
 
 getview('people.index').url_rule 	 = '/people/{ id }/'
@@ -24,29 +28,31 @@ getview('event.emotion_wordcloud').url_rule  = '/event/{ id }/emotion-wordcloud.
 getview('event.keyword_wordcloud').url_rule  = '/event/{ id }/keyword-wordcloud.png'
 
 
+
+""" Add pages and pagegroups
+"""
+
 addpage(view='home.home')
 
 
-# Get updated entites
-new_people = requests.get(settings.API_BASE_URL + '/entities/updated').json()
+# Mockup data
+addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70001) ) ) # 가데이터 - 수지
+addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70002) ) ) # 가데이터 - 수지
+addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # 가데이터 - 김태희,비 결혼
 
-# Register people to model and view
-new_people.append( People.get(70001) ) #가데이터 - 수지
-new_people.append( People.get(70002) ) #가데이터 - 김태희
 
-for data in new_people :
+
+# Get updated entites and register pages
+for data in Model.api_get('/entities/updated') :
 	person = People.register(data)
-	addpagegroup( PeoplePageGroup(model=person) )
+	addpagegroup( PeoplePageGroup( model=person ) )
 
-
-
-# Get updated events
-new_events = requests.get(settings.API_BASE_URL + '/events/updated?size=5').json()
-new_events.append( Event.get(80001) ) #가데이터 - 김태희,비 결혼
-
-# Register event to model and view
-for data in new_events :
+# Get updated events and register pages
+for data in Model.api_get('/events/updated?size=50') :
 	event = Event.register(data)
-	addpagegroup( EventPageGroup(model=event) )
+	addpagegroup( EventPageGroup( model=event ) )
+
+
+
 
 

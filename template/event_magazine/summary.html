@@ -39,10 +39,10 @@
 		<h3>3줄 요약</h3>
 
 		<div class="content">
-		{% if event.three_line_summaries and event.three_line_summaries | length %}
+		{% if event.summaries3line and event.summaries3line | length %}
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-					{% for summary in event.three_line_summaries %}
+					{% for summary in event.summaries3line %}
 					<div class="swiper-slide">
 						<ol class="three-line-summary">
 							{% for line in summary.content %}
