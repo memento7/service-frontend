@@ -1,7 +1,7 @@
 from jikji import render_template, register_view
 from jikji.view import PageGroup, Page
 from models.people import People
-import globals
+from lib import functions
 
 
 def get_trend_data(name) :
@@ -99,7 +99,7 @@ class PeoplePageGroup(PageGroup) :
 						top_trends[index] = {
 							'event': event,
 							'graph_data': tt,
-							'color': globals.rand_color()
+							'color': functions.rand_color()
 						}
 
 
@@ -137,6 +137,6 @@ class PeoplePageGroup(PageGroup) :
 	def before_rendered(self) :
 		pass
 
-	def after_rendered(self) :
+	def after_rendered(self, success_pages, errors, ignored_pages) :
 		pass
 

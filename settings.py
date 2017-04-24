@@ -1,6 +1,6 @@
 import os
-from jikji.publisher import LocalPublisher
-import _security
+from jikji.publisher import LocalPublisher, S3Publisher
+from lib import security 
 
 
 # Root Path of Application
@@ -17,7 +17,8 @@ STATIC_ROOT = ROOT_PATH + '/static'
 VIEW_ROOT = ROOT_PATH + '/views'
 
 # Publisher instance used after generation
-PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/output')
+#PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/output')
+PUBLISHER = S3Publisher('beta.memento.live')
 
 
 
@@ -28,13 +29,11 @@ INIT_SCRIPTS = (
 
 
 # FILTERS = ROOT_PATH + '/filters.py'
-GLOBALS = ROOT_PATH + '/globals.py'
+GLOBALS = ROOT_PATH + '/lib/functions.py'
 
 
 # Process Core cnt
 PROCESSES = 5
 
 
-
-API_BASE_URL = _security.API_BASE_URL
-BASIC_AUTH_KEY = _security.BASIC_AUTH_KEY
+BASIC_AUTH_KEY = security.BASIC_AUTH_KEY

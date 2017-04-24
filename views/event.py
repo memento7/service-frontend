@@ -2,7 +2,7 @@ from jikji import render_template, register_view
 from jikji.view import PageGroup, Page
 from models.event import Event
 
-import globals
+from lib import functions
 import settings
 
 
@@ -28,7 +28,7 @@ def get_wordcloud(data) :
 		#text += (e['keyword'] + ' ') * int(e['weight'] / 3)	
 
 	def custom_color_func(word, font_size, *arg, **kwarg) :
-		return globals.rand_color()
+		return functions.rand_color()
 
 	wc = WordCloud(
 		background_color = "white",
@@ -99,6 +99,6 @@ class EventPageGroup(PageGroup) :
 	def before_rendered(self) :
 		pass
 
-	def after_rendered(self) :
+	def after_rendered(self, success_pages, errors, ignored_pages) :
 		pass
 

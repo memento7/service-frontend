@@ -1,12 +1,10 @@
-from models.base import Model
 import re
 
-class Event(Model) :
+class Event :
 
 	tag_remover = re.compile(r'<[^>]+>')
 	_instances = {}
 
-	
 
 	@staticmethod
 	def register(data) :

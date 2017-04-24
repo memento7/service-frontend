@@ -1,10 +1,10 @@
-from models.base import Model
-from models.event import Event
-import settings
 import requests
-import globals
 
-class People(Model) :
+from models.event import Event
+from lib import functions
+from lib.api import PublishAPI
+
+class People :
 
 	_roleinfo = None
 	_instances = {}
@@ -16,8 +16,7 @@ class People(Model) :
 		"""
 		if not People._roleinfo :
 			# If roleinfo is not initialzied, init info
-			#role_arr = requests.get(settings.API_BASE_URL + '/entities/roles').json()
-			role_arr = Model.api_get('/entities/roles')
+			role_arr = PublishAPI.get('/entities/roles')
 			rv = {}
 
 			for role in role_arr :
@@ -93,8 +92,8 @@ class People(Model) :
 
 			if stats :
 				role['stats2'] = {
-					'labels': [globals.l10n(i) for i in stats.keys()],
-					'datas': [globals.l10n(i) for i in stats.values()],
+					'labels': [functions.l10n(i) for i in stats.keys()],
+					'datas': [functions.l10n(i) for i in stats.values()],
 				}
 				stat_counts += 1
 

@@ -2,10 +2,11 @@ from jikji import getview, addpage, addpagegroup
 from models.people import People
 from models.event import Event
 from models import _mockup
-from models.base import Model
 
 from views.people import PeoplePageGroup
 from views.event import EventPageGroup
+
+from lib.api import PublishAPI
 
 import requests
 import settings
@@ -43,12 +44,12 @@ addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # ê°
 
 
 # Get updated entites and register pages
-for data in Model.api_get('/entities/updated') :
+for data in PublishAPI.get('/entities/updated') :
 	person = People.register(data)
 	addpagegroup( PeoplePageGroup( model=person ) )
 
 # Get updated events and register pages
-for data in Model.api_get('/events/updated?size=50') :
+for data in PublishAPI.get('/events/updated?size=5') :
 	event = Event.register(data)
 	addpagegroup( EventPageGroup( model=event ) )
 
