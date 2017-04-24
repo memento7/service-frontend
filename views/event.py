@@ -1,8 +1,9 @@
-# event.py
-
-from jikji.view import render_template, view
+from jikji import render_template, register_view
+from jikji.view import PageGroup, Page
 from models.event import Event
-import globals
+
+from lib import functions
+from lib.api import PublishAPI
 import settings
 
 
@@ -28,7 +29,7 @@ def get_wordcloud(data) :
 		#text += (e['keyword'] + ' ') * int(e['weight'] / 3)	
 
 	def custom_color_func(word, font_size, *arg, **kwarg) :
-		return globals.rand_color()
+		return functions.rand_color()
 
 	wc = WordCloud(
 		background_color = "white",
@@ -44,41 +45,60 @@ def get_wordcloud(data) :
 	return image2str(image)
 
 
-@view
-def emotion_wordcloud(event_id) :
-	return get_wordcloud(Event.get(event_id).emotions)
 
-@view
-def keyword_wordcloud(event_id) :
-	return get_wordcloud(Event.get(event_id).keywords)
+class EventPageGroup(PageGroup) :
+	def __init__(self, model) :
+		self.model = model
+		self.id = model.id
 
 
+	def getpages(self) :
+		pages = [
+			Page(self.index, params=self),
+			Page(self.images, params=self),
+			Page(self.news, params=self),
+			Page(self.three_lines, params=self),
+			Page(self.keyword_wordcloud, params=self),
+		]
 
-@view
-def index(event_id) :
-	return render_template('event_magazine/summary.html', 
-		event=Event.get(event_id)
-	)
+		if self.model.emotions :
+			pages.append( Page(self.emotion_wordcloud, params=self) )
+
+		return pages
 
 
-@view
-def images(event_id) :
-	return render_template('event_magazine/images.html',
-		event=Event.get(event_id)
-	)
+
+	@register_view
+	def index(self) :
+		return render_template('event_magazine/summary.html', event=self.model)
 
 
-@view
-def news(event_id) :
-	return render_template('event_magazine/news.html',
-		event=Event.get(event_id)
-	)
+	@register_view
+	def images(self) :
+		return render_template('event_magazine/images.html', event=self.model)
 
-@view
-def three_lines(event_id) :
-	return render_template('event_magazine/3lines.html', 
-		event=Event.get(event_id)
-	)
 
+	@register_view
+	def news(self) :
+		return render_template('event_magazine/news.html', event=self.model)
+
+	@register_view
+	def three_lines(self) :
+		return render_template('event_magazine/3lines.html', event=self.model)
+
+
+	@register_view
+	def emotion_wordcloud(self) :
+		return get_wordcloud(self.model.emotions)
+
+	@register_view
+	def keyword_wordcloud(self) :
+		return get_wordcloud(self.model.keywords)
+
+
+
+	def after_published(self, success_pages, errors, ignored_pages) :
+		if len(errors) == 0 :
+			PublishAPI.enqueue_event_published(self.id)
 
 

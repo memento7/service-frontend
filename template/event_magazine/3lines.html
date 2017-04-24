@@ -22,8 +22,8 @@
 			<button class="write" onclick="alert('준비중입니다')">3줄 요약 작성하기</button>
 		</div>
 
-	{% if event.three_line_summaries and event.three_line_summaries | length %}
-		{% for summary in event.three_line_summaries %}
+	{% if event.summaries3line and event.summaries3line | length %}
+		{% for summary in event.summaries3line %}
 		<div class="three-line-tile">
 			<div class="clearfix">
 				<h4>@{{ summary.author }}</h4>

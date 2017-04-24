@@ -1,3 +1,7 @@
-output/
 __pycache__
-/_*
+*.pyc
+*.pyo
+
+_output/
+.jikji
+lib/security.py

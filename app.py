@@ -1,64 +1,59 @@
-from jikji.view import view
+from jikji import getview, addpage, addpagegroup
 from models.people import People
 from models.event import Event
+from models import _mockup
+
+from views.people import PeoplePageGroup
+from views.event import EventPageGroup
+
+from lib.api import PublishAPI
+
 import requests
 import settings
 
 
-# Config URLs
-view('home.home').url_rule = '/'
-view('home.home').addpage()
+""" Config URLs
+"""
+getview('home.home').url_rule = '/'
 
-view('people.index').url_rule 	 = '/people/$1/'
-view('people.timeline').url_rule = '/people/$1/timeline/'
-view('people.images').url_rule = '/people/$1/images/'
-view('people.role_data').url_rule = '/people/$1/$2/'
+getview('people.index').url_rule 	 = '/people/{ id }/'
+getview('people.timeline').url_rule  = '/people/{ id }/timeline/'
+getview('people.images').url_rule 	 = '/people/{ id }/images/'
+getview('people.role_data').url_rule = '/people/{ $1.id }/{ $2 }/'
 
-view('event.index').url_rule 	 = '/event/$1/'
-view('event.images').url_rule 	 = '/event/$1/images/'
-view('event.news').url_rule 	 = '/event/$1/news/'
-view('event.three_lines').url_rule 	 		 = '/event/$1/3lines/'
-view('event.emotion_wordcloud').url_rule 	 = '/event/$1/emotion-wordcloud.png'
-view('event.keyword_wordcloud').url_rule 	 = '/event/$1/keyword-wordcloud.png'
-
-
-
-# Get updated entites
-new_people = requests.get(settings.API_BASE_URL + '/entities/updated').json()
+getview('event.index').url_rule 	 		 = '/event/{ id }/'
+getview('event.images').url_rule 			 = '/event/{ id }/images/'
+getview('event.news').url_rule 		 		 = '/event/{ id }/news/'
+getview('event.three_lines').url_rule 	 	 = '/event/{ id }/3lines/'
+getview('event.emotion_wordcloud').url_rule  = '/event/{ id }/emotion-wordcloud.png'
+getview('event.keyword_wordcloud').url_rule  = '/event/{ id }/keyword-wordcloud.png'
 
 
 
-# Register people to model and view
-new_people.append( People.get(70001) ) #가데이터 - 수지
-new_people.append( People.get(70002) ) #가데이터 - 김태희
+""" Add pages and pagegroups
+"""
 
-for data in new_people :
+addpage(view='home.home')
+
+
+# Mockup data
+addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70001) ) ) # 가데이터 - 수지
+addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70002) ) ) # 가데이터 - 수지
+addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # 가데이터 - 김태희,비 결혼
+
+
+
+# Get updated entites and register pages
+for data in PublishAPI.get('/entities/updated?size=1') :
 	person = People.register(data)
+	addpagegroup( PeoplePageGroup( model=person ) )
 
-	view('people.index').addpage(person.id)
-	view('people.timeline').addpage(person.id)
-	view('people.images').addpage(person.id)
-
-	for role in person.role_json.values() :
-		if 'stat_records' in role :
-			view('people.role_data').addpage(person.id, role['name'])
-
-
-
-
-# Get updated events
-new_events = requests.get(settings.API_BASE_URL + '/events/updated?size=50').json()
-
-new_events.append( Event.get(80001) ) #가데이터 - 김태희,비 결혼
-
-# Register event to model and view
-for data in new_events :
+# Get updated events and register pages
+for data in PublishAPI.get('/events/updated?size=5') :
 	event = Event.register(data)
+	addpagegroup( EventPageGroup( model=event ) )
 
-	for v in ['index', 'images', 'news', 'three_lines', 'keyword_wordcloud'] :
-		view('event.' + v).addpage(event.id)
 
-	if event.emotions :
-		view('event.emotion_wordcloud').addpage(event.id)
+
 
 
