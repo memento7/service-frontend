@@ -108,7 +108,7 @@ person70002 = {
 			'date': "2017-01-19 00:00:00",
 			'title': "김태희-비 열애끝에 결혼",
 			'type': '연예',
-			'issue': {
+			'issue_data': {
 				'issue_score': 300000,
 			},
 			'top_percentile': 1,
@@ -141,7 +141,7 @@ person70002 = {
 			'date': "2015-08-15 00:00:00",
 			'title': "SBS 드라마 '용팔이' 출연",
 			'type': '미디어',
-			'issue': {
+			'issue_data': {
 				'issue_score': 15000,
 			},
 			'top_percentile': 40,
@@ -166,7 +166,7 @@ person70002 = {
 			'date': "2013-01-01 00:00:00",
 			'title': "김태희-비 열애",
 			'type': '연예',
-			'issue': {
+			'issue_data': {
 				'issue_score': 230000,
 			},
 			'top_percentile': 6,
@@ -191,7 +191,7 @@ person70002 = {
 			'date': "2009-10-14 00:00:00",
 			'title': "KBS 드라마 '아이리스' 출연",
 			'type': '미디어',
-			'issue': {
+			'issue_data': {
 				'issue_score': 19000,
 			},
 			'top_percentile': 60,
@@ -220,7 +220,7 @@ event80001 = {
 	'date': "2017-01-01 00:00:00",
 	'title': "김태희-비 열애끝에 결혼",
 	'type': '연예',
-	'issue': {
+	'issue_data': {
 		'issue_score': 300000,
 		'issue_rank': 8,
 		'top_percentile': 1.3131,

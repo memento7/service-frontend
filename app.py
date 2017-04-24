@@ -44,7 +44,7 @@ addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # ê°
 
 
 # Get updated entites and register pages
-for data in PublishAPI.get('/entities/updated') :
+for data in PublishAPI.get('/entities/updated?size=1') :
 	person = People.register(data)
 	addpagegroup( PeoplePageGroup( model=person ) )
 

@@ -23,7 +23,7 @@ class Event :
 		return Event._instances[id]
 
 	
-	def __init__(self, id, title, type, date, issue,
+	def __init__(self, id, title, type, date, issue_data,
 				images=[], entities=[],
 				keywords=[], emotions=[], summaries=[], summaries3line=[],
 				hit=0, created_time=None, updated_time=None, published_time=None, **kwarg) :
@@ -41,13 +41,13 @@ class Event :
 
 
 		self.issue_score = {
-			'score': issue.get('issue_score', None),
-			'top_percentile': issue.get('top_percentile', None),
-			'ranking': issue.get('issue_rank', None),
+			'score': issue_data.get('issue_score', None),
+			'top_percentile': issue_data.get('top_percentile', None),
+			'ranking': issue_data.get('issue_rank', None),
 			'source': {
-				'article_count': issue.get('article_count', None),
-				'sns_count': issue.get('sns_count', None),
-				'comment_count': issue.get('comment_count', None),
+				'article_count': issue_data.get('article_count', None),
+				'sns_count': issue_data.get('sns_count', None),
+				'comment_count': issue_data.get('comment_count', None),
 			}
 		}
 

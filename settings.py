@@ -17,14 +17,19 @@ STATIC_ROOT = ROOT_PATH + '/static'
 VIEW_ROOT = ROOT_PATH + '/views'
 
 # Publisher instance used after generation
-#PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/output')
-PUBLISHER = S3Publisher('beta.memento.live')
+PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/_output')
+# PUBLISHER = S3Publisher('beta.memento.live')
 
 
 
 # Scripts that runned on initializing application
 INIT_SCRIPTS = (
 	ROOT_PATH + '/app.py',
+)
+
+# Scripts after generation completed
+FINISH_SCRIPTS = (
+	ROOT_PATH + '/finish.py',
 )
 
 
@@ -37,3 +42,6 @@ PROCESSES = 5
 
 
 BASIC_AUTH_KEY = security.BASIC_AUTH_KEY
+
+
+ATOMIC_PAGEGROUP = True

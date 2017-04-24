@@ -2,6 +2,7 @@ from jikji import render_template, register_view
 from jikji.view import PageGroup, Page
 from models.people import People
 from lib import functions
+from lib.api import PublishAPI
 
 
 def get_trend_data(name) :
@@ -134,9 +135,8 @@ class PeoplePageGroup(PageGroup) :
 		)
 
 
-	def before_rendered(self) :
-		pass
+	def after_published(self, success_pages, errors, ignored_pages) :
+		if len(errors) == 0 :
+			PublishAPI.enqueue_entity_published(self.id)
 
-	def after_rendered(self, success_pages, errors, ignored_pages) :
-		pass
 

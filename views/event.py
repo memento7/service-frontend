@@ -3,6 +3,7 @@ from jikji.view import PageGroup, Page
 from models.event import Event
 
 from lib import functions
+from lib.api import PublishAPI
 import settings
 
 
@@ -96,9 +97,8 @@ class EventPageGroup(PageGroup) :
 
 
 
-	def before_rendered(self) :
-		pass
+	def after_published(self, success_pages, errors, ignored_pages) :
+		if len(errors) == 0 :
+			PublishAPI.enqueue_event_published(self.id)
 
-	def after_rendered(self, success_pages, errors, ignored_pages) :
-		pass
 
