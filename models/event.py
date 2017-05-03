@@ -39,17 +39,18 @@ class Event :
 		self.images = images
 		self.entities = entities
 
+		self.issue_data = issue_data
 
-		self.issue_score = {
-			'score': issue_data.get('issue_score', None),
-			'top_percentile': issue_data.get('top_percentile', None),
-			'ranking': issue_data.get('issue_rank', None),
-			'source': {
-				'article_count': issue_data.get('article_count', None),
-				'sns_count': issue_data.get('sns_count', None),
-				'comment_count': issue_data.get('comment_count', None),
-			}
-		}
+		# self.issue_score = {
+		# 	'score': issue_data.get('issue_score', None),
+		# 	'top_percentile': issue_data.get('top_percentile', None),
+		# 	'ranking': issue_data.get('issue_rank', None),
+		# 	'source': {
+		# 		'article_count': issue_data.get('article_count', None),
+		# 		'sns_count': issue_data.get('sns_count', None),
+		# 		'comment_count': issue_data.get('comment_count', None),
+		# 	}
+		# }
 
 		self.created_time = created_time
 		self.updated_time = updated_time

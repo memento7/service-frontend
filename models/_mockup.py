@@ -2,6 +2,7 @@ person70001 = {
 	'id': 70001,
 	'nickname': "수지",
 	'realname': "배수지",
+	'subkey': '',
 	'is_mockup': True,
 	'status': 4,
 	'images': [
@@ -72,6 +73,7 @@ person70002 = {
 	'id': 70002,
 	'nickname': "김태희",
 	'realname': "김태희",
+	'subkey': '',
 	'is_mockup': True,
 	'status': 4,
 	'images': [
@@ -110,8 +112,8 @@ person70002 = {
 			'type': '연예',
 			'issue_data': {
 				'issue_score': 300000,
+				'top_percentile': 1,
 			},
-			'top_percentile': 1,
 			'emotions': [
 				{
 					'title': "축하해요",
@@ -143,8 +145,8 @@ person70002 = {
 			'type': '미디어',
 			'issue_data': {
 				'issue_score': 15000,
+				'top_percentile': 40,
 			},
-			'top_percentile': 40,
 			'emotions': [
 				{
 					'title': "멋져요",
@@ -168,8 +170,8 @@ person70002 = {
 			'type': '연예',
 			'issue_data': {
 				'issue_score': 230000,
+				'top_percentile': 6,
 			},
-			'top_percentile': 6,
 			'emotions': [
 				{
 					'title': "놀라워요",
@@ -193,8 +195,8 @@ person70002 = {
 			'type': '미디어',
 			'issue_data': {
 				'issue_score': 19000,
+				'top_percentile': 60,
 			},
-			'top_percentile': 60,
 			'emotions': [
 				{
 					'title': "재미있어요",
@@ -228,30 +230,30 @@ event80001 = {
 		'comment_count': 41231,
 	},
 	'emotions': [
-		{ 'keyword': "축하해요", 'weight': 70 },
-		{ 'keyword': "사랑스러워요", 'weight': 70 },
-		{ 'keyword': "부러워요", 'weight': 50 },
-		{ 'keyword': "아름다워요", 'weight': 40 },
-		{ 'keyword': "슬퍼요", 'weight': 30 },
-		{ 'keyword': "예뻐요", 'weight': 30 },
-		{ 'keyword': "황홀해요", 'weight': 20 },
-		{ 'keyword': "멋져요", 'weight': 20 },
-		{ 'keyword': "화나요", 'weight': 10 },
-		{ 'keyword': "수줍어요", 'weight': 10 },
+		{ 'title': "축하해요", 'weight': 0.7 },
+		{ 'title': "사랑스러워요", 'weight': 0.7 },
+		{ 'title': "부러워요", 'weight': 0.5 },
+		{ 'title': "아름다워요", 'weight': 0.4 },
+		{ 'title': "슬퍼요", 'weight': 0.3 },
+		{ 'title': "예뻐요", 'weight': 0.3 },
+		{ 'title': "황홀해요", 'weight': 0.2 },
+		{ 'title': "멋져요", 'weight': 0.2 },
+		{ 'title': "화나요", 'weight': 0.1 },
+		{ 'title': "수줍어요", 'weight': 0.1 },
 	],
 	'keywords': [
-		{ 'keyword': "결혼식", 'weight': 80 },
-		{ 'keyword': "편지", 'weight': 80 },
-		{ 'keyword': "5년", 'weight': 705 },
-		{ 'keyword': "신혼여행", 'weight': 60 },
-		{ 'keyword': "인스타그램", 'weight': 60 },
-		{ 'keyword': "최고의 선물", 'weight': 405 },
-		{ 'keyword': "가회동 성당", 'weight': 405 },
-		{ 'keyword': "화보", 'weight': 30 },
-		{ 'keyword': "싸이", 'weight': 30 },
-		{ 'keyword': "연애", 'weight': 30 },
-		{ 'keyword': "경건한", 'weight': 10 },
-		{ 'keyword': "인터뷰", 'weight': 10 },
+		{ 'title': "결혼식", 'weight': 80 },
+		{ 'title': "편지", 'weight': 80 },
+		{ 'title': "5년", 'weight': 705 },
+		{ 'title': "신혼여행", 'weight': 60 },
+		{ 'title': "인스타그램", 'weight': 60 },
+		{ 'title': "최고의 선물", 'weight': 405 },
+		{ 'title': "가회동 성당", 'weight': 405 },
+		{ 'title': "화보", 'weight': 30 },
+		{ 'title': "싸이", 'weight': 30 },
+		{ 'title': "연애", 'weight': 30 },
+		{ 'title': "경건한", 'weight': 10 },
+		{ 'title': "인터뷰", 'weight': 10 },
 	],
 	'images': [
 		{
