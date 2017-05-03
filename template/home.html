@@ -1,4 +1,5 @@
 {% extends '/layouts/default.html' %}
+{% import "/macros/event_tile.html" as event_tile %}
 
 {% block title %}메멘토 - 그 사람에 대한 모든 정보{% endblock %}
 
@@ -6,76 +7,15 @@
 	{{ super() }}
 
 	<meta property="og:image" content="/images/cover.png">
-	
-	<style type="text/css">
-		#wrap{
-			background-color: white;
-		}
-		header{
-			position: absolute;
-		}
-
-		section#main{
-			padding: 70px 0 10px;
-		}
-
-		h2{
-			margin: 5px 0 0 20px;
-			font-size: 20px;
-			font-weight: 300;
-			color: black;
-		}
-
-		section#main ul{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-
-		section#main ul a{
-			color: white;
-			text-decoration: none;
-		}
-
-		section#main ul a li{
-			position: relative;
-			width: calc(50% - 30px);
-			height: 100px;
-			float: left;
-			margin: 20px 20px 0 20px;
-		}
-		section#main ul a:nth-child(even) li{ margin-left: 0 }
-
-		section#main ul a li .background{
-			position: absolute;
-			width: 100%;
-			height: 100px;
-			background-color: #555;
-			background-size: 100%;
-			filter: brightness(65%);
-		}
-		section#main ul a li .content{
-			position: relative;
-			z-index: 2;
-		}
-		section#main ul a li .content h4{
-			margin: 0;
-			padding: 10px;
-			font-weight: 100;
-			font-size: 30px;
-		}
-
-		section#main ul a li .content .description{
-			font-size: 12px;
-			font-weight: 100;
-			padding: 0 10px 10px;
-		}
-	</style>
+	<link rel="stylesheet" href="/css/home.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 {% endblock %}
 
 
 {% block content %}
+	<div class="background"></div>
+
 	<header>
 		<div class="fr">
 			<i class="fa fa-bars" aria-hidden="true"></i>
@@ -85,24 +25,70 @@
 		</a>
 	</header>
 
-	<section id="main">
-		<h2>테스트 가능 인물</h2>
-		<div>
-			<ul class="clearfix">
+	<section id="search">
+		<div class="search-box clearfix">
+			<input class="fl" type="text" name="q">
+			<i class="fa fa-search fr"></i>
+		</div>
+	</section>
+
+	<section id="trendy-people">
+		<i class="fa fa-angle-left prev-btn"></i>
+		<div class="container">
+			<ul class="clearfix" style="width: {{ people|length * 85 }}px">
 				{% for person in people.values() %}
 				<a href="/people/{{ person.id }}">
 					<li>
-						<div class="background" style="{{ first_image(person.images, True) }}"></div>
-						<div class="content">
-							<h4>{{ person.nickname }}</h4>
-							{% if person.status == 4 %}
-							<div class="description">사람이 넣은 가데이터로 만든 페이지입니다</div>
-							{% endif %}
-						</div>
+						<div class="image" style="{{ first_image(person.images, True) }}"></div>
+						<h4>{{ person.nickname }}</h4>
+						<div class="role">{{ (person.get_role().values() | first).name }}</div>
+
+						{% if person.status == 4 %}
+						<div style="color: #ffe8b0; font-size: 10px">(가데이터)</div>
+						{% endif %}
 					</li>
 				</a>
 				{% endfor %}
 			</ul>
 		</div>
+		<i class="fa fa-angle-right next-btn"></i>
+
+		<script type="text/javascript">
+			(function() {
+				$('#trendy-people').find('.prev-btn, .next-btn').click(function (event) {
+					var container = $('#trendy-people .container');
+					var w = container.width();
+					var dest = container.scrollLeft();
+					
+					if ($(event.target).hasClass("prev-btn"))	dest -= w;
+					else										dest += w;		
+					container.animate({scrollLeft: dest}, 300);
+				});
+			})();
+	</script>
+	</section>
+
+	<section id="watchable-event" class="common-tile">
+		<h3>볼만한 사건들</h3>
+		{# <a href="/events">
+			<i class="fa fa-angle-right view-more"></i>
+		</a> #}
+
+		<div class="content clearfix">
+			{% for event in events.values() %}
+				{% if loop.index <= 3 %}
+					{{ event_tile.mini_event_tile(event) }}
+				{% endif %}
+
+			{% endfor %}
+		</div>
+	</section>
+
+	<section id="day-3years-ago" class="common-tile">
+		<h3>3년전 오늘</h3>
+		<div class="content clearfix">
+			<div class="no-content">이벤트가 없습니다</div>
+		</div>
 	</section>
 {% endblock %}
+

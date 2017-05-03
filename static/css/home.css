@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+#wrap{
+	/*background-color: white;*/
+}
+
+.background{
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: 225px;
+
+	background: #fe646e;
+	background: -webkit-linear-gradient(-90deg, #fe646e 0%, #f79384 100%);
+	background: linear-gradient(90deg, #fe646e 0%, #f79384 100%);
+}
+
+header{
+	position: absolute;
+	z-index: 1;
+	border-bottom: none;
+}
+
+header .logo{
+	background-position: 0 -32px;
+}
+
+header .fr .fa-bars{
+	color: white;
+}
+
+
+section#search{
+	position: relative;
+	padding: 50px 0 10px;
+	z-index: 1;
+}
+
+section#search .search-box{
+	margin: 0 12px;
+	padding: 4px 5px 3px;
+	border: 1px solid white;
+	border-radius: 20px;
+}
+section#search .search-box input{
+	background: none;
+	border: none;
+	outline: none;
+	font-size: 15px;
+	color: white;
+	padding: 0 7px;
+	width: calc(100% - 25px);
+}
+section#search .search-box .fa-search{
+	color: white;
+	font-size: 15px;
+	margin: 0 3px;
+}
+
+
+section#trendy-people{
+	position: relative;
+	padding: 10px 0 20px;
+}
+
+section#trendy-people .prev-btn,
+section#trendy-people .next-btn{
+	position: absolute;
+	top: 50px;
+	padding: 0 10px;
+	font-size: 35px;
+	color: white;
+	cursor: pointer;
+	z-index: 3;
+}
+section#trendy-people .next-btn{ right: 0; }
+
+section#trendy-people .container{
+	margin: 0 25px;
+	overflow: hidden;
+}
+
+section#trendy-people ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+section#trendy-people ul a{
+	color: white;
+	text-decoration: none;
+}
+
+section#trendy-people ul a li{
+	position: relative;
+	float: left;
+	width: 85px;
+	z-index: 2;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 100;
+}
+
+section#trendy-people ul a li .image{
+	margin: 0 auto;
+	width: 65px;
+	height: 65px;
+	background-color: #555;
+	background-size: auto 65px;
+	background-position: center;
+	border-radius: 50%;
+}
+
+section#trendy-people ul a li h4{
+	margin: 0;
+	padding: 8px 0 1px 0;
+	font-weight: 300;
+	font-size: 17px;
+}
+
+
+section#watchable-event{
+
+}
+section#watchable-event .content .mini-event-tile{
+	float: left;
+	width: 113px;
+	margin-right: 7px;
+}
+section#watchable-event .content .mini-event-tile:last-child{ margin-right: 0 }

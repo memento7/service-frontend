@@ -39,6 +39,7 @@ body,figure{margin:0;}
 legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 /* end of normalize.css */
 
+
 a img{ border:none; outline:none }
 
 .clearfix{ *zoom:1 }
@@ -53,7 +54,8 @@ html,body{
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background-color: #efefef;
+	background-color: #e3e4e8;
+	/*font-family: 'Spoqa Han Sans', sans-serif;*/
 }
 
 header{
@@ -64,9 +66,9 @@ header{
 
 header .logo{
 	width: 200px;
-	height: 30px;
-	margin: 10px auto;
-	background-image: url('/images/logo_title.png');
+	height: 32px;
+	margin: 8px auto;
+	background-image: url('/images/logo_sprite.png');
 	background-size: 200px;
 }
 
@@ -78,24 +80,32 @@ header .fr .fa-bars{
 
 
 section.common-tile{
+	position: relative;
 	margin: 8px 0;
 	padding: 14px 0;
 	background-color: white;
-	border-top: 1px solid #e1e2e2;
-	border-bottom: 1px solid #cccdce;
 	color: #444;
 }
 
 section.common-tile h3{
 	margin: 0 0 5px 14px;
-	font-size: 18px;
-	font-weight: 300;
-	color: #554;
+	font-size: 17px;
+	font-weight: 500;
+	color: black;
+}
+
+section.common-tile > a > i.view-more{
+	position: absolute;
+	top: 3px;
+	right: 6px;
+	font-size: 32px;
+	font-weight: 100;
+	color: #92a5af;
 }
 
 
 section.common-tile .content{
-	padding: 0 20px;
+	padding: 0 16px;
 }
 
 
