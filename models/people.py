@@ -125,7 +125,7 @@ class People :
 			Temporarily processed in front-end
 		"""
 		date_sorting_lambda = lambda d: d.date
-		events = sorted(self.events, key=lambda d: d.issue_data['issue_score'], reverse=True)
+		events = sorted(self.events, key=lambda d: d.issue_data.issue_score, reverse=True)
 		
 		return [
 			sorted(events[0:7], key=date_sorting_lambda, reverse=True),
