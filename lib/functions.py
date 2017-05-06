@@ -87,8 +87,10 @@ def circular_number(number) :
 def first_image(images, css=False) :
 	if not images or len(images) == 0 :
 		rv = None
-	else :
+	elif 'path' in images[0]:
 		rv = images[0]['path']
+	else :
+		rv = images[0]['url']
 
 
 	if css :

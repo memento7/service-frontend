@@ -17,7 +17,7 @@
 
 header{
 	position: absolute;
-	z-index: 1;
+	z-index: 5;
 	border-bottom: none;
 }
 
@@ -33,7 +33,7 @@ header .fr .fa-bars{
 section#search{
 	position: relative;
 	padding: 50px 0 10px;
-	z-index: 1;
+	z-index: 3;
 }
 
 section#search .search-box{
@@ -60,7 +60,7 @@ section#search .search-box .fa-search{
 
 section#trendy-people{
 	position: relative;
-	padding: 10px 0 20px;
+	padding: 10px 0 7px;
 }
 
 section#trendy-people .prev-btn,
@@ -124,6 +124,7 @@ section#watchable-event{
 section#watchable-event .content .mini-event-tile{
 	float: left;
 	width: 113px;
+	width: calc(33% - 5px);
 	margin-right: 7px;
 }
 section#watchable-event .content .mini-event-tile:last-child{ margin-right: 0 }

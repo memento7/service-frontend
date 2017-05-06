@@ -12,3 +12,19 @@ window.WebFontConfig = {
 	s.parentNode.insertBefore(wf, s);
 })(document);
 */
+
+$(window).ready(function () {
+	$('aside.sidemenu')
+		.sidebar({side: 'right'})
+		.show();
+
+	$('header .menu-bar').click(function(event) {
+		$('aside.sidemenu').trigger('sidebar:open');
+		$('#mask').fadeIn();
+
+		$('#mask').one('click', function() {
+			$('aside.sidemenu').trigger('sidebar:close');
+			$('#mask').fadeOut();
+		});
+	});
+});

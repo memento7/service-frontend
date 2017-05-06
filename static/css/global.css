@@ -58,6 +58,17 @@ html,body{
 	/*font-family: 'Spoqa Han Sans', sans-serif;*/
 }
 
+#mask{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	z-index: 90;
+}
+
 header{
 	width: 100%;
 	height: 50px;
@@ -72,10 +83,77 @@ header .logo{
 	background-size: 200px;
 }
 
-header .fr .fa-bars{
+header .menu-bar{
 	margin: 12px;
 	font-size: 23px;
+	cursor: pointer;
 }
+
+
+aside.sidemenu{
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	width: 220px;
+	height: 100%;
+	background-color: white;
+	z-index: 100;
+}
+aside.sidemenu > section.profile{
+	padding: 20px 0 10px;
+	text-align: center;
+}
+
+aside.sidemenu > section.profile .avatar{
+	display: inline-block;
+	margin-bottom: 8px;
+}
+
+aside.sidemenu > section.profile .loggedin-username{ font-size: 18px }
+
+
+aside.sidemenu > section > h4{
+	margin: 20px 15px 2px;
+	padding: 1px 0;
+	font-weight: normal;
+	font-size: 14px;
+	color: #9B9B9B;
+	border-bottom: 1px solid #DBDBDB;
+}
+aside.sidemenu > section ul{
+	margin: 5px 3px;
+	padding: 0;
+	list-style: none;
+}
+aside.sidemenu > section a{ color: #444; text-decoration: none; }
+aside.sidemenu > section ul li{
+	margin: 0;
+	padding: 7px 15px;
+	font-size: 17px;
+	transition: background-color 0.5s;
+}
+aside.sidemenu > section ul li:hover{ background-color: #f0f0f0 }
+
+aside.sidemenu > section.service-shortcuts ul li .fa{
+	width: 15px;
+	text-align: center;
+	color: #777;
+	padding-right: 4px;
+} 
+aside.sidemenu > section.service-shortcuts ul li .fa-calendar{ color: #673AB7 }
+aside.sidemenu > section.service-shortcuts ul li .fa-user{ color: #E91E63 }
+aside.sidemenu > section.service-shortcuts ul li .fa-camera-retro{ color: #FF9800 }
+
+aside.sidemenu > section.favorites .empty{
+	padding: 5px 15px;
+	font-size: 14px;
+	text-align: center;
+	color: #555;
+}
+aside.sidemenu > section.favorites .empty p{ margin: 2px 0 }
+
 
 
 
