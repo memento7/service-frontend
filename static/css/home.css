@@ -63,7 +63,20 @@ section#trendy-people{
 	padding: 10px 0 7px;
 }
 
-section#trendy-people .prev-btn,
+section#trendy-people .swiper-wrapper{
+	width: auto;
+	margin: 0 25px;
+	height: 125px;
+}
+
+section#trendy-people .swiper-button-next,
+section#trendy-people .swiper-button-prev{
+	width: 13.5px;
+	height: 22px;
+	background-size: 13.5px 22px;
+}
+
+/*section#trendy-people .prev-btn,
 section#trendy-people .next-btn{
 	position: absolute;
 	top: 50px;
@@ -73,12 +86,12 @@ section#trendy-people .next-btn{
 	cursor: pointer;
 	z-index: 3;
 }
-section#trendy-people .next-btn{ right: 0; }
+section#trendy-people .next-btn{ right: 0; }*/
 
-section#trendy-people .container{
+/*section#trendy-people .container{
 	margin: 0 25px;
 	overflow: hidden;
-}
+}*/
 
 section#trendy-people ul{
 	margin: 0;
@@ -93,7 +106,7 @@ section#trendy-people ul a{
 section#trendy-people ul a li{
 	position: relative;
 	float: left;
-	width: 85px;
+	width: 70px;
 	z-index: 2;
 	text-align: center;
 	font-size: 12px;

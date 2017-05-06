@@ -9,6 +9,9 @@
 	<meta property="og:image" content="/images/cover.png">
 	<link rel="stylesheet" href="/css/home.css">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+
 {% endblock %}
 
 
@@ -23,39 +26,52 @@
 	</section>
 
 	<section id="trendy-people">
-		<i class="fa fa-angle-left prev-btn"></i>
-		<div class="container">
-			<ul class="clearfix" style="width: {{ people|length * 85 }}px">
-				{% for person in people.values() %}
-				<a href="/people/{{ person.id }}">
-					<li>
-						<div class="image" style="{{ first_image(person.images, True) }}"></div>
-						<h4>{{ person.nickname }}</h4>
-						<div class="role">{{ (person.get_role().values() | first).name }}</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				{% set s = ((people | length) / 4) |round(0, 'ceil') | int %}
+				{% for person_group in people.values() | slice(s) %}
+				
+				<div class="swiper-slide">
+					<ul>
+						{% for person in person_group %}
+						<a href="/people/{{ person.id }}">
+							<li>
+								<div class="image" style="{{ first_image(person.images, True) }}"></div>
+								<h4>{{ person.nickname }}</h4>
+								<div class="role">{{ (person.get_role().values() | first).name }}</div>
 
-						{% if person.status == 4 %}
-						<div style="color: #ffe8b0; font-size: 10px">(가데이터)</div>
-						{% endif %}
-					</li>
-				</a>
+								{% if person.status == 4 %}
+								<div style="color: #ffe8b0; font-size: 10px">(가데이터)</div>
+								{% endif %}
+							</li>
+						</a>
+						{% endfor %}
+					</ul>
+				</div>
 				{% endfor %}
-			</ul>
+			</div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+			<div class="swiper-button-next swiper-button-white"></div>
 		</div>
-		<i class="fa fa-angle-right next-btn"></i>
 
 		<script type="text/javascript">
-			(function() {
-				$('#trendy-people').find('.prev-btn, .next-btn').click(function (event) {
-					var container = $('#trendy-people .container');
-					var w = container.width();
-					var dest = container.scrollLeft();
-					
-					if ($(event.target).hasClass("prev-btn"))	dest -= w;
-					else										dest += w;		
-					container.animate({scrollLeft: dest}, 300);
+			var swiper = new Swiper('.swiper-container', {
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+			});
+
+			function resizeSlide() {
+				var liDom = $('#trendy-people ul li')
+				var rest = $('#trendy-people .swiper-wrapper').width() - liDom.width() * 4;
+				liDom.css({
+					'margin-left':  (rest / 8) + 'px',
+					'margin-right': (rest / 8) + 'px'
 				});
-			})();
-	</script>
+			}
+			resizeSlide();
+			$(window).on('resize', resizeSlide);
+
+		</script>
 	</section>
 
 	<section id="watchable-event" class="common-tile">

@@ -49,17 +49,8 @@ for data in PublishAPI.get('/entities/updated') :
 	addpagegroup( PeoplePageGroup( model=person ) )
 
 
-# with open(settings.ROOT_PATH + '/.jikji/cache/updated.cache.json', 'r') as file :
-# 	import json
-# 	content = json.loads( file.read() )
-
-# 	for data in content :
-# 		event = Event.register(data)
-# 		addpagegroup( EventPageGroup( model=event ) )
-
-
 # Get updated events and register pages
-for data in PublishAPI.get('/events/updated?size=5') :
+for data in PublishAPI.get('/events/updated') :
 	event = Event.register(data)
 	addpagegroup( EventPageGroup( model=event ) )
 
