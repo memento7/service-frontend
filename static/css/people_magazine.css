@@ -8,7 +8,7 @@ header{
 }
 
 header .logo{
-	background-position: 0 30px;
+	background-position: 0 -64px;
 }
 
 header .fr .fa-bars{

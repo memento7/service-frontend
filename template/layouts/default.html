@@ -11,10 +11,15 @@
 		{% block meta %}{% endblock %}
 
 		<link rel="shortcut icon" href="/favicon.ico">
-		<link rel="stylesheet" href="/css/common.css">
+		<link rel="stylesheet" href="/css/global.css">
 		<link rel="stylesheet" href="/css/components.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.3.2/jquery.sidebar.min.js"></script>
+		<script type="text/javascript" src="/js/global.js"></script>
+
 		{% endblock %}
 	</head>
 	<body>
@@ -28,7 +33,58 @@
 			</a>
 		{% endmacro %}
 
+		<div id="mask"></div>
+
+		<aside class="sidemenu">
+			<section class="profile">
+				<div><img src="/images/avatar.png" class="avatar" width="63" height="63"></div>
+				<!-- <div class="loggedin-username">이영수</div> -->
+				<a href="/login">
+					<div class="loggedin-username">로그인</div>
+				</a>
+
+			</section>
+			<section class="service-shortcuts">
+				<h4>서비스 바로가기</h4>
+				<ul>
+					<a href="/weekly">
+						<li>
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							<span>위클리 메멘토</span>
+						</li>
+					</a>
+					<a href="/people/random">
+						<li>
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<span>랜덤 인물</span>
+						</li>
+					</a>
+					<a href="/event/random">
+						<li>
+							<i class="fa fa-camera-retro" aria-hidden="true"></i>
+							<span>랜덤 사건</span>
+						</li>
+					</a>
+				</ul>
+			</section>
+			<section class="favorites">
+				<h4>즐겨찾기</h4>
+				<div class="empty">
+					<p>즐겨찾기한 인물이 없습니다</p>
+					<p>좋아하는 인물에 하트표시를<br>남겨보세요!</p>
+				</div>
+			</section>
+		</aside>
+
 		<div id="wrap">
+			<header>
+				<div class="fr">
+					<i class="fa fa-bars menu-bar" aria-hidden="true"></i>
+				</div>
+				<a href="/">
+					<div class="logo"></div>
+				</a>
+			</header>
 			{% block content %}{% endblock %}
 
 			<footer>

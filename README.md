@@ -1,5 +1,5 @@
-# prototype
-memento front-end prototype
+# service frontend
+memento web frontend source
 
 using [jikji 2.0](https://github.com/Prev/jikji/tree/2.0)
 

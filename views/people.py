@@ -95,7 +95,7 @@ class PeoplePageGroup(PageGroup) :
 
 				# Similar date
 				if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
-					if index not in top_trends or top_trends[index]['event'].issue_score['score'] < event.issue_score['score'] : 
+					if index not in top_trends or top_trends[index]['event'].issue_data.issue_score < event.issue_data.issue_score : 
 						# Update
 						top_trends[index] = {
 							'event': event,

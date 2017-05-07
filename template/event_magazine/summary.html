@@ -74,15 +74,12 @@
 	</section>
 
 	<section id="issue-rank" class="common-tile">
-		{% set r = issue_rank(event.issue_score) %}
-
 		<h3>이슈 등급</h3>
 		<div class="content clearfix">
 			<div class="fl">
 				<div>
-					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="90" height="50" class="{{ r.rank | lower }}-rank">
-						{% set tmp_angle = {'S': 1, 'A': 0.75, 'B': 0.5, 'C': 0.25} %}
-						{% set pos = range_svg_pos(tmp_angle[r.rank], 38, 45, 45) %}
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="90" height="50" class="{{ event.issue_data.rank() }}-rank">
+						{% set pos = range_svg_pos(1 - event.issue_data.top_percentile / 100, 38, 45, 45) %}
 						<path d="M {{ pos }}
 								A 38, 38, 0, 0, 0, 7, 45" class="pos" />
 
@@ -93,28 +90,27 @@
 					</svg>
 				</div>
 				<div class="rank-container">
-					<span class="label issue-rank {{ r.rank | lower }}-rank">
-						<i>{{ r.rank }}</i>
-						<span>{{ r.label }}</span>
+					<span class="label issue-rank {{ event.issue_data.rank() }}-rank">
+						<i>{{ event.issue_data.rank() | upper }}</i>
+						<span>{{ event.issue_data.full_label() }}</span>
 					</span>
 				</div>
 			</div>
 			<div class="comment fr">
-				<h4>{{ r.mention }}</h4>
+				<h4>{{ event.issue_data.mention() }}</h4>
 				<div>
-					전체 사건 중 <strong>{{ event.issue_score.ranking }}번째</strong>로 핫한 사건이며, 
-					전체 상위 <strong>{{ event.issue_score.top_percentile | round(1) }}%</strong>안에 들어요
+					전체 사건 중 <strong>{{ event.issue_data.ranking }}번째</strong>로 핫한 사건이며, 
+					전체 상위 <strong>{{ event.issue_data.top_percentile | round(1) }}%</strong>안에 들어요
 				</div>
 				<div class="reference">
-					{% set issue_source = event.issue_score.source %}
 					<span>언론 언급수</span>
-					<span class="value value-news">{{ '{0:,}'.format(issue_source.article_count) }}</span>
+					<span class="value value-news">{{ event.issue_data.f_article_count }}</span>
 
 					{# <span>SNS</span>
 					<span class="value value-sns">X</span> #}
 
 					<span>댓글</span>
-					<span class="value value-comment">{{ '{0:,}'.format(issue_source.comment_count) }}</span>
+					<span class="value value-comment">{{ event.issue_data.f_comment_count }}</span>
 				</div>
 			</div>
 

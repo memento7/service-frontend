@@ -1,41 +1,72 @@
-{% macro event_tile(event, show_label=True, show_date=False) -%}
-<div class="event-tile clearfix">
-	<div class="fl" style="width: calc(100% - 111px)">
-		<h4>
-			<a href="/event/{{ event.id }}">{{ event.title }}</a>
-		</h4>
-
-		{% if show_date %}
-		<div class="date">
-			{{ event.date.split("-")[0:2] | join('.') }}
-		</div>
-		{% endif %}
-		
-		{% if show_label %}
-		<div>
-			{% set r = issue_rank(event.issue_score) %}
-			<span class="label issue-rank {{ r.rank | lower }}-rank">
-				<i>{{ r.rank }}</i>
-				<span>{{ r.label }}</span>
+{% macro emotion_bubbles(emotions, max=4) -%}
+	<div class="emotion-bubbles">
+		{% for emotion in emotions %}
+			{% if loop.index <= max %}
+			<span class="emotion">
+				<i style="width: {{ emotion.weight * 16 }}px; height: {{ emotion.weight * 16 }}px; background-color: {{ rand_color() }}"></i>
+				<span>{{ emotion.title }}</span>
 			</span>
-
-			<span class="label event-category category-{{ event_category_id(event.type) }}">{{ event.type }}</span>
-		</div>
-		{% endif %}
-
-		<div class="emotion-bubbles">
-			{% for emotion in event.emotions %}
-				<span class="emotion">
-					<i style="width: {{ emotion.weight * 16 }}px; height: {{ emotion.weight * 16 }}px; background-color: {{ rand_color() }}"></i>
-					<span>{{ emotion.title }}</span>
-				</span>
-			{% endfor %}
-		</div>
+			{% endif %}
+		{% endfor %}
 	</div>
-	<div class="fr" style="width: 100px">
-		{% if event.images[0] %}
-		<img src="{{ event.images[0].path }}" width="105">
-		{% endif %}
-	</div>
-</div>
 {% endmacro %}
+
+{% macro issue_label(issue_data) -%}
+	<span class="issue-label {{ issue_data.rank() }}-rank">
+		<i class="hidden2">{{ issue_data.rank() | upper }}</i>
+		<span class="hidden2">{{ issue_data.label() }}</span>
+	</span>
+{% endmacro %}
+
+
+{% macro category_label(event_type) -%}
+	<span class="category-label category-{{ event_category_id(event_type) }}">
+		<span class="hidden2">{{ event_type }}</span>
+	</span>
+{% endmacro %}
+
+
+{% macro event_tile(event, show_label=True, show_date=False) -%}
+	<div class="event-tile clearfix">
+		<div class="fl" style="width: calc(100% - 111px)">
+			<h4>
+				<a href="/event/{{ event.id }}">{{ event.title }}</a>
+			</h4>
+
+			{% if show_date %}
+			<div class="date">
+				{{ event.date.split("-")[0:2] | join('.') }}
+			</div>
+			{% endif %}
+			
+			{% if show_label %}
+				{{ issue_label(event.issue_data) }}
+				{{ category_label(event.type) }}
+			{% endif %}
+
+			{{ emotion_bubbles(event.emotions) }}
+
+		</div>
+		<div class="fr" style="width: 100px">
+			{% if first_image(event.images) %}
+			<img src="{{ first_image(event.images) }}" width="105">
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro mini_event_tile(event) -%}
+	<div class="event-tile mini-event-tile">
+		<a href="/event/{{ event.id }}">
+			<div><img src="{{ first_image(event.images) }}" width="100%"></div>
+			<h4>{{ event.title }}</h4>
+		</a>
+		<div>
+			{{ issue_label(event.issue_data) }}
+			{{ category_label(event.type) }}
+		</div>
+		{{ emotion_bubbles(event.emotions, 2) }}
+	</div>
+{% endmacro %}
+

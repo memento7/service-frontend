@@ -19,14 +19,14 @@ def image2str(image, type='PNG') :
 	return content
 
 
-def get_wordcloud(data) :
+def get_wordcloud(data, key='title', multn=1) :
 	from wordcloud import WordCloud
 	import math
 
 	text = ''
 	for e in data :
-		text += (e['keyword'] + ' ') * int(math.log(e['weight']+1))
-		#text += (e['keyword'] + ' ') * int(e['weight'] / 3)	
+		text += (e[key] + ' ') * int(math.log( e['weight']*multn + 1 ))
+		#text += (e[key] + ' ') * int(e['weight'] / 3)	
 
 	def custom_color_func(word, font_size, *arg, **kwarg) :
 		return functions.rand_color()
@@ -89,11 +89,11 @@ class EventPageGroup(PageGroup) :
 
 	@register_view
 	def emotion_wordcloud(self) :
-		return get_wordcloud(self.model.emotions)
+		return get_wordcloud(self.model.emotions, key='title', multn=100)
 
 	@register_view
 	def keyword_wordcloud(self) :
-		return get_wordcloud(self.model.keywords)
+		return get_wordcloud(self.model.keywords, key='keyword')
 
 
 

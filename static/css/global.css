@@ -39,6 +39,7 @@ body,figure{margin:0;}
 legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 /* end of normalize.css */
 
+
 a img{ border:none; outline:none }
 
 .clearfix{ *zoom:1 }
@@ -53,7 +54,19 @@ html,body{
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background-color: #efefef;
+	background-color: #e3e4e8;
+	/*font-family: 'Spoqa Han Sans', sans-serif;*/
+}
+
+#mask{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	z-index: 90;
 }
 
 header{
@@ -64,38 +77,113 @@ header{
 
 header .logo{
 	width: 200px;
-	height: 30px;
-	margin: 10px auto;
-	background-image: url('/images/logo_title.png');
+	height: 32px;
+	margin: 8px auto;
+	background-image: url('/images/logo_sprite.png');
 	background-size: 200px;
 }
 
-header .fr .fa-bars{
+header .menu-bar{
 	margin: 12px;
 	font-size: 23px;
+	cursor: pointer;
 }
+
+
+aside.sidemenu{
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	width: 220px;
+	height: 100%;
+	background-color: white;
+	z-index: 100;
+}
+aside.sidemenu > section.profile{
+	padding: 20px 0 10px;
+	text-align: center;
+}
+
+aside.sidemenu > section.profile .avatar{
+	display: inline-block;
+	margin-bottom: 8px;
+}
+
+aside.sidemenu > section.profile .loggedin-username{ font-size: 18px }
+
+
+aside.sidemenu > section > h4{
+	margin: 20px 15px 2px;
+	padding: 1px 0;
+	font-weight: normal;
+	font-size: 14px;
+	color: #9B9B9B;
+	border-bottom: 1px solid #DBDBDB;
+}
+aside.sidemenu > section ul{
+	margin: 5px 3px;
+	padding: 0;
+	list-style: none;
+}
+aside.sidemenu > section a{ color: #444; text-decoration: none; }
+aside.sidemenu > section ul li{
+	margin: 0;
+	padding: 7px 15px;
+	font-size: 17px;
+	transition: background-color 0.5s;
+}
+aside.sidemenu > section ul li:hover{ background-color: #f0f0f0 }
+
+aside.sidemenu > section.service-shortcuts ul li .fa{
+	width: 15px;
+	text-align: center;
+	color: #777;
+	padding-right: 4px;
+} 
+aside.sidemenu > section.service-shortcuts ul li .fa-calendar{ color: #673AB7 }
+aside.sidemenu > section.service-shortcuts ul li .fa-user{ color: #E91E63 }
+aside.sidemenu > section.service-shortcuts ul li .fa-camera-retro{ color: #FF9800 }
+
+aside.sidemenu > section.favorites .empty{
+	padding: 5px 15px;
+	font-size: 14px;
+	text-align: center;
+	color: #555;
+}
+aside.sidemenu > section.favorites .empty p{ margin: 2px 0 }
+
 
 
 
 section.common-tile{
+	position: relative;
 	margin: 8px 0;
 	padding: 14px 0;
 	background-color: white;
-	border-top: 1px solid #e1e2e2;
-	border-bottom: 1px solid #cccdce;
 	color: #444;
 }
 
 section.common-tile h3{
 	margin: 0 0 5px 14px;
-	font-size: 18px;
-	font-weight: 300;
-	color: #554;
+	font-size: 17px;
+	font-weight: 500;
+	color: black;
+}
+
+section.common-tile > a > i.view-more{
+	position: absolute;
+	top: 3px;
+	right: 6px;
+	font-size: 32px;
+	font-weight: 100;
+	color: #92a5af;
 }
 
 
 section.common-tile .content{
-	padding: 0 20px;
+	padding: 0 16px;
 }
 
 

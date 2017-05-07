@@ -35,34 +35,6 @@ def iow_size(word) :
 	return "%dpx" % int(s)
 
 
-def issue_rank(issue_score) :
-	tp = issue_score['top_percentile']
-
-	if tp is None :
-		rank, label = '?', '??'
-		mention = '오류가 발생했습니다'
-	
-	elif tp <= 2 :
-		rank, label = 'S', '세간의 관심'
-		mention = '이 사건도 모르면 간첩이죠! 정말 뜨거웠던 이야기였어요'
-
-	elif tp <= 10 :
-		rank, label = 'A', '이슈 오브 이슈'
-		mention = '꽤 화제가 많이 된 사건이었어요!'
-
-	elif tp <= 50 :
-		rank, label = 'B', '세상의 이야기'
-		mention = '꽤 재미있는 소식이었어요'
-
-	else :
-		rank, label = 'C', '이런저런 뉴스'
-		mention = '이런 소식도 있었네요'
-
-	return {
-		'rank': rank,
-		'label': label,
-		'mention': mention,
-	}
 
 def event_category_id(category) :
 	categories = ['연예', '정치', '스포츠', '미디어', '세계', '기타']
@@ -87,8 +59,10 @@ def circular_number(number) :
 def first_image(images, css=False) :
 	if not images or len(images) == 0 :
 		rv = None
-	else :
+	elif 'path' in images[0]:
 		rv = images[0]['path']
+	else :
+		rv = images[0]['url']
 
 
 	if css :

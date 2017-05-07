@@ -143,6 +143,9 @@ class PublishAPI(RestClient) :
 	def upload_events_published() :
 		cprint.okb('Published Events: ' + str(PublishAPI.published_events))
 
+		if not len(PublishAPI.published_events) :
+			return
+
 		PublishAPI.put(
 			api = '/events/publish',
 			data = PublishAPI.published_events,
@@ -162,6 +165,9 @@ class PublishAPI(RestClient) :
 	@staticmethod
 	def upload_entities_published() :
 		cprint.okb('Published Entities: ' + str(PublishAPI.published_entities))
+
+		if not len(PublishAPI.published_entities) :
+			return
 
 		PublishAPI.put(
 			api = '/entities/publish',

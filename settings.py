@@ -16,8 +16,10 @@ STATIC_ROOT = ROOT_PATH + '/static'
 # Directory that includes View files
 VIEW_ROOT = ROOT_PATH + '/views'
 
+
 # Publisher instance used after generation
-PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/_output')
+# PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/_output')
+PUBLISHER = LocalPublisher('/var/www/dev')
 # PUBLISHER = S3Publisher('beta.memento.live')
 
 
@@ -44,4 +46,4 @@ PROCESSES = 5
 BASIC_AUTH_KEY = security.BASIC_AUTH_KEY
 
 
-ATOMIC_PAGEGROUP = True
+# ATOMIC_PAGEGROUP = True
