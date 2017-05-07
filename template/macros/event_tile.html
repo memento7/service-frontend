@@ -28,7 +28,7 @@
 
 {% macro event_tile(event, show_label=True, show_date=False) -%}
 	<div class="event-tile clearfix">
-		<div class="fl" style="width: calc(100% - 111px)">
+		<div class="fl">
 			<h4>
 				<a href="/event/{{ event.id }}">{{ event.title }}</a>
 			</h4>
@@ -47,9 +47,9 @@
 			{{ emotion_bubbles(event.emotions) }}
 
 		</div>
-		<div class="fr" style="width: 100px">
+		<div class="fr">
 			{% if first_image(event.images) %}
-			<img src="{{ first_image(event.images) }}" width="105">
+			<img src="{{ first_image(event.images) }}">
 			{% endif %}
 		</div>
 	</div>

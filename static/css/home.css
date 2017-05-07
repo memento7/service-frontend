@@ -76,22 +76,6 @@ section#trendy-people .swiper-button-prev{
 	background-size: 13.5px 22px;
 }
 
-/*section#trendy-people .prev-btn,
-section#trendy-people .next-btn{
-	position: absolute;
-	top: 50px;
-	padding: 0 10px;
-	font-size: 35px;
-	color: white;
-	cursor: pointer;
-	z-index: 3;
-}
-section#trendy-people .next-btn{ right: 0; }*/
-
-/*section#trendy-people .container{
-	margin: 0 25px;
-	overflow: hidden;
-}*/
 
 section#trendy-people ul{
 	margin: 0;

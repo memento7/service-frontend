@@ -70,21 +70,27 @@ html,body{
 }
 
 header{
+	position: relative;
 	width: 100%;
-	height: 50px;
+	padding-top: 8px;
+	height: 42px;
 	border-bottom: 1px solid #eee;
 }
 
 header .logo{
+	position: absolute;
 	width: 200px;
 	height: 32px;
-	margin: 8px auto;
+
+	left: 50%;
+	margin-left: -100px;
+	
 	background-image: url('/images/logo_sprite.png');
 	background-size: 200px;
 }
 
 header .menu-bar{
-	margin: 12px;
+	margin: 4px 12px;
 	font-size: 23px;
 	cursor: pointer;
 }

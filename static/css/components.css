@@ -90,10 +90,14 @@
 .event-tile{
 
 }
+.event-tile > .fl{ width: calc(100% - 106px) }
+.event-tile > .fr{ width: 100px }
+.event-tile > .fr img{ width: 100% }
+
 .event-tile h4{
 	margin: 0 0 7px;
 	padding: 0;
-	font-size: 20px;
+	font-size: 19px;
 	font-weight: 300;
 }
 .event-tile a{
