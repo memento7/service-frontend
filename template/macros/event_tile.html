@@ -1,14 +1,12 @@
-{% macro emotion_bubbles(emotions, max=4) -%}
-	<div class="emotion-bubbles">
-		{% for emotion in emotions %}
-			{% if loop.index <= max %}
-			<span class="emotion">
-				<i style="width: {{ emotion.weight * 16 }}px; height: {{ emotion.weight * 16 }}px; background-color: {{ rand_color() }}"></i>
-				<span>{{ emotion.title }}</span>
-			</span>
-			{% endif %}
-		{% endfor %}
-	</div>
+{% macro emotion_bubbles(emotions, max=4, max_size=13) -%}
+	{% for emotion in emotions %}
+		{% if loop.index <= max %}
+		<span class="emotion">
+			<i style="width: {{ emotion.weight * max_size }}px; height: {{ emotion.weight * max_size }}px; background-color: {{ rand_color() }}"></i>
+			<span>{{ emotion.title }}</span>
+		</span>
+		{% endif %}
+	{% endfor %}
 {% endmacro %}
 
 {% macro issue_label(issue_data) -%}
@@ -19,14 +17,14 @@
 {% endmacro %}
 
 
-{% macro category_label(event_type) -%}
-	<span class="category-label category-{{ event_category_id(event_type) }}">
+{% macro category_label(event_type, class_append='') -%}
+	<span class="category-label category-{{ event_category_id(event_type) }} {{ class_append }}">
 		<span class="hidden2">{{ event_type }}</span>
 	</span>
 {% endmacro %}
 
 
-{% macro event_tile(event, show_label=True, show_date=False) -%}
+{% macro event_tile(event, show_date=False) -%}
 	<div class="event-tile clearfix">
 		<div class="fl">
 			<h4>
@@ -39,12 +37,11 @@
 			</div>
 			{% endif %}
 			
-			{% if show_label %}
+			<div class="labels emotion-bubbles">
 				{{ issue_label(event.issue_data) }}
 				{{ category_label(event.type) }}
-			{% endif %}
-
-			{{ emotion_bubbles(event.emotions) }}
+				{{ emotion_bubbles(event.emotions, 2) }}
+			</div>
 
 		</div>
 		<div class="fr">
@@ -62,11 +59,32 @@
 			<div><img src="{{ first_image(event.images) }}" width="100%"></div>
 			<h4>{{ event.title }}</h4>
 		</a>
-		<div>
+		<div class="labels">
 			{{ issue_label(event.issue_data) }}
 			{{ category_label(event.type) }}
 		</div>
-		{{ emotion_bubbles(event.emotions, 2) }}
+		<div class="emotion-bubbles">
+			{{ emotion_bubbles(event.emotions, 2) }}
+		</div>
 	</div>
+{% endmacro %}
+
+
+{% macro gallery_event_tile(event) -%}
+	<a href="/event/{{ event.id }}">
+		<div class="event-tile gallery-event-tile">
+			<div class="background" style="{{ first_image(event.images, True) }}"></div>
+			
+			<div class="labels">
+				{{ issue_label(event.issue_data) }}
+				{{ category_label(event.type, 'black') }}
+			</div>
+
+			<h4>{{ event.title }}</h4>
+			<div class="emotion-bubbles">
+				{{ emotion_bubbles(event.emotions, 2) }}
+			</div>
+		</div>
+	</a>
 {% endmacro %}
 

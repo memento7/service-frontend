@@ -42,7 +42,7 @@
 	display: inline-block;
 	height: 16px;
 	background-image: url('/images/label_sprite.png');
-	background-size: 127px auto;
+	background-size: 210px auto;
 }
 .issue-label{ width: 45px; }
 .category-label{ width: 40px; }
@@ -59,6 +59,14 @@
 .category-label.category-e{ background-position: -87px 0 }
 .category-label.category-f{ background-position: -87px -17px }
 
+.category-label.black.category-a{ background-position: -128px 0 }
+.category-labelblack.category-b{ background-position: -128px -17px }
+.category-labelblack.category-c{ background-position: -128px -34px }
+.category-labelblack.category-d{ background-position: -128px -51px }
+.category-labelblack.category-e{ background-position: -169px 0 }
+.category-labelblack.category-f{ background-position: -169px -17px }
+
+
 
 /* deprecicated */
 .label.event-category{ color: white }
@@ -74,9 +82,10 @@
 	display: inline-block;
 	padding: 1px;
 
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 300;
 	vertical-align: middle;
+	color: #777;
 }
 .emotion-bubbles .emotion > span{ vertical-align: middle; }
 .emotion-bubbles .emotion > i{
@@ -95,7 +104,7 @@
 .event-tile > .fr img{ width: 100% }
 
 .event-tile h4{
-	margin: 0 0 7px;
+	margin: 0 0 4px;
 	padding: 0;
 	font-size: 19px;
 	font-weight: 300;
@@ -109,8 +118,7 @@
 	font-size: 13px;
 	color: #999;
 }
-.event-tile .emotion-bubbles{ margin-top: 3px}
-
+.event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
 
 
@@ -122,7 +130,42 @@
 	font-size: 15px;
 	text-align: center;
 }
-.event-tile .emotion-bubbles .emotion > span{
-	font-size: 12px;
+.mini-event-tile .labels{ text-align: center; }
+.mini-event-tile .emotion-bubbles{ margin-top: -3px; text-align: center; }
+
+
+.gallery-event-tile{
+	position: relative;
+	height: 160px;
 }
 
+.gallery-event-tile .background{
+	height: 100%;
+	filter: brightness(60%);
+	z-index: 1;
+}
+.gallery-event-tile h4,
+.gallery-event-tile .labels,
+.gallery-event-tile .emotion-bubbles{
+	position: absolute;
+	z-index: 3;
+	font-weight: 100;
+}
+
+.gallery-event-tile h4{
+	color: white;
+	left: 15px;
+	bottom: 10px;
+	width: calc(100% - 100px);
+}
+.gallery-event-tile .labels{ top: 10px; right: 5px }
+.gallery-event-tile .emotion-bubbles{ bottom: 10px; right: 10px; }
+.gallery-event-tile .emotion-bubbles .emotion{ color: white }
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.issue-label,
+	.category-label{
+		background-image: url('/images/label_sprite@2x.png');
+	}
+}

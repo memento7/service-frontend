@@ -116,19 +116,19 @@ person70002 = {
 			},
 			'emotions': [
 				{
-					'title': "축하해요",
+					'title': "축하",
 					'weight': 0.7
 				},
 				{
-					'title': "사랑스러워요",
+					'title': "사랑",
 					'weight': 0.7
 				},
 				{
-					'title': "부러워요",
+					'title': "부럽",
 					'weight': 0.5
 				},
 				{
-					'title': "아름다워요",
+					'title': "아름답",
 					'weight': 0.4
 				},
 			],
@@ -230,16 +230,16 @@ event80001 = {
 		'comment_count': 41231,
 	},
 	'emotions': [
-		{ 'title': "축하해요", 'weight': 0.7 },
-		{ 'title': "사랑스러워요", 'weight': 0.7 },
-		{ 'title': "부러워요", 'weight': 0.5 },
-		{ 'title': "아름다워요", 'weight': 0.4 },
-		{ 'title': "슬퍼요", 'weight': 0.3 },
-		{ 'title': "예뻐요", 'weight': 0.3 },
-		{ 'title': "황홀해요", 'weight': 0.2 },
-		{ 'title': "멋져요", 'weight': 0.2 },
-		{ 'title': "화나요", 'weight': 0.1 },
-		{ 'title': "수줍어요", 'weight': 0.1 },
+		{ 'title': "축하", 'weight': 0.7 },
+		{ 'title': "사랑", 'weight': 0.7 },
+		{ 'title': "부럽", 'weight': 0.5 },
+		{ 'title': "아름답", 'weight': 0.4 },
+		{ 'title': "슬픔", 'weight': 0.3 },
+		{ 'title': "예쁨", 'weight': 0.3 },
+		{ 'title': "황홀", 'weight': 0.2 },
+		{ 'title': "멋짐", 'weight': 0.2 },
+		{ 'title': "화남", 'weight': 0.1 },
+		{ 'title': "수줍", 'weight': 0.1 },
 	],
 	'keywords': [
 		{ 'keyword': "결혼식", 'weight': 80 },

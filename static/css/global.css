@@ -200,6 +200,14 @@ section.common-tile .content{
 	text-align: center;
 }
 
+.background{
+	position: absolute;
+	width: 100%;
+	background-color: #999;
+	background-size: 100% auto;
+	background-position: center;
+}
+
 
 nav.magazine-nav{
 	background-color: white;
@@ -250,3 +258,12 @@ footer{
 		width: 400px;
 	}
 }
+
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	header .logo{
+		background-image: url('/images/logo_sprite@2x.png');
+	}
+}
+

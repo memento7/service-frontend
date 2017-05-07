@@ -28,14 +28,8 @@ section#people-header svg{
 }
 
 section#people-header .background{
-	position: absolute;
-
-	width: 100%;
 	height: 210px;
 	/*background-image: url('https://placehold.it/370x160');*/
-	background-color: #999;
-	background-size: 100% auto;
-	background-position: center;
 	filter: brightness(80%);
 }
 
