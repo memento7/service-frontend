@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+header{
+	position: absolute;
+	border-bottom-color: white;
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+	z-index: 11;
+}
+
+header .logo{ background-position: 0 -128px }
+header .fr .fa-bars{ color: white }
+
+section#weekly-header{
+	height: 200px
+}
+section#weekly-header .background{
+	position: absolute;
+	width: 100%;
+	height: 200px;
+	background-color: #999;
+	background-size: 100% auto;
+	background-position: center;
+	filter: brightness(30%);
+}
+
+section#weekly-header .content{
+	position: relative;
+	padding: 70px 48px 0;
+	color: white;
+}
+section#weekly-header .content h2,
+section#weekly-header .content h3{
+	margin: 3px 0;
+	padding: 0;
+	font-weight: 100;
+	font-size: 18px;
+}
+section#weekly-header .content h3{ font-size: 16px }
+section#weekly-header .content h1{
+	margin: 6px 0 3px;
+	padding: 0;
+	font-size: 42px;
+	font-weight: 600;
+}
+
+section#weekly-header .prev-btn,
+section#weekly-header .next-btn{
+	position: absolute;
+	top: 93px;
+	padding: 0 10px;
+	font-size: 60px;
+	color: white;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	z-index: 3;
+}
+section#weekly-header .prev-btn{ left: 0; }
+section#weekly-header .next-btn{ right: 0; }
+
+
+section#timeline ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+section#timeline ul li{
+	margin: 5px 0;
+	padding: 13px 20px 8px;
+	background-color: white;
+}
+
+section#timeline ul li h3{
+	margin: 3px 0;
+	padding: 0;
+	font-weight: normal;
+	font-size: 15px;
+}
+
