@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 class Event :
 
@@ -30,7 +31,7 @@ class Event :
 		self.id = id
 		self.title = Event.tag_remover.sub('', title)
 		self.type = type
-		self.date = date
+		self.date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
 
 		self.keywords = keywords
 		self.emotions = emotions

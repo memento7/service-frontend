@@ -51,7 +51,7 @@ class People :
 	
 	def __init__(self, id, nickname, realname, role_json,
 				images, events,
-				in_one_word=None, status=0,
+				in_one_word=[], status=0,
 				created_time=None, updated_time=None, published_time=None, **kwarg):
 
 		self.id = id

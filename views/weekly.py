@@ -14,7 +14,7 @@ def get_week(date) :
 	start_date, end_date = get_week_bound(date)
 	diff = start_date - day1
 
-	if start_date > datetime.now() :
+	if end_date > datetime.now() :
 		return None
 
 	if end_date.month == date.month :

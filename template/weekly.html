@@ -47,7 +47,7 @@
 			{% for event in events %}
 				<li>
 					<h3 style="color: {{ linecolor }}">
-						{{ event.date.split(' ')[0].split('-')[2] }}일
+						{{ event.date.day }}일
 					</h3>
 
 					{{ event_tile.event_tile(event) }}

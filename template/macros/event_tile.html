@@ -33,7 +33,7 @@
 
 			{% if show_date %}
 			<div class="date">
-				{{ event.date.split("-")[0:2] | join('.') }}
+				{{ event.date.year }}.{{ event.date.month }}
 			</div>
 			{% endif %}
 			

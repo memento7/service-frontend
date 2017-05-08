@@ -4,6 +4,7 @@ from models.people import People
 from lib import functions
 from lib.api import PublishAPI
 
+from datetime import datetime, timedelta
 
 def get_trend_data(name) :
 	import requests, json
@@ -11,13 +12,15 @@ def get_trend_data(name) :
 	keyword = name
 	url = 'http://ca.datalab.naver.com/ca/step1/process.naver'
 
+	today = datetime.now()
+
 	r = requests.post(
 		url = url,
 		data = {
 			'qcType': 'N',
 			'queryGroups': '%s__SZLIG__%s' % (name, keyword),
-			'startDate': '20130331',
-			'endDate': '20170331',
+			'startDate': (today - timedelta(days=365*4)).strftime('%Y%m%d'), #'20130331',
+			'endDate': today.strftime('%Y%m%d'),#'20170331',
 		},
 		headers={
 			'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
@@ -39,10 +42,11 @@ def get_trend_data(name) :
 				value += int(gdata[index+i]['value'])
 
 			max_value = max(max_value, value)
+			period = gdata[index-int(MERGE_CNT/2)]['period']
 
 			result.append({
 				'value': value,
-				'period': gdata[index-int(MERGE_CNT/2)]['period'],
+				'period': datetime.strptime(period, '%Y%m%d'),
 				'index': int(index / MERGE_CNT),
 			})
 
@@ -86,15 +90,10 @@ class PeoplePageGroup(PageGroup) :
 
 		top_trends = {}
 
-		from datetime import datetime
 		for event in self.model.events :
-			event_timestamp = datetime.strptime(event.date, '%Y-%m-%d %H:%M:%S').timestamp()
-
 			for index, tt in enumerate(top_trend_graph) :
-				tt_timestamp = datetime.strptime(tt['period'], '%Y%m%d').timestamp()
-
 				# Similar date
-				if tt_timestamp - 86400 * 15 <= event_timestamp <= tt_timestamp + 86400 * 15 :
+				if -15 <= (tt['period'] - event.date).days <= 15 :
 					if index not in top_trends or top_trends[index]['event'].issue_data.issue_score < event.issue_data.issue_score : 
 						# Update
 						top_trends[index] = {
