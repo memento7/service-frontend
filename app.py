@@ -60,7 +60,7 @@ for data in PublishAPI.get('/events/updated') :
 addpage(view='weekly.this_week')
 
 # Weekly memento
-for d in range(0, 100) :
+for d in range(1, 100) :
 	today = datetime.now()
 	today = datetime(today.year, today.month, today.day)
 

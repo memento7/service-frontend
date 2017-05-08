@@ -1,30 +1,53 @@
-/*
-window.WebFontConfig = {
-	custom: {
-		families: ['Spoqa Han Sans:100,300,400,500,700'],
-		urls: ['https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css']
-	},
-	timeout: 60000
-};
-(function(d) {
-	var wf = d.createElement('script'), s = d.scripts[0];
-	wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-	s.parentNode.insertBefore(wf, s);
-})(document);
-*/
+var AUTH_BASE = 'https://auth.memento.live';
+var API_BASE = 'https://uapi.memento.live';
 
-$(window).ready(function () {
-	$('aside.sidemenu')
+var sidebarTemplate;
+var loginedUser;
+
+function renderSidemenu() {
+	var template = Handlebars.compile(sidebarTemplate);
+	
+	$('#global-sidebar').html(template({
+		'user': loginedUser,
+	}));
+
+	$('aside.sidebar')
 		.sidebar({side: 'right'})
 		.show();
+}
 
-	$('header .menu-bar').click(function(event) {
-		$('aside.sidemenu').trigger('sidebar:open');
-		$('#mask').fadeIn();
+function updateLoginSession() {
+	$.get(API_BASE + '/me', function(result) {
+		loginedUser = result;
+	});
+	renderSidemenu();
+}
 
-		$('#mask').one('click', function() {
-			$('aside.sidemenu').trigger('sidebar:close');
-			$('#mask').fadeOut();
+function openSidemenu() {
+	$('aside.sidebar').trigger('sidebar:open');
+	$('#mask').fadeIn();
+
+	$('#mask').one('click', function() {
+		$('aside.sidebar').trigger('sidebar:close');
+		$('#mask').fadeOut();
+	});
+}
+
+function login(type) {
+	location.href = AUTH_BASE + '/' + type + '?redirect=' + encodeURI(location.href);
+}
+
+
+$(window).ready(function () {
+	$.get('/templates/sidebar.html', function (result) {
+		sidebarTemplate = result;
+
+		$('header .menu-bar').click(function(event) {
+			openSidemenu();
 		});
+
+		renderSidemenu();
+		updateLoginSession();
 	});
 });
+

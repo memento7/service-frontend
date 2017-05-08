@@ -50,12 +50,15 @@ class People :
 
 	
 	def __init__(self, id, nickname, realname, role_json,
-				images, events, status=0,
+				images, events,
+				in_one_word=None, status=0,
 				created_time=None, updated_time=None, published_time=None, **kwarg):
 
 		self.id = id
 		self.nickname = nickname
 		self.role_json = role_json
+
+		self.in_one_word = in_one_word
 		self.status = status
 		self.images = images
 		

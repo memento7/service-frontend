@@ -27,8 +27,8 @@ def get_week(date) :
 
 @register_view
 def this_week() :
-	today = datetime.now()
-	return weekly(*get_week(today))
+	date = datetime.now()  - timedelta(days=7)
+	return weekly(*get_week(date))
 
 
 @register_view
