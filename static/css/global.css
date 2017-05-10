@@ -135,6 +135,7 @@ aside.sidebar > section.profile{
 aside.sidebar > section.profile .avatar{
 	display: inline-block;
 	margin-bottom: 8px;
+	border-radius: 50%;
 }
 
 aside.sidebar > section.profile h3{
@@ -143,9 +144,21 @@ aside.sidebar > section.profile h3{
 	font-size: 18px;
 	font-weight: normal;
 }
-aside.sidebar > section.profile h3.loggedin-username{ margin: 0 }
+aside.sidebar > section.profile h3.loggedin-username{ margin: 5px 0 0 }
 
-aside.sidebar > section.profile .login-button{
+aside.sidebar > section.profile .logout-btn{
+	display: inline-block;
+	margin: 3px 0 5px;
+	padding: 3px 5px 1px;
+	color: white;
+	font-size: 12px;
+	background-color: #555;
+	border-radius: 4px;
+	transition: all 0.5s;
+}
+aside.sidebar > section.profile .logout-btn:hover{ background-color: #888 }
+
+aside.sidebar > section.profile .login-btn{
 	margin: 5px 10px;
 	padding: 7px 0;
 	background-color: #666;
@@ -155,15 +168,15 @@ aside.sidebar > section.profile .login-button{
 	cursor: pointer;
 	transition: all 0.5s;
 }
-aside.sidebar > section.profile .login-button.facebook{ background-color: #3b5998 }
-aside.sidebar > section.profile .login-button.facebook:hover{ background-color: #5579c3 }
-aside.sidebar > section.profile .login-button.naver{ background-color: #00c73c }
-aside.sidebar > section.profile .login-button.naver:hover{ background-color: #0fda4c }
-aside.sidebar > section.profile .login-button.google{ background-color: #4285f4 }
-aside.sidebar > section.profile .login-button.google:hover{ background-color: #75a9ff }
+aside.sidebar > section.profile .login-btn.facebook{ background-color: #3b5998 }
+aside.sidebar > section.profile .login-btn.facebook:hover{ background-color: #5579c3 }
+aside.sidebar > section.profile .login-btn.naver{ background-color: #00c73c }
+aside.sidebar > section.profile .login-btn.naver:hover{ background-color: #0fda4c }
+aside.sidebar > section.profile .login-btn.google{ background-color: #4285f4 }
+aside.sidebar > section.profile .login-btn.google:hover{ background-color: #75a9ff }
 
-aside.sidebar > section.profile .login-button.facebook .fa-facebook{ margin-right: 2px }
-aside.sidebar > section.profile .login-button.naver .naver-icon{
+aside.sidebar > section.profile .login-btn.facebook .fa-facebook{ margin-right: 2px }
+aside.sidebar > section.profile .login-btn.naver .naver-icon{
 	display: inline-block;
 	margin-top: 1px;
 	width: 13.5px;
@@ -254,22 +267,23 @@ nav.magazine-nav{
 
 nav.magazine-nav ul{
 	margin: 0;
-	padding: 0;
+	padding: 0 10px;
 	list-style: none;
 	border-bottom: 1px solid #eee;
 }
 
 nav.magazine-nav ul li{
 	float: left;
-	margin: 0 3px;
-	padding: 13px 10px 9px;
+	margin: 0 6px;
+	padding: 12px 4px 6px;
 	font-size: 16px;
 	color: #777;
+	border-bottom: 3px solid white;
 }
 
 nav.magazine-nav ul li.selected{
 	color: #ff3333;
-	border-bottom: 2px solid #ff3333;
+	border-bottom-color: #ff3333;
 }
 
 footer{

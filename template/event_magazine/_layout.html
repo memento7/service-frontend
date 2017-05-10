@@ -13,10 +13,12 @@
 	<section id="event-header">
 		<div class="background" style="{{ first_image(event.images, True) }}"></div>
 
-		<h3>{{ event.date }}</h3>
-		<h1{% if (event.title | length) > 25 %} style="font-size:25px"{% endif %}>
-			{{ event.title }}
-		</h1>
+		<div class="content">
+			<h3>{{ event.date.year }}년 {{ event.date.month }}월</h3>
+			<h1{% if (event.title | length) > 25 %} style="font-size:25px"{% endif %}>
+				{{ event.title }}
+			</h1>
+		</div>
 	</section>
 
 	<nav class="magazine-nav">

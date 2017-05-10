@@ -6,8 +6,11 @@
 				<img src="{{ user.image_url }}" class="avatar" width="63" height="63">
 			</div>
 			<h3 class="loggedin-username">
-				<span>{{ user.name }}</span>
+				<span>{{ user.nickname }}</span>
 			</h3>
+			<div>
+				<a href="https://base.memento.live/logout" class="logout-btn">로그아웃</a>
+			</div>
 
 		{{ else }}
 			<div>
@@ -17,16 +20,16 @@
 				<span>로그인 필요</span>
 			</h3>
 			
-			<div class="login-button facebook" onclick="login('facebook')">
+			<div class="login-btn facebook" onclick="login('facebook')">
 				<i class="fa fa-facebook" aria-hidden="true"></i>
 				<span>페이스북으로 로그인</span>
 			</div>
-			<div class="login-button naver" onclick="login('naver')">
+			<div class="login-btn naver" onclick="login('naver')">
 				<span class="naver-icon"></span>
 				<span>네이버로 로그인</span>
 			</div>
 		
-			<div class="login-button google" onclick="login('google')">
+			<div class="login-btn google" onclick="login('google')">
 				<i class="fa fa-google" aria-hidden="true"></i>
 				<span>구글으로 로그인</span>
 			</div>

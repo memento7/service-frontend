@@ -12,7 +12,10 @@
 	{{ super() }}
 
 	<section id="related-people" class="common-tile">
-		<h3>관련 인물</h3>
+		<h3>
+			<i class="event-icon icon-people"></i>
+			<span>관련 인물</span>
+		</h3>
 		<div class="content clearfix">
 			{% for person in event.entities %}
 				<div class="person fl {{ 'last'|safe if loop.last }}">
@@ -34,9 +37,14 @@
 
 	<section id="three-line-summaries" class="common-tile">
 		<div class="more fr">
-			<a href="./3lines">더보기</a>
+			<a href="./3lines">
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</a>
 		</div>
-		<h3>3줄 요약</h3>
+		<h3>
+			<i class="event-icon icon-pen"></i>
+			<span>3줄 요약</span>
+		</h3>
 
 		<div class="content">
 		{% if event.summaries3line and event.summaries3line | length %}
@@ -47,14 +55,17 @@
 						<ol class="three-line-summary">
 							{% for line in summary.content %}
 							<li>
-								<i class="l{{ loop.index }}">{{ loop.index }}.</i>
+								<i class="l{{ loop.index }}">{{ loop.index }}</i>
 								<span>{{ line }}</span>
 							</li>
 							{% endfor %}
 						</ol>
 						<div class="meta">
-							<span>by @{{ summary.author }}</span>
-							<span>추천 {{ summary.like }}</span>
+							<span class="author">@{{ summary.author }}</span>
+							<span>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<span>{{ summary.like }}</span>
+							</span>
 						</div>
 					</div>
 					{% endfor %}
@@ -74,30 +85,61 @@
 	</section>
 
 	<section id="issue-rank" class="common-tile">
-		<h3>이슈 등급</h3>
+		<h3>
+			<i class="event-icon icon-rank"></i>
+			<span>이슈 등급</span>
+		</h3>
 		<div class="content clearfix">
 			<div class="fl">
 				<div>
 					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="90" height="50" class="{{ event.issue_data.rank() }}-rank">
 						{% set pos = range_svg_pos(1 - event.issue_data.top_percentile / 100, 38, 45, 45) %}
 						<path d="M {{ pos }}
-								A 38, 38, 0, 0, 0, 7, 45" class="pos" />
-
-						<path d="M {{ pos }}
 							A 38, 38, 0, 0, 1, 83, 45" class="rest" />
 
-						</svg>
+						<path d="M {{ pos }}
+								A 38, 38, 0, 0, 0, 7, 45" class="pos" />
+
+						
 					</svg>
 				</div>
-				<div class="rank-container">
-					<span class="label issue-rank {{ event.issue_data.rank() }}-rank">
-						<i>{{ event.issue_data.rank() | upper }}</i>
-						<span>{{ event.issue_data.full_label() }}</span>
-					</span>
+				<div class="rank {{ event.issue_data.rank() }}-rank">
+					{{ event.issue_data.rank() | upper }}
+				</div>
+				<div class="full-label {{ event.issue_data.rank() }}-rank">
+					"{{ event.issue_data.full_label() }}"
 				</div>
 			</div>
 			<div class="comment fr">
-				<h4>{{ event.issue_data.mention() }}</h4>
+				<div class="clearfix">
+					{% if event.issue_data.ranking %}
+					<div class="circle fl">
+						<div class="content">
+							<span>{{ event.date.year }}년</span><br>
+							<strong>{{ event.issue_data.ranking }}</strong><span>등</span>
+						</div>
+					</div>
+					{% endif %}
+
+					<div class="circle fl">
+						<div class="content">
+							<span>전체 상위</span><br>
+							<strong>{{ event.issue_data.top_percentile | int }}%</strong><span>이내</span>
+						</div>
+					</div>
+				</div>
+				<div class="sources">
+					<i class="event-icon icon-news"></i>
+					<span>{{ event.issue_data.f_article_count }}</span>
+
+					<i class="event-icon icon-talk"></i>
+					<span>{{ event.issue_data.f_comment_count }}</span>
+
+					<i class="event-icon icon-share"></i>
+					<span>{{ event.issue_data.f_sns_count }}</span>
+				</div>
+
+				{# <h4>{{ event.issue_data.mention() }}</h4>
 				<div>
 					전체 사건 중 <strong>{{ event.issue_data.ranking }}번째</strong>로 핫한 사건이며, 
 					전체 상위 <strong>{{ event.issue_data.top_percentile | round(1) }}%</strong>안에 들어요
@@ -106,19 +148,19 @@
 					<span>언론 언급수</span>
 					<span class="value value-news">{{ event.issue_data.f_article_count }}</span>
 
-					{# <span>SNS</span>
-					<span class="value value-sns">X</span> #}
-
 					<span>댓글</span>
 					<span class="value value-comment">{{ event.issue_data.f_comment_count }}</span>
-				</div>
+				</div> #}
 			</div>
 
 		</div>
 	</section>
 
 	<section id="emotions" class="common-tile">
-		<h3>대중의 반응</h3>
+		<h3>
+			<i class="event-icon icon-balloon"></i>
+			<span>대중의 반응</span>
+		</h3>
 		<div>
 			{% if event.emotions %}
 			<img src="./emotion-wordcloud.png" width="100%" style="max-width: 600px">
@@ -127,7 +169,10 @@
 	</section>
 
 	<section id="emotions" class="common-tile">
-		<h3>연관 키워드</h3>
+		<h3>
+			<i class="event-icon icon-keyword"></i>
+			<span>연관 키워드</span>
+		</h3>
 		<div>
 			<img src="./keyword-wordcloud.png" width="100%" style="max-width: 600px">
 		</div>

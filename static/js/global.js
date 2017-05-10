@@ -1,4 +1,5 @@
-var AUTH_BASE = 'https://auth.memento.live';
+//var AUTH_BASE = 'https://auth.memento.live';
+var AUTH_BASE = 'https://base.memento.live/auth';
 var API_BASE = 'https://uapi.memento.live';
 
 var sidebarTemplate;
@@ -17,10 +18,20 @@ function renderSidemenu() {
 }
 
 function updateLoginSession() {
-	$.get(API_BASE + '/me', function(result) {
-		loginedUser = result;
+	$.ajax(API_BASE + '/me', {
+		method: 'GET',
+		crossDomain: true,
+		success: function(result) {
+			loginedUser = result;
+			renderSidemenu();
+		},
+		error: function(e) {
+
+		},
+		xhrFields: {
+			withCredentials: true
+		}
 	});
-	renderSidemenu();
 }
 
 function openSidemenu() {
@@ -34,7 +45,7 @@ function openSidemenu() {
 }
 
 function login(type) {
-	location.href = AUTH_BASE + '/' + type + '?redirect=' + encodeURI(location.href);
+	location.href = AUTH_BASE + '/' + type// + '?redirect=' + encodeURI(location.href);
 }
 
 
