@@ -1,0 +1,60 @@
+{% extends '/layouts/default.html' %}
+{% import "/macros/event_tile.html" as event_tile %}
+
+{% block title %}위클리 메멘토 - {{ month }}월 {{ week }}주차{% endblock %}
+
+{% block head %}
+	{{ super() }}
+
+	<link rel="stylesheet" type="text/css" href="/css/weekly_memento.css">
+{% endblock %}
+
+
+{% block content %}
+	<section id="weekly-header">
+		{% if events | length %}
+		<div class="background" style="{{ events[0].repr_image(True) }}"></div>
+		{% else %}
+		<div class="background"></div>
+		{% endif %}
+
+		<div class="content">
+			<h2>위클리 메멘토</h2>
+			<h1>{{ month }}월 {{ week }}주차</h1>
+			<h3>
+				{{ year }}년
+				{{ start_date.month }}월
+				{{ start_date.day }}일 ~
+				{% if start_date.month != end_date.month %}{{ end_date.month }}월{% endif %}
+				{{ end_date.day }}일
+			</h3>
+
+			{% if prev_week %}
+				<a href="/weekly/{{ prev_week[0] }}.{{ prev_week[1] }}/{{ prev_week[2] }}/">
+					<i class="fa fa-angle-left prev-btn"></i>
+				</a>
+			{% endif %}
+			{% if next_week %}
+				<a href="/weekly/{{ next_week[0] }}.{{ next_week[1] }}/{{ next_week[2] }}/">
+					<i class="fa fa-angle-right next-btn"></i>
+				</a>
+			{% endif %}
+		</div>
+	</section>
+
+	<section id="timeline">
+		<ul>
+			{% for event in events %}
+				<li>
+					<h3 style="color: {{ linecolor }}">
+						{{ event.date.day }}일
+					</h3>
+
+					{{ event_tile.event_tile(event) }}
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+{% endblock %}
+
+

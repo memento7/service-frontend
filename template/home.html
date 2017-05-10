@@ -36,7 +36,7 @@
 						{% for person in person_group %}
 						<a href="/people/{{ person.id }}">
 							<li>
-								<div class="image" style="{{ first_image(person.images, True) }}"></div>
+								<div class="image" style="{{ person.repr_image(True) }}"></div>
 								<h4>{{ person.nickname }}</h4>
 								<div class="role">{{ (person.get_role().values() | first).name }}</div>
 
@@ -92,9 +92,13 @@
 
 	<section id="day-3years-ago" class="common-tile">
 		<h3>3년전 오늘</h3>
-		<div class="content clearfix">
+		<div class="description">2014년 3월 1일의 주요사건</div>
+
+		{{ event_tile.gallery_event_tile(events[104]) }}
+
+		{# <div class="content clearfix">
 			<div class="no-content">이벤트가 없습니다</div>
-		</div>
+		</div> #}
 	</section>
 {% endblock %}
 

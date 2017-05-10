@@ -4,12 +4,9 @@
 	/*background-color: white;*/
 }
 
-.background{
-	position: absolute;
+#wrap > .background{
 	z-index: 0;
-	width: 100%;
-	height: 225px;
-
+	height: 230px;
 	background: #fe646e;
 	background: -webkit-linear-gradient(-90deg, #fe646e 0%, #f79384 100%);
 	background: linear-gradient(90deg, #fe646e 0%, #f79384 100%);
@@ -76,22 +73,6 @@ section#trendy-people .swiper-button-prev{
 	background-size: 13.5px 22px;
 }
 
-/*section#trendy-people .prev-btn,
-section#trendy-people .next-btn{
-	position: absolute;
-	top: 50px;
-	padding: 0 10px;
-	font-size: 35px;
-	color: white;
-	cursor: pointer;
-	z-index: 3;
-}
-section#trendy-people .next-btn{ right: 0; }*/
-
-/*section#trendy-people .container{
-	margin: 0 25px;
-	overflow: hidden;
-}*/
 
 section#trendy-people ul{
 	margin: 0;
@@ -131,9 +112,7 @@ section#trendy-people ul a li h4{
 }
 
 
-section#watchable-event{
-
-}
+section#watchable-event{}
 section#watchable-event .content .mini-event-tile{
 	float: left;
 	width: 113px;
@@ -141,3 +120,15 @@ section#watchable-event .content .mini-event-tile{
 	margin-right: 7px;
 }
 section#watchable-event .content .mini-event-tile:last-child{ margin-right: 0 }
+
+
+
+section#day-3years-ago{ position: relative; }
+section#day-3years-ago .description{
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	font-size: 12px;
+	color: #888;
+}
+section#day-3years-ago .gallery-event-tile{ margin-top: 10px; }

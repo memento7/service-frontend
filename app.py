@@ -2,14 +2,14 @@ from jikji import getview, addpage, addpagegroup
 from models.people import People
 from models.event import Event
 from models import _mockup
-
 from views.people import PeoplePageGroup
 from views.event import EventPageGroup
-
+from views.weekly import get_week
 from lib.api import PublishAPI
 
 import requests
 import settings
+from datetime import datetime, timedelta
 
 
 """ Config URLs
@@ -28,6 +28,8 @@ getview('event.three_lines').url_rule 	 	 = '/event/{ id }/3lines/'
 getview('event.emotion_wordcloud').url_rule  = '/event/{ id }/emotion-wordcloud.png'
 getview('event.keyword_wordcloud').url_rule  = '/event/{ id }/keyword-wordcloud.png'
 
+getview('weekly.weekly').url_rule = '/weekly/{$1}.{$2}/{$3}/'
+getview('weekly.this_week').url_rule = '/weekly/'
 
 
 """ Add pages and pagegroups
@@ -55,6 +57,15 @@ for data in PublishAPI.get('/events/updated') :
 	addpagegroup( EventPageGroup( model=event ) )
 
 
+addpage(view='weekly.this_week')
 
+# Weekly memento
+for d in range(1, 100) :
+	today = datetime.now()
+	today = datetime(today.year, today.month, today.day)
+
+	year, month, week = get_week( today - timedelta(days=d*7) )
+
+	addpage(view='weekly.weekly', params=(year, month, week))	
 
 

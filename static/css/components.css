@@ -42,7 +42,7 @@
 	display: inline-block;
 	height: 16px;
 	background-image: url('/images/label_sprite.png');
-	background-size: 127px auto;
+	background-size: 210px auto;
 }
 .issue-label{ width: 45px; }
 .category-label{ width: 40px; }
@@ -52,12 +52,20 @@
 .issue-label.b-rank{ background-position: 0 -34px }
 .issue-label.c-rank{ background-position: 0 -51px }
 
-.category-label.category-a{ background-position: -46px 0 }
-.category-label.category-b{ background-position: -46px -17px }
+.category-label.category-a{ background-position: -46px 0; width: 32px }
+.category-label.category-b{ background-position: -46px -17px; width: 32px }
 .category-label.category-c{ background-position: -46px -34px }
 .category-label.category-d{ background-position: -46px -51px }
-.category-label.category-e{ background-position: -87px 0 }
-.category-label.category-f{ background-position: -87px -17px }
+.category-label.category-e{ background-position: -87px 0; width: 32px }
+.category-label.category-f{ background-position: -87px -17px; width: 32px }
+
+.category-label.white.category-a{ background-position: -128px 0 }
+.category-label.white.category-b{ background-position: -128px -17px }
+.category-label.white.category-c{ background-position: -128px -34px }
+.category-label.white.category-d{ background-position: -128px -51px }
+.category-label.white.category-e{ background-position: -169px 0 }
+.category-label.white.category-f{ background-position: -169px -17px }
+
 
 
 /* deprecicated */
@@ -74,9 +82,10 @@
 	display: inline-block;
 	padding: 1px;
 
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 300;
 	vertical-align: middle;
+	color: #777;
 }
 .emotion-bubbles .emotion > span{ vertical-align: middle; }
 .emotion-bubbles .emotion > i{
@@ -90,10 +99,23 @@
 .event-tile{
 
 }
+.event-tile > .fl{ width: calc(100% - 116px) }
+.event-tile > .fr{ width: 110px }
+.event-tile > .fr img{ width: 100% }
+.event-tile > .fr .image{ width: 110px }
+
+.event-tile .image{
+	width: 120px;
+	height: 80px;
+	background-color: #333;
+	background-size: auto 80px;
+	background-position: center center;
+}
+
 .event-tile h4{
-	margin: 0 0 7px;
+	margin: 0 0 4px;
 	padding: 0;
-	font-size: 20px;
+	font-size: 19px;
 	font-weight: 300;
 }
 .event-tile a{
@@ -105,8 +127,7 @@
 	font-size: 13px;
 	color: #999;
 }
-.event-tile .emotion-bubbles{ margin-top: 3px}
-
+.event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
 
 
@@ -118,7 +139,43 @@
 	font-size: 15px;
 	text-align: center;
 }
-.event-tile .emotion-bubbles .emotion > span{
-	font-size: 12px;
+.mini-event-tile .image{ width: 100%; }
+.mini-event-tile .labels{ text-align: center; }
+.mini-event-tile .emotion-bubbles{ margin-top: -3px; text-align: center; }
+
+
+.gallery-event-tile{
+	position: relative;
+	height: 160px;
 }
 
+.gallery-event-tile .background{
+	height: 100%;
+	filter: brightness(60%);
+	z-index: 1;
+}
+.gallery-event-tile h4,
+.gallery-event-tile .labels,
+.gallery-event-tile .emotion-bubbles{
+	position: absolute;
+	z-index: 3;
+	font-weight: 100;
+}
+
+.gallery-event-tile h4{
+	color: white;
+	left: 15px;
+	bottom: 10px;
+	width: calc(100% - 100px);
+}
+.gallery-event-tile .labels{ top: 10px; right: 5px }
+.gallery-event-tile .emotion-bubbles{ bottom: 10px; right: 10px; }
+.gallery-event-tile .emotion-bubbles .emotion{ color: white }
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.issue-label,
+	.category-label{
+		background-image: url('/images/label_sprite@2x.png');
+	}
+}

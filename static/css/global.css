@@ -58,6 +58,10 @@ html,body{
 	/*font-family: 'Spoqa Han Sans', sans-serif;*/
 }
 
+#wrap{
+	background-color: #e3e4e8;
+}
+
 #mask{
 	display: none;
 	position: fixed;
@@ -69,28 +73,50 @@ html,body{
 	z-index: 90;
 }
 
-header{
+.no-content{
+	padding: 70px 0;
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+}
+
+.background{
+	position: absolute;
 	width: 100%;
-	height: 50px;
+	background-color: #999;
+	background-size: 100% auto;
+	background-position: center;
+}
+
+header{
+	position: relative;
+	width: 100%;
+	padding-top: 8px;
+	height: 42px;
 	border-bottom: 1px solid #eee;
 }
 
 header .logo{
+	position: absolute;
 	width: 200px;
 	height: 32px;
-	margin: 8px auto;
+
+	left: 50%;
+	margin-left: -100px;
+	
 	background-image: url('/images/logo_sprite.png');
 	background-size: 200px;
 }
 
 header .menu-bar{
-	margin: 12px;
+	margin: 4px 12px;
 	font-size: 23px;
 	cursor: pointer;
+	color: #999;
 }
 
 
-aside.sidemenu{
+aside.sidebar{
 	display: none;
 	position: fixed;
 	top: 0;
@@ -101,20 +127,66 @@ aside.sidemenu{
 	background-color: white;
 	z-index: 100;
 }
-aside.sidemenu > section.profile{
+aside.sidebar > section.profile{
 	padding: 20px 0 10px;
 	text-align: center;
 }
 
-aside.sidemenu > section.profile .avatar{
+aside.sidebar > section.profile .avatar{
 	display: inline-block;
 	margin-bottom: 8px;
+	border-radius: 50%;
 }
 
-aside.sidemenu > section.profile .loggedin-username{ font-size: 18px }
+aside.sidebar > section.profile h3{
+	margin: 5px 0 10px;
+	padding: 0;
+	font-size: 18px;
+	font-weight: normal;
+}
+aside.sidebar > section.profile h3.loggedin-username{ margin: 5px 0 0 }
+
+aside.sidebar > section.profile .logout-btn{
+	display: inline-block;
+	margin: 3px 0 5px;
+	padding: 3px 5px 1px;
+	color: white;
+	font-size: 12px;
+	background-color: #555;
+	border-radius: 4px;
+	transition: all 0.5s;
+}
+aside.sidebar > section.profile .logout-btn:hover{ background-color: #888 }
+
+aside.sidebar > section.profile .login-btn{
+	margin: 5px 10px;
+	padding: 7px 0;
+	background-color: #666;
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+aside.sidebar > section.profile .login-btn.facebook{ background-color: #3b5998 }
+aside.sidebar > section.profile .login-btn.facebook:hover{ background-color: #5579c3 }
+aside.sidebar > section.profile .login-btn.naver{ background-color: #00c73c }
+aside.sidebar > section.profile .login-btn.naver:hover{ background-color: #0fda4c }
+aside.sidebar > section.profile .login-btn.google{ background-color: #4285f4 }
+aside.sidebar > section.profile .login-btn.google:hover{ background-color: #75a9ff }
+
+aside.sidebar > section.profile .login-btn.facebook .fa-facebook{ margin-right: 2px }
+aside.sidebar > section.profile .login-btn.naver .naver-icon{
+	display: inline-block;
+	margin-top: 1px;
+	width: 13.5px;
+	height: 12px;
+	background-image: url('/images/naver-icon-white.png');
+	background-size: 13.5px 12px;
+}
 
 
-aside.sidemenu > section > h4{
+aside.sidebar > section > h4{
 	margin: 20px 15px 2px;
 	padding: 1px 0;
 	font-weight: normal;
@@ -122,37 +194,37 @@ aside.sidemenu > section > h4{
 	color: #9B9B9B;
 	border-bottom: 1px solid #DBDBDB;
 }
-aside.sidemenu > section ul{
+aside.sidebar > section ul{
 	margin: 5px 3px;
 	padding: 0;
 	list-style: none;
 }
-aside.sidemenu > section a{ color: #444; text-decoration: none; }
-aside.sidemenu > section ul li{
+aside.sidebar > section a{ color: #444; text-decoration: none; }
+aside.sidebar > section ul li{
 	margin: 0;
 	padding: 7px 15px;
 	font-size: 17px;
 	transition: background-color 0.5s;
 }
-aside.sidemenu > section ul li:hover{ background-color: #f0f0f0 }
+aside.sidebar > section ul li:hover{ background-color: #f0f0f0 }
 
-aside.sidemenu > section.service-shortcuts ul li .fa{
+aside.sidebar > section.service-shortcuts ul li .fa{
 	width: 15px;
 	text-align: center;
 	color: #777;
 	padding-right: 4px;
 } 
-aside.sidemenu > section.service-shortcuts ul li .fa-calendar{ color: #673AB7 }
-aside.sidemenu > section.service-shortcuts ul li .fa-user{ color: #E91E63 }
-aside.sidemenu > section.service-shortcuts ul li .fa-camera-retro{ color: #FF9800 }
+aside.sidebar > section.service-shortcuts ul li .fa-calendar{ color: #673AB7 }
+aside.sidebar > section.service-shortcuts ul li .fa-user{ color: #E91E63 }
+aside.sidebar > section.service-shortcuts ul li .fa-camera-retro{ color: #FF9800 }
 
-aside.sidemenu > section.favorites .empty{
+aside.sidebar > section.favorites .empty{
 	padding: 5px 15px;
 	font-size: 14px;
 	text-align: center;
 	color: #555;
 }
-aside.sidemenu > section.favorites .empty p{ margin: 2px 0 }
+aside.sidebar > section.favorites .empty p{ margin: 2px 0 }
 
 
 
@@ -187,12 +259,6 @@ section.common-tile .content{
 }
 
 
-.no-content{
-	padding: 70px 0;
-	font-size: 16px;
-	color: #666;
-	text-align: center;
-}
 
 
 nav.magazine-nav{
@@ -201,22 +267,23 @@ nav.magazine-nav{
 
 nav.magazine-nav ul{
 	margin: 0;
-	padding: 0;
+	padding: 0 10px;
 	list-style: none;
 	border-bottom: 1px solid #eee;
 }
 
 nav.magazine-nav ul li{
 	float: left;
-	margin: 0 3px;
-	padding: 13px 10px 9px;
+	margin: 0 6px;
+	padding: 12px 4px 6px;
 	font-size: 16px;
 	color: #777;
+	border-bottom: 3px solid white;
 }
 
 nav.magazine-nav ul li.selected{
 	color: #ff3333;
-	border-bottom: 2px solid #ff3333;
+	border-bottom-color: #ff3333;
 }
 
 footer{
@@ -229,7 +296,7 @@ footer{
 
 @media(min-width: 700px) {
 	html,body{
-		background-color: #f6f6f6;
+		background-color: #efefef;
 		overflow-x: hidden;
 	}
 	#wrap{
@@ -244,3 +311,12 @@ footer{
 		width: 400px;
 	}
 }
+
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	header .logo{
+		background-image: url('/images/logo_sprite@2x.png');
+	}
+}
+
