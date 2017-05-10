@@ -42,11 +42,10 @@
 				{{ category_label(event.type) }}
 				{{ emotion_bubbles(event.emotions, 2) }}
 			</div>
-
-		</div>
+		</div>repr
 		<div class="fr">
-			{% if first_image(event.images) %}
-			<img src="{{ first_image(event.images) }}">
+			{% if event.repr_image() %}
+			<div class="image" style="{{ event.repr_image(True) }}"></div>
 			{% endif %}
 		</div>
 	</div>
@@ -56,7 +55,9 @@
 {% macro mini_event_tile(event) -%}
 	<div class="event-tile mini-event-tile">
 		<a href="/event/{{ event.id }}">
-			<div><img src="{{ first_image(event.images) }}" width="100%"></div>
+			<div>
+				<div class="image" style="{{ event.repr_image(True) }}"></div>
+			</div>
 			<h4>{{ event.title }}</h4>
 		</a>
 		<div class="labels">
@@ -73,11 +74,11 @@
 {% macro gallery_event_tile(event) -%}
 	<a href="/event/{{ event.id }}">
 		<div class="event-tile gallery-event-tile">
-			<div class="background" style="{{ first_image(event.images, True) }}"></div>
+			<div class="background" style="{{ event.repr_image(True) }}"></div>
 			
 			<div class="labels">
 				{{ issue_label(event.issue_data) }}
-				{{ category_label(event.type, 'black') }}
+				{{ category_label(event.type, 'white') }}
 			</div>
 
 			<h4>{{ event.title }}</h4>

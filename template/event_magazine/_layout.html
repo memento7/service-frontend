@@ -1,4 +1,5 @@
 {% extends '/layouts/default.html' %}
+{% import "/macros/event_tile.html" as event_tile %}
 
 {% block title %}{{ event.title }} - 메멘토{% endblock %}
 
@@ -11,10 +12,13 @@
 
 {% block content %}
 	<section id="event-header">
-		<div class="background" style="{{ first_image(event.images, True) }}"></div>
+		<div class="background" style="{{ event.repr_image(True) }}"></div>
 
 		<div class="content">
-			<h3>{{ event.date.year }}년 {{ event.date.month }}월</h3>
+			<h3>
+				<span>{{ event.date.year }}년 {{ event.date.month }}월</span>
+				{{ event_tile.category_label(event.type, 'white') }}
+			</h3>
 			<h1{% if (event.title | length) > 25 %} style="font-size:25px"{% endif %}>
 				{{ event.title }}
 			</h1>

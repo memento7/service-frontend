@@ -22,7 +22,7 @@
 					<a href="/people/{{ person.id }}">
 						<div class="clearfix">
 							<div class="fl left">
-								<span class="image" style="{{ first_image(person.images, True) }}"></span>
+								<span class="image" style="{{ person.repr_image(True) }}"></span>
 							</div>
 							<div class="fl right">
 								<div>{{ person.nickname }}</div>
@@ -111,46 +111,42 @@
 				</div>
 			</div>
 			<div class="comment fr">
-				<div class="clearfix">
+				<div class="circle-wrap clearfix {{ 'single' if not event.issue_data.ranking else '' }}">
 					{% if event.issue_data.ranking %}
-					<div class="circle fl">
-						<div class="content">
-							<span>{{ event.date.year }}년</span><br>
-							<strong>{{ event.issue_data.ranking }}</strong><span>등</span>
+					<div class="fl">
+						<div class="circle">
+							<div class="content">
+								<span>{{ event.date.year }}년</span><br>
+								<strong>{{ event.issue_data.ranking }}등</strong>
+							</div>
 						</div>
 					</div>
 					{% endif %}
-
-					<div class="circle fl">
-						<div class="content">
-							<span>전체 상위</span><br>
-							<strong>{{ event.issue_data.top_percentile | int }}%</strong><span>이내</span>
+					<div class="fl">
+						<div class="circle">
+							<div class="content">
+								<span>전체 상위</span><br>
+								<strong>{{ event.issue_data.top_percentile | int }}%</strong>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="sources">
-					<i class="event-icon icon-news"></i>
-					<span>{{ event.issue_data.f_article_count }}</span>
+				<div class="sources clearfix">
+					<div class="fl">
+						<i class="event-icon icon-news"></i>
+						<span>{{ event.issue_data.f_article_count }}</span>
+					</div>
 
-					<i class="event-icon icon-talk"></i>
-					<span>{{ event.issue_data.f_comment_count }}</span>
+					<div class="fl">
+						<i class="event-icon icon-talk"></i>
+						<span>{{ event.issue_data.f_comment_count }}</span>
+					</div>
 
-					<i class="event-icon icon-share"></i>
-					<span>{{ event.issue_data.f_sns_count }}</span>
+					<div class="fl">
+						<i class="event-icon icon-share"></i>
+						<span>{{ event.issue_data.f_sns_count }}</span>
+					</div>
 				</div>
-
-				{# <h4>{{ event.issue_data.mention() }}</h4>
-				<div>
-					전체 사건 중 <strong>{{ event.issue_data.ranking }}번째</strong>로 핫한 사건이며, 
-					전체 상위 <strong>{{ event.issue_data.top_percentile | round(1) }}%</strong>안에 들어요
-				</div>
-				<div class="reference">
-					<span>언론 언급수</span>
-					<span class="value value-news">{{ event.issue_data.f_article_count }}</span>
-
-					<span>댓글</span>
-					<span class="value value-comment">{{ event.issue_data.f_comment_count }}</span>
-				</div> #}
 			</div>
 
 		</div>
@@ -159,16 +155,28 @@
 	<section id="emotions" class="common-tile">
 		<h3>
 			<i class="event-icon icon-balloon"></i>
-			<span>대중의 반응</span>
+			<span>사람들의 반응</span>
 		</h3>
-		<div>
-			{% if event.emotions %}
+		<div class="content clearfix">
+			<div class="fl">
+				<div class="icon-wrapper">
+					<i class="event-icon icon-happy"></i>
+				</div>
+				<div class="container"></div>
+			</div>
+			<div class="fr">
+				<div class="icon-wrapper">
+					<i class="event-icon icon-sad"></i>
+				</div>
+				<div class="container"></div>
+			</div>
+			<!-- {% if event.emotions %}
 			<img src="./emotion-wordcloud.png" width="100%" style="max-width: 600px">
-			{% endif %}
+			{% endif %} -->
 		</div>
 	</section>
 
-	<section id="emotions" class="common-tile">
+	<section id="keywords" class="common-tile">
 		<h3>
 			<i class="event-icon icon-keyword"></i>
 			<span>연관 키워드</span>

@@ -59,12 +59,12 @@
 .category-label.category-e{ background-position: -87px 0; width: 32px }
 .category-label.category-f{ background-position: -87px -17px; width: 32px }
 
-.category-label.black.category-a{ background-position: -128px 0 }
-.category-labelblack.category-b{ background-position: -128px -17px }
-.category-labelblack.category-c{ background-position: -128px -34px }
-.category-labelblack.category-d{ background-position: -128px -51px }
-.category-labelblack.category-e{ background-position: -169px 0 }
-.category-labelblack.category-f{ background-position: -169px -17px }
+.category-label.white.category-a{ background-position: -128px 0 }
+.category-label.white.category-b{ background-position: -128px -17px }
+.category-label.white.category-c{ background-position: -128px -34px }
+.category-label.white.category-d{ background-position: -128px -51px }
+.category-label.white.category-e{ background-position: -169px 0 }
+.category-label.white.category-f{ background-position: -169px -17px }
 
 
 
@@ -99,9 +99,18 @@
 .event-tile{
 
 }
-.event-tile > .fl{ width: calc(100% - 106px) }
-.event-tile > .fr{ width: 100px }
+.event-tile > .fl{ width: calc(100% - 116px) }
+.event-tile > .fr{ width: 110px }
 .event-tile > .fr img{ width: 100% }
+.event-tile > .fr .image{ width: 110px }
+
+.event-tile .image{
+	width: 120px;
+	height: 80px;
+	background-color: #333;
+	background-size: auto 80px;
+	background-position: center center;
+}
 
 .event-tile h4{
 	margin: 0 0 4px;
@@ -130,6 +139,7 @@
 	font-size: 15px;
 	text-align: center;
 }
+.mini-event-tile .image{ width: 100%; }
 .mini-event-tile .labels{ text-align: center; }
 .mini-event-tile .emotion-bubbles{ margin-top: -3px; text-align: center; }
 

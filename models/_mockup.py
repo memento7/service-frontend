@@ -291,7 +291,7 @@ event80001 = {
 		{
 			'id': 70002,
 			'nickname': "김태희",
-			'roles': ['배우'],
+			'realname': "김태희",
 			'images': [
 				{
 					'path': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F28%2F201406261348278841.jpg",
@@ -303,7 +303,6 @@ event80001 = {
 			'id': 70003,
 			'nickname': "비",
 			'realname': "정지훈",
-			'roles': ['가수', '배우'],
 			'images': [
 				{
 					'path': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F71%2F20170123185015611.jpg",

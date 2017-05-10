@@ -1,8 +1,7 @@
-import requests
-
-from models.event import Event
 from lib import functions
 from lib.api import PublishAPI
+
+import requests
 
 class People :
 
@@ -49,10 +48,11 @@ class People :
 
 
 	
-	def __init__(self, id, nickname, realname, role_json,
-				images, events,
-				in_one_word=[], status=0,
+	def __init__(self, id, nickname, realname, role_json={},
+				images=[], events=[], in_one_word=[], status=0,
 				created_time=None, updated_time=None, published_time=None, **kwarg):
+
+		from models.event import Event
 
 		self.id = id
 		self.nickname = nickname
@@ -121,6 +121,21 @@ class People :
 
 		else :
 			return self.roles
+
+
+	def repr_image(self, css=False) :
+		""" Get representative image of person
+		"""
+		return functions.first_image(self.images, css)
+
+
+	def profile_image(self, css=False) :
+		""" Get profile image of person
+		"""
+		if getattr(self, 'profile_image') :
+			self.profile_image
+		else :
+			return self.repr_image(css)
 
 
 	def get_timelines(self) :

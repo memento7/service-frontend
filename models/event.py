@@ -1,5 +1,8 @@
-import re
+from models.people import People
+from lib import functions
+
 from datetime import datetime
+import re
 
 class Event :
 
@@ -37,13 +40,22 @@ class Event :
 		self.emotions = emotions
 		self.summaries3line = summaries3line
 		self.images = images
-		self.entities = entities
+		
+		self.entities = []
+		for entity in entities :
+			self.entities.append( People(**entity) )
 
 		self.issue_data = EventIssueData(**issue_data)
 
 		self.created_time = created_time
 		self.updated_time = updated_time
 		self.published_time = published_time
+
+
+	def repr_image(self, css=False) :
+		""" Get representative image of person
+		"""
+		return functions.first_image(self.images, css)
 
 
 
