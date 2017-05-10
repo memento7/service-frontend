@@ -105,7 +105,6 @@ def l10n(key) :
 
 		l10n_data = {}
 		for child in root :
-			print(child.get('name'), child.find('value').text)
 			l10n_data[child.get('name')] = child.find('value').text
 
 

@@ -61,9 +61,6 @@ class EventPageGroup(PageGroup) :
 			Page(self.keyword_wordcloud, params=self),
 		]
 
-		if self.model.emotions :
-			pages.append( Page(self.emotion_wordcloud, params=self) )
-
 		return pages
 
 
@@ -85,11 +82,6 @@ class EventPageGroup(PageGroup) :
 	@register_view
 	def three_lines(self) :
 		return render_template('event_magazine/3lines.html', event=self.model)
-
-
-	@register_view
-	def emotion_wordcloud(self) :
-		return get_wordcloud(self.model.emotions, key='title', multn=100)
 
 
 	@register_view

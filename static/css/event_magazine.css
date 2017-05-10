@@ -277,17 +277,17 @@ section#issue-rank .full-label{
 section#issue-rank svg.s-rank path.pos{ stroke: #e0316c }
 section#issue-rank svg.a-rank path.pos{ stroke: #ff6600 }
 section#issue-rank svg.b-rank path.pos{ stroke: #07ce9c }
-section#issue-rank svg.c-rank path.pos{ stroke: rgb(84, 72, 171) }
+section#issue-rank svg.c-rank path.pos{ stroke: #5448ab }
 
 section#issue-rank .rank.s-rank{ background: #ec588a; background: linear-gradient(145deg, #ec588a 0%, #a72651 100%); }
-section#issue-rank .rank.a-rank{ background: #ff6600; background: linear-gradient(135deg, #ff6600 0%, #ff6600 100%); }
-section#issue-rank .rank.b-rank{ background: #07ce9c; background: linear-gradient(135deg, #07ce9c 0%, #05b589 100%); }
-section#issue-rank .rank.c-rank{ background: #ec588a; background: linear-gradient(135deg, #ec588a 0%, #e0316c 100%); }
+section#issue-rank .rank.a-rank{ background: #ff6600; background: linear-gradient(145deg, #ff9d5c 0%, #d65703 100%); }
+section#issue-rank .rank.b-rank{ background: #07ce9c; background: linear-gradient(145deg, #07ce9c 0%, #05b589 100%); }
+section#issue-rank .rank.c-rank{ background: #5448ab; background: linear-gradient(145deg, #8b7ee6 0%, #392e86 100%); }
 
 section#issue-rank .full-label.s-rank{ color: #e0316c }
 section#issue-rank .full-label.a-rank{ color: #ff6600 }
 section#issue-rank .full-label.b-rank{ color: #07ce9c }
-section#issue-rank .full-label.c-rank{ color: rgb(84, 72, 171) }
+section#issue-rank .full-label.c-rank{ color: #5448ab }
 
 section#issue-rank .comment{
 	width: calc(100% - 110px);
@@ -363,6 +363,9 @@ section#emotions .content .container{
 	border: 1px solid #e6e7e9;
 	border-radius: 6px;
 }
+
+section#emotions .content svg g text{ fill: white; font-weight: 100 }
+
 
 /* 연관 키워드 */
 section#keywords{
