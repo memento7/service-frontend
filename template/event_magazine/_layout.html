@@ -17,7 +17,7 @@
 		<div class="content">
 			<h3>
 				<span>{{ event.date.year }}년 {{ event.date.month }}월</span>
-				{{ event_tile.category_label(event.type, 'white') }}
+				{{ event_tile.category_label(event, 'white') }}
 			</h3>
 			<h1{% if (event.title | length) > 25 %} style="font-size:25px"{% endif %}>
 				{{ event.title }}

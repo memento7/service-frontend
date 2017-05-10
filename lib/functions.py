@@ -1,4 +1,20 @@
+import json
+import settings
+
+def json_encode(obj) :
+	""" JSON Encode
+	"""
+	return json.dumps(obj)
+
+def json_decode(obj) :
+	""" JSON Decode
+	"""
+	return json.loads(obj)
+
+
 def rand_color() :
+	""" Get random colors predefined
+	"""
 	colorsets = [
 		'#F44336', #Red
 		'#E91E63', #Pink
@@ -18,16 +34,27 @@ def rand_color() :
 	import random
 	return colorsets[ random.randrange(0, len(colorsets)) ]
 
-	#return 'rgb(%s, %s, %s)' % (random.randrange(1, 255), random.randrange(1, 255), random.randrange(1, 255))
 
 def range_svg_pos(ratio, radius, cx, cy) :
+	""" Get position in SVG (used in event-magazine/summary)
+
+		:param ratio: real number (0~1)
+		:param radius: radius of circle
+		:param cx: x-axis center coordinate
+		:param cy: y-axis center coordinate
+	"""
 	import math
 	return "%s, %s" % (
 		round(-radius * math.cos(math.pi * ratio), 4) + cx,
 		round(-radius * math.sin(math.pi * ratio), 4) + cy,
 	)
 
+
 def iow_size(word) :
+	""" Get In-One-Word size
+
+		<TO BE REFACTORED>
+	"""
 	s = 200 / len(word)
 	if s > 33 : s = 33
 	if s < 17 : s = 17
@@ -36,63 +63,51 @@ def iow_size(word) :
 
 
 
-def event_category_id(category) :
-	categories = ['연예', '정치', '스포츠', '미디어', '세계', '기타']
-
-	# 1: 연예, 2: 정치, ... 의 dict 형태로 만듬
-	#d = dict( map( lambda: k, v : (v, k), range(1, len(categories)+1), categories ) )
-	#return d[category]
-	return chr( categories.index(category) + 97 )
-
-
-
 def circular_number(number) :
+	""" Get circular number
+	"""
 	cn = ['0', '①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭','⑮']
 
-	if 0 <= number < len(cn) :
-		return cn[number]
-	else :
-		return number
+	if 0 <= number < len(cn) :	return cn[number]
+	else :						return number
 
 
 
 def first_image(images, css=False) :
-	if not images or len(images) == 0 :
-		rv = None
-	elif 'path' in images[0]:
-		rv = images[0]['path']
-	else :
-		rv = images[0]['url']
+	""" Get first image's path on list of images with exception handling
 
+	:param images: list of image object
+	:param css: if True, return css-style code
+					(ex. background-image: url('my-image.png'))
+	"""
+	if not images or len(images) == 0 : 	rv = None
+	elif 'path' in images[0]: 				rv = images[0]['path']
+	else :									rv = images[0]['url']
 
 	if css :
-		if rv is None :
-			return ''
-		else :
-			return "background-image: url('%s')" % rv
+		if rv is None : return ''
+		else : 			return "background-image: url('%s')" % rv
 	else :
 		return rv
 
 
+
+l10n_data = None
 def l10n(key) :
-	d = {
-		'roleplay': '배역 소화도',
-		'perform': '액션',
-		'looks': '외모',
-		'stability': '안정감',
-		'empathy': '감정연기',
+	""" Localization
+	"""
+	global l10n_data
+	if not l10n_data :
+		# Init l10n data from XML
+		import xml.etree.ElementTree as ET
+		tree = ET.parse(settings.ROOT_PATH + '/data/l10n.xml')
+		root = tree.getroot()
 
-		'emotional': '감정 호소',
-		'singability': '가창력',
-		'composition': '작곡',
-		'dance': '댄스', 
+		l10n_data = {}
+		for child in root :
+			print(child.get('name'), child.find('value').text)
+			l10n_data[child.get('name')] = child.find('value').text
 
-		'drama': '드라마',
-		'movie': '영화',
-		'album': '앨범',
-	}
 
-	if key in d :
-		return d[key]
-	else :
-		return key
+	if key in l10n_data : 	return l10n_data[key]
+	else : 					return key

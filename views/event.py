@@ -33,7 +33,7 @@ def get_wordcloud(data, key='title', multn=1) :
 
 	wc = WordCloud(
 		background_color = "white",
-		font_path = settings.ROOT_PATH + '/fonts/NanumSquareOTFBold.otf',
+		font_path = settings.ROOT_PATH + '/data/fonts/NanumSquareOTFBold.otf',
 		color_func = custom_color_func,
 		width = 800,
 		height = 280,
@@ -90,6 +90,7 @@ class EventPageGroup(PageGroup) :
 	@register_view
 	def emotion_wordcloud(self) :
 		return get_wordcloud(self.model.emotions, key='title', multn=100)
+
 
 	@register_view
 	def keyword_wordcloud(self) :

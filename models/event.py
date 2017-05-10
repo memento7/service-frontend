@@ -8,7 +8,7 @@ class Event :
 
 	tag_remover = re.compile(r'<[^>]+>')
 	_instances = {}
-
+	CATEGORIES = ['연예', '정치', '스포츠', '미디어', '세계', '기타']
 
 	@staticmethod
 	def register(data) :
@@ -33,7 +33,8 @@ class Event :
 		
 		self.id = id
 		self.title = Event.tag_remover.sub('', title)
-		self.type = type
+		self.category = type
+
 		self.date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
 
 		self.keywords = keywords
@@ -56,6 +57,10 @@ class Event :
 		""" Get representative image of person
 		"""
 		return functions.first_image(self.images, css)
+
+
+	def category_id(self) :
+		return chr( Event.CATEGORIES.index(self.category) + 97 )
 
 
 
