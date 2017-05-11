@@ -83,7 +83,7 @@
 }
 
 .event-tile h4{
-	margin: 0 0 4px;
+	margin: 0 0 5px;
 	padding: 0;
 	font-size: 19px;
 	font-weight: 300;
@@ -159,7 +159,7 @@ i.index-bubble{
 	color: black;
 
 	font-size: 14px;
-	font-style: 400;
+	font-weight: 400;
 	font-style: normal;
 	vertical-align: middle;
 

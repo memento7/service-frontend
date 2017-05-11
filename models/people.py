@@ -56,6 +56,7 @@ class People :
 
 		self.id = id
 		self.nickname = nickname
+		self.realname = realname
 		self.role_json = role_json
 
 		self.in_one_word = in_one_word

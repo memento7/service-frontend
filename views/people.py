@@ -99,7 +99,6 @@ class PeoplePageGroup(PageGroup) :
 						top_trends[index] = {
 							'event': event,
 							'graph_data': tt,
-							'color': functions.rand_color()
 						}
 
 

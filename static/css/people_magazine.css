@@ -2,8 +2,9 @@
 
 header{
 	position: absolute;
-	border-bottom-color: white;
-	border-bottom-color: rgba(255, 255, 255, 0.5);
+	/*border-bottom-color: white;
+	border-bottom-color: rgba(255, 255, 255, 0.5);*/
+	border-bottom: none;
 	z-index: 11;
 }
 
@@ -13,6 +14,11 @@ header .logo{
 
 header .fr .fa-bars{
 	color: white;
+}
+
+nav.magazine-nav ul li.selected{
+	color: #ee3f7a;
+	border-bottom-color: #ee3f7a;
 }
 
 
@@ -26,6 +32,7 @@ section#people-header .user-react{
 	position: absolute;
 	top: 61px;
 	right: 10px;
+	z-index: 5;
 }
 section#people-header .user-react .star{
 	color: white;
@@ -34,31 +41,57 @@ section#people-header .user-react .star{
 }
 section#people-header .user-react .star.enabled{ color: #ffcc00 }
 
-section#people-header svg{
-	position: relative;
-	top: 90px;
-}
 
 section#people-header .background{
 	height: 210px;
-	filter: brightness(80%);
+	z-index: 1;
 }
+section#people-header .background-filter{
+	position: absolute;
+	width: 100%;
+	height: 210px;
+	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8), rgba(0,0,0,0));
+	background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));
+	z-index: 2;
+}
+
+
+section#people-header ul.roles{
+	position: absolute;
+	left: 20px;
+	bottom: 70px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	z-index: 5;
+}
+
+section#people-header ul.roles li{
+	float: left;
+	margin: 0 5px 0 0;
+	padding: 3px 8px 0px 9px;
+	color: white;
+	font-size: 12px;
+	border: 1px solid white;
+	border-radius: 15px;
+	line-height: 13px;
+}
+
 
 section#people-header h1{
 	position: absolute;
-	bottom: 0;
+	bottom: 19;
 
 	color: white;
-
-	font-size: 46px;
-	font-weight: 100;
+	font-size: 31px;
+	font-weight: 400;
 	margin: 0;
 	padding: 10px 0 7px 20px;
+	z-index: 5;
 }
 section#people-header h1 .sub{
-	font-size: 16px;
-	font-weight: 300;
-	margin-left: -5px;
+	font-size: 13px;
+	font-weight: 100;
 }
 
 
@@ -139,15 +172,19 @@ section#people-trend{
 	padding-bottom: 0;
 }
 
+section#people-trend i.index-bubble{ color: white }
+section#people-trend i.index-bubble.index1{ background-color: #26c7db }
+section#people-trend i.index-bubble.index2{ background-color: #738ffd }
+section#people-trend i.index-bubble.index3{ background-color: #9473ce }
+
 section#people-trend .graph-area{
 	position: relative;
-	padding: 0 15px;
+	padding: 0 15px 5px;
 }
 
 section#people-trend .graph-area svg path{
-	fill: rgba(255, 51, 51, 0.1);
-	stroke: rgb(255, 51, 51);
-	stroke-opacity: .7;
+	fill: none;
+	stroke: #cfd7da;
 	stroke-width: 1;
 	stroke-linecap: round;
 	stroke-linejoin: round;
@@ -159,22 +196,19 @@ section#people-trend .graph-area .overlay{
 	height: 105px;
 }
 
-section#people-trend .graph-area .overlay .number{
-	display: inline-block;
+section#people-trend .graph-area .overlay i.index-bubble{
 	position: absolute;
-	
-	margin-left: -2px;
-	margin-top: -23px;
-	font-weight: bolder;
-	font-size: 18px;
+	margin-left: -10px;
+	margin-top: -26px;
 }
+
 section#people-trend .graph-area .overlay .date{
 	display: inline-block;
 	position: absolute;
-	bottom: 0px;
-	margin-left: -16px;
-	font-size: 11px;
-	color: #666;
+	bottom: -3px;
+	margin-left: -10px;
+	font-size: 10px;
+	color: #8c8b8b;
 	background-color: white;
 }
 
@@ -182,21 +216,21 @@ section#people-trend .graph-area .overlay .date{
 section#people-trend .events{
 	position: relative;
 	background-color: #f0f0f0;
-	padding-top: 3px;
+	padding-top: 2px;
 }
 
-section#people-trend .events .number{
+section#people-trend .events i.index-bubble{
 	position: absolute;
 	margin: 14px 0 0 12px;
-	font-weight: bold;
 }
 
 section#people-trend .events .event-tile{
-	margin-bottom: 3px;
-	padding: 12px 15px 6px;
-	padding-left: 35px;
+	margin-bottom: 2px;
+	padding: 14px 0 0 45px;
 	background-color: white;
 }
+section#people-trend .events .event-tile .fl{ padding-bottom: 4px }
+section#people-trend .events .event-tile .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px }
 
 
 /* 타임라인 */
