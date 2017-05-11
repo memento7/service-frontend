@@ -41,7 +41,6 @@ section#people-header svg{
 
 section#people-header .background{
 	height: 210px;
-	/*background-image: url('https://placehold.it/370x160');*/
 	filter: brightness(80%);
 }
 

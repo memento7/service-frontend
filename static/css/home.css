@@ -126,7 +126,7 @@ section#watchable-event .content .mini-event-tile:last-child{ margin-right: 0 }
 section#day-3years-ago{ position: relative; }
 section#day-3years-ago .description{
 	position: absolute;
-	top: 15px;
+	top: 17px;
 	right: 10px;
 	font-size: 12px;
 	color: #888;

@@ -73,7 +73,7 @@ section#event-header .content h3{
 	font-size: 36px;
 	font-weight: 100;
 	margin: 0;
-	padding: 3px 0 7px 20px;
+	padding: 3px 0 10px 20px;
 }
 section#event-header .content h3{ font-size: 13px; padding-bottom: 0 }
 section#event-header .content h3 span{ vertical-align: middle; }
@@ -89,8 +89,11 @@ section#related-people{
 
 }
 
-section#related-people .person{ width: 50%; }
-section#related-people .person a{ color: black; text-decoration: none; }
+section#related-people .person{
+	width: 50%;
+	font-weight: 300;
+}
+section#related-people .person a{ color: #555; text-decoration: none; }
 
 section#related-people .person .left{ margin-right: 10px; }
 
@@ -111,8 +114,9 @@ section#related-people .person .right{
 }
 
 section#related-people .person .right .role{
+	margin-top: 2px;
 	font-size: 13px;
-	color: #666;
+	color: #888;
 }
 
 
@@ -130,27 +134,14 @@ ol.three-line-summary li{
 	font-size: 15px;
 }
 
-ol.three-line-summary li i{
-	display: inline-block;
-	width: 19px;
-	margin-right: 3px;
-	padding: 2px 1px 0px 1px;
-
-	text-align: center;
-	background-color: #eceff1;
-	color: black;
-	font-style: normal;
-	vertical-align: middle;
-
-	border-radius: 20px 20px 0 20px;
-}
-
 ol.three-line-summary li span{
 	display: inline-block;
 	margin-top: 3px;
 	vertical-align: middle;
 	color: #333;
 }
+ol.three-line-summary li i{ margin-right: 5px }
+
 
 section#three-line-summaries{
 	background-color: #788898;
@@ -173,7 +164,7 @@ section#three-line-summaries .no-content{ color: white; font-weight: 100 }
 section#three-line-summaries .meta{
 	margin-top: 4px;
 	text-align: right;
-	font-size: 13px;
+	font-size: 12px;
 	color: white;
 	font-weight: 100;
 }
@@ -209,15 +200,9 @@ section#three-line-summaries-full .three-line-tile h4{
 	margin: 0 4px 3px 0;
 	font-weight: normal;
 }
-section#three-line-summaries-full .three-line-tile .date{
-	font-size: 12px;
-	color: #666;
-}
+section#three-line-summaries-full .three-line-tile .date{ font-size: 12px; color: #666; }
 
-section#three-line-summaries-full .three-line-tile .btn-container{
-	text-align: right;
-}
-
+section#three-line-summaries-full .three-line-tile .btn-container{ text-align: right }
 section#three-line-summaries-full .three-line-tile .like-btn,
 section#three-line-summaries-full .three-line-tile .hate-btn{
 	padding: 3px 5px 1px;
@@ -253,14 +238,14 @@ section#issue-rank svg path.rest{ stroke: #bbb }
 section#issue-rank .rank{
 	position: absolute;
 	top: 78px;
-	left: 54px;
+	left: 55px;
 
 	width: 28px;
 	line-height: 24px;
 	font-size: 23px;
 
 	text-align: center;
-	padding: 4px 0 0;
+	padding: 5px 0 0 1px;
 	background: #666;
 	color: white;
 	border-radius: 50%;
@@ -274,7 +259,7 @@ section#issue-rank .full-label{
 	font-size: 17px;
 }
 
-section#issue-rank svg.s-rank path.pos{ stroke: #e0316c }
+section#issue-rank svg.s-rank path.pos{ stroke: #e6447b }
 section#issue-rank svg.a-rank path.pos{ stroke: #ff6600 }
 section#issue-rank svg.b-rank path.pos{ stroke: #07ce9c }
 section#issue-rank svg.c-rank path.pos{ stroke: #5448ab }
@@ -311,7 +296,7 @@ section#issue-rank .circle-wrap .circle .content{
 	padding: 24px 0;
 	text-align: center;
 	font-size: 16px;
-	color: #555;
+	color: #777;
 }
 section#issue-rank .circle-wrap .circle .content strong{ color: #fd7346; font-weight: normal; }
 
