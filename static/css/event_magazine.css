@@ -88,38 +88,8 @@ section#event-header .content h3 .category-label{
 section#related-people{
 
 }
-
-section#related-people .person{
-	width: 50%;
-	font-weight: 300;
-}
-section#related-people .person a{ color: #555; text-decoration: none; }
-
-section#related-people .person .left{ margin-right: 10px; }
-
-section#related-people .person .left .image{
-	display: inline-block;
-	width: 55px;
-	height: 55px;
-
-	border: 1px solid #ccc;
-	border-radius: 50%;
-	background-image: url('/images/person.png');
-	background-size: 55px auto;
-	background-position: center center;
-}
-
-section#related-people .person .right{
-	margin: 10px 0 0 0;
-}
-
-section#related-people .person .right .role{
-	margin-top: 2px;
-	font-size: 13px;
-	color: #888;
-}
-
-
+section#related-people .person{ width: 50% }
+section#related-people .person a{ text-decoration: none; }
 
 
 /* 3줄 요약 */

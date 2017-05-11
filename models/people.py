@@ -82,6 +82,9 @@ class People :
 		for roleid, value in self.role_json.items() :
 			roleinfo = People.get_roleinfo(roleid)
 
+			if not 'data' in value :
+				value['data'] = {}
+
 			roles[roleid] = {
 				'info': roleinfo,
 				'name': roleinfo['name'],
@@ -121,6 +124,12 @@ class People :
 
 		else :
 			return self.roles
+
+
+	def get_roles(self) :
+		""" Get list of role's name
+		"""
+		return [ d['name'] for d in self.roles.values() ]
 
 
 	def repr_image(self, css=False) :

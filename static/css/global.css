@@ -90,6 +90,8 @@ html,body{
 	background-position: center;
 }
 
+
+/* Header */
 header{
 	position: relative;
 	width: 100%;
@@ -118,6 +120,8 @@ header .menu-bar{
 }
 
 
+
+/* Sidebar */
 aside.sidebar{
 	display: none;
 	position: fixed;
@@ -232,6 +236,8 @@ aside.sidebar > section.favorites .empty p{ margin: 2px 0 }
 
 
 
+
+/* Common Tile Section */
 section.common-tile{
 	position: relative;
 	margin: 8px 0;
@@ -263,7 +269,7 @@ section.common-tile .content{
 
 
 
-
+/* Magzine Navigation */
 nav.magazine-nav{
 	background-color: white;
 }

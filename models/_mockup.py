@@ -108,7 +108,7 @@ person70002 = {
 		{
 			'id': 80001,
 			'date': "2017-01-19 00:00:00",
-			'title': "김태희-비 열애끝에 결혼",
+			'title': "김태희·비 열애끝에 결혼",
 			'type': '연예',
 			'issue_data': {
 				'issue_score': 300000,
@@ -220,7 +220,7 @@ person70002 = {
 event80001 = {
 	'id': 80001,
 	'date': "2017-01-01 00:00:00",
-	'title': "김태희-비 열애끝에 결혼",
+	'title': "김태희·비 열애끝에 결혼",
 	'type': '연예',
 	'issue_data': {
 		'issue_score': 300000,
@@ -298,6 +298,10 @@ event80001 = {
 					'heart': 0
 				}
 			],
+			'role_json': {
+				"ACTOR": {
+				},
+			},
 		},
 		{
 			'id': 70003,
@@ -309,6 +313,10 @@ event80001 = {
 					'heart': 0
 				}
 			],
+			'role_json': {
+				"ACTOR": {
+				},
+			},
 		}
 	],
 	'event_articles': [

@@ -29,15 +29,7 @@
 			{% for person in event.entities %}
 				<div class="person fl {{ 'last'|safe if loop.last }}">
 					<a href="/people/{{ person.id }}">
-						<div class="clearfix">
-							<div class="fl left">
-								<span class="image" style="{{ person.repr_image(True) }}"></span>
-							</div>
-							<div class="fl right">
-								<div>{{ person.nickname }}</div>
-								<div class="role">{{ person.roles | join(',') }}</div>
-							</div>
-						</div>
+						{{ person_tile.person_tile(person) }}
 					</a>
 				</div>
 			{% endfor %}

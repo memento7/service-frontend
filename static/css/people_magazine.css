@@ -16,7 +16,7 @@ header .fr .fa-bars{
 }
 
 
-
+/* 공통 헤더 */
 section#people-header{
 	position: relative;
 	height: 210px;
@@ -44,7 +44,6 @@ section#people-header .background{
 	filter: brightness(80%);
 }
 
-
 section#people-header h1{
 	position: absolute;
 	bottom: 0;
@@ -61,6 +60,7 @@ section#people-header h1 .sub{
 	font-weight: 300;
 	margin-left: -5px;
 }
+
 
 
 /* 한 마디로 */
