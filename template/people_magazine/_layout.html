@@ -6,12 +6,19 @@
 	{{ super() }}
 	<link rel="stylesheet" href="/css/people_magazine.css">
 
+	<script type="text/javascript">
+		var entityId = {{ person.id }};
+	</script>
+	<script type="text/javascript" src="/js/people.js"></script>
 {% endblock %}
 
 
 {% block content %}
 	<section id="people-header">
 		<div class="background" style="{{ person.repr_image(True)  }}"></div>
+		<div class="user-react">
+			<i class="fa fa-star-o star" aria-hidden="true"></i>
+		</div>
 
 		<svg width="100%" height="120" viewBox="0 0 100 120" preserveAspectRatio="none">
 			<line x1="0" y1="0" x2="100%" y2="120" style="stroke:rgb(255,0,0);stroke-width:3" />

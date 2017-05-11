@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block foot %}
+	{{ super() }}
 	<script type="text/javascript">
 		var emotions = {{ json_encode(event.emotions) | safe }};
 	</script>

@@ -22,6 +22,18 @@ section#people-header{
 	height: 210px;
 }
 
+section#people-header .user-react{
+	position: absolute;
+	top: 61px;
+	right: 10px;
+}
+section#people-header .user-react .star{
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+}
+section#people-header .user-react .star.enabled{ color: #ffcc00 }
+
 section#people-header svg{
 	position: relative;
 	top: 90px;
