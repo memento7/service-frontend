@@ -128,9 +128,9 @@ class People :
 
 
 	def get_roles(self) :
-		""" Get list of role's name
+		""" Get list of role's name visible
 		"""
-		return [ d['name'] for d in self.roles.values() ]
+		return [ d['name'] for d in self.roles.values() if d['info']['status'] == 1 ]
 
 
 	def repr_image(self, css=False) :
