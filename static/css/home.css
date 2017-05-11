@@ -14,8 +14,7 @@
 
 header{
 	position: absolute;
-	z-index: 5;
-	border-bottom: none;
+	z-index: 11;
 }
 
 header .logo{

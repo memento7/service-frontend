@@ -97,7 +97,7 @@ header{
 	width: 100%;
 	padding-top: 8px;
 	height: 42px;
-	border-bottom: 1px solid #eee;
+	/*border-bottom: 1px solid #eee;*/
 }
 
 header .logo{

@@ -2,9 +2,6 @@
 
 header{
 	position: absolute;
-	/*border-bottom-color: white;
-	border-bottom-color: rgba(255, 255, 255, 0.5);*/
-	border-bottom: none;
 	z-index: 11;
 }
 
@@ -226,12 +223,9 @@ section#people-trend .events i.index-bubble{
 
 section#people-trend .events .event-tile{
 	margin-bottom: 2px;
-	padding: 14px 0 0 45px;
+	padding-left: 45px;
 	background-color: white;
 }
-section#people-trend .events .event-tile .fl{ padding-bottom: 4px }
-section#people-trend .events .event-tile .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px }
-
 
 /* 타임라인 */
 section.timeline{

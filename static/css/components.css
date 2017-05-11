@@ -99,6 +99,12 @@
 }
 .event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
+.event-tile.full-image{ padding-top: 14px }
+.event-tile.full-image .fl{ padding-bottom: 4px }
+.event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px; }
+
+
+
 
 
 /* Mini Event Tile (extends .event-tile) */
@@ -200,6 +206,8 @@ i.index-bubble{
 	font-size: 13px;
 	color: #888;
 }
+
+
 
 /* Mini Person Tile (extends .person-tile) */
 .mini-person-tile{
