@@ -47,8 +47,9 @@ section#people-header .background-filter{
 	position: absolute;
 	width: 100%;
 	height: 210px;
-	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8), rgba(0,0,0,0));
-	background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));
+	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
+	/*background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));*/
+	background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
 	z-index: 2;
 }
 
@@ -95,8 +96,6 @@ section#people-header h1 .sub{
 
 /* 한 마디로 */
 section#in-one-word{
-	/*margin: 40px 0 30px;*/
-	/*padding: 23px 0;*/
 	padding: 0;
 	height: 100px;
 	text-align: center;
@@ -110,11 +109,6 @@ section#in-one-word .background{
 	background-size: 100% 100px;
 }
 
-/*section#in-one-word > div{ padding: 0 10px }*/
-
-/*section#in-one-word .fa{ color: rgba(255, 0, 102, 0.2) }
-section#in-one-word .fa-quote-left{ vertical-align: top }
-section#in-one-word .fa-quote-right{ vertical-align: bottom }*/
 
 section#in-one-word h2{
 	position: relative;
@@ -235,6 +229,8 @@ section#people-trend .events .event-tile{
 	background-color: white;
 }
 
+
+
 /* 타임라인 */
 section.timeline{
 	/*margin: 50px 0 0 0;*/
@@ -255,10 +251,11 @@ section#timeline1{ display: block; }
 	top: 6px;
 	right: 10px;
 
-	font-size: 14px;
+	font-size: 13px;
 	height: 30px;
 	line-height: 30px;
-	padding: 0 23px 0 10px;
+	padding: 0 22px 0 13px;
+	border-radius: 30px;
 }
 .timeline-filter-wrap select{
 	display: none;
@@ -287,18 +284,6 @@ section.timeline ul li .line{
 	background-color: #d4d4d4;
 	z-index: 30;
 }
-section.timeline ul li:first-child{ margin-top: 0; }
-section.timeline ul li:first-child .line{
-	top: 30px;
-	height: calc(100% - 30px);
-}
-section.timeline ul li:first-child .circle{
-	width: 12px;
-	height: 12px;
-	left: 18px;
-	top: 15px;
-}
-
 
 section.timeline ul li .circle{
 	position: absolute;
@@ -312,6 +297,18 @@ section.timeline ul li .circle{
 	z-index: 50;
 }
 
+section.timeline ul li:first-child{ margin-top: 0; }
+section.timeline ul li:first-child .line{
+	top: 30px;
+	height: calc(100% - 30px);
+}
+section.timeline ul li:first-child .circle{
+	width: 12px;
+	height: 12px;
+	left: 18px;
+	top: 15px;
+}
+
 section.timeline ul li h3{
 	margin: 0 0 6px -7px;
 	padding: 0;
@@ -319,8 +316,16 @@ section.timeline ul li h3{
 	font-weight: normal;
 	font-size: 18px;
 }
+
+section.timeline ul li .event-tile{
+	margin-bottom: 20px;
+}
+section.timeline ul li .event-tile:last-child{ margin-bottom: 10px }
+
 section.timeline ul li .event-tile > .fl{ width: calc(100% - 110px) }
 section.timeline ul li .event-tile .image{ width: 100px; height: 70px; background-size: 100px 70px }
+
+
 
 
 /* 전적 정보 */

@@ -65,7 +65,6 @@ class EventPageGroup(PageGroup) :
 		return pages
 
 
-
 	@register_view
 	def index(self) :
 		return render_template('event_magazine/summary.html', event=self.model)

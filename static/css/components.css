@@ -91,18 +91,23 @@
 .event-tile a{
 	color: #333;
 	text-decoration: none;
+	transition: all 0.3s;
 }
-.event-tile .date{
-	margin: -6px 0 4px 0;
-	font-size: 13px;
-	color: #999;
-}
+.event-tile a:hover{ color: #777 }
+
 .event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
 .event-tile.full-image{ padding-top: 14px }
 .event-tile.full-image .fl{ padding-bottom: 4px }
 .event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px; }
 
+.event-tile .date{
+	margin: 2px 0 2px 2px;
+	font-size: 11px;
+	text-align: left;
+	color: #aaa;
+	font-weight: 100;
+}
 
 
 

@@ -92,6 +92,19 @@ def first_image(images, css=False) :
 
 
 
+def fill_zero(string, length=2) :
+	""" Put 0 in a space as long as the length
+		* Mainly used for displaying time
+	"""
+	string = str(string)
+	
+	for i in range(0, length-len(string)) :
+		string = '0' + string
+
+	return string
+
+
+
 l10n_data = None
 def l10n(key) :
 	""" Localization
