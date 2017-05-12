@@ -52,11 +52,12 @@
 			{% for event in timeline %}
 				<li>
 					{% set linecolor = rand_color() %}
-					<div class="line" style="background-color: {{ linecolor }}"></div>
-					<div class="circle" style="border-color: {{ linecolor }}"></div>
+					<div class="line"></div>
+					<div class="circle"></div>
 
-					<h3 style="color: {{ linecolor }}">
-						{{ event.date.year }}.{{ event.date.month }}
+					<h3>
+						<!-- {{ event.date.year }}.{{ event.date.month }} -->
+						{{ event.date.year }}
 					</h3>
 
 					{{ event_tile.event_tile(event) }}
