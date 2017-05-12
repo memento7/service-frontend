@@ -29,11 +29,8 @@ var memento = (function () {
 		callAPI('GET', '/me', function (result) {
 			loginedUser = result;
 			loginedUser.loggined = true;
-
-			console.log(result);
-
+	
 			callAPI('GET', '/me/favorites', function (result2) {
-				console.log(result2);
 				loginedUser.favorites = result2;
 
 				for (var i = 0; i < loginCallbacks.length; i++)

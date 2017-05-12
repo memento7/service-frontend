@@ -11,32 +11,8 @@
 	font-weight: 300;
 }
 
-/* deprecicated */
-.label.issue-rank{ color: white }
-.label.issue-rank > i{
-	display: inline-block;
-	width: 14px;
-	height: 13px;
-	padding-top: 1px;
 
-	font-size: 12px;
-	font-style: normal;
-	font-weight: bold;
-
-	background-color: white;
-	border-radius: 50%;
-	text-align: center;
-}
-.label.issue-rank.s-rank{ background-color: rgba(255, 51, 102, .7) }
-.label.issue-rank.s-rank > i{ color: rgb(255, 51, 102) }
-.label.issue-rank.a-rank{ background-color: rgba(255, 102, 0, .7) }
-.label.issue-rank.a-rank > i{ color: rgb(255, 102, 0) }
-.label.issue-rank.b-rank{ background-color: rgba(0, 204, 153, .7) }
-.label.issue-rank.b-rank > i{ color: rgb(0, 204, 153) }
-.label.issue-rank.c-rank{ background-color: rgba(84, 72, 171, 0.7) }
-.label.issue-rank.c-rank > i{ color: rgb(84, 72, 171) }
-
-
+/* Isse & Category label sprites */
 .issue-label,
 .category-label{
 	display: inline-block;
@@ -68,16 +44,8 @@
 
 
 
-/* deprecicated */
-.label.event-category{ color: white }
-.label.event-category.category-a{ background-color: rgba(255, 51, 51, .7) }
-.label.event-category.category-b{ background-color: rgba(102, 102, 204, .7) }
-.label.event-category.category-c{ background-color: rgba(18, 239, 102, .7) }
-.label.event-category.category-d{ background-color: rgba(255, 153, 0, .7) }
-.label.event-category.category-e{ background-color: rgba(0, 102, 102, .7) }
 
-
-
+/* Emotion Bubbles */
 .emotion-bubbles .emotion{
 	display: inline-block;
 	padding: 1px;
@@ -96,6 +64,8 @@
 }
 
 
+
+/* Event Tile */
 .event-tile{
 
 }
@@ -113,7 +83,7 @@
 }
 
 .event-tile h4{
-	margin: 0 0 4px;
+	margin: 0 0 5px;
 	padding: 0;
 	font-size: 19px;
 	font-weight: 300;
@@ -129,8 +99,15 @@
 }
 .event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
+.event-tile.full-image{ padding-top: 14px }
+.event-tile.full-image .fl{ padding-bottom: 4px }
+.event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px; }
 
 
+
+
+
+/* Mini Event Tile (extends .event-tile) */
 .mini-event-tile{
 	width: 100px;
 }
@@ -144,6 +121,8 @@
 .mini-event-tile .emotion-bubbles{ margin-top: -3px; text-align: center; }
 
 
+
+/* Gallery Event Tile (extends .event-tile) */
 .gallery-event-tile{
 	position: relative;
 	height: 160px;
@@ -171,6 +150,92 @@
 .gallery-event-tile .labels{ top: 10px; right: 5px }
 .gallery-event-tile .emotion-bubbles{ bottom: 10px; right: 10px; }
 .gallery-event-tile .emotion-bubbles .emotion{ color: white }
+
+
+
+/* Index Bubble (used in 3line-summary) */
+i.index-bubble{
+	display: inline-block;
+	width: 19px;
+	margin-right: 3px;
+	padding: 3px 0px 1px 1px;
+
+	text-align: center;
+	background-color: #eceff1;
+	color: black;
+
+	font-size: 14px;
+	font-weight: 400;
+	font-style: normal;
+	vertical-align: middle;
+
+	border-radius: 20px 20px 0 20px;
+}
+
+
+
+/* Person Tile */
+.person-tile{
+	font-weight: 300;
+}
+.person-tile .left{ margin-right: 10px }
+.person-tile .right{ margin: 10px 0 0 0 }
+
+.person-tile .left .image{
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	background-image: url('/images/person.png');
+	background-size: 55px auto;
+	background-position: center center;
+}
+
+.person-tile .right h4{
+	margin: 0 0 2px 0;
+	padding: 0;
+	color: #444;
+	font-size: 16px;
+	font-weight: 300;
+}
+.person-tile .right h4 .sub{ font-size: 13px; color: #666 }
+
+.person-tile .right .role{
+	font-size: 13px;
+	color: #888;
+}
+
+
+
+/* Mini Person Tile (extends .person-tile) */
+.mini-person-tile{
+	
+}
+.mini-person-tile .image{
+	margin: 0 auto;
+	width: 65px;
+	height: 65px;
+	background-color: #555;
+	background-size: auto 65px;
+	background-position: center;
+	border-radius: 50%;
+}
+
+.mini-person-tile h4{
+	margin: 0;
+	padding: 8px 0 1px 0;
+	font-weight: 300;
+	font-size: 17px;
+}
+
+.mini-person-tile .extra-info{
+	color: #ffe8b0;
+	font-size: 10px;
+}
+
+
 
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

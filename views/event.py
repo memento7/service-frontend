@@ -34,6 +34,7 @@ def get_wordcloud(data, key='title', multn=1) :
 	wc = WordCloud(
 		background_color = "white",
 		font_path = settings.ROOT_PATH + '/data/fonts/NanumSquareOTFBold.otf',
+		#font_path = settings.ROOT_PATH + '/static/fonts/NanumBarunGothic.otf',
 		color_func = custom_color_func,
 		width = 800,
 		height = 280,

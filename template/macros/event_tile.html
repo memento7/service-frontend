@@ -24,8 +24,8 @@
 {% endmacro %}
 
 
-{% macro event_tile(event, show_date=False) -%}
-	<div class="event-tile clearfix">
+{% macro event_tile(event, show_date=False, full_image=False) -%}
+	<div class="event-tile {{ 'full-image' if full_image or '' }} clearfix">
 		<div class="fl">
 			<h4>
 				<a href="/event/{{ event.id }}">{{ event.title }}</a>

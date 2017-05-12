@@ -27,7 +27,7 @@ class Event :
 
 
 	def __init__(self, id, title, type, date, issue_data,
-				images=[], entities=[],
+				images=[], entities=[], event_articles=[],
 				keywords=[], emotions=[], summaries=[], summaries3line=[],
 				hit=0, created_time=None, updated_time=None, published_time=None, **kwarg) :
 		
@@ -37,16 +37,18 @@ class Event :
 
 		self.date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
 
-		self.keywords = keywords
-		self.emotions = emotions
-		self.summaries3line = summaries3line
-		self.images = images
-		
+		self.issue_data = EventIssueData(**issue_data)
+		self.event_articles = event_articles
+
 		self.entities = []
 		for entity in entities :
 			self.entities.append( People(**entity) )
 
-		self.issue_data = EventIssueData(**issue_data)
+
+		self.keywords = keywords
+		self.emotions = emotions
+		self.summaries3line = summaries3line
+		self.images = images
 
 		self.created_time = created_time
 		self.updated_time = updated_time
