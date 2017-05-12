@@ -49,7 +49,7 @@ class People :
 
 	
 	def __init__(self, id, nickname, realname, role_json={},
-				images=[], events=[], in_one_word=[], status=0,
+				images=[], profile_image=None, events=[], in_one_word=[], status=0,
 				created_time=None, updated_time=None, published_time=None, **kwarg):
 
 		from models.event import Event
@@ -62,6 +62,7 @@ class People :
 		self.in_one_word = in_one_word
 		self.status = status
 		self.images = images
+		self.profile_image_url = profile_image
 		
 		self.created_time = created_time
 		self.updated_time = updated_time
@@ -142,8 +143,9 @@ class People :
 	def profile_image(self, css=False) :
 		""" Get profile image of person
 		"""
-		if getattr(self, 'profile_image') :
-			self.profile_image
+		if getattr(self, 'profile_image_url') :
+			return functions.first_image([{'url': self.profile_image_url}], css)
+
 		else :
 			return self.repr_image(css)
 

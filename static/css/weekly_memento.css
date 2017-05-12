@@ -35,7 +35,7 @@ section#weekly-header .content h1,
 section#weekly-header .content h3{ text-align: center; padding: 0 }
 
 section#weekly-header .content h1{
-	margin: 18px 0 3px;
+	margin: 13px 0 3px;
 	font-size: 42px;
 	font-weight: 400;
 }
@@ -48,7 +48,7 @@ section#weekly-header .content h3{
 section#weekly-header .navigation{
 	position: absolute;
 	width: 100%;
-	bottom: -16px;
+	bottom: -21px;
 	text-align: center;
 	z-index: 4
 }

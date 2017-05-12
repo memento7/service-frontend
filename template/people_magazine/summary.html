@@ -12,16 +12,20 @@
 
 	{% for w in person.in_one_word %}
 	<section id="in-one-word" class="common-tile">
-		<div>
-			<i class="fa fa-quote-left"></i>
+		<div class="background"></div>
+		<div class="content">
+			{# <div>
+				<i class="fa fa-quote-left"></i>
+				<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
+				<i class="fa fa-quote-right"></i>
+			</div> #}
 			<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
-			<i class="fa fa-quote-right"></i>
+			{% if w.reference %}
+			<div class="reference">
+				- {{ w.reference }}
+			</div>
+			{% endif %}
 		</div>
-		{% if w.reference %}
-		<div class="reference">
-			- {{ w.reference }}
-		</div>
-		{% endif %}
 	</section>
 	{% endfor %}
 
