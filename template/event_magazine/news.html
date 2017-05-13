@@ -2,6 +2,29 @@
 
 {% block head %}
 	{{ super() }}
+
+	<script src="https://npmcdn.com/minigrid@3.0.1/dist/minigrid.min.js"></script>
+
+{% endblock %}
+
+{% block foot %}
+	{{ super() }}
+
+	<script type="text/javascript">
+		(function(){
+			var grid = new Minigrid({
+				container: 'ul.news-container',
+				item: 'ul.news-container li',
+				gutter: 8
+			});
+
+			$(window).on('resize', function () {
+				grid.mount();
+			});
+			grid.mount();
+
+		})();
+	</script>
 	
 {% endblock %}
 	
@@ -9,25 +32,27 @@
 	{{ super() }}
 
 	<section id="related-news">
-		<ul>
+		<ul class="news-container">
 		{% for news in event.event_articles %}
-			<li>
-				{% if news.image %}
-				<div class="image">
-					<img src="{{ news.image }}" width="80">
-				</div>
-				<div class="content">
+			<a href="{{ news.source_url }}" target="_blank">
+				{% if news.repr_image() %}
+				<li class="with-img">
+					<img src="{{ news.repr_image() }}" width="100%">
+					<div class="background-filter"></div>
+					<div class="content">
+						<div class="source">{{ news.crawl_target }}</div>
+						<h4>{{ news.title }}</h4>
+					</div>
+				</li>
 				{% else %}
-				<div class="content no-news">
+				<li class="no-img">
+					<div class="content">
+						<div class="source">{{ news.crawl_target }}</div>
+						<h4>{{ news.title }}</h4>
+					</div>
+				</li>
 				{% endif %}
-					<h4>
-						<a href="{{ news.source_url }}" target="_blank">{{ news.title }}</a>
-					</h4>
-
-					<div class="description">{{ news.description }}</div>
-					<div class="source">{{ news.source }}</div>
-				</div>
-			</li>
+			</a>
 		{% endfor %}
 		</ul>
 	</section>

@@ -81,8 +81,10 @@ def first_image(images, css=False) :
 					(ex. background-image: url('my-image.png'))
 	"""
 	if not images or len(images) == 0 : 	rv = None
-	elif 'path' in images[0]: 				rv = images[0]['path']
-	else :									rv = images[0]['url']
+	elif type(images[0]) == str :			rv = images[0]
+	elif 'path' in images[0] : 				rv = images[0]['path']
+	elif 'url' in images[0] : 				rv = images[0]['url']
+	else :									rv = None
 
 	if css :
 		if rv is None : return ''
