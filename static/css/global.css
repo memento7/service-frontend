@@ -140,8 +140,12 @@ aside.sidebar > section.profile{
 }
 
 aside.sidebar > section.profile .avatar{
-	display: inline-block;
-	margin-bottom: 8px;
+	width: 63px;
+	height: 63px;
+	margin: 0 auto 8px;
+	background-color: #666;
+	background-image: url('/images/avatar.png');
+	background-size: 63px 63px;
 	border-radius: 50%;
 }
 
@@ -206,11 +210,12 @@ aside.sidebar > section ul{
 	padding: 0;
 	list-style: none;
 }
-aside.sidebar > section a{ color: #444; text-decoration: none; }
+/*aside.sidebar > section a{ color: #444; text-decoration: none; }*/
 aside.sidebar > section ul li{
 	margin: 0;
 	padding: 7px 15px;
 	font-size: 17px;
+	cursor: pointer;
 	transition: background-color 0.5s;
 }
 aside.sidebar > section ul li:hover{ background-color: #f0f0f0 }

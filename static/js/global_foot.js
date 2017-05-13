@@ -18,6 +18,22 @@
 			.sidebar({side: 'right'})
 			.show();
 
+
+		// Register listeners
+		$('aside.sidebar li.weekly-memento').on('click', function() {
+			location.href = baseUrls.weekly;
+		});
+		$('aside.sidebar li.random-person').on('click', function() {
+			memento.callAPI('GET', '/entities/random', function(result) {
+				location.href = baseUrls.people + result;
+			});
+		});
+		$('aside.sidebar li.random-event').on('click', function() {
+			memento.callAPI('GET', '/events/random', function(result) {
+				location.href = baseUrls.event + result;
+			});
+		});
+
 		if (sidebarOpened) // If already opened, re-open sidebar
 			openSidemenu();
 	}
@@ -34,7 +50,7 @@
 		});
 	}
 	
-	$.get('/templates/sidebar.html', function (result) {
+	$.get(baseUrls.assets + 'templates/sidebar.html', function (result) {
 		sidebarTemplate = result;
 
 		$('header .menu-bar').click(function(event) {
