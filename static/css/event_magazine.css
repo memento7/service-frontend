@@ -114,7 +114,6 @@ section#three-line-summaries{
 	background-color: #788898;
 	color: white;
 	padding-bottom: 4px;
-	height: 155px;
 }
 section#three-line-summaries h3{ color: white; font-weight: 100 }
 section#three-line-summaries ol.three-line-summary li span{ color: white; font-weight: 100 }
@@ -127,7 +126,7 @@ section#three-line-summaries .swiper-pagination-bullet{ width: 7px; height: 7px;
 section#three-line-summaries .more{ margin: -5px 8px 0 0; font-size: 25px;}
 section#three-line-summaries .more a{ color: white; text-decoration: none; }
 
-section#three-line-summaries .no-content{ color: white; font-weight: 100; padding: 45px 0 }
+section#three-line-summaries .no-content{ color: white; font-weight: 100; padding: 40px 0 53px }
 
 section#three-line-summaries .meta{
 	margin-top: 4px;

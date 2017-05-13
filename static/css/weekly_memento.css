@@ -134,3 +134,10 @@ section#timeline ul li .circle{
 }
 
 
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ab46bc;
+	}
+
+
+}
