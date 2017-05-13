@@ -54,7 +54,7 @@ section#event-header{
 }
 
 section#event-header .background{
-	height: 210px;
+	height: inherit;
 	filter: brightness(45%);
 }
 
@@ -114,6 +114,7 @@ section#three-line-summaries{
 	background-color: #788898;
 	color: white;
 	padding-bottom: 4px;
+	height: 155px;
 }
 section#three-line-summaries h3{ color: white; font-weight: 100 }
 section#three-line-summaries ol.three-line-summary li span{ color: white; font-weight: 100 }
@@ -126,7 +127,7 @@ section#three-line-summaries .swiper-pagination-bullet{ width: 7px; height: 7px;
 section#three-line-summaries .more{ margin: -5px 8px 0 0; font-size: 25px;}
 section#three-line-summaries .more a{ color: white; text-decoration: none; }
 
-section#three-line-summaries .no-content{ color: white; font-weight: 100 }
+section#three-line-summaries .no-content{ color: white; font-weight: 100; padding: 45px 0 }
 
 section#three-line-summaries .meta{
 	margin-top: 4px;
@@ -188,6 +189,12 @@ section#issue-rank{
 	position: relative;
 }
 
+section#issue-rank .content{
+	position: relative;
+	max-width: 350px;
+	margin: 0 auto 10px;
+}
+
 section#issue-rank > .content > .fl{
 	margin: 8px 0 0 7px;
 }
@@ -204,7 +211,7 @@ section#issue-rank svg path.rest{ stroke: #bbb }
 
 section#issue-rank .rank{
 	position: absolute;
-	top: 78px;
+	top: 42px;
 	left: 55px;
 
 	width: 28px;
@@ -243,7 +250,7 @@ section#issue-rank .full-label.c-rank{ color: #5448ab }
 
 section#issue-rank .comment{
 	width: calc(100% - 110px);
-	margin-top: 0px;
+	margin-top: 2px;
 	font-size: 13px;
 	color: #333;
 }
@@ -319,11 +326,13 @@ section#emotions .content .container{
 section#emotions .content svg g text{ fill: white; font-weight: 100 }
 
 
+
+
 /* 연관 키워드 */
 section#keywords{
 }
-section#keywords > div{ padding: 0 15px }
-
+section#keywords > div{ padding: 0 15px; text-align: center; }
+section#keywords img{ max-width: 100% }
 
 
 /* 관련 기사 (탭) */
@@ -371,3 +380,40 @@ section#related-news ul li.no-img .content h4{ font-weight: 400 }
 section#related-news ul li .content .source{ font-size: 13px; }
 section#related-news ul li.no-img .content .source{ color: #666 }
 
+
+
+
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ff7044;
+	}
+
+	section#event-header{
+		height: 250px;
+	}
+
+	/*section#three-line-summaries{
+		width: calc(50% - 3px);
+	}
+
+	section#issue-rank{
+		position: absolute;
+		width: calc(50% - 3px);
+		right: 0;
+		height: 145px;
+		margin-top: -181px;
+	}
+
+	section#emotions{
+		width: calc(50% - 3px);
+	}
+
+	section#keywords{
+		position: absolute;
+		width: calc(50% - 3px);
+		right: 0;
+		margin-top: -226px;
+		height: 190px;
+	}*/
+	section#keywords img{ height: 170px; width: auto }
+}

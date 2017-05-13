@@ -40,13 +40,13 @@ section#people-header .user-react .star.enabled{ color: #ffcc00 }
 
 
 section#people-header .background{
-	height: 210px;
+	height: inherit;
 	z-index: 1;
 }
 section#people-header .background-filter{
 	position: absolute;
 	width: 100%;
-	height: 210px;
+	height: inherit;
 	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
 	/*background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));*/
 	background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
@@ -181,13 +181,16 @@ section#people-trend .graph-area{
 	padding: 0 15px 5px;
 }
 
+section#people-trend .graph-area svg.graph-large{ display: none; }
+
 section#people-trend .graph-area svg path{
 	fill: none;
 	stroke: #cfd7da;
-	stroke-width: 1;
+	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
+
 section#people-trend .graph-area .overlay{
 	position: absolute;
 	top: 0;
@@ -197,7 +200,7 @@ section#people-trend .graph-area .overlay{
 
 section#people-trend .graph-area .overlay i.index-bubble{
 	position: absolute;
-	margin-left: -10px;
+	margin-left: -12px;
 	margin-top: -26px;
 }
 
@@ -380,11 +383,50 @@ section#people-stats .comments .evaluate-btn{
 	border-radius: 4px;
 }
 
+
+
+/* 사진 (탭) */
+section#images{
+}
+
+section#images ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+section#images ul li{
+	margin: 0;
+	padding: 10px;
+}
+
+section#images ul li img{ width: 100% }
+
+
+
+
 /* 인물 유형 특화 엔티티 */
 section.role-entities{
-
 }
 
 section.role-entities .no-content{
 	padding: 10px 0 25px;
 }
+
+
+
+
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ee3f7a;
+	}
+
+	section#people-header{
+		height: 250px;
+	}
+
+	section#people-trend .graph-area svg.graph-small{ display: none }
+	section#people-trend .graph-area svg.graph-large{ display: block }
+	section#people-trend .graph-area .overlay i.index-bubble{ margin-left: 0 }
+}
+
