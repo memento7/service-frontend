@@ -14,7 +14,7 @@
 	<script type="text/javascript">
 		var emotions = {{ json_encode(event.emotions) | safe }};
 	</script>
-	<script src="/js/event_summary.js"></script>
+	<script src="{{ geturl('assets', '/js/event_summary.js') }}"></script>
 {% endblock %}
 
 {% block content %}
