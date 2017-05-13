@@ -25,7 +25,6 @@ getview('event.index').url_rule 	 		 = '/event/{ id }/'
 getview('event.images').url_rule 			 = '/event/{ id }/images/'
 getview('event.news').url_rule 		 		 = '/event/{ id }/news/'
 getview('event.three_lines').url_rule 	 	 = '/event/{ id }/3lines/'
-getview('event.emotion_wordcloud').url_rule  = '/event/{ id }/emotion-wordcloud.png'
 getview('event.keyword_wordcloud').url_rule  = '/event/{ id }/keyword-wordcloud.png'
 
 getview('weekly.weekly').url_rule = '/weekly/{$1}.{$2}/{$3}/'

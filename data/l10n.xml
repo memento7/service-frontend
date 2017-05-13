@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<locales>
+	<data name="roleplay">
+		<value>배역 소화도</value>
+	</data>
+
+	<data name="perform">
+		<value>액션</value>
+	</data>
+
+	<data name="looks">
+		<value>외모</value>
+	</data>
+
+	<data name="stability">
+		<value>안정감</value>
+	</data>
+
+	<data name="empathy">
+		<value>감정연기</value>
+	</data>
+
+	<data name="emotional">
+		<value>감정 호소</value>
+	</data>
+
+	<data name="singability">
+		<value>가창력</value>
+	</data>
+
+	<data name="composition">
+		<value>작곡</value>
+	</data>
+
+	<data name="dance">
+		<value>댄스</value>
+	</data>
+
+	<data name="drama">
+		<value>드라마</value>
+	</data>
+
+	<data name="drama">
+		<value>드라마</value>
+	</data>
+
+	<data name="movie">
+		<value>영화</value>
+	</data>
+
+	<data name="album">
+		<value>앨범</value>
+	</data>
+
+</locales>

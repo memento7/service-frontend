@@ -8,7 +8,7 @@ class Event :
 
 	tag_remover = re.compile(r'<[^>]+>')
 	_instances = {}
-
+	CATEGORIES = ['연예', '정치', '스포츠', '미디어', '세계', '기타']
 
 	@staticmethod
 	def register(data) :
@@ -27,25 +27,34 @@ class Event :
 
 
 	def __init__(self, id, title, type, date, issue_data,
-				images=[], entities=[],
+				images=[], entities=[], event_articles=[],
 				keywords=[], emotions=[], summaries=[], summaries3line=[],
 				hit=0, created_time=None, updated_time=None, published_time=None, **kwarg) :
 		
 		self.id = id
 		self.title = Event.tag_remover.sub('', title)
-		self.type = type
+		self.category = type
 		self.date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+
+
+		self.issue_data = EventIssueData(**issue_data)
+		
+		self.event_articles = []
+		for article in event_articles :
+			self.event_articles.append( EventArticle(**article) )
+
+		self.event_articles.sort(key=lambda a: a.rank)
+
+
+		self.entities = []
+		for entity in entities :
+			self.entities.append( People(**entity) )
+
 
 		self.keywords = keywords
 		self.emotions = emotions
 		self.summaries3line = summaries3line
 		self.images = images
-		
-		self.entities = []
-		for entity in entities :
-			self.entities.append( People(**entity) )
-
-		self.issue_data = EventIssueData(**issue_data)
 
 		self.created_time = created_time
 		self.updated_time = updated_time
@@ -58,9 +67,13 @@ class Event :
 		return functions.first_image(self.images, css)
 
 
+	def category_id(self) :
+		return chr( Event.CATEGORIES.index(self.category) + 97 )
+
+
 
 class EventIssueData :
-	""" IssueData DTO
+	""" event.issue_data DTO
 	"""
 	def __init__(self, issue_score, top_percentile, issue_rank=None,
 				article_count=None, sns_count=None, comment_count=None, **kwarg) :
@@ -116,4 +129,31 @@ class EventIssueData :
 		}[ self.rank() ]
 
 
+
+class EventArticle :
+	""" event.event_article DTO
+	"""
+	def __init__(self, id, title, source_url, crawl_target,
+				 rank, images=[], image=None,
+				 comment_count=None, summary=None, **kwarg) :
+
+		self.id = id
+		self.title = Event.tag_remover.sub('', title)
+		self.source_url = source_url
+		self.crawl_target = crawl_target
+
+		self.rank = rank
+		self.images = images
+
+		if not images and image :
+			self.images = [image]
+		
+		self.comment_count = comment_count
+		self.summary = summary
+
+
+	def repr_image(self, css=False) :
+		""" Get representative image of person
+		"""
+		return functions.first_image(self.images, css)
 

@@ -1,3 +1,5 @@
+{% import "/macros/person_tile.html" as person_tile %}
+{% import "/macros/event_tile.html" as event_tile %}
 <!doctype>
 <html>
 	<head>
@@ -19,6 +21,9 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.3.2/jquery.sidebar.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+		<script src="https://npmcdn.com/minigrid@3.0.1/dist/minigrid.min.js"></script>
+
+
 		<script type="text/javascript" src="/js/global.js"></script>
 
 		{% endblock %}
@@ -52,5 +57,8 @@
 				&copy; memento
 			</footer>
 		</div>
+
+		<script type="text/javascript" src="/js/global_foot.js"></script>
+		{% block foot %}{% endblock %}
 	</body>
 </html>

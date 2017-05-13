@@ -1,5 +1,4 @@
 {% extends '/layouts/default.html' %}
-{% import "/macros/event_tile.html" as event_tile %}
 
 {% block title %}위클리 메멘토 - {{ month }}월 {{ week }}주차{% endblock %}
 
@@ -18,39 +17,57 @@
 		<div class="background"></div>
 		{% endif %}
 
+		<svg class="mask" width="100%" height="60" viewBox="0 0 100 60" preserveAspectRatio="none">
+			<path d="M 0 0 q 50 60 100 0 L 100 60 L 0 60" fill="#e3e4e8" />
+		</svg>
+
 		<div class="content">
-			<h2>위클리 메멘토</h2>
 			<h1>{{ month }}월 {{ week }}주차</h1>
 			<h3>
-				{{ year }}년
-				{{ start_date.month }}월
-				{{ start_date.day }}일 ~
-				{% if start_date.month != end_date.month %}{{ end_date.month }}월{% endif %}
-				{{ end_date.day }}일
+				{{ year }}.{{ fill_zero(start_date.month) }}.{{ fill_zero(start_date.day) }} ~
+				{% if start_date.month != end_date.month %}{{ fill_zero(end_date.month) }}.{% endif %}{{ fill_zero(end_date.day) }}
 			</h3>
 
-			{% if prev_week %}
-				<a href="/weekly/{{ prev_week[0] }}.{{ prev_week[1] }}/{{ prev_week[2] }}/">
-					<i class="fa fa-angle-left prev-btn"></i>
-				</a>
-			{% endif %}
-			{% if next_week %}
-				<a href="/weekly/{{ next_week[0] }}.{{ next_week[1] }}/{{ next_week[2] }}/">
-					<i class="fa fa-angle-right next-btn"></i>
-				</a>
-			{% endif %}
+			<div class="navigation">
+				{% if prev_week %}
+					<a href="/weekly/{{ prev_week[0] }}.{{ prev_week[1] }}/{{ prev_week[2] }}/">
+						<span class="prev-btn btn">
+							<i class="fa fa-angle-left"></i>
+						</span>
+					</a>
+				{% else %}
+					<span class="prev-btn btn disabled">
+						<i class="fa fa-angle-right"></i>
+					</span>
+				{% endif %}
+
+				{% if next_week %}
+					<a href="/weekly/{{ next_week[0] }}.{{ next_week[1] }}/{{ next_week[2] }}/">
+						<span class="next-btn btn">
+							<i class="fa fa-angle-right"></i>
+						</span>
+					</a>
+				{% else %}
+					<span class="next-btn btn disabled">
+						<i class="fa fa-angle-right"></i>
+					</span>
+				{% endif %}
+			</div>
 		</div>
 	</section>
 
 	<section id="timeline">
 		<ul>
 			{% for event in events %}
-				<li>
-					<h3 style="color: {{ linecolor }}">
-						{{ event.date.day }}일
-					</h3>
-
-					{{ event_tile.event_tile(event) }}
+				<li class="clearfix {{ 'grouped' if (loop.index0 != 0 and event.date.day == events[loop.index0-1].date.day) }}">
+					<div class="fl">
+						<h3>{{ event.date.day }}일</h3>
+						<div class="line"></div>
+						<div class="circle"></div>
+					</div>
+					<div class="fr">
+						{{ event_tile.event_tile(event, full_image=True) }}
+					</div>
 				</li>
 			{% endfor %}
 		</ul>

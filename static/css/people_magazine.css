@@ -2,8 +2,6 @@
 
 header{
 	position: absolute;
-	border-bottom-color: white;
-	border-bottom-color: rgba(255, 255, 255, 0.5);
 	z-index: 11;
 }
 
@@ -15,74 +13,119 @@ header .fr .fa-bars{
 	color: white;
 }
 
+nav.magazine-nav ul li.selected{
+	color: #ee3f7a;
+	border-bottom-color: #ee3f7a;
+}
 
 
+/* 공통 헤더 */
 section#people-header{
 	position: relative;
 	height: 210px;
 }
 
-section#people-header svg{
-	position: relative;
-	top: 90px;
+section#people-header .user-react{
+	position: absolute;
+	top: 61px;
+	right: 10px;
+	z-index: 5;
 }
+section#people-header .user-react .star{
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+}
+section#people-header .user-react .star.enabled{ color: #ffcc00 }
+
 
 section#people-header .background{
-	height: 210px;
-	/*background-image: url('https://placehold.it/370x160');*/
-	filter: brightness(80%);
+	height: inherit;
+	z-index: 1;
+}
+section#people-header .background-filter{
+	position: absolute;
+	width: 100%;
+	height: inherit;
+	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
+	/*background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));*/
+	background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
+	z-index: 2;
+}
+
+
+section#people-header ul.roles{
+	position: absolute;
+	left: 20px;
+	bottom: 70px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	z-index: 5;
+}
+
+section#people-header ul.roles li{
+	float: left;
+	margin: 0 5px 0 0;
+	padding: 3px 7px 0px 8px;
+	color: white;
+	font-size: 12px;
+	border: 1px solid white;
+	border-radius: 15px;
+	line-height: 13px;
 }
 
 
 section#people-header h1{
 	position: absolute;
-	bottom: 0;
+	bottom: 19;
 
-	color: #ff3333;
-
-	font-size: 46px;
-	font-weight: 300;
+	color: white;
+	font-size: 31px;
+	font-weight: 400;
 	margin: 0;
 	padding: 10px 0 7px 20px;
+	z-index: 5;
 }
 section#people-header h1 .sub{
-	font-size: 16px;
-	font-weight: 300;
-	margin-left: -5px;
+	font-size: 13px;
+	font-weight: 100;
 }
+
 
 
 /* 한 마디로 */
 section#in-one-word{
-	/*margin: 40px 0 30px;*/
-	padding: 23px 0;
+	padding: 0;
+	height: 100px;
 	text-align: center;
 	vertical-align: middle;
 }
 
-section#in-one-word > div{ padding: 0 10px }
+section#in-one-word .background{
+	height: inherit;
+	background-color: #8da5cb;
+	background-image: url('/images/iow_bg.png');
+	background-size: 100% 100px;
+}
 
-section#in-one-word .fa{ color: rgba(255, 0, 102, 0.2) }
-section#in-one-word .fa-quote-left{ vertical-align: top }
-section#in-one-word .fa-quote-right{ vertical-align: bottom }
 
 section#in-one-word h2{
-	display: inline-block;
+	position: relative;
 	margin: 0;
-	padding: 3px 5px;
+	padding: 30px 5px 0;
 	font-size: 30px;
-	font-weight: 300;
+	font-weight: 400;
 	vertical-align: middle;
-	color: #ff0066;
+	color: white;
 }
 
 section#in-one-word .reference{
-	margin: 5px;
+	position: relative;
+	margin: 9px 0 0 0;
 	font-size: 13px;
-	text-align: right;
-	color: #999;
-	font-style: italic;
-	margin-bottom: -10px;
+	font-weight: 100;
+	color: white;
 }
 
 
@@ -128,19 +171,26 @@ section#people-trend{
 	padding-bottom: 0;
 }
 
+section#people-trend i.index-bubble{ color: white }
+section#people-trend i.index-bubble.index1{ background-color: #26c7db }
+section#people-trend i.index-bubble.index2{ background-color: #738ffd }
+section#people-trend i.index-bubble.index3{ background-color: #9473ce }
+
 section#people-trend .graph-area{
 	position: relative;
-	padding: 0 15px;
+	padding: 0 15px 5px;
 }
 
+section#people-trend .graph-area svg.graph-large{ display: none; }
+
 section#people-trend .graph-area svg path{
-	fill: rgba(255, 51, 51, 0.1);
-	stroke: rgb(255, 51, 51);
-	stroke-opacity: .7;
-	stroke-width: 1;
+	fill: none;
+	stroke: #cfd7da;
+	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
+
 section#people-trend .graph-area .overlay{
 	position: absolute;
 	top: 0;
@@ -148,22 +198,19 @@ section#people-trend .graph-area .overlay{
 	height: 105px;
 }
 
-section#people-trend .graph-area .overlay .number{
-	display: inline-block;
+section#people-trend .graph-area .overlay i.index-bubble{
 	position: absolute;
-	
-	margin-left: -2px;
-	margin-top: -23px;
-	font-weight: bolder;
-	font-size: 18px;
+	margin-left: -12px;
+	margin-top: -26px;
 }
+
 section#people-trend .graph-area .overlay .date{
 	display: inline-block;
 	position: absolute;
-	bottom: 0px;
-	margin-left: -16px;
-	font-size: 11px;
-	color: #666;
+	bottom: -3px;
+	margin-left: -10px;
+	font-size: 10px;
+	color: #8c8b8b;
 	background-color: white;
 }
 
@@ -171,21 +218,20 @@ section#people-trend .graph-area .overlay .date{
 section#people-trend .events{
 	position: relative;
 	background-color: #f0f0f0;
-	padding-top: 3px;
+	padding-top: 2px;
 }
 
-section#people-trend .events .number{
+section#people-trend .events i.index-bubble{
 	position: absolute;
 	margin: 14px 0 0 12px;
-	font-weight: bold;
 }
 
 section#people-trend .events .event-tile{
-	margin-bottom: 3px;
-	padding: 12px 15px 6px;
-	padding-left: 35px;
+	margin-bottom: 2px;
+	padding-left: 45px;
 	background-color: white;
 }
+
 
 
 /* 타임라인 */
@@ -208,10 +254,11 @@ section#timeline1{ display: block; }
 	top: 6px;
 	right: 10px;
 
-	font-size: 14px;
+	font-size: 13px;
 	height: 30px;
 	line-height: 30px;
-	padding: 0 23px 0 10px;
+	padding: 0 22px 0 13px;
+	border-radius: 30px;
 }
 .timeline-filter-wrap select{
 	display: none;
@@ -225,8 +272,8 @@ section.timeline ul{
 
 section.timeline ul li{
 	position: relative;
-	margin: 1px 0;
-	padding: 15px 15px 15px 50px;
+	margin: 0;
+	padding: 15px 15px 5px 50px;
 	background-color: white;
 }
 
@@ -234,38 +281,54 @@ section.timeline ul li .line{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 27px;
-	width: 3px;
+	left: 25px;
+	width: 2px;
 	height: 100%;
-	background-color: #e0e0e0;
+	background-color: #d4d4d4;
 	z-index: 30;
 }
-section.timeline ul li:first-child{ margin-top: 0; }
-section.timeline ul li:first-child .line{
-	top: -10px;
-	height: calc(100% + 10px);
-}
-
 
 section.timeline ul li .circle{
 	position: absolute;
 	top: 19px;
-	left: 24px;
-	width: 6px;
-	height: 6px;
+	left: 21px;
+	width: 8px;
+	height: 8px;
 	background: #fff;
-	border-radius: 6px;
-	border: 2px solid #c5c5c5;
+	border-radius: 50%;
+	border: 2px solid #9d9d9d;
 	z-index: 50;
 }
 
+section.timeline ul li:first-child{ margin-top: 0; }
+section.timeline ul li:first-child .line{
+	top: 30px;
+	height: calc(100% - 30px);
+}
+section.timeline ul li:first-child .circle{
+	width: 12px;
+	height: 12px;
+	left: 18px;
+	top: 15px;
+}
+
 section.timeline ul li h3{
-	margin: 0 0 4px -7px;
+	margin: 0 0 6px -7px;
 	padding: 0;
-	color: #666;
+	color: black;
 	font-weight: normal;
 	font-size: 18px;
 }
+
+section.timeline ul li .event-tile{
+	margin-bottom: 20px;
+}
+section.timeline ul li .event-tile:last-child{ margin-bottom: 10px }
+
+section.timeline ul li .event-tile > .fl{ width: calc(100% - 110px) }
+section.timeline ul li .event-tile .image{ width: 100px; height: 70px; background-size: 100px 70px }
+
+
 
 
 /* 전적 정보 */
@@ -320,11 +383,76 @@ section#people-stats .comments .evaluate-btn{
 	border-radius: 4px;
 }
 
+
+
+/* 사진 (탭) */
+section#images{
+}
+
+section#images p.notice{
+	text-align: center;
+	font-size: 13px;
+	color: #888;
+	margin: 20px 0 10px;
+}
+
+section#images ul{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+section#images ul li{
+	width: 174px;
+}
+
+section#images ul li img{ width: 100% }
+
+section#images ul li .content{ text-align: right; }
+section#images ul li .content button{
+	color: white;
+	font-size: 13px;
+	
+	outline: none;
+	padding: 4px 7px 2px;
+	border-radius: 20px;
+
+	background: transparent;
+	border: 1px solid white;
+
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	transition: all 0.3s;
+}
+section#images ul li .content button.enabled{ color: #ee3f7a; border-color: #ee3f7a }
+
+
 /* 인물 유형 특화 엔티티 */
 section.role-entities{
-
 }
 
 section.role-entities .no-content{
 	padding: 10px 0 25px;
 }
+
+
+
+
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ee3f7a;
+	}
+
+	section#people-header{
+		height: 250px;
+	}
+
+	section#people-trend .graph-area svg.graph-small{ display: none }
+	section#people-trend .graph-area svg.graph-large{ display: block }
+	section#people-trend .graph-area .overlay i.index-bubble{ margin-left: 0 }
+}
+

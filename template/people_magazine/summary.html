@@ -1,11 +1,9 @@
 {% extends "/people_magazine/_layout.html" %}
-{% import "/macros/event_tile.html" as event_tile %}
 
 {% block head %}
 	{{ super() }}
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-	<script type="text/javascript" src="/js/people.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 {% endblock %}
 
 		
@@ -14,16 +12,20 @@
 
 	{% for w in person.in_one_word %}
 	<section id="in-one-word" class="common-tile">
-		<div>
-			<i class="fa fa-quote-left"></i>
+		<div class="background"></div>
+		<div class="content">
+			{# <div>
+				<i class="fa fa-quote-left"></i>
+				<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
+				<i class="fa fa-quote-right"></i>
+			</div> #}
 			<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
-			<i class="fa fa-quote-right"></i>
+			{% if w.reference %}
+			<div class="reference">
+				- {{ w.reference }}
+			</div>
+			{% endif %}
 		</div>
-		{% if w.reference %}
-		<div class="reference">
-			- {{ w.reference }}
-		</div>
-		{% endif %}
 	</section>
 	{% endfor %}
 
@@ -50,34 +52,54 @@
 		<h3>왜 떴을까?</h3>
 		<div class="graph-area">
 			{% set merge_cnt = 5 %}
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ trend_graph | length * merge_cnt }} 105" preserveAspectRatio="none">
+			{% set graph_width = trend_graph | length * merge_cnt %}
+			
+			{% set svg_width = 350 %}
+			<svg class="graph-small" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ svg_width }} 105" preserveAspectRatio="none">
 				<path d="M 0, 90
-					{% for d in trend_graph %} L {{ merge_cnt * loop.index }}, {{ 90 - d.value }} {% endfor %}
-					L {{ trend_graph | length * merge_cnt }}, 90
+					{% for d in trend_graph %} L {{ (merge_cnt * loop.index) / graph_width * svg_width }}, {{ 90 - d.value }} {% endfor %}
+					L {{ svg_width }}, 90
 				" />
 			</svg>
+
+			{% set svg_width = 1000 %}
+			<svg class="graph-large" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ svg_width }} 105" preserveAspectRatio="none">
+				<path d="M 0, 90
+					{% for d in trend_graph %} L {{ (merge_cnt * loop.index) / graph_width * svg_width }}, {{ 90 - d.value }} {% endfor %}
+					L {{ svg_width }}, 90
+				" />
+			</svg>
+
 			<div class="overlay">
+			{% set x_poses = [] %}
 			{% for tt in top_trends.values() %}
 				{% set x_pos = tt.graph_data.index / (trend_graph | length) * 100 %}
-				<span class="number" style="
-					left: {{ x_pos }}%;
-					top: {{ 95 - tt.graph_data.value }}px;
-					color: {{ tt.color }};
-				">{{ circular_number(loop.index) }}</span>
 
-				<span class="date" style="
-					left: {{ x_pos }}%;
-				">{{ tt.event.date.year }}.{{ tt.event.date.month }}</span>
+				<i class="index-bubble index{{ loop.index }}" style="
+						left: {{ x_pos }}%;
+						top: {{ 95 - tt.graph_data.value }}px;">
+					{{ loop.index }}
+				</i>
+
+				{# 너무 가까우면 날짜 표시 안함 #}
+				{% if x_poses[-1] and -8 <= (x_poses[-1] - x_pos) <= 8 %}
+				{% else %}
+					<span class="date" style="
+						left: {{ x_pos }}%;
+					">{{ tt.event.date.year }}.{{ tt.event.date.month }}</span>
+
+					{% if x_poses.append(x_pos) %} {% endif %}
+				{% endif %}
+
 			{% endfor %}
 			</div>
 		</div>
 		<div class="events">
 		{% for tt in top_trends.values() %}
-			<span class="number" style="color: {{ tt.color }}">
-				{{ circular_number(loop.index) }}
-			</span>
-
-			{{ event_tile.event_tile(tt.event, show_date=True) }}
+			<i class="index-bubble index{{ loop.index }}">
+				{{ loop.index }}
+			</i>
+			{{ event_tile.event_tile(tt.event, full_image=True) }}
 		{% endfor %}
 		</div>
 	</section>

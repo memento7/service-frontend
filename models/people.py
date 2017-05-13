@@ -49,18 +49,20 @@ class People :
 
 	
 	def __init__(self, id, nickname, realname, role_json={},
-				images=[], events=[], in_one_word=[], status=0,
+				images=[], profile_image=None, events=[], in_one_word=[], status=0,
 				created_time=None, updated_time=None, published_time=None, **kwarg):
 
 		from models.event import Event
 
 		self.id = id
 		self.nickname = nickname
+		self.realname = realname
 		self.role_json = role_json
 
 		self.in_one_word = in_one_word
 		self.status = status
 		self.images = images
+		self.profile_image_url = profile_image
 		
 		self.created_time = created_time
 		self.updated_time = updated_time
@@ -81,6 +83,9 @@ class People :
 
 		for roleid, value in self.role_json.items() :
 			roleinfo = People.get_roleinfo(roleid)
+
+			if not 'data' in value :
+				value['data'] = {}
 
 			roles[roleid] = {
 				'info': roleinfo,
@@ -123,6 +128,12 @@ class People :
 			return self.roles
 
 
+	def get_roles(self) :
+		""" Get list of role's name visible
+		"""
+		return [ d['name'] for d in self.roles.values() if d['info']['status'] == 1 ]
+
+
 	def repr_image(self, css=False) :
 		""" Get representative image of person
 		"""
@@ -132,8 +143,9 @@ class People :
 	def profile_image(self, css=False) :
 		""" Get profile image of person
 		"""
-		if getattr(self, 'profile_image') :
-			self.profile_image
+		if getattr(self, 'profile_image_url') :
+			return functions.first_image([{'url': self.profile_image_url}], css)
+
 		else :
 			return self.repr_image(css)
 

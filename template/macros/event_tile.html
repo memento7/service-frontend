@@ -17,32 +17,32 @@
 {% endmacro %}
 
 
-{% macro category_label(event_type, class_append='') -%}
-	<span class="category-label category-{{ event_category_id(event_type) }} {{ class_append }}">
-		<span class="hidden2">{{ event_type }}</span>
+{% macro category_label(event, class_append='') -%}
+	<span class="category-label category-{{ event.category_id() }} {{ class_append }}">
+		<span class="hidden2">{{ event.category }}</span>
 	</span>
 {% endmacro %}
 
 
-{% macro event_tile(event, show_date=False) -%}
-	<div class="event-tile clearfix">
+{% macro event_tile(event, show_date=False, full_image=False) -%}
+	<div class="event-tile {{ 'full-image' if full_image or '' }} clearfix">
 		<div class="fl">
 			<h4>
 				<a href="/event/{{ event.id }}">{{ event.title }}</a>
 			</h4>
-
-			{% if show_date %}
-			<div class="date">
-				{{ event.date.year }}.{{ event.date.month }}
-			</div>
-			{% endif %}
 			
 			<div class="labels emotion-bubbles">
 				{{ issue_label(event.issue_data) }}
-				{{ category_label(event.type) }}
+				{{ category_label(event) }}
 				{{ emotion_bubbles(event.emotions, 2) }}
 			</div>
-		</div>repr
+
+			{% if show_date %}
+			<div class="date">
+				{{ event.date.month }}월 {{ event.date.day }}일
+			</div>
+			{% endif %}
+		</div>
 		<div class="fr">
 			{% if event.repr_image() %}
 			<div class="image" style="{{ event.repr_image(True) }}"></div>
@@ -62,7 +62,7 @@
 		</a>
 		<div class="labels">
 			{{ issue_label(event.issue_data) }}
-			{{ category_label(event.type) }}
+			{{ category_label(event) }}
 		</div>
 		<div class="emotion-bubbles">
 			{{ emotion_bubbles(event.emotions, 2) }}
@@ -78,7 +78,7 @@
 			
 			<div class="labels">
 				{{ issue_label(event.issue_data) }}
-				{{ category_label(event.type, 'white') }}
+				{{ category_label(event, 'white') }}
 			</div>
 
 			<h4>{{ event.title }}</h4>

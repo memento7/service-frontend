@@ -2,9 +2,6 @@
 
 header{
 	position: absolute;
-	border-bottom-color: white;
-	border-bottom-color: rgba(255, 255, 255, 0.5);
-	border-bottom: none;
 	z-index: 11;
 }
 
@@ -57,7 +54,7 @@ section#event-header{
 }
 
 section#event-header .background{
-	height: 210px;
+	height: inherit;
 	filter: brightness(45%);
 }
 
@@ -73,7 +70,7 @@ section#event-header .content h3{
 	font-size: 36px;
 	font-weight: 100;
 	margin: 0;
-	padding: 3px 0 7px 20px;
+	padding: 3px 0 10px 20px;
 }
 section#event-header .content h3{ font-size: 13px; padding-bottom: 0 }
 section#event-header .content h3 span{ vertical-align: middle; }
@@ -88,34 +85,8 @@ section#event-header .content h3 .category-label{
 section#related-people{
 
 }
-
-section#related-people .person{ width: 50%; }
-section#related-people .person a{ color: black; text-decoration: none; }
-
-section#related-people .person .left{ margin-right: 10px; }
-
-section#related-people .person .left .image{
-	display: inline-block;
-	width: 55px;
-	height: 55px;
-
-	border: 1px solid #ccc;
-	border-radius: 50%;
-	background-image: url('/images/person.png');
-	background-size: 55px auto;
-	background-position: center center;
-}
-
-section#related-people .person .right{
-	margin: 10px 0 0 0;
-}
-
-section#related-people .person .right .role{
-	font-size: 13px;
-	color: #666;
-}
-
-
+section#related-people .person{ width: 50% }
+section#related-people .person a{ text-decoration: none; }
 
 
 /* 3줄 요약 */
@@ -130,27 +101,14 @@ ol.three-line-summary li{
 	font-size: 15px;
 }
 
-ol.three-line-summary li i{
-	display: inline-block;
-	width: 19px;
-	margin-right: 3px;
-	padding: 2px 1px 0px 1px;
-
-	text-align: center;
-	background-color: #eceff1;
-	color: black;
-	font-style: normal;
-	vertical-align: middle;
-
-	border-radius: 20px 20px 0 20px;
-}
-
 ol.three-line-summary li span{
 	display: inline-block;
 	margin-top: 3px;
 	vertical-align: middle;
 	color: #333;
 }
+ol.three-line-summary li i{ margin-right: 5px }
+
 
 section#three-line-summaries{
 	background-color: #788898;
@@ -168,12 +126,12 @@ section#three-line-summaries .swiper-pagination-bullet{ width: 7px; height: 7px;
 section#three-line-summaries .more{ margin: -5px 8px 0 0; font-size: 25px;}
 section#three-line-summaries .more a{ color: white; text-decoration: none; }
 
-section#three-line-summaries .no-content{ color: white; font-weight: 100 }
+section#three-line-summaries .no-content{ color: white; font-weight: 100; padding: 40px 0 53px }
 
 section#three-line-summaries .meta{
 	margin-top: 4px;
 	text-align: right;
-	font-size: 13px;
+	font-size: 12px;
 	color: white;
 	font-weight: 100;
 }
@@ -209,15 +167,9 @@ section#three-line-summaries-full .three-line-tile h4{
 	margin: 0 4px 3px 0;
 	font-weight: normal;
 }
-section#three-line-summaries-full .three-line-tile .date{
-	font-size: 12px;
-	color: #666;
-}
+section#three-line-summaries-full .three-line-tile .date{ font-size: 12px; color: #666; }
 
-section#three-line-summaries-full .three-line-tile .btn-container{
-	text-align: right;
-}
-
+section#three-line-summaries-full .three-line-tile .btn-container{ text-align: right }
 section#three-line-summaries-full .three-line-tile .like-btn,
 section#three-line-summaries-full .three-line-tile .hate-btn{
 	padding: 3px 5px 1px;
@@ -236,6 +188,12 @@ section#issue-rank{
 	position: relative;
 }
 
+section#issue-rank .content{
+	position: relative;
+	max-width: 350px;
+	margin: 0 auto 10px;
+}
+
 section#issue-rank > .content > .fl{
 	margin: 8px 0 0 7px;
 }
@@ -252,15 +210,15 @@ section#issue-rank svg path.rest{ stroke: #bbb }
 
 section#issue-rank .rank{
 	position: absolute;
-	top: 78px;
-	left: 54px;
+	top: 42px;
+	left: 55px;
 
 	width: 28px;
 	line-height: 24px;
 	font-size: 23px;
 
 	text-align: center;
-	padding: 4px 0 0;
+	padding: 5px 0 0 1px;
 	background: #666;
 	color: white;
 	border-radius: 50%;
@@ -274,24 +232,24 @@ section#issue-rank .full-label{
 	font-size: 17px;
 }
 
-section#issue-rank svg.s-rank path.pos{ stroke: #e0316c }
+section#issue-rank svg.s-rank path.pos{ stroke: #e6447b }
 section#issue-rank svg.a-rank path.pos{ stroke: #ff6600 }
 section#issue-rank svg.b-rank path.pos{ stroke: #07ce9c }
-section#issue-rank svg.c-rank path.pos{ stroke: rgb(84, 72, 171) }
+section#issue-rank svg.c-rank path.pos{ stroke: #5448ab }
 
 section#issue-rank .rank.s-rank{ background: #ec588a; background: linear-gradient(145deg, #ec588a 0%, #a72651 100%); }
-section#issue-rank .rank.a-rank{ background: #ff6600; background: linear-gradient(135deg, #ff6600 0%, #ff6600 100%); }
-section#issue-rank .rank.b-rank{ background: #07ce9c; background: linear-gradient(135deg, #07ce9c 0%, #05b589 100%); }
-section#issue-rank .rank.c-rank{ background: #ec588a; background: linear-gradient(135deg, #ec588a 0%, #e0316c 100%); }
+section#issue-rank .rank.a-rank{ background: #ff6600; background: linear-gradient(145deg, #ff9d5c 0%, #d65703 100%); }
+section#issue-rank .rank.b-rank{ background: #07ce9c; background: linear-gradient(145deg, #07ce9c 0%, #05b589 100%); }
+section#issue-rank .rank.c-rank{ background: #5448ab; background: linear-gradient(145deg, #8b7ee6 0%, #392e86 100%); }
 
 section#issue-rank .full-label.s-rank{ color: #e0316c }
 section#issue-rank .full-label.a-rank{ color: #ff6600 }
 section#issue-rank .full-label.b-rank{ color: #07ce9c }
-section#issue-rank .full-label.c-rank{ color: rgb(84, 72, 171) }
+section#issue-rank .full-label.c-rank{ color: #5448ab }
 
 section#issue-rank .comment{
 	width: calc(100% - 110px);
-	margin-top: 0px;
+	margin-top: 2px;
 	font-size: 13px;
 	color: #333;
 }
@@ -311,7 +269,7 @@ section#issue-rank .circle-wrap .circle .content{
 	padding: 24px 0;
 	text-align: center;
 	font-size: 16px;
-	color: #555;
+	color: #777;
 }
 section#issue-rank .circle-wrap .circle .content strong{ color: #fd7346; font-weight: normal; }
 
@@ -364,10 +322,17 @@ section#emotions .content .container{
 	border-radius: 6px;
 }
 
+section#emotions .content svg g text{ fill: white; font-weight: 100 }
+
+
+
+
 /* 연관 키워드 */
 section#keywords{
 }
-section#keywords > div{ padding: 0 15px }
+section#keywords > div{ padding: 0 15px; text-align: center; }
+section#keywords img{ max-width: 100% }
+
 
 
 
@@ -378,38 +343,55 @@ section#related-news{
 
 section#related-news ul{
 	list-style: none;
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 }
 
-section#related-news ul li{
-	position: relative;
-	margin: 3px 0;
-	padding: 15px 10px;
+section#related-news ul a{ display: block; text-decoration: none; }
+
+section#related-news ul li .content h4{ margin: 3px 0; font-weight: 200; font-size: 15px}
+section#related-news ul li .content .source{ font-size: 13px; }
+
+section#related-news ul li.no-img{
 	background-color: white;
-	color: #666;
-	font-size: 14px;
+	color: black;
+	font-weight: 300;
 }
 
-section#related-news ul li .image{
-	position: absolute;
+section#related-news ul li.no-img .content{
+	position: static;
+	padding-bottom: 18px;
 }
 
-section#related-news ul li .content{
-	margin-left: 90px;
-}
-section#related-news ul li .content.no-news{ margin-left: 10px }
+section#related-news ul li.no-img .content h4{ font-weight: 400 }
+section#related-news ul li.no-img .content .source{ color: #666 }
 
-section#related-news ul li h4{
-	margin: 0 0 3px 0;
+
+/* 사진 (탭) */
+section#images{
+}
+
+section#images ul{
+	margin: 0 auto;
 	padding: 0;
-	font-size: 16px;
-	font-weight: normal;
+	list-style: none;
 }
-section#related-news ul li h4 a{ color: black; text-decoration: none; }
-section#related-news ul li h4 a:hover{ color: #666 }
 
-section#related-news ul li .source{
-	margin-top: 5px;
-	color: #333;
+section#images ul li{
+	width: 174px;
+}
+
+section#images ul li img{ width: 100% }
+
+
+
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ff7044;
+	}
+
+	section#event-header{
+		height: 250px;
+	}
+	section#keywords img{ height: 170px; width: auto }
 }

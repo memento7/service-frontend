@@ -2,15 +2,15 @@
 
 header{
 	position: absolute;
-	border-bottom-color: white;
-	border-bottom-color: rgba(255, 255, 255, 0.5);
 	z-index: 11;
 }
 
 header .logo{ background-position: 0 -128px }
 header .fr .fa-bars{ color: white }
 
+/* 공통 헤더 */
 section#weekly-header{
+	position: relative;
 	height: 200px
 }
 section#weekly-header .background{
@@ -18,42 +18,67 @@ section#weekly-header .background{
 	height: 200px;
 	background-color: #999;
 	filter: brightness(30%);
+	z-index: 1;
 }
+
+section#weekly-header .mask{ position: absolute; bottom: -30px; z-index: 2 }
+
 
 section#weekly-header .content{
 	position: relative;
-	padding: 70px 48px 0;
+	padding: 70px 0 38px;
 	color: white;
-}
-section#weekly-header .content h2,
-section#weekly-header .content h3{
-	margin: 3px 0;
-	padding: 0;
-	font-weight: 100;
-	font-size: 18px;
-}
-section#weekly-header .content h3{ font-size: 16px }
-section#weekly-header .content h1{
-	margin: 6px 0 3px;
-	padding: 0;
-	font-size: 42px;
-	font-weight: 600;
-}
-
-section#weekly-header .prev-btn,
-section#weekly-header .next-btn{
-	position: absolute;
-	top: 93px;
-	padding: 0 10px;
-	font-size: 60px;
-	color: white;
-	opacity: 0.6;
-	filter: alpha(opacity=60);
 	z-index: 3;
 }
-section#weekly-header .prev-btn{ left: 0; }
-section#weekly-header .next-btn{ right: 0; }
 
+section#weekly-header .content h1,
+section#weekly-header .content h3{ text-align: center; padding: 0 }
+
+section#weekly-header .content h1{
+	margin: 13px 0 3px;
+	font-size: 42px;
+	font-weight: 400;
+}
+section#weekly-header .content h3{
+	margin: 3px 0;
+	font-weight: 100;
+	font-size: 16px;
+}
+
+section#weekly-header .navigation{
+	position: absolute;
+	width: 100%;
+	bottom: -21px;
+	text-align: center;
+	z-index: 4;
+}
+
+section#weekly-header .navigation a{ text-decoration: none; }
+
+section#weekly-header .navigation .btn{
+	display: inline-block;
+	width: 40px;
+	margin: 0 2px;
+	padding: 0 0 4px 0;
+	text-align: center;
+	background-color: #ab46bc;
+
+	font-size: 34px;
+	color: white;
+	border-radius: 50%;
+	transition: all 0.3s;
+}
+section#weekly-header .navigation .btn:hover{ background-color: #cb69dc }
+section#weekly-header .navigation .btn.disabled{ background-color: #666 }
+
+section#weekly-header .navigation .prev-btn i{ margin-left: -3px }
+section#weekly-header .navigation .next-btn i{ margin-left: 3px }
+
+
+/* 타임라인 */
+section#timeline{
+	margin: 35px 0 10px;
+}
 
 section#timeline ul{
 	list-style: none;
@@ -62,15 +87,57 @@ section#timeline ul{
 }
 
 section#timeline ul li{
-	margin: 5px 0;
-	padding: 13px 20px 8px;
+	position: relative;
+	margin: 8px 0 0;
 	background-color: white;
 }
+section#timeline ul li.grouped{ margin-top: 1px }
+section#timeline ul li.grouped h3{ display: none; }
 
 section#timeline ul li h3{
-	margin: 3px 0;
+	margin: 14px 16px;
 	padding: 0;
-	font-weight: normal;
-	font-size: 15px;
+	font-weight: 300;
+	font-size: 16px;
+	color: #444;
 }
 
+section#timeline ul li > .fr{
+	width: calc(100% - 78px);
+}
+
+section#timeline ul li .line{
+	position: absolute;
+	top: -5px;
+	bottom: 0;
+	left: 61px;
+	width: 2px;
+	height: 100%;
+	height: calc(100% + 5px);
+	background-color: #d0d0d0;
+	z-index: 3;
+}
+/*section#timeline ul li:first-child{ margin-top: 0; }*/
+section#timeline ul li:first-child .line{ top: 18px; height: calc(100% - 18px) }
+
+
+section#timeline ul li .circle{
+	position: absolute;
+	top: 17px;
+	left: 57px;
+	width: 7px;
+	height: 7px;
+	background: #fff;
+	border-radius: 7px;
+	border: 2px solid #a2a2a2;
+	z-index: 40;
+}
+
+
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ab46bc;
+	}
+
+
+}

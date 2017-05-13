@@ -6,6 +6,8 @@ from lib.api import PublishAPI
 
 from datetime import datetime, timedelta
 
+
+
 def get_trend_data(name) :
 	import requests, json
 
@@ -27,7 +29,6 @@ def get_trend_data(name) :
 			'Referer': 'http://ca.datalab.naver.com/ca/step1.naver?'
 		}
 	)
-
 	
 	data = json.loads(r.text)
 	gdata = data['result'][0]['data']
@@ -99,7 +100,6 @@ class PeoplePageGroup(PageGroup) :
 						top_trends[index] = {
 							'event': event,
 							'graph_data': tt,
-							'color': functions.rand_color()
 						}
 
 
