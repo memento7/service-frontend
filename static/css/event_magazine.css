@@ -334,6 +334,8 @@ section#keywords > div{ padding: 0 15px; text-align: center; }
 section#keywords img{ max-width: 100% }
 
 
+
+
 /* 관련 기사 (탭) */
 section#related-news{
 	margin: 10px 0;
@@ -347,38 +349,39 @@ section#related-news ul{
 
 section#related-news ul a{ display: block; text-decoration: none; }
 
-section#related-news ul li{
-	position: relative;
-	width: 170px;
-}
-section#related-news ul li.with-img{ color: white; font-weight: 100 }
-section#related-news ul li.no-img{ background-color: white; color: black; font-weight: 300; }
-
-section#related-news ul li.with-img .background-filter{
-	position: absolute;
-	width: 100%;
-	height: 75px;
-	bottom: 0;
-	background: -webkit-linear-gradient(0deg, rgba(0,0,0,.7), rgba(0,0,0,0));
-	background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0,0,0,0));
-	z-index: 2;
-}
-section#related-news ul li .content{
-	padding: 10px;
-}
-section#related-news ul li.with-img .content{ position: absolute; bottom: 0; z-index: 3 }
-section#related-news ul li.no-img .content{ padding-bottom: 18px }
-
-section#related-news ul li .content h4{
-	margin: 3px 0;
-	font-weight: 200;
-	font-size: 15px'
-}
-section#related-news ul li.no-img .content h4{ font-weight: 400 }
-
+section#related-news ul li .content h4{ margin: 3px 0; font-weight: 200; font-size: 15px}
 section#related-news ul li .content .source{ font-size: 13px; }
+
+section#related-news ul li.no-img{
+	background-color: white;
+	color: black;
+	font-weight: 300;
+}
+
+section#related-news ul li.no-img .content{
+	position: static;
+	padding-bottom: 18px;
+}
+
+section#related-news ul li.no-img .content h4{ font-weight: 400 }
 section#related-news ul li.no-img .content .source{ color: #666 }
 
+
+/* 사진 (탭) */
+section#images{
+}
+
+section#images ul{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+section#images ul li{
+	width: 174px;
+}
+
+section#images ul li img{ width: 100% }
 
 
 
@@ -390,29 +393,5 @@ section#related-news ul li.no-img .content .source{ color: #666 }
 	section#event-header{
 		height: 250px;
 	}
-
-	/*section#three-line-summaries{
-		width: calc(50% - 3px);
-	}
-
-	section#issue-rank{
-		position: absolute;
-		width: calc(50% - 3px);
-		right: 0;
-		height: 145px;
-		margin-top: -181px;
-	}
-
-	section#emotions{
-		width: calc(50% - 3px);
-	}
-
-	section#keywords{
-		position: absolute;
-		width: calc(50% - 3px);
-		right: 0;
-		margin-top: -226px;
-		height: 190px;
-	}*/
 	section#keywords img{ height: 170px; width: auto }
 }

@@ -217,7 +217,6 @@ i.index-bubble{
 
 /* Mini Person Tile (extends .person-tile) */
 .mini-person-tile{
-	
 }
 .mini-person-tile .image{
 	margin: 0 auto;
@@ -241,6 +240,33 @@ i.index-bubble{
 	font-size: 10px;
 }
 
+
+/* Grid Image Tile */
+
+.grid-image-tile{
+	position: relative;
+	width: 170px;
+	color: white;
+	font-weight: 100;
+}
+
+.grid-image-tile .background-filter{
+	position: absolute;
+	width: 100%;
+	height: 85px;
+	bottom: 0;
+	background: -webkit-linear-gradient(0deg, rgba(0,0,0,.85), rgba(0,0,0,0));
+	background: linear-gradient(0deg, rgba(0,0,0,.85), rgba(0,0,0,0));
+	z-index: 2;
+}
+.grid-image-tile .content{
+	position: absolute;
+	bottom: 0;
+	z-index: 3;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
 
 
 

@@ -389,20 +389,46 @@ section#people-stats .comments .evaluate-btn{
 section#images{
 }
 
+section#images p.notice{
+	text-align: center;
+	font-size: 13px;
+	color: #888;
+	margin: 20px 0 10px;
+}
+
 section#images ul{
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 	list-style: none;
 }
 
 section#images ul li{
-	margin: 0;
-	padding: 10px;
+	width: 174px;
 }
 
 section#images ul li img{ width: 100% }
 
+section#images ul li .content{ text-align: right; }
+section#images ul li .content button{
+	color: white;
+	font-size: 13px;
+	
+	outline: none;
+	padding: 4px 7px 2px;
+	border-radius: 20px;
 
+	background: transparent;
+	border: 1px solid white;
+
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	transition: all 0.3s;
+}
+section#images ul li .content button.enabled{ color: #ee3f7a; border-color: #ee3f7a }
 
 
 /* 인물 유형 특화 엔티티 */

@@ -312,7 +312,7 @@ footer{
 	#wrap{
 		position: relative;
 		width: 1000px;
-		/*min-height: 700px;*/
+		min-height: calc(100% - 56px);
 		margin: 56px auto 0;
 		/*box-shadow: 0px 0px 3px #ccc;*/
 	}
