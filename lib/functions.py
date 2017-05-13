@@ -1,5 +1,43 @@
 import json
 import settings
+from jikji import Jikji
+
+
+def geturl(module_name='', uri='/') :
+	""" Get module url with app option
+	"""
+	uri = str(uri)
+
+	if uri[0] == '/' : uri = uri[1:]
+	if module_name : subdomain = module_name + '.'
+	else : 			 subdomain = ''
+
+	if module_name == 'assets' : module_name = None
+
+	app = Jikji.getinstance()
+
+	if 'production' in app.options :
+		return 'https://%smemento.live/%s' % (subdomain, uri)
+
+	elif 'development' in app.options :
+		return 'https://%sdev.memento.live/%s' % (subdomain, uri)
+
+	elif 'local' in app.options :
+		base = 'http://%slocal.memento.live:7000' % subdomain
+
+		if module_name :
+			return '%s/%s/%s' % (base, module_name, uri)
+		else :
+			return '%s/%s' % (base, uri)
+
+	else :
+		if module_name :
+			return '/%s/%s' % (module_name, uri)
+		else :
+			return '/%s' % (uri)
+
+
+
 
 def json_encode(obj) :
 	""" JSON Encode
@@ -81,7 +119,8 @@ def image_url(image, css_mode=False) :
 					(ex. background-image: url('my-image.png'))
 	"""
 
-	if type(image) == str :	rv = image
+	if image is None :		rv = None
+	elif type(image) == str :	rv = image
 	elif 'path' in image : 	rv = image['path']
 	elif 'url' in image : 	rv = image['url']
 	else :					rv = None

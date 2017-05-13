@@ -4,7 +4,7 @@
 
 {% block head %}
 	{{ super() }}
-	<link rel="stylesheet" href="/css/people_magazine.css">
+	<link rel="stylesheet" href="{{ geturl('assets', '/css/people_magazine.css') }}">
 
 	<script type="text/javascript">
 		var entityId = {{ person.id }};
@@ -28,7 +28,7 @@
 			{% endfor %}
 		</ul>
 
-		<a href="/people/{{ person.id }}">
+		<a href="{{ person.magazine_url() }}">
 			<h1>
 				<span>{{ person.nickname }}</span>
 				{% if person.realname and person.realname != person.nickname %}
@@ -40,15 +40,15 @@
 
 	<nav class="magazine-nav">
 		<ul class="clearfix">
-			{{ nav_li('/people/%s' % person.id, '요약', _page.url) }}
-			{{ nav_li('/people/%s/timeline' % person.id, '타임라인', _page.url) }}
-			{{ nav_li('/people/%s/images' % person.id, '사진', _page.url) }}
+			{{ nav_li(person.magazine_url(),			   '요약', 	page == 'summary') }}
+			{{ nav_li(person.magazine_url() + '/timeline', '타임라인', page == 'timeline') }}
+			{{ nav_li(person.magazine_url() + '/images',   '사진', 	page == 'images') }}
 
-			{% for roleid, roledata in person.roles.items() %}
+			{# {% for roleid, roledata in person.roles.items() %}
 			{% if roledata.stats %}
 				{{ nav_li('/people/%s/%s' % (person.id, roledata.name), roledata.name, _page.url) }}
 			{% endif %}
-			{% endfor %}
+			{% endfor %} #}
 		</ul>
 	</nav>
 {% endblock %}

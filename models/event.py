@@ -71,6 +71,10 @@ class Event :
 		return chr( Event.CATEGORIES.index(self.category) + 97 )
 
 
+	def magazine_url(self) :
+		return functions.geturl('event', self.id)
+
+
 
 class EventIssueData :
 	""" event.issue_data DTO

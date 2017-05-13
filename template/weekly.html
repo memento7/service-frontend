@@ -5,7 +5,7 @@
 {% block head %}
 	{{ super() }}
 
-	<link rel="stylesheet" type="text/css" href="/css/weekly_memento.css">
+	<link rel="stylesheet" type="text/css" href="{{ geturl('assets', '/css/weekly_memento.css') }}">
 {% endblock %}
 
 
@@ -30,7 +30,7 @@
 
 			<div class="navigation">
 				{% if prev_week %}
-					<a href="/weekly/{{ prev_week[0] }}.{{ prev_week[1] }}/{{ prev_week[2] }}/">
+					<a href="{{ geturl('weekly', '/%s.%s/%s/' % (prev_week[0], prev_week[1], prev_week[2])) }}">
 						<span class="prev-btn btn">
 							<i class="fa fa-angle-left"></i>
 						</span>
@@ -42,7 +42,7 @@
 				{% endif %}
 
 				{% if next_week %}
-					<a href="/weekly/{{ next_week[0] }}.{{ next_week[1] }}/{{ next_week[2] }}/">
+					<a href="{{ geturl('weekly', '/%s.%s/%s/' % (next_week[0], next_week[1], next_week[2])) }}">
 						<span class="next-btn btn">
 							<i class="fa fa-angle-right"></i>
 						</span>

@@ -165,3 +165,8 @@ class People :
 		]
 
 
+	def magazine_url(self) :
+		return functions.geturl('people', self.id)
+
+
+

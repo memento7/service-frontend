@@ -73,9 +73,9 @@ class PeoplePageGroup(PageGroup) :
 			Page(self.images, params=self),
 		]
 
-		for role in self.model.roles.values() :
-			if role['data']['stats'] :
-				pages.append( Page(self.role_data, params=(self, role['name'])) )
+		# for role in self.model.roles.values() :
+		# 	if role['data']['stats'] :
+		# 		pages.append( Page(self.role_data, params=(self, role['name'])) )
 
 		return pages
 
@@ -104,16 +104,17 @@ class PeoplePageGroup(PageGroup) :
 
 
 		return render_template('people_magazine/summary.html',
+			page='summary',
 			person = self.model,
 			trend_graph = trend_graph,
 			top_trends = top_trends,
-			People = People,
 		)
 
 
 	@register_view
 	def timeline(self) :
 		return render_template('people_magazine/timeline.html',
+			page='timeline',
 			person = self.model,
 			timelines = self.model.get_timelines(),
 		)
@@ -122,16 +123,18 @@ class PeoplePageGroup(PageGroup) :
 	@register_view
 	def images(self) :
 		return render_template('people_magazine/images.html',
+			page='images',
 			person = self.model
 		)
 
 
-	@register_view
-	def role_data(self, rolename) :		
-		return render_template('people_magazine/role_data.html',
-			person = self.model,
-			current_role = self.model.get_role(name=rolename),
-		)
+	# @register_view
+	# def role_data(self, rolename) :		
+	# 	return render_template('people_magazine/role_data.html',
+	# 		page='role_data',
+	# 		person = self.model,
+	# 		current_role = self.model.get_role(name=rolename),
+	# 	)
 
 
 	def after_published(self, success_pages, errors, ignored_pages) :

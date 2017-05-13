@@ -5,8 +5,8 @@
 {% block head %}
 	{{ super() }}
 
-	<meta property="og:image" content="/images/cover.png">
-	<link rel="stylesheet" href="/css/home.css">
+	<meta property="og:image" content="{{ geturl('assets', '/images/cover.png') }}">
+	<link rel="stylesheet" href="{{ geturl('assets', '/css/home.css') }}">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
@@ -33,7 +33,7 @@
 				<div class="swiper-slide">
 					<ul>
 						{% for person in person_group %}
-						<a href="/people/{{ person.id }}">
+						<a href="{{ person.magazine_url() }}">
 							<li>
 								{% if person.status == 4 %}
 									{# Temp #}

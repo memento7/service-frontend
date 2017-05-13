@@ -28,7 +28,7 @@
 		<div class="content clearfix">
 			{% for person in event.entities %}
 				<div class="person fl {{ 'last'|safe if loop.last }}">
-					<a href="/people/{{ person.id }}">
+					<a href="{{ person.magazine_url() }}">
 						{{ person_tile.person_tile(person) }}
 					</a>
 				</div>

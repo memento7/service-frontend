@@ -28,7 +28,7 @@
 	<div class="event-tile {{ 'full-image' if full_image or '' }} clearfix">
 		<div class="fl">
 			<h4>
-				<a href="/event/{{ event.id }}">{{ event.title }}</a>
+				<a href="{{ event.magazine_url() }}">{{ event.title }}</a>
 			</h4>
 			
 			<div class="labels emotion-bubbles">
@@ -54,7 +54,7 @@
 
 {% macro mini_event_tile(event) -%}
 	<div class="event-tile mini-event-tile">
-		<a href="/event/{{ event.id }}">
+		<a href="{{ event.magazine_url() }}">
 			<div>
 				<div class="image" style="{{ event.repr_image(True) }}"></div>
 			</div>
@@ -72,7 +72,7 @@
 
 
 {% macro gallery_event_tile(event) -%}
-	<a href="/event/{{ event.id }}">
+	<a href="{{ event.magazine_url() }}">
 		<div class="event-tile gallery-event-tile">
 			<div class="background" style="{{ event.repr_image(True) }}"></div>
 			
