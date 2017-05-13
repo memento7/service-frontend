@@ -30,18 +30,18 @@
 			<h4>
 				<a href="/event/{{ event.id }}">{{ event.title }}</a>
 			</h4>
-
-			{% if show_date %}
-			<div class="date">
-				{{ event.date.year }}.{{ event.date.month }}
-			</div>
-			{% endif %}
 			
 			<div class="labels emotion-bubbles">
 				{{ issue_label(event.issue_data) }}
 				{{ category_label(event) }}
 				{{ emotion_bubbles(event.emotions, 2) }}
 			</div>
+
+			{% if show_date %}
+			<div class="date">
+				{{ event.date.month }}월 {{ event.date.day }}일
+			</div>
+			{% endif %}
 		</div>
 		<div class="fr">
 			{% if event.repr_image() %}

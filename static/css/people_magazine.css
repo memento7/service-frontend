@@ -40,15 +40,16 @@ section#people-header .user-react .star.enabled{ color: #ffcc00 }
 
 
 section#people-header .background{
-	height: 210px;
+	height: inherit;
 	z-index: 1;
 }
 section#people-header .background-filter{
 	position: absolute;
 	width: 100%;
-	height: 210px;
-	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8), rgba(0,0,0,0));
-	background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));
+	height: inherit;
+	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
+	/*background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));*/
+	background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
 	z-index: 2;
 }
 
@@ -95,8 +96,6 @@ section#people-header h1 .sub{
 
 /* 한 마디로 */
 section#in-one-word{
-	/*margin: 40px 0 30px;*/
-	/*padding: 23px 0;*/
 	padding: 0;
 	height: 100px;
 	text-align: center;
@@ -110,11 +109,6 @@ section#in-one-word .background{
 	background-size: 100% 100px;
 }
 
-/*section#in-one-word > div{ padding: 0 10px }*/
-
-/*section#in-one-word .fa{ color: rgba(255, 0, 102, 0.2) }
-section#in-one-word .fa-quote-left{ vertical-align: top }
-section#in-one-word .fa-quote-right{ vertical-align: bottom }*/
 
 section#in-one-word h2{
 	position: relative;
@@ -187,13 +181,16 @@ section#people-trend .graph-area{
 	padding: 0 15px 5px;
 }
 
+section#people-trend .graph-area svg.graph-large{ display: none; }
+
 section#people-trend .graph-area svg path{
 	fill: none;
 	stroke: #cfd7da;
-	stroke-width: 1;
+	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
+
 section#people-trend .graph-area .overlay{
 	position: absolute;
 	top: 0;
@@ -203,7 +200,7 @@ section#people-trend .graph-area .overlay{
 
 section#people-trend .graph-area .overlay i.index-bubble{
 	position: absolute;
-	margin-left: -10px;
+	margin-left: -12px;
 	margin-top: -26px;
 }
 
@@ -235,6 +232,8 @@ section#people-trend .events .event-tile{
 	background-color: white;
 }
 
+
+
 /* 타임라인 */
 section.timeline{
 	/*margin: 50px 0 0 0;*/
@@ -255,10 +254,11 @@ section#timeline1{ display: block; }
 	top: 6px;
 	right: 10px;
 
-	font-size: 14px;
+	font-size: 13px;
 	height: 30px;
 	line-height: 30px;
-	padding: 0 23px 0 10px;
+	padding: 0 22px 0 13px;
+	border-radius: 30px;
 }
 .timeline-filter-wrap select{
 	display: none;
@@ -287,18 +287,6 @@ section.timeline ul li .line{
 	background-color: #d4d4d4;
 	z-index: 30;
 }
-section.timeline ul li:first-child{ margin-top: 0; }
-section.timeline ul li:first-child .line{
-	top: 30px;
-	height: calc(100% - 30px);
-}
-section.timeline ul li:first-child .circle{
-	width: 12px;
-	height: 12px;
-	left: 18px;
-	top: 15px;
-}
-
 
 section.timeline ul li .circle{
 	position: absolute;
@@ -312,6 +300,18 @@ section.timeline ul li .circle{
 	z-index: 50;
 }
 
+section.timeline ul li:first-child{ margin-top: 0; }
+section.timeline ul li:first-child .line{
+	top: 30px;
+	height: calc(100% - 30px);
+}
+section.timeline ul li:first-child .circle{
+	width: 12px;
+	height: 12px;
+	left: 18px;
+	top: 15px;
+}
+
 section.timeline ul li h3{
 	margin: 0 0 6px -7px;
 	padding: 0;
@@ -319,8 +319,16 @@ section.timeline ul li h3{
 	font-weight: normal;
 	font-size: 18px;
 }
+
+section.timeline ul li .event-tile{
+	margin-bottom: 20px;
+}
+section.timeline ul li .event-tile:last-child{ margin-bottom: 10px }
+
 section.timeline ul li .event-tile > .fl{ width: calc(100% - 110px) }
 section.timeline ul li .event-tile .image{ width: 100px; height: 70px; background-size: 100px 70px }
+
+
 
 
 /* 전적 정보 */
@@ -375,11 +383,76 @@ section#people-stats .comments .evaluate-btn{
 	border-radius: 4px;
 }
 
+
+
+/* 사진 (탭) */
+section#images{
+}
+
+section#images p.notice{
+	text-align: center;
+	font-size: 13px;
+	color: #888;
+	margin: 20px 0 10px;
+}
+
+section#images ul{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+section#images ul li{
+	width: 174px;
+}
+
+section#images ul li img{ width: 100% }
+
+section#images ul li .content{ text-align: right; }
+section#images ul li .content button{
+	color: white;
+	font-size: 13px;
+	
+	outline: none;
+	padding: 4px 7px 2px;
+	border-radius: 20px;
+
+	background: transparent;
+	border: 1px solid white;
+
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	transition: all 0.3s;
+}
+section#images ul li .content button.enabled{ color: #ee3f7a; border-color: #ee3f7a }
+
+
 /* 인물 유형 특화 엔티티 */
 section.role-entities{
-
 }
 
 section.role-entities .no-content{
 	padding: 10px 0 25px;
 }
+
+
+
+
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ee3f7a;
+	}
+
+	section#people-header{
+		height: 250px;
+	}
+
+	section#people-trend .graph-area svg.graph-small{ display: none }
+	section#people-trend .graph-area svg.graph-large{ display: block }
+	section#people-trend .graph-area .overlay i.index-bubble{ margin-left: 0 }
+}
+

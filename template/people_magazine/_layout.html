@@ -28,12 +28,14 @@
 			{% endfor %}
 		</ul>
 
-		<h1>
-			<span>{{ person.nickname }}</span>
-			{% if person.realname and person.realname != person.nickname %}
-			<span class="sub">({{ person.realname }})</span>
-			{% endif %}
-		</h1>
+		<a href="/people/{{ person.id }}">
+			<h1>
+				<span>{{ person.nickname }}</span>
+				{% if person.realname and person.realname != person.nickname %}
+				<span class="sub">({{ person.realname }})</span>
+				{% endif %}
+			</h1>
+		</a>
 	</section>
 
 	<nav class="magazine-nav">

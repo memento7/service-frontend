@@ -73,22 +73,48 @@ def circular_number(number) :
 
 
 
-def first_image(images, css=False) :
-	""" Get first image's path on list of images with exception handling
+def image_url(image, css_mode=False) :
+	""" Get image's path with exception handling
 
-	:param images: list of image object
+	:param images: image object
 	:param css: if True, return css-style code
 					(ex. background-image: url('my-image.png'))
 	"""
-	if not images or len(images) == 0 : 	rv = None
-	elif 'path' in images[0]: 				rv = images[0]['path']
-	else :									rv = images[0]['url']
 
-	if css :
+	if type(image) == str :	rv = image
+	elif 'path' in image : 	rv = image['path']
+	elif 'url' in image : 	rv = image['url']
+	else :					rv = None
+
+
+	if css_mode :
 		if rv is None : return ''
 		else : 			return "background-image: url('%s')" % rv
 	else :
 		return rv
+
+
+def first_image(images, css_mode=False) :
+	""" Get first image's path on list of images with exception handling
+	"""
+
+	if not images or len(images) == 0 :
+		return image_url(None, css_mode)
+	else :
+		return image_url(images[0], css_mode)
+
+
+
+def fill_zero(string, length=2) :
+	""" Put 0 in a space as long as the length
+		* Mainly used for displaying time
+	"""
+	string = str(string)
+	
+	for i in range(0, length-len(string)) :
+		string = '0' + string
+
+	return string
 
 
 

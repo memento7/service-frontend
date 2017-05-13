@@ -24,8 +24,8 @@
 		<div class="content">
 			<h1>{{ month }}월 {{ week }}주차</h1>
 			<h3>
-				{{ year }}.{{ start_date.month }}.{{ start_date.day }} ~
-				{% if start_date.month != end_date.month %}{{ end_date.month }}.{% endif %}{{ end_date.day }}
+				{{ year }}.{{ fill_zero(start_date.month) }}.{{ fill_zero(start_date.day) }} ~
+				{% if start_date.month != end_date.month %}{{ fill_zero(end_date.month) }}.{% endif %}{{ fill_zero(end_date.day) }}
 			</h3>
 
 			<div class="navigation">
@@ -59,7 +59,7 @@
 	<section id="timeline">
 		<ul>
 			{% for event in events %}
-				<li class="clearfix">
+				<li class="clearfix {{ 'grouped' if (loop.index0 != 0 and event.date.day == events[loop.index0-1].date.day) }}">
 					<div class="fl">
 						<h3>{{ event.date.day }}일</h3>
 						<div class="line"></div>

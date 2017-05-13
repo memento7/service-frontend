@@ -1,9 +1,49 @@
 {% extends "/event_magazine/_layout.html" %}
 
+{% block foot %}
+	{{ super() }}
+
+	<script type="text/javascript">
+		(function(){
+			var grid = new Minigrid({
+				container: 'ul.image-container',
+				item: 'ul.image-container li',
+				gutter: 8
+			});
+
+			$(window).on('resize', function () {
+				grid.mount();
+			});
+			$(window).on('load', function() {
+				grid.mount();
+			})
+			grid.mount();
+
+		})();
+	</script>
+	
+{% endblock %}
+
 {% block content %}
 	{{ super() }}
 	
-	<div class="no-content">
-		사진이 없습니다.
-	</div>
+	<section id="images">
+		{% if event.images | length %}
+		
+		<ul class="image-container">
+			{% for image in event.images %}
+				<li class="grid-image-tile">
+					<img src="{{ image_url(image) }}">
+					<!-- <div class="background-filter"></div> -->
+				</li>
+			{% endfor %}
+		</ul>
+
+		{% else %}
+			<div class="no-content">
+				사진이 없습니다.
+			</div>
+		{% endif %}
+
+	</section>
 {% endblock %}

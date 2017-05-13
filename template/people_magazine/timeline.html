@@ -33,7 +33,7 @@
 	</script>
 {% endblock %}
 
-		
+
 {% block content %}
 	{{ super() }}
 	
@@ -49,18 +49,30 @@
 	{% for timeline in timelines %}
 	<section id="timeline{{ loop.index }}" class="timeline">
 		<ul>
-			{% for event in timeline %}
+			{# {% for event in timeline %}
 				<li>
-					{% set linecolor = rand_color() %}
 					<div class="line"></div>
 					<div class="circle"></div>
 
 					<h3>
-						<!-- {{ event.date.year }}.{{ event.date.month }} -->
+						<!-- {{ event.date.year }}.{{ fill_zero(event.date.month) }} -->
 						{{ event.date.year }}
 					</h3>
 
-					{{ event_tile.event_tile(event) }}
+					{{ event_tile.event_tile(event, show_date=True) }}
+				</li>
+			{% endfor %} #}
+
+			{% for group in timeline | groupby('date.year') | reverse %}
+				<li>
+					<div class="line"></div>
+					<div class="circle"></div>
+					<h3>
+						{{ group.grouper }}
+					</h3>
+					{% for event in group.list %}
+						{{ event_tile.event_tile(event, show_date=True) }}
+					{% endfor %}
 				</li>
 			{% endfor %}
 		</ul>

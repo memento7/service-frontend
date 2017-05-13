@@ -80,6 +80,7 @@
 	background-color: #333;
 	background-size: auto 80px;
 	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .event-tile h4{
@@ -91,18 +92,23 @@
 .event-tile a{
 	color: #333;
 	text-decoration: none;
+	transition: all 0.3s;
 }
-.event-tile .date{
-	margin: -6px 0 4px 0;
-	font-size: 13px;
-	color: #999;
-}
+.event-tile a:hover{ color: #777 }
+
 .event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
 .event-tile.full-image{ padding-top: 14px }
 .event-tile.full-image .fl{ padding-bottom: 4px }
 .event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px; }
 
+.event-tile .date{
+	margin: 2px 0 2px 2px;
+	font-size: 11px;
+	text-align: left;
+	color: #aaa;
+	font-weight: 100;
+}
 
 
 
@@ -211,7 +217,6 @@ i.index-bubble{
 
 /* Mini Person Tile (extends .person-tile) */
 .mini-person-tile{
-	
 }
 .mini-person-tile .image{
 	margin: 0 auto;
@@ -235,6 +240,33 @@ i.index-bubble{
 	font-size: 10px;
 }
 
+
+/* Grid Image Tile */
+
+.grid-image-tile{
+	position: relative;
+	width: 170px;
+	color: white;
+	font-weight: 100;
+}
+
+.grid-image-tile .background-filter{
+	position: absolute;
+	width: 100%;
+	height: 85px;
+	bottom: 0;
+	background: -webkit-linear-gradient(0deg, rgba(0,0,0,.85), rgba(0,0,0,0));
+	background: linear-gradient(0deg, rgba(0,0,0,.85), rgba(0,0,0,0));
+	z-index: 2;
+}
+.grid-image-tile .content{
+	position: absolute;
+	bottom: 0;
+	z-index: 3;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
 
 
 

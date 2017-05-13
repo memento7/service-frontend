@@ -50,7 +50,7 @@ section#weekly-header .navigation{
 	width: 100%;
 	bottom: -21px;
 	text-align: center;
-	z-index: 4
+	z-index: 4;
 }
 
 section#weekly-header .navigation a{ text-decoration: none; }
@@ -66,7 +66,9 @@ section#weekly-header .navigation .btn{
 	font-size: 34px;
 	color: white;
 	border-radius: 50%;
+	transition: all 0.3s;
 }
+section#weekly-header .navigation .btn:hover{ background-color: #cb69dc }
 section#weekly-header .navigation .btn.disabled{ background-color: #666 }
 
 section#weekly-header .navigation .prev-btn i{ margin-left: -3px }
@@ -75,7 +77,7 @@ section#weekly-header .navigation .next-btn i{ margin-left: 3px }
 
 /* 타임라인 */
 section#timeline{
-	margin-top: 30px;
+	margin: 35px 0 10px;
 }
 
 section#timeline ul{
@@ -86,9 +88,11 @@ section#timeline ul{
 
 section#timeline ul li{
 	position: relative;
-	margin: 5px 0;
+	margin: 8px 0 0;
 	background-color: white;
 }
+section#timeline ul li.grouped{ margin-top: 1px }
+section#timeline ul li.grouped h3{ display: none; }
 
 section#timeline ul li h3{
 	margin: 14px 16px;
@@ -130,3 +134,10 @@ section#timeline ul li .circle{
 }
 
 
+@media(min-width: 1000px) {
+	#wrap header{
+		border-bottom: 2px solid #ab46bc;
+	}
+
+
+}

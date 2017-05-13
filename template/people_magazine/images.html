@@ -1,10 +1,73 @@
 {% extends "/people_magazine/_layout.html" %}
 
+{% block foot %}
+	{{ super() }}
+
+	<script type="text/javascript">
+		(function(){
+			var grid = new Minigrid({
+				container: 'ul.image-container',
+				item: 'ul.image-container li',
+				gutter: 8
+			});
+
+			$(window).on('resize', function () {
+				grid.mount();
+			});
+			$(window).on('load', function() {
+				grid.mount();
+			})
+			grid.mount();
+
+		})();
+
+		function procLikeImage(imageId, target) {
+			// TODO: Implement API Calling
+
+			if ($(target).hasClass('enabled')) {
+				$(target).removeClass('enabled');
+
+			}else {
+				$(target).addClass('enabled');
+			}
+		}
+	</script>
+	
+{% endblock %}
 	
 {% block content %}
 	{{ super() }}
-	
-	<div class="no-content">
-		사진이 없습니다.
-	</div>
+
+	<section id="images">
+		{% if person.images | length %}
+		<p class="notice">
+			가장
+			<i class="fa fa-heart" aria-hidden="true"></i>
+			를 많이 받은 사진이 커버에 등록됩니다
+		</p>
+
+		<ul class="image-container">
+			{% for image in person.images %}
+				<li class="grid-image-tile">
+					<img src="{{ image_url(image) }}">
+					<div class="background-filter"></div>
+
+					<div class="content">
+						<button onclick="procLikeImage({{ image.id }}, this)">
+							<i class="fa fa-heart" aria-hidden="true"></i>
+							<span>{{ image.weight }}</span>
+						</button>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+
+		{% else %}
+			<div class="no-content">
+				사진이 없습니다.
+			</div>
+		{% endif %}
+
+	</section>
+
 {% endblock %}

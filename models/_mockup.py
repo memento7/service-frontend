@@ -257,7 +257,9 @@ event80001 = {
 	],
 	'images': [
 		{
+			'id': 0,
 			'path': 'https://i.ytimg.com/vi/sg_Z7kspl6E/maxresdefault.jpg',
+			'weight': 100,
 		}
 	],
 	'summaries3line': [
@@ -321,26 +323,43 @@ event80001 = {
 	],
 	'event_articles': [
 		{
+			'id': 90001,
 			'title': '비, 김태희와 결혼하더니 더 진해진 남자의 향기',
-			'description': '가수 비가 근황을 공개했다. 비는 2월 26일 자신의 인스타그램에 남자의 향기를 물씬 풍기는 사진 한 장을 게재했다.',
-			'source': '뉴스엔',
-			'image': 'https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2Forigin%2F5033%2F2017%2F02%2F26%2F1451305.jpg&type=ofullfill80_80_q75_re2',
-			'link': 'http://www.newsen.com/news_view.php?uid=201702260807041210'
+			'crawl_target': '뉴스엔',
+			'images': [{
+				'id': 0,
+				'url': 'http://cdn.newsen.com/newsen/news_photo/2017/02/26/201702260807041210_1.jpg',
+				'weight': 100,
+			}],
+			'source_url': 'http://www.newsen.com/news_view.php?uid=201702260807041210',
+			'summary': '가수 비가 근황을 공개했다. 비는 2월 26일 자신의 인스타그램에 남자의 향기를 물씬 풍기는 사진 한 장을 게재했다.',
+			'rank': 1,
 		},
 		{
+			'id': 90002,
 			'title': '비♥김태희, 오늘(23일) 화보촬영차 이탈리아 출국 “조용히 움직일것”',
-			'description': '오후 뉴스엔에 "화보 촬영차 출국하는 건 맞지만 조용히 움직일 예정이다"고 말했다.',
-			'source': '뉴스엔',
-			'image': 'https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2Forigin%2F5033%2F2017%2F02%2F23%2F1450354.jpg&type=ofullfill80_80_q75_re2',
-			'link': 'http://www.newsen.com/news_view.php?uid=201702230915310410'
-
+			'crawl_target': '뉴스엔',
+			'images': [{
+				'id': 0,
+				'url': 'http://cdn.newsen.com/newsen/news_photo/2017/02/23/201702230915310410_1.jpg',
+				'weight': 100,
+			}],
+			'source_url': 'http://www.newsen.com/news_view.php?uid=201702230915310410',
+			'summary': '오후 뉴스엔에 "화보 촬영차 출국하는 건 맞지만 조용히 움직일 예정이다"고 말했다.',
+			'rank': 2,
 		},
 		{
+			'id': 90003,
 			'title': '김태희·비 부부 뒤늦은 신혼살림 준비',
-			'description': '부부가 와 가구를 골라 샀다"며 "집은 청담인데 직영인 우리 매장에서 제품을 골랐다"고 전했다. ',
-			'source': '중앙일보',
-			'image': 'https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2Forigin%2F025%2F2017%2F02%2F23%2F2688296.jpg&type=ofullfill80_80_q75_re2',
-			'link': 'http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=025&aid=0002688296'
+			'crawl_target': '중앙일보',
+			'images': [{
+				'id': 0,
+				'url': 'http://mimgnews1.naver.net/image/025/2017/02/23/0002688296_001_20170223062422444.jpg?type=w540',
+				'weight': 100,
+			}],
+			'source_url': 'http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=025&aid=0002688296',
+			'summary': '부부가 와 가구를 골라 샀다"며 "집은 청담인데 직영인 우리 매장에서 제품을 골랐다"고 전했다. ',
+			'rank': 3,
 		},
 	]
 }

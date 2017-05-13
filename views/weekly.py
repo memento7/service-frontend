@@ -44,6 +44,8 @@ def weekly(year, month, week) :
 	for event in data :
 		weekly_events.append( Event(**event) )
 
+	weekly_events.sort(key=lambda d: d.date, reverse=True)
+
 	return render_template('weekly.html',
 		year=year,
 		month=month,
