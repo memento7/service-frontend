@@ -2,7 +2,7 @@ from jikji import Jikji
 from jikji.cprint import cprint
 from jikji.utils import Cache, AppDataUtil
 
-import requests, json, urllib, hashlib, mimetypes
+import requests, json, urllib, hashlib, mimetypes, os
 import settings
 
 
@@ -200,7 +200,7 @@ class ImageAPI :
 			return ImageAPI.BASE_URL + uploaded_image_url
 
 
-		tmp_img_path = ImageAPI.cache.cachedir + '/tmp_img'
+		tmp_img_path = ImageAPI.cache.cachedir + '/image_' + filehash
 		filename, headers = urllib.request.urlretrieve(url, tmp_img_path)
 
 
@@ -223,11 +223,21 @@ class ImageAPI :
 
 		import boto3
 		s3 = boto3.resource('s3')
-		s3.Object('images.memento.live', object_key).put(
-			Body = open(tmp_img_path, 'rb'),
-			ACL = 'public-read',
-			ContentType = content_type,
+		
+		s3.Bucket('images.memento.live').upload_file(
+			Filename=tmp_img_path,
+			Key=object_key,
+			ExtraArgs={
+				'ContentType': content_type,
+				'ACL':'public-read',
+			},
 		)
+
+		# s3.Object('images.memento.live', object_key).put(
+		# 	Body = open(tmp_img_path, 'rb'),
+		# 	ACL = 'public-read',
+		# 	ContentType = content_type,
+		# )
 
 		ImageAPI.cache.set(
 			key='image_hash/%s' % filehash,
@@ -235,6 +245,8 @@ class ImageAPI :
 			use_json=False,
 			quote=False,
 		)
+
+		os.remove(tmp_img_path)
 
 		return ImageAPI.BASE_URL + object_key
 

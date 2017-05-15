@@ -72,7 +72,7 @@ html,body{
 	background-color: black;
 	opacity: 0.6;
 	filter: alpha(opacity=60);
-	z-index: 90;
+	z-index: 900;
 }
 
 .no-content{
@@ -97,6 +97,7 @@ header{
 	width: 100%;
 	padding-top: 8px;
 	height: 42px;
+	z-index: 200;
 	/*border-bottom: 1px solid #eee;*/
 }
 
@@ -131,7 +132,7 @@ aside.sidebar{
 	width: 220px;
 	height: 100%;
 	background-color: white;
-	z-index: 100;
+	z-index: 1000;
 	font-weight: 300;
 }
 aside.sidebar > section.profile{

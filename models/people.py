@@ -61,7 +61,11 @@ class People :
 
 		self.in_one_word = in_one_word
 		self.status = status
+
 		self.images = images
+		self.images.sort(key=lambda a: a['weight'], reverse=True)
+
+
 		self.profile_image_url = profile_image
 		
 		self.created_time = created_time
