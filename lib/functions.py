@@ -1,6 +1,7 @@
 import json
 import settings
 from jikji import Jikji
+from lib.api import ImageAPI
 
 
 def geturl(module_name='', uri='/') :
@@ -126,6 +127,9 @@ def image_url(image, css_mode=False) :
 	elif 'url' in image : 	rv = image['url']
 	else :					rv = None
 
+	if rv is not None :
+		rv = ImageAPI.get(rv)
+		
 
 	if css_mode :
 		if rv is None : return ''

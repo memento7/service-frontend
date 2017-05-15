@@ -1,6 +1,10 @@
+from jikji import Jikji
 from jikji.cprint import cprint
-import requests, json
+from jikji.utils import Cache, AppDataUtil
+
+import requests, json, urllib, hashlib, mimetypes
 import settings
+
 
 class RestClient :
 
@@ -176,4 +180,61 @@ class PublishAPI(RestClient) :
 		PublishAPI.published_entities = []
 
 
+
+
+class ImageAPI :
+
+	BASE_URL = 'https://images.memento.live/'
+	cache = Cache(Jikji.getinstance())
+
+	@staticmethod
+	def get(url) :
+		filehash = hashlib.sha1(url.encode()).hexdigest()
+		uploaded_image_url = ImageAPI.cache.get(
+			key='image_hash/%s' % filehash,
+			use_json=False,
+			quote=False
+		)
+
+		if uploaded_image_url :
+			return ImageAPI.BASE_URL + uploaded_image_url
+
+
+		tmp_img_path = ImageAPI.cache.cachedir + '/tmp_img'
+		filename, headers = urllib.request.urlretrieve(url, tmp_img_path)
+
+
+		u = urllib.parse.urlparse(url)
+		content_type = headers['Content-Type']
+		extension = mimetypes.guess_extension(content_type)
+
+		if not extension :
+			extension = '.' + u.path.split('.')[-1]
+
+		object_key = "%s/%s%s" % (
+			hashlib.md5( u.netloc.encode() ).hexdigest()[0:10],
+			hashlib.md5( url.encode() ).hexdigest(),
+			extension,
+		)
+
+		if not content_type :
+			content_type = mimetypes.guess_type(object_key)[0]
+
+
+		import boto3
+		s3 = boto3.resource('s3')
+		s3.Object('images.memento.live', object_key).put(
+			Body = open(tmp_img_path, 'rb'),
+			ACL = 'public-read',
+			ContentType = content_type,
+		)
+
+		ImageAPI.cache.set(
+			key='image_hash/%s' % filehash,
+			value=object_key,
+			use_json=False,
+			quote=False,
+		)
+
+		return ImageAPI.BASE_URL + object_key
 
