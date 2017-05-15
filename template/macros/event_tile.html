@@ -45,7 +45,7 @@
 		</div>
 		<div class="fr">
 			{% if event.repr_image() %}
-			<div class="image" style="{{ event.repr_image(True) }}"></div>
+			<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
 			{% endif %}
 		</div>
 	</div>
@@ -56,7 +56,7 @@
 	<div class="event-tile mini-event-tile">
 		<a href="{{ event.magazine_url() }}">
 			<div>
-				<div class="image" style="{{ event.repr_image(True) }}"></div>
+				<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
 			</div>
 			<h4>{{ event.title }}</h4>
 		</a>
@@ -74,7 +74,7 @@
 {% macro gallery_event_tile(event) -%}
 	<a href="{{ event.magazine_url() }}">
 		<div class="event-tile gallery-event-tile">
-			<div class="background" style="{{ event.repr_image(True) }}"></div>
+			<div class="background" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
 			
 			<div class="labels">
 				{{ issue_label(event.issue_data) }}

@@ -138,20 +138,20 @@ class People :
 		return [ d['name'] for d in self.roles.values() if d['info']['status'] == 1 ]
 
 
-	def repr_image(self, css=False) :
+	def repr_image(self, css_mode=False, thumbnail=False) :
 		""" Get representative image of person
 		"""
-		return functions.first_image(self.images, css)
+		return functions.first_image(self.images, css_mode, thumbnail)
 
 
-	def profile_image(self, css=False) :
+	def profile_image(self, css_mode=False) :
 		""" Get profile image of person
 		"""
 		if getattr(self, 'profile_image_url') :
-			return functions.first_image([{'url': self.profile_image_url}], css)
+			return functions.first_image([{'url': self.profile_image_url}], css_mode, True)
 
 		else :
-			return self.repr_image(css)
+			return self.repr_image(css_mode, True)
 
 
 	def get_timelines(self) :

@@ -113,12 +113,13 @@ def circular_number(number) :
 
 
 
-def image_url(image, css_mode=False) :
+def image_url(image, css_mode=False, thumbnail=False) :
 	""" Get image's path with exception handling
 
 	:param images: image object
 	:param css: if True, return css-style code
 					(ex. background-image: url('my-image.png'))
+	:param thumbnail: if True, use thumbnail (300x)
 	"""
 
 	if image is None :		rv = None
@@ -128,7 +129,7 @@ def image_url(image, css_mode=False) :
 	else :					rv = None
 
 	if rv is not None :
-		rv = ImageAPI.get(rv)
+		rv = ImageAPI.get(rv, ('300x' if thumbnail else 'original'))
 		
 
 	if css_mode :
@@ -138,14 +139,14 @@ def image_url(image, css_mode=False) :
 		return rv
 
 
-def first_image(images, css_mode=False) :
+def first_image(images, css_mode=False, thumbnail=False) :
 	""" Get first image's path on list of images with exception handling
 	"""
 
 	if not images or len(images) == 0 :
-		return image_url(None, css_mode)
+		return image_url(None, css_mode, thumbnail)
 	else :
-		return image_url(images[0], css_mode)
+		return image_url(images[0], css_mode, thumbnail)
 
 
 
