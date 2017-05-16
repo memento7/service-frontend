@@ -74,7 +74,7 @@
 {% macro gallery_event_tile(event) -%}
 	<a href="{{ event.magazine_url() }}">
 		<div class="event-tile gallery-event-tile">
-			<div class="background" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
+			<div class="background" style="{{ event.repr_image(css_mode=True) }}"></div>
 			
 			<div class="labels">
 				{{ issue_label(event.issue_data) }}

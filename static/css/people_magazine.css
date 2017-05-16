@@ -17,6 +17,18 @@ nav.magazine-nav ul li.selected{
 	border-bottom-color: #ee3f7a;
 }
 
+/* Event Icon Sprite */
+i.people-icon{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 0 1px;
+	background-image: url('/images/people_icon_sprite.png');
+	background-size: 30px auto;
+}
+i.people-icon.icon-trend{ background-position: 0 0 }
+i.people-icon.icon-star{ background-position: -15px 0 }
+
 
 /* 공통 헤더 */
 section#people-header{
@@ -24,31 +36,18 @@ section#people-header{
 	height: 210px;
 }
 
-section#people-header .user-react{
-	position: absolute;
-	top: 61px;
-	right: 10px;
-	z-index: 5;
-}
-section#people-header .user-react .star{
-	color: white;
-	font-size: 20px;
-	cursor: pointer;
-}
-section#people-header .user-react .star.enabled{ color: #ffcc00 }
-
-
 section#people-header .background{
 	height: inherit;
 	z-index: 1;
+	/*filter: brightness(90%);*/
 }
 section#people-header .background-filter{
 	position: absolute;
 	width: 100%;
 	height: inherit;
-	background: -webkit-linear-gradient(-90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
-	/*background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));*/
-	background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
+	background: -webkit-linear-gradient(0, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));
+	background: linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,0));
+	/*background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 85%, rgba(0,0,0,.5));*/
 	z-index: 2;
 }
 
@@ -90,6 +89,31 @@ section#people-header h1 .sub{
 	font-size: 13px;
 	font-weight: 100;
 }
+
+
+section#people-header .user-react{
+	position: absolute;
+	bottom: 30px;
+	right: 20px;
+	z-index: 5;
+}
+section#people-header .user-react .favorite{
+	color: white;
+	font-size: 13px;
+	font-weight: 100;
+
+	padding: 3px 5px 2px;
+	border: 1px solid white;
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 20px;
+
+	cursor: pointer;
+}
+section#people-header .user-react .favorite.enabled{ color: #ffcc00; border-color: #ffcc00 }
+
+
+
+
 
 
 

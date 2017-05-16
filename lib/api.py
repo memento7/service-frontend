@@ -257,6 +257,8 @@ class ImageAPI :
 		# Upload S3
 		import boto3
 		s3 = boto3.resource('s3')
+
+		cprint.line('Upload S3: ' + object_key)
 		
 		s3.Bucket('images.memento.live').upload_file(
 			Filename=tmp_img_path,

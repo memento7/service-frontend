@@ -31,7 +31,8 @@ function makeStatChart(ctx, labels, data) {
 
 function setFavorite(ajaxCall) {
 	function applyView() {
-		$('#people-header .star').addClass('enabled')
+		$('#people-header .favorite').addClass('enabled');
+		$('#people-header .favorite .fa')
 			.addClass('fa-star')
 			.removeClass('fa-star-o');
 	}
@@ -48,10 +49,11 @@ function setFavorite(ajaxCall) {
 
 function cancelFavorite(ajaxCall) {
 	function applyView() {
-		$('#people-header .star').removeClass('enabled')
+		$('#people-header .favorite').removeClass('enabled');
+		$('#people-header .favorite .fa')
 			.removeClass('fa-star')
 			.addClass('fa-star-o');
-		}
+	}
 
 	if (ajaxCall) {
 		memento.callAPI('DELETE', '/me/favorites/' + entityId, function (result) {
@@ -64,7 +66,7 @@ function cancelFavorite(ajaxCall) {
 
 
 $(window).ready(function() {
-	$('#people-header .star').on('click', function (e) {
+	$('#people-header .favorite').on('click', function (e) {
 		if ($(e.target).hasClass('enabled'))
 			cancelFavorite(true);
 		else
