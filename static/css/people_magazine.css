@@ -4,13 +4,9 @@ header{
 	position: absolute;
 }
 
-header .logo{
-	background-position: 0 -64px;
-}
+header .logo{ background-position: -200px -32px }
+header .menu-bar{ background-position: -400px -22px }
 
-header .fr .fa-bars{
-	color: white;
-}
 
 nav.magazine-nav ul li.selected{
 	color: #ee3f7a;

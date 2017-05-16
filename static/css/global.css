@@ -110,14 +110,17 @@ header .logo{
 	margin-left: -100px;
 	
 	background-image: url('/images/logo_sprite.png');
-	background-size: 200px;
+	background-size: 422px;
 }
 
 header .menu-bar{
 	margin: 4px 12px;
-	font-size: 23px;
-	cursor: pointer;
-	color: #999;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background-image: url('/images/logo_sprite.png');
+	background-size: 422px;
+	background-position: -400px 0;
 }
 
 
@@ -343,7 +346,8 @@ footer{
 
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	header .logo{
+	header .logo,
+	header .menu-bar{
 		background-image: url('/images/logo_sprite@2x.png');
 	}
 }

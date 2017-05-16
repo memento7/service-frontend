@@ -14,14 +14,49 @@
 {% endblock %}
 
 
+{% block foot %}
+	{{ super() }}
+
+	<script type="text/javascript">
+		var swiper = new Swiper('.swiper-container', {
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+		});
+
+		function resizeSlide() {
+			var liDom = $('#trendy-people ul li')
+			var rest = $('#trendy-people .swiper-wrapper').width() - liDom.width() * 4;
+			liDom.css({
+				'margin-left':  (rest / 8) + 'px',
+				'margin-right': (rest / 8) + 'px'
+			});
+		}
+		resizeSlide();
+		$(window).on('resize', resizeSlide);
+
+
+		function searchSubmit(form) {
+			if (form.q.value)
+				location.href = "/search#q=" + form.q.value;
+			return false;
+		}
+	</script>
+	
+{% endblock %}
+
+
 {% block content %}
 	<div class="background"></div>
 
 	<section id="search">
-		<div class="search-box clearfix">
-			<input class="fl" type="text" name="q">
-			<i class="fa fa-search fr"></i>
-		</div>
+		<form name="search" method="GET" action="/search" onsubmit="return searchSubmit(this);">
+			<div class="search-box clearfix">
+				<input class="fl" type="text" name="q">
+				<button class="search">
+					<i class="fa fa-search fr"></i>
+				</button>
+			</div>
+		</form>
 	</section>
 
 	<section id="trendy-people">
@@ -51,25 +86,6 @@
 			<div class="swiper-button-prev swiper-button-white"></div>
 			<div class="swiper-button-next swiper-button-white"></div>
 		</div>
-
-		<script type="text/javascript">
-			var swiper = new Swiper('.swiper-container', {
-				nextButton: '.swiper-button-next',
-				prevButton: '.swiper-button-prev',
-			});
-
-			function resizeSlide() {
-				var liDom = $('#trendy-people ul li')
-				var rest = $('#trendy-people .swiper-wrapper').width() - liDom.width() * 4;
-				liDom.css({
-					'margin-left':  (rest / 8) + 'px',
-					'margin-right': (rest / 8) + 'px'
-				});
-			}
-			resizeSlide();
-			$(window).on('resize', resizeSlide);
-
-		</script>
 	</section>
 
 	<section id="watchable-event" class="common-tile">

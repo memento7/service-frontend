@@ -4,8 +4,8 @@ header{
 	position: absolute;
 }
 
-header .logo{ background-position: 0 -128px }
-header .fr .fa-bars{ color: white }
+header .logo{ background-position: -200px -96px }
+header .menu-bar{ background-position: -400px -22px }
 
 /* 공통 헤더 */
 section#weekly-header{
