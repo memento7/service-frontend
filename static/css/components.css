@@ -2,6 +2,36 @@
 
 
 
+/* Icon Sprite */
+i.icon{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 0 1px;
+	background-image: url('/images/icon_sprite.png');
+	background-size: 75px auto;
+}
+i.icon.icon-people{ background-position: 0 0 }
+i.icon.icon-news{ background-position: -15px 0 }
+i.icon.icon-rank{ background-position: -30px 0 }
+i.icon.icon-balloon{ background-position: -45px 0 }
+i.icon.icon-keyword{ background-position: -60px 0 }
+
+i.icon.icon-pen{ background-position: 0 -15px }
+i.icon.icon-trend{ background-position: -15px -15px }
+i.icon.icon-star{ background-position: -30px -15px }
+
+i.icon.icon-news-small, i.icon.icon-talk, i.icon.icon-share{ width: 14px; height: 14px }
+i.icon.icon-news-small{ background-position: 0 -30px }
+i.icon.icon-talk{ background-position: -14px -30px }
+i.icon.icon-share{ background-position: -28px -30px }
+
+i.icon.icon-happy,
+i.icon.icon-sad{ width: 20px; height: 20px }
+i.icon.icon-happy{ background-position: 0 -44px }
+i.icon.icon-sad{ background-position: -20px -44px }
+
+
 .label{
 	font-size: 13px;
 	margin: 1px 7px 1px 0;

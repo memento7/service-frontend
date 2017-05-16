@@ -14,32 +14,6 @@ nav.magazine-nav ul li.selected{
 }
 
 
-/* Event Icon Sprite */
-i.event-icon{
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	margin: 0 1px;
-	background-image: url('/images/event_icon_sprite.png');
-	background-size: 75px auto;
-}
-i.event-icon.icon-people{ background-position: 0 0 }
-i.event-icon.icon-pen{ background-position: -15px 0 }
-i.event-icon.icon-rank{ background-position: -30px 0 }
-i.event-icon.icon-balloon{ background-position: -45px 0 }
-i.event-icon.icon-keyword{ background-position: -60px 0 }
-
-i.event-icon.icon-news,
-i.event-icon.icon-talk,
-i.event-icon.icon-share{ width: 14px; height: 14px }
-i.event-icon.icon-news{ background-position: 0 -15px }
-i.event-icon.icon-talk{ background-position: -14px -15px }
-i.event-icon.icon-share{ background-position: -28px -15px }
-
-i.event-icon.icon-happy,
-i.event-icon.icon-sad{ width: 20px; height: 20px }
-i.event-icon.icon-happy{ background-position: 0 -30px }
-i.event-icon.icon-sad{ background-position: -20px -30px }
 
 
 /* Common Header */

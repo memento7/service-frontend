@@ -13,18 +13,6 @@ nav.magazine-nav ul li.selected{
 	border-bottom-color: #ee3f7a;
 }
 
-/* Event Icon Sprite */
-i.people-icon{
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	margin: 0 1px;
-	background-image: url('/images/people_icon_sprite.png');
-	background-size: 30px auto;
-}
-i.people-icon.icon-trend{ background-position: 0 0 }
-i.people-icon.icon-star{ background-position: -15px 0 }
-
 
 /* 공통 헤더 */
 section#people-header{
@@ -124,7 +112,7 @@ section#in-one-word{
 section#in-one-word .background{
 	height: inherit;
 	background-color: #8da5cb;
-	background-image: url('/images/iow_bg.png');
+	background-image: url('/images/quotation_bg.png');
 	background-size: 100% 100px;
 }
 
