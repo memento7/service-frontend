@@ -1,5 +1,45 @@
 import json
 import settings
+from jikji import Jikji
+from lib.api import ImageAPI
+
+
+def geturl(module_name='', uri='/') :
+	""" Get module url with app option
+	"""
+	uri = str(uri)
+
+	if uri[0] == '/' : uri = uri[1:]
+	if module_name : subdomain = module_name + '.'
+	else : 			 subdomain = ''
+
+	if module_name == 'assets' : module_name = None
+
+	app = Jikji.getinstance()
+
+	if 'production' in app.options :
+		return 'https://%smemento.live/%s' % (subdomain, uri)
+
+	elif 'development' in app.options :
+		subdomain = subdomain.replace('.', '_')
+		return 'https://%sdev.memento.live/%s' % (subdomain, uri)
+
+	elif 'local' in app.options :
+		base = 'http://%slocal.memento.live:7000' % subdomain
+
+		if module_name :
+			return '%s/%s/%s' % (base, module_name, uri)
+		else :
+			return '%s/%s' % (base, uri)
+
+	else :
+		if module_name :
+			return '/%s/%s' % (module_name, uri)
+		else :
+			return '/%s' % (uri)
+
+
+
 
 def json_encode(obj) :
 	""" JSON Encode
@@ -73,19 +113,24 @@ def circular_number(number) :
 
 
 
-def image_url(image, css_mode=False) :
+def image_url(image, css_mode=False, thumbnail=False) :
 	""" Get image's path with exception handling
 
 	:param images: image object
 	:param css: if True, return css-style code
 					(ex. background-image: url('my-image.png'))
+	:param thumbnail: if True, use thumbnail (300x)
 	"""
 
-	if type(image) == str :	rv = image
+	if image is None :		rv = None
+	elif type(image) == str :	rv = image
 	elif 'path' in image : 	rv = image['path']
 	elif 'url' in image : 	rv = image['url']
 	else :					rv = None
 
+	if rv is not None :
+		rv = ImageAPI.get(rv, ('300x' if thumbnail else 'original'))
+		
 
 	if css_mode :
 		if rv is None : return ''
@@ -94,14 +139,14 @@ def image_url(image, css_mode=False) :
 		return rv
 
 
-def first_image(images, css_mode=False) :
+def first_image(images, css_mode=False, thumbnail=False) :
 	""" Get first image's path on list of images with exception handling
 	"""
 
 	if not images or len(images) == 0 :
-		return image_url(None, css_mode)
+		return image_url(None, css_mode, thumbnail)
 	else :
-		return image_url(images[0], css_mode)
+		return image_url(images[0], css_mode, thumbnail)
 
 
 

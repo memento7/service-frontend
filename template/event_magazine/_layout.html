@@ -4,7 +4,7 @@
 
 {% block head %}
 	{{ super() }}
-	<link rel="stylesheet" href="/css/event_magazine.css">
+	<link rel="stylesheet" href="{{ geturl('assets', '/css/event_magazine.css') }}">
 
 {% endblock %}
 
@@ -26,10 +26,10 @@
 
 	<nav class="magazine-nav">
 		<ul class="clearfix">
-			{{ nav_li('/event/%s' % event.id, '요약', _page.url) }}
-			{{ nav_li('/event/%s/images' % event.id, '관련 사진', _page.url) }}
-			{{ nav_li('/event/%s/news' % event.id, '관련 기사', _page.url) }}
-			{{ nav_li('/event/%s/3lines' % event.id, '3줄 요약', _page.url) }}
+			{{ nav_li(event.magazine_url(), 			 '요약', 		page == 'summary') }}
+			{{ nav_li(event.magazine_url() + '/images',  '관련 사진', page == 'images') }}
+			{{ nav_li(event.magazine_url() + '/news', 	 '관련 기사', page == 'news') }}
+			{{ nav_li(event.magazine_url() + '/3lines',  '3줄 요약', page == '3lines') }}
 		</ul>
 	</nav>
 {% endblock %}

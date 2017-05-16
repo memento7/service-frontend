@@ -1,7 +1,7 @@
 import os
 from jikji.publisher import LocalPublisher, S3Publisher
 from lib import security 
-
+from lib.publisher import MementoPublisher
 
 # Root Path of Application
 ROOT_PATH = os.path.dirname(__file__)
@@ -19,8 +19,9 @@ VIEW_ROOT = ROOT_PATH + '/views'
 
 # Publisher instance used after generation
 # PUBLISHER = LocalPublisher(output_root=ROOT_PATH + '/_output')
-PUBLISHER = LocalPublisher('/var/www/dev')
+# PUBLISHER = LocalPublisher('/var/www/dev')
 # PUBLISHER = S3Publisher('beta.memento.live')
+PUBLISHER = MementoPublisher()
 
 
 

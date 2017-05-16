@@ -19,7 +19,7 @@ getview('home.home').url_rule = '/'
 getview('people.index').url_rule 	 = '/people/{ id }/'
 getview('people.timeline').url_rule  = '/people/{ id }/timeline/'
 getview('people.images').url_rule 	 = '/people/{ id }/images/'
-getview('people.role_data').url_rule = '/people/{ $1.id }/{ $2 }/'
+#getview('people.role_data').url_rule = '/people/{ $1.id }/{ $2 }/'
 
 getview('event.index').url_rule 	 		 = '/event/{ id }/'
 getview('event.images').url_rule 			 = '/event/{ id }/images/'
@@ -59,7 +59,7 @@ for data in PublishAPI.get('/events/updated') :
 addpage(view='weekly.this_week')
 
 # Weekly memento
-for d in range(1, 100) :
+for d in range(1, 40) :
 	today = datetime.now()
 	today = datetime(today.year, today.month, today.day)
 

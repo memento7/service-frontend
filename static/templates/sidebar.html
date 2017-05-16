@@ -2,23 +2,15 @@
 	<section class="profile">
 
 		{{# if user.loggined }}
-			<div>
-				<img src="{{ user.image_url }}" class="avatar" width="63" height="63">
-			</div>
-			<h3 class="loggedin-username">
-				<span>{{ user.nickname }}</span>
-			</h3>
+			<div class="avatar" style="background-image: url('{{ user.image_url }}')"></div>
+			<h3 class="loggedin-username">{{ user.nickname }}</h3>
 			<div>
 				<a href="https://base.memento.live/logout" class="logout-btn">로그아웃</a>
 			</div>
 
 		{{ else }}
-			<div>
-				<img src="/images/avatar.png" class="avatar" width="63" height="63">
-			</div>
-			<h3>
-				<span>로그인 필요</span>
-			</h3>
+			<div class="avatar"></div>
+			<h3>로그인 필요</h3>
 			
 			<div class="login-btn facebook" onclick="memento.login('facebook')">
 				<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -39,24 +31,18 @@
 	<section class="service-shortcuts">
 		<h4>서비스 바로가기</h4>
 		<ul>
-			<a href="/weekly">
-				<li>
-					<i class="fa fa-calendar" aria-hidden="true"></i>
-					<span>위클리 메멘토</span>
-				</li>
-			</a>
-			<a href="/people/random">
-				<li>
-					<i class="fa fa-user" aria-hidden="true"></i>
-					<span>랜덤 인물</span>
-				</li>
-			</a>
-			<a href="/event/random">
-				<li>
-					<i class="fa fa-camera-retro" aria-hidden="true"></i>
-					<span>랜덤 사건</span>
-				</li>
-			</a>
+			<li class="weekly-memento">
+				<i class="fa fa-calendar" aria-hidden="true"></i>
+				<span>위클리 메멘토</span>
+			</li>
+			<li class="random-person">
+				<i class="fa fa-user" aria-hidden="true"></i>
+				<span>랜덤 인물</span>
+			</li>
+			<li class="random-event">
+				<i class="fa fa-camera-retro" aria-hidden="true"></i>
+				<span>랜덤 사건</span>
+			</li>
 		</ul>
 	</section>
 	<section class="favorites">

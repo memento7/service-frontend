@@ -72,7 +72,7 @@ html,body{
 	background-color: black;
 	opacity: 0.6;
 	filter: alpha(opacity=60);
-	z-index: 90;
+	z-index: 900;
 }
 
 .no-content{
@@ -97,6 +97,7 @@ header{
 	width: 100%;
 	padding-top: 8px;
 	height: 42px;
+	z-index: 200;
 	/*border-bottom: 1px solid #eee;*/
 }
 
@@ -131,7 +132,7 @@ aside.sidebar{
 	width: 220px;
 	height: 100%;
 	background-color: white;
-	z-index: 100;
+	z-index: 1000;
 	font-weight: 300;
 }
 aside.sidebar > section.profile{
@@ -140,8 +141,12 @@ aside.sidebar > section.profile{
 }
 
 aside.sidebar > section.profile .avatar{
-	display: inline-block;
-	margin-bottom: 8px;
+	width: 63px;
+	height: 63px;
+	margin: 0 auto 8px;
+	background-color: #666;
+	background-image: url('/images/avatar.png');
+	background-size: 63px 63px;
 	border-radius: 50%;
 }
 
@@ -188,7 +193,7 @@ aside.sidebar > section.profile .login-btn.naver .naver-icon{
 	margin-top: 1px;
 	width: 13.5px;
 	height: 12px;
-	background-image: url('/images/naver-icon-white.png');
+	background-image: url('/images/naver_icon_white.png');
 	background-size: 13.5px 12px;
 }
 
@@ -206,11 +211,12 @@ aside.sidebar > section ul{
 	padding: 0;
 	list-style: none;
 }
-aside.sidebar > section a{ color: #444; text-decoration: none; }
+/*aside.sidebar > section a{ color: #444; text-decoration: none; }*/
 aside.sidebar > section ul li{
 	margin: 0;
 	padding: 7px 15px;
 	font-size: 17px;
+	cursor: pointer;
 	transition: background-color 0.5s;
 }
 aside.sidebar > section ul li:hover{ background-color: #f0f0f0 }

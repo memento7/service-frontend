@@ -1,6 +1,10 @@
+from jikji import Jikji
 from jikji.cprint import cprint
-import requests, json
+from jikji.utils import Cache, AppDataUtil
+
+import requests, json, urllib, hashlib, mimetypes, os
 import settings
+
 
 class RestClient :
 
@@ -176,4 +180,115 @@ class PublishAPI(RestClient) :
 		PublishAPI.published_entities = []
 
 
+
+
+class ImageAPI :
+
+	BASE_URL = 'https://images.memento.live'
+	cache = Cache(Jikji.getinstance())
+
+	@staticmethod
+	def get_hash_url(url, content_type) :
+		u = urllib.parse.urlparse(url)
+		extension = mimetypes.guess_extension(content_type)
+
+		if not extension :
+			extension = '.' + u.path.split('.')[-1]
+
+		return "%s/%s%s" % (
+			hashlib.md5( u.netloc.encode() ).hexdigest()[0:10],
+			hashlib.md5( url.encode() ).hexdigest(),
+			extension,
+		)
+
+
+	@staticmethod
+	def make_thumbnail(image_path, output_path, basewidth=300) :
+		from PIL import Image
+
+		img = Image.open(image_path)
+
+		wpercent = basewidth / float(img.size[0])
+		hsize = int(float(img.size[1]) * float(wpercent))
+
+		img = img.resize(
+			(basewidth, hsize),
+			Image.ANTIALIAS
+		)
+		img.save(output_path)
+
+
+	@staticmethod
+	def get(url, size_mode='original') :
+		filehash = hashlib.sha1(url.encode()).hexdigest()
+		uploaded_image_url = ImageAPI.cache.get(
+			key='image_hash/%s' % filehash,
+			use_json=False,
+			quote=False
+		)
+
+		if uploaded_image_url :
+			# If cache exists, return image url
+			return "%s/%s/%s" % (ImageAPI.BASE_URL, size_mode, uploaded_image_url)
+
+
+		tmp_img_path = ImageAPI.cache.cachedir + '/image_' + filehash
+
+		filename, headers = urllib.request.urlretrieve(url, tmp_img_path)
+		content_type = headers['Content-Type']
+
+		object_key = ImageAPI.get_hash_url(
+			url=url,
+			content_type=content_type
+		)
+
+		if not content_type :
+			content_type = mimetypes.guess_type(object_key)[0]
+
+		thumbnail_path = tmp_img_path + '_thumbnail.' + object_key.split('.')[-1]
+
+		# Make Thumbnail
+		ImageAPI.make_thumbnail(
+			image_path=tmp_img_path,
+			output_path=thumbnail_path,
+			basewidth=300
+		)
+
+		# Upload S3
+		import boto3
+		s3 = boto3.resource('s3')
+
+		cprint.line('Upload S3: ' + object_key)
+		
+		s3.Bucket('images.memento.live').upload_file(
+			Filename=tmp_img_path,
+			Key='original/' + object_key,
+			ExtraArgs={
+				'ContentType': content_type,
+				'ACL':'public-read',
+			},
+		)
+
+		s3.Bucket('images.memento.live').upload_file(
+			Filename=thumbnail_path,
+			Key='300x/' + object_key,
+			ExtraArgs={
+				'ContentType': content_type,
+				'ACL':'public-read',
+			},
+		)
+
+
+		# Set cache that image is uploaded
+		ImageAPI.cache.set(
+			key='image_hash/%s' % filehash,
+			value=object_key,
+			use_json=False,
+			quote=False,
+		)
+
+		os.remove(tmp_img_path)
+		os.remove(thumbnail_path)
+
+		return "%s/%s/%s" % (ImageAPI.BASE_URL, size_mode, object_key)
 

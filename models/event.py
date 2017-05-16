@@ -61,14 +61,18 @@ class Event :
 		self.published_time = published_time
 
 
-	def repr_image(self, css=False) :
+	def repr_image(self, css_mode=False, thumbnail=False) :
 		""" Get representative image of person
 		"""
-		return functions.first_image(self.images, css)
+		return functions.first_image(self.images, css_mode, thumbnail)
 
 
 	def category_id(self) :
 		return chr( Event.CATEGORIES.index(self.category) + 97 )
+
+
+	def magazine_url(self) :
+		return functions.geturl('event', self.id)
 
 
 

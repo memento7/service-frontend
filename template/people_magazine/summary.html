@@ -14,11 +14,6 @@
 	<section id="in-one-word" class="common-tile">
 		<div class="background"></div>
 		<div class="content">
-			{# <div>
-				<i class="fa fa-quote-left"></i>
-				<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
-				<i class="fa fa-quote-right"></i>
-			</div> #}
 			<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
 			{% if w.reference %}
 			<div class="reference">
@@ -49,7 +44,10 @@
 
 
 	<section id="people-trend" class="common-tile">
-		<h3>왜 떴을까?</h3>
+		<h3>
+			<i class="people-icon icon-trend"></i>
+			<span>왜 떴을까?</span>
+		</h3>
 		<div class="graph-area">
 			{% set merge_cnt = 5 %}
 			{% set graph_width = trend_graph | length * merge_cnt %}
@@ -58,7 +56,7 @@
 			<svg class="graph-small" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ svg_width }} 105" preserveAspectRatio="none">
 				<path d="M 0, 90
 					{% for d in trend_graph %} L {{ (merge_cnt * loop.index) / graph_width * svg_width }}, {{ 90 - d.value }} {% endfor %}
-					L {{ svg_width }}, 90
+					M {{ svg_width }}, 90
 				" />
 			</svg>
 
@@ -66,7 +64,7 @@
 			<svg class="graph-large" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="105" viewBox="0 0 {{ svg_width }} 105" preserveAspectRatio="none">
 				<path d="M 0, 90
 					{% for d in trend_graph %} L {{ (merge_cnt * loop.index) / graph_width * svg_width }}, {{ 90 - d.value }} {% endfor %}
-					L {{ svg_width }}, 90
+					M {{ svg_width }}, 90
 				" />
 			</svg>
 
@@ -107,7 +105,11 @@
 
 	{% if person.roles and person.stat_counts %}
 	<section id="people-stats" class="common-tile">
-		<h3>재미로 보는 능력치</h3>
+		<h3>
+			<i class="people-icon icon-star"></i>
+			<span>재미로 보는 능력치</span>
+		</h3>
+
 		<div class="content clearfix total-{{ person.stat_counts }}stats">
 			{% for roleid, roledata in person.roles.items() %}
 			{% if roledata.stats2 %}

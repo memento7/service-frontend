@@ -8,7 +8,7 @@ person70001 = {
 	'images': [
 		{
 			'path': "http://movie.phinf.naver.net/20120227_135/1330332776326RN3D6_JPEG/movie_image.jpg?type=m665_443_2",
-			'heart': 0
+			'weight': 100
 		}
 	],
 	'in_one_word': [
@@ -79,7 +79,7 @@ person70002 = {
 	'images': [
 		{
 			'path': "http://club.draghome.com/folder/10000057/board/10000/10862/kim3.jpg",
-			'heart': 0
+			'weight': 100
 		}
 	],
 	'in_one_word': [
@@ -297,7 +297,7 @@ event80001 = {
 			'images': [
 				{
 					'path': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F28%2F201406261348278841.jpg",
-					'heart': 0
+					'weight': 100
 				}
 			],
 			'role_json': {
@@ -312,7 +312,7 @@ event80001 = {
 			'images': [
 				{
 					'path': "https://search.pstatic.net/common?type=o&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F71%2F20170123185015611.jpg",
-					'heart': 0
+					'weight': 100
 				}
 			],
 			'role_json': {

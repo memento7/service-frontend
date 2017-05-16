@@ -14,7 +14,7 @@
 	<script type="text/javascript">
 		var emotions = {{ json_encode(event.emotions) | safe }};
 	</script>
-	<script src="/js/event_summary.js"></script>
+	<script src="{{ geturl('assets', '/js/event_summary.js') }}"></script>
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,7 @@
 		<div class="content clearfix">
 			{% for person in event.entities %}
 				<div class="person fl {{ 'last'|safe if loop.last }}">
-					<a href="/people/{{ person.id }}">
+					<a href="{{ person.magazine_url() }}">
 						{{ person_tile.person_tile(person) }}
 					</a>
 				</div>

@@ -61,7 +61,11 @@ class People :
 
 		self.in_one_word = in_one_word
 		self.status = status
+
 		self.images = images
+		self.images.sort(key=lambda a: a['weight'], reverse=True)
+
+
 		self.profile_image_url = profile_image
 		
 		self.created_time = created_time
@@ -131,23 +135,23 @@ class People :
 	def get_roles(self) :
 		""" Get list of role's name visible
 		"""
-		return [ d['name'] for d in self.roles.values() if d['info']['status'] == 1 ]
+		return [ d['name'] for d in self.roles.values() if d['info']['status'] == 'SHOW' ]
 
 
-	def repr_image(self, css=False) :
+	def repr_image(self, css_mode=False, thumbnail=False) :
 		""" Get representative image of person
 		"""
-		return functions.first_image(self.images, css)
+		return functions.first_image(self.images, css_mode, thumbnail)
 
 
-	def profile_image(self, css=False) :
+	def profile_image(self, css_mode=False) :
 		""" Get profile image of person
 		"""
 		if getattr(self, 'profile_image_url') :
-			return functions.first_image([{'url': self.profile_image_url}], css)
+			return functions.first_image([{'url': self.profile_image_url}], css_mode, True)
 
 		else :
-			return self.repr_image(css)
+			return self.repr_image(css_mode, True)
 
 
 	def get_timelines(self) :
@@ -163,5 +167,10 @@ class People :
 			sorted(events[0:40], key=date_sorting_lambda, reverse=True),
 			sorted(events, key=date_sorting_lambda, reverse=True),
 		]
+
+
+	def magazine_url(self) :
+		return functions.geturl('people', self.id)
+
 
 

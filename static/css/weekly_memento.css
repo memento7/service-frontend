@@ -2,7 +2,6 @@
 
 header{
 	position: absolute;
-	z-index: 11;
 }
 
 header .logo{ background-position: 0 -128px }

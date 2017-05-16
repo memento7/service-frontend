@@ -67,21 +67,33 @@ class EventPageGroup(PageGroup) :
 
 	@register_view
 	def index(self) :
-		return render_template('event_magazine/summary.html', event=self.model)
+		return render_template('event_magazine/summary.html',
+			page='summary',
+			event=self.model,
+		)
 
 
 	@register_view
 	def images(self) :
-		return render_template('event_magazine/images.html', event=self.model)
+		return render_template('event_magazine/images.html',
+			page='images',
+			event=self.model,
+		)
 
 
 	@register_view
 	def news(self) :
-		return render_template('event_magazine/news.html', event=self.model)
+		return render_template('event_magazine/news.html',
+			page='news',
+			event=self.model,
+		)
 
 	@register_view
 	def three_lines(self) :
-		return render_template('event_magazine/3lines.html', event=self.model)
+		return render_template('event_magazine/3lines.html',
+			page='3lines',
+			event=self.model,
+		)
 
 
 	@register_view

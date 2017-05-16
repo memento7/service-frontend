@@ -2,7 +2,6 @@
 
 header{
 	position: absolute;
-	z-index: 11;
 }
 
 header .logo{
@@ -349,10 +348,14 @@ section#related-news ul{
 
 section#related-news ul a{ display: block; text-decoration: none; }
 
+section#related-news ul li{
+	min-height: 85px;
+}
 section#related-news ul li .content h4{ margin: 3px 0; font-weight: 200; font-size: 15px}
 section#related-news ul li .content .source{ font-size: 13px; }
 
 section#related-news ul li.no-img{
+	min-height: initial;
 	background-color: white;
 	color: black;
 	font-weight: 300;
