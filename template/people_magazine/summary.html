@@ -14,7 +14,13 @@
 	<section id="in-one-word" class="common-tile">
 		<div class="background"></div>
 		<div class="content">
-			<h2 style="font-size: {{ iow_size(w.keyword) }}">{{ w.keyword }}</h2>
+			<div class="more fr">
+				<a href="./quotations">
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</a>
+			</div>
+
+			<h2 style="font-size: {{ quotation_size(w.keyword) }}">{{ w.keyword }}</h2>
 			{% if w.reference %}
 			<div class="reference">
 				- {{ w.reference }}

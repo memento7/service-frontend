@@ -1,0 +1,72 @@
+{% extends '/layouts/default.html' %}
+
+{% block title %}메멘토 - 검색{% endblock %}
+
+{% block head %}
+	{{ super() }}
+
+	<style type="text/css">
+		header{
+			background-color: white;
+		}
+
+		section#search{
+			position: relative;
+			padding: 5px 0 12px;
+			z-index: 3;
+			background-color: white;
+		}
+
+		section#search form{ margin: 0; padding: 0; }
+	</style>	
+{% endblock %}
+
+
+{% block foot %}
+	{{ super() }}
+
+	<script type="text/javascript">
+		function searchSubmit(form) {
+			if (form.q.value)
+				location.hash = "#q=" + form.q.value;
+			return false;
+		}
+	</script>
+	
+{% endblock %}
+
+
+
+{% block content %}
+	<section id="search">
+		<form name="search" method="GET" action="/search" onsubmit="return searchSubmit(this);">
+			<div class="search-box clearfix">
+				<input class="fl" type="text" name="q">
+				<button class="search">
+					<i class="fa fa-search fr"></i>
+				</button>
+			</div>
+		</form>
+	</section>
+
+	<section id="people-result" class="common-tile">
+		<h3>
+			<i class="icon icon-people"></i>
+			<span>인물 검색</span>
+		</h3>
+		<div class="content">
+			
+		</div>
+	</section>
+
+	<section id="event-result" class="common-tile">
+		<h3>
+			<i class="icon icon-news"></i>
+			<span>사건 검색</span>
+		</h3>
+		<div class="content">
+			
+		</div>
+	</section>
+{% endblock %}
+

@@ -15,10 +15,13 @@ from datetime import datetime, timedelta
 """ Config URLs
 """
 getview('home.home').url_rule = '/'
+getview('home.search').url_rule = '/search/'
 
 getview('people.index').url_rule 	 = '/people/{ id }/'
 getview('people.timeline').url_rule  = '/people/{ id }/timeline/'
+getview('people.inmac').url_rule  = '/people/{ id }/inmac/'
 getview('people.images').url_rule 	 = '/people/{ id }/images/'
+getview('people.quotations').url_rule 	 = '/people/{ id }/quotations/'
 #getview('people.role_data').url_rule = '/people/{ $1.id }/{ $2 }/'
 
 getview('event.index').url_rule 	 		 = '/event/{ id }/'
@@ -35,6 +38,7 @@ getview('weekly.this_week').url_rule = '/weekly/'
 """
 
 addpage(view='home.home')
+addpage(view='home.search')
 
 
 # Mockup data

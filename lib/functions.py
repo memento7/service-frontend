@@ -90,10 +90,8 @@ def range_svg_pos(ratio, radius, cx, cy) :
 	)
 
 
-def iow_size(word) :
-	""" Get In-One-Word size
-
-		<TO BE REFACTORED>
+def quotation_size(word) :
+	""" Get Quation size
 	"""
 	s = 200 / len(word)
 	if s > 33 : s = 33

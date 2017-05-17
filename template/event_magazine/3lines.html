@@ -16,19 +16,26 @@
 {% block content %}
 	{{ super() }}
 
-	<section id="three-line-summaries-full" class="common-tile">
-		<div class="write-container">
+	<section id="three-lines-header" class="board-tile-header clearfix">
+		<div class="fl">
 			<button class="write" onclick="alert('준비중입니다')">3줄 요약 작성하기</button>
 		</div>
+		<div class="fr">
+			<span class="active">
+				<span class="radio"><i></i></span>
+				<span>호감순</span>
+			</span>
+			<span>
+				<span class="radio"><i></i></span>
+				<span>최신순</span>
+			</span>
+		</div>
+	</section>
 
+	<section id="three-lines-full">
 	{% if event.summaries3line and event.summaries3line | length %}
 		{% for summary in event.summaries3line %}
-		<div class="three-line-tile">
-			<div class="clearfix">
-				<h4>@{{ summary.author }}</h4>
-				<span class="date">{{ summary.date }}</span>
-			</div>
-			
+		<div class="board-tile">
 			<ol class="three-line-summary">
 				{% for line in summary.content %}
 				<li>
@@ -37,15 +44,22 @@
 				</li>
 				{% endfor %}
 			</ol>
-			<div class="btn-container">
-				<button class="like-btn" onclick="like_3line({{ summary.id }})">
-					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-					<span>{{ summary.like }}</span>
-				</button>
-				<button class="hate-btn" onclick="hate_3line({{ summary.id }})">
-					<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
-					<span>{{ summary.hate }}</span>
-				</button>
+			<div class="meta clearfix">
+				<div class="fl">
+					<h4>@{{ summary.author }}</h4>
+					<span class="date">{{ summary.date }}</span>
+				</div>
+
+				<div class="btn-container fr">
+					<button class="like-btn" onclick="like_3line({{ summary.id }})">
+						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+						<span>{{ summary.like }}</span>
+					</button>
+					<button class="hate-btn" onclick="hate_3line({{ summary.id }})">
+						<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
+						<span>{{ summary.hate }}</span>
+					</button>
+				</div>
 			</div>
 		</div>
 		{% endfor %}

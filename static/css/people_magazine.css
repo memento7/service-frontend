@@ -117,10 +117,14 @@ section#in-one-word .background{
 }
 
 
+section#in-one-word .more{ position: relative; margin: 3px -10px 0 0; font-size: 25px }
+section#in-one-word .more a{ color: white; text-decoration: none; }
+
+
 section#in-one-word h2{
 	position: relative;
 	margin: 0;
-	padding: 30px 5px 0;
+	padding: 30px 10px 0;
 	font-size: 30px;
 	font-weight: 400;
 	vertical-align: middle;
@@ -447,6 +451,11 @@ section.role-entities .no-content{
 }
 
 
+
+/* 한마디로 탭 */
+/*section#quotations-header{ padding: 0 0 10px 0 }*/
+section#quotations-header button.write,
+section#quotations-header .fr > span.active > .radio{ background-color: #ec407a }
 
 
 @media(min-width: 1000px) {

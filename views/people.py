@@ -70,7 +70,9 @@ class PeoplePageGroup(PageGroup) :
 		pages = [
 			Page(self.index, params=self),
 			Page(self.timeline, params=self),
+			Page(self.inmac, params=self),
 			Page(self.images, params=self),
+			Page(self.quotations, params=self),
 		]
 
 		# for role in self.model.roles.values() :
@@ -119,14 +121,26 @@ class PeoplePageGroup(PageGroup) :
 			timelines = self.model.get_timelines(),
 		)
 
+	@register_view
+	def inmac(self) :
+		return render_template('people_magazine/inmac.html',
+			page='inmac',
+			person = self.model,
+		)
 
 	@register_view
 	def images(self) :
 		return render_template('people_magazine/images.html',
 			page='images',
-			person = self.model
+			person = self.model,
 		)
 
+	@register_view
+	def quotations(self) :
+		return render_template('people_magazine/quotations.html',
+			page='quotations',
+			person = self.model,
+		)
 
 	# @register_view
 	# def role_data(self, rolename) :		

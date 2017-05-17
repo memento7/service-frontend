@@ -43,9 +43,11 @@
 
 	<nav class="magazine-nav">
 		<ul class="clearfix">
-			{{ nav_li(person.magazine_url(),			   '요약', 	page == 'summary') }}
-			{{ nav_li(person.magazine_url() + '/timeline', '타임라인', page == 'timeline') }}
-			{{ nav_li(person.magazine_url() + '/images',   '사진', 	page == 'images') }}
+			{{ nav_li(person.magazine_url(),			     '요약', 	  page == 'summary') }}
+			{{ nav_li(person.magazine_url() + '/timeline',   '타임라인', page == 'timeline') }}
+			{{ nav_li(person.magazine_url() + '/inmac',      'IN맥', page == 'inmac') }}
+			{{ nav_li(person.magazine_url() + '/images',     '사진', 	  page == 'images') }}
+			{{ nav_li(person.magazine_url() + '/quotations', '한마디로', page == 'quotations') }}
 
 			{# {% for roleid, roledata in person.roles.items() %}
 			{% if roledata.stats %}

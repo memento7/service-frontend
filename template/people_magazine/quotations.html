@@ -1,0 +1,69 @@
+{% extends "/people_magazine/_layout.html" %}
+{% block head %}
+	{{ super() }}
+
+	<script type="text/javascript">
+		function like_3line(id) {
+			alert('준비중입니다.')
+		}
+
+		function hate_3line(id) {
+			alert('준비중입니다.')
+		}
+	</script>
+{% endblock %}
+
+{% block content %}
+	{{ super() }}
+
+	<section id="quotations-header" class="board-tile-header clearfix">
+		<div class="fl">
+			<button class="write" onclick="alert('준비중입니다')">한마디로 작성하기</button>
+		</div>
+		<div class="fr">
+			<span class="active">
+				<span class="radio"><i></i></span>
+				<span>호감순</span>
+			</span>
+			<span>
+				<span class="radio"><i></i></span>
+				<span>최신순</span>
+			</span>
+		</div>
+	</section>
+
+	<section id="quotations-full">
+	{% if person.quotations and person.quotations | length %}
+		{% for quotation in person.quotations %}
+		<div class="board-tile">
+			<div>
+				
+			</div>
+
+			<div class="meta clearfix">
+				<div class="fl">
+					<h4>@{{ quotation.author }}</h4>
+					<span class="date">{{ quotation.date }}</span>
+				</div>
+
+				<div class="btn-container fr">
+					<button class="like-btn" onclick="like_3line({{ quotation.id }})">
+						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+						<span>{{ quotation.like }}</span>
+					</button>
+					<button class="hate-btn" onclick="hate_3line({{ quotation.id }})">
+						<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
+						<span>{{ quotation.hate }}</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	{% else %}
+	<div class="no-content">아직 '한마디로'가 없습니다</div>
+	{% endif %}
+
+	</section>
+
+
+{% endblock %}
