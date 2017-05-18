@@ -28,7 +28,7 @@ class Event :
 
 	def __init__(self, id, title, type, date, issue_data,
 				images=[], entities=[], event_articles=[],
-				keywords=[], emotions=[], summaries=[], summaries3line=[],
+				keywords=[], emotions=[], summaries=[], event_summaries3_lines=[],
 				hit=0, created_time=None, updated_time=None, published_time=None, **kwarg) :
 		
 		self.id = id
@@ -53,7 +53,7 @@ class Event :
 
 		self.keywords = keywords
 		self.emotions = emotions
-		self.summaries3line = summaries3line
+		self.summaries3lines = event_summaries3_lines
 		self.images = images
 
 		self.created_time = created_time

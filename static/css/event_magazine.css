@@ -111,18 +111,6 @@ section#three-lines .meta .author{
 }
 
 
-/* 3줄요약 탭 */
-section#three-lines-header button.write,
-section#three-lines-header .fr > span.active > .radio{ background-color: #f37046 }
-
-
-section#three-lines-full .board-tile .three-line-summary{ padding: 12px 13px }
-section#three-lines-full .board-tile i.index-bubble{
-	background-color: #b1bec6;
-	color: white;
-	font-weight: 200;
-}
-
 
 
 /* 이슈 랭크 */
@@ -277,6 +265,24 @@ section#keywords img{ max-width: 100% }
 
 
 
+/* 사진 (탭) */
+section#images{
+}
+
+section#images ul{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+section#images ul li{
+	width: 174px;
+}
+
+section#images ul li img{ width: 100% }
+
+
+
 
 /* 관련 기사 (탭) */
 section#related-news{
@@ -313,21 +319,19 @@ section#related-news ul li.no-img .content h4{ font-weight: 400 }
 section#related-news ul li.no-img .content .source{ color: #666 }
 
 
-/* 사진 (탭) */
-section#images{
-}
 
-section#images ul{
-	margin: 0 auto;
-	padding: 0;
-	list-style: none;
-}
 
-section#images ul li{
-	width: 174px;
-}
+/* 3줄요약 탭 */
+section#three-lines-header button.write,
+section#three-lines-header .fr > span.active > .radio{ background-color: #f37046 }
 
-section#images ul li img{ width: 100% }
+
+section#three-lines-full .board-tile .three-line-summary{ padding: 12px 13px }
+section#three-lines-full .board-tile i.index-bubble{
+	background-color: #b1bec6;
+	color: white;
+	font-weight: 200;
+}
 
 
 

@@ -262,30 +262,38 @@ event80001 = {
 			'weight': 100,
 		}
 	],
-	'summaries3line': [
+	'event_summaries3_lines': [
 		{
-			'id': 1,
-			'content': [
+			'id': 900001,
+			'summaries': [
 				'배우 김태희와 가수 비가 연애 5년만에 결혼했다.',
 				'비는 자신의 인스타그램에 손편지로 이를 알렸다.',
 				'결혼식은 소박하게 성당에서 진행되었다.'
 			],
-			'author': '요약GO',
-			'like': 130,
-			'hate': 3,
-			'date': '2017-01-03 13:03:42'
+			'user': {
+				'nickname': '요약GO',
+				'image_url': 'https://telegram.org/file/811140058/2/7GzMJk4Ij54/a1649c56fa9f805828',
+			},
+			'like_count': 130,
+			'dislike_count': 3,
+			'rank': 1,
+			'created_time': '2017-01-03 13:03:42',
 		},
 		{
-			'id': 2,
-			'content': [
+			'id': 900002,
+			'summaries': [
 				'김태희 진짜 예쁘다',
 				'김태희는 왜 아직도 이렇게 이쁘냐;',
 				'하.. 비 도둑놈...'
 			],
-			'author': 'Prev',
-			'like': 91,
-			'hate': 46,
-			'date': '2017-01-10 10:45:13'
+			'user': {
+				'nickname': 'Prev',
+				'image_url': 'https://lh6.googleusercontent.com/-08xDnxhh1ok/AAAAAAAAAAI/AAAAAAAAAM8/ul7cFdCa9sw/photo.jpg?sz=50',
+			},
+			'like_count': 91,
+			'dislike_count': 46,
+			'rank': 2,
+			'created_time': '2017-01-10 10:45:13'
 		}
 	],
 

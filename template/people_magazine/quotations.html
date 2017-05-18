@@ -7,7 +7,7 @@
 			alert('준비중입니다.')
 		}
 
-		function hate_3line(id) {
+		function dislike_3line(id) {
 			alert('준비중입니다.')
 		}
 	</script>
@@ -51,9 +51,9 @@
 						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 						<span>{{ quotation.like }}</span>
 					</button>
-					<button class="hate-btn" onclick="hate_3line({{ quotation.id }})">
+					<button class="dislike-btn" onclick="dislike_3line({{ quotation.id }})">
 						<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
-						<span>{{ quotation.hate }}</span>
+						<span>{{ quotation.dislike }}</span>
 					</button>
 				</div>
 			</div>

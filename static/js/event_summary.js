@@ -5,7 +5,7 @@ var swiper = new Swiper('.swiper-container', {
 
 
 // Emotions
-(function(svgId) {
+(function() {
 	var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 	function render(svgId, data) {

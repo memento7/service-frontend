@@ -67,7 +67,7 @@ function cancelFavorite(ajaxCall) {
 
 $(window).ready(function() {
 	$('#people-header .favorite').on('click', function (e) {
-		if ($(e.target).hasClass('enabled'))
+		if ($(e.currentTarget).hasClass('enabled'))
 			cancelFavorite(true);
 		else
 			setFavorite(true);

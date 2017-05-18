@@ -367,10 +367,11 @@ i.index-bubble{
 }
 .board-tile .meta span{ vertical-align: middle; }
 .board-tile .meta .date{ font-size: 11px; color: #888; }
+.board-tile .meta .avatar{ vertical-align: middle; border-radius: 50%; }
 
 .board-tile .meta .btn-container{ text-align: right }
 .board-tile .meta .like-btn,
-.board-tile .meta .hate-btn{
+.board-tile .meta .dislike-btn{
 	padding: 4px 7px 2px;
 	border: 1px solid #bbb;
 	border-radius: 15px;
@@ -380,7 +381,9 @@ i.index-bubble{
 	font-size: 12px;
 }
 .board-tile .meta .like-btn{ color: #29abe5 }
-.board-tile .meta .hate-btn{ color: #e84f41 }
+.board-tile .meta .dislike-btn{ color: #e84f41 }
+
+
 
 
 

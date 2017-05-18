@@ -13,12 +13,13 @@ var memento = (function () {
 	};
 	var loginCallbacks = [];
 
-	function callAPI(method, api, sucessCallback) {
+	function callAPI(method, api, sucessCallback, errorCallback) {
 		$.ajax(API_BASE + api, {
 			method: method,
 			crossDomain: true,
 			crossOrigin: false,
 			success: sucessCallback,
+			error: errorCallback,
 			xhrFields: {
 				withCredentials: true
 			}
