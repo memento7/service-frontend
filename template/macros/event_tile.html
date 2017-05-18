@@ -18,8 +18,8 @@
 
 
 {% macro category_label(event, class_append='') -%}
-	<span class="category-label category-{{ event.category_id() }} {{ class_append }}">
-		<span class="hidden2">{{ event.category }}</span>
+	<span class="category-label category-{{ event.get_category() }} {{ class_append }}">
+		<span class="hidden2">{{ l10n(event.category) }}</span>
 	</span>
 {% endmacro %}
 

@@ -52,4 +52,25 @@
 		<value>앨범</value>
 	</data>
 
+
+	<!-- 카테고리 -->
+	<data name="entertain">
+		<value>연예</value>
+	</data>
+	<data name="politic">
+		<value>정치</value>
+	</data>
+	<data name="sports">
+		<value>스포츠</value>
+	</data>
+	<data name="media">
+		<value>미디어</value>
+	</data>
+	<data name="world">
+		<value>세계</value>
+	</data>
+	<data name="others">
+		<value>기타</value>
+	</data>
+
 </locales>

@@ -8,7 +8,7 @@ class Event :
 
 	tag_remover = re.compile(r'<[^>]+>')
 	_instances = {}
-	CATEGORIES = ['연예', '정치', '스포츠', '미디어', '세계', '기타']
+	CATEGORIES = ['entertain', 'politic', 'sports', 'media', 'world', 'news']
 
 	@staticmethod
 	def register(data) :
@@ -67,8 +67,13 @@ class Event :
 		return functions.first_image(self.images, css_mode, thumbnail)
 
 
-	def category_id(self) :
-		return chr( Event.CATEGORIES.index(self.category) + 97 )
+	def get_category(self) :
+		if self.category in Event.CATEGORIES :
+			return self.category
+		else :
+			return 'others'
+
+		#return chr( Event.CATEGORIES.index(self.category) + 97 )
 
 
 	def magazine_url(self) :
@@ -79,7 +84,7 @@ class Event :
 class EventIssueData :
 	""" event.issue_data DTO
 	"""
-	def __init__(self, issue_score, top_percentile, issue_rank=None,
+	def __init__(self, issue_score, top_percentile=50, issue_rank=None,
 				article_count=None, sns_count=None, comment_count=None, **kwarg) :
 
 		self.issue_score = issue_score

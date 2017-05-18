@@ -58,20 +58,21 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .issue-label.b-rank{ background-position: 0 -34px }
 .issue-label.c-rank{ background-position: 0 -51px }
 
-.category-label.category-a{ background-position: -46px 0; width: 32px }
-.category-label.category-b{ background-position: -46px -17px; width: 32px }
-.category-label.category-c{ background-position: -46px -34px }
-.category-label.category-d{ background-position: -46px -51px }
-.category-label.category-e{ background-position: -87px 0; width: 32px }
-.category-label.category-f{ background-position: -87px -17px; width: 32px }
+.category-label.category-entertain{ background-position: -46px 0; width: 32px }
+.category-label.category-politic{ background-position: -46px -17px; width: 32px }
+.category-label.category-sports{ background-position: -46px -34px }
+.category-label.category-media{ background-position: -46px -51px }
+.category-label.category-world{ background-position: -87px 0; width: 32px }
+.category-label.category-others{ background-position: -87px -17px; width: 32px }
+.category-label.category-news{ background-position: -87px -34px; width: 32px }
 
-.category-label.white.category-a{ background-position: -128px 0 }
-.category-label.white.category-b{ background-position: -128px -17px }
-.category-label.white.category-c{ background-position: -128px -34px }
-.category-label.white.category-d{ background-position: -128px -51px }
-.category-label.white.category-e{ background-position: -169px 0 }
-.category-label.white.category-f{ background-position: -169px -17px }
-
+.category-label.white.category-entertain{ background-position: -128px 0 }
+.category-label.white.category-politic{ background-position: -128px -17px }
+.category-label.white.category-sports{ background-position: -128px -34px }
+.category-label.white.category-media{ background-position: -128px -51px }
+.category-label.white.category-world{ background-position: -169px 0 }
+.category-label.white.category-others{ background-position: -169px -17px }
+.category-label.white.category-news{ background-position: -169px -34px }
 
 
 

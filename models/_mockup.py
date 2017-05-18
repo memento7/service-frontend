@@ -235,7 +235,7 @@ event80001 = {
 	'id': 80001,
 	'date': "2017-01-01 00:00:00",
 	'title': "김태희·비 열애끝에 결혼",
-	'type': '연예',
+	'type': 'entertain',
 	'issue_data': {
 		'issue_score': 300000,
 		'issue_rank': 8,
