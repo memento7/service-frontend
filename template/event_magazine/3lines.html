@@ -1,7 +1,16 @@
 {% extends "/event_magazine/_layout.html" %}
+
+{% block head %}
+	{{ super() }}
+	<script type="text/javascript" src="{{ geturl('assets', '/js/event_3lines.js') }}"></script>
+{% endblock %}
+
 {% block foot %}
 	{{ super() }}
-	<script type="text/javascript" src="/js/event_3lines.js"></script>
+	<script type="text/javascript">
+		summeries3lines.render();
+	</script>
+
 {% endblock %}
 
 
@@ -13,11 +22,11 @@
 			<button class="write" onclick="alert('준비중입니다')">3줄 요약 작성하기</button>
 		</div>
 		<div class="fr">
-			<span class="filter-btn type0 active" onclick="reload3lines(0)">
+			<span class="filter-btn type0 active" onclick="summeries3lines.reload(0)">
 				<span class="radio"><i></i></span>
 				<span>호감순</span>
 			</span>
-			<span class="filter-btn type1" onclick="reload3lines(1)">
+			<span class="filter-btn type1" onclick="summeries3lines.reload(1)">
 				<span class="radio"><i></i></span>
 				<span>최신순</span>
 			</span>

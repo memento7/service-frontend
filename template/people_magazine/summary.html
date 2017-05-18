@@ -4,14 +4,30 @@
 	{{ super() }}
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
+{% endblock %}
+
+
+{% block foot %}
+	{{ super() }}
+	
+	<script type="text/javascript">
+		quotations.resize(65, 20);
+
+		$(window).on('load', function() {
+			// after webfont-loading
+			quotations.resize(65, 20);
+		})
+	</script>
 {% endblock %}
 
 		
 {% block content %}
 	{{ super() }}
 
-	{% for w in person.in_one_word %}
-	<section id="in-one-word" class="common-tile">
+	{% if person.quotations | length %}
+	{% set quotation = person.quotations[0] %}
+	<section id="quotation" class="common-tile quotation-tile">
 		<div class="background"></div>
 		<div class="content">
 			<div class="more fr">
@@ -20,15 +36,17 @@
 				</a>
 			</div>
 
-			<h2 style="font-size: {{ quotation_size(w.keyword) }}">{{ w.keyword }}</h2>
-			{% if w.reference %}
-			<div class="reference">
-				- {{ w.reference }}
+			<div class="text">
+				<h2>{{ quotation.quotation }}</h2>
+				{% if quotation.reference %}
+				<div class="reference">
+					- {{ quotation.reference }}
+				</div>
+				{% endif %}
 			</div>
-			{% endif %}
 		</div>
 	</section>
-	{% endfor %}
+	{% endif %}
 
 
 	{% if person.group %}

@@ -90,16 +90,6 @@ def range_svg_pos(ratio, radius, cx, cy) :
 	)
 
 
-def quotation_size(word) :
-	""" Get Quation size
-	"""
-	s = 200 / len(word)
-	if s > 33 : s = 33
-	if s < 17 : s = 17
-
-	return "%dpx" % int(s)
-
-
 
 def circular_number(number) :
 	""" Get circular number

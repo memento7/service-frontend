@@ -49,7 +49,7 @@ class People :
 
 	
 	def __init__(self, id, nickname, realname, role_json={},
-				images=[], profile_image=None, events=[], in_one_word=[], status=0,
+				images=[], profile_image=None, events=[], quotations=[], status=0,
 				created_time=None, updated_time=None, published_time=None, **kwarg):
 
 		from models.event import Event
@@ -59,7 +59,7 @@ class People :
 		self.realname = realname
 		self.role_json = role_json
 
-		self.in_one_word = in_one_word
+		self.quotations = quotations
 		self.status = status
 
 		self.images = images

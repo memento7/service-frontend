@@ -11,11 +11,18 @@ person70001 = {
 			'weight': 100
 		}
 	],
-	'in_one_word': [
+	'quotations': [
 		{
-			'keyword': "국민 첫사랑",
+			'quotation': "국민 첫사랑",
 			'reference': "",
-			'order': 0
+			"user": {
+				"nickname": "이영수",
+				"image_url": "https://lh6.googleusercontent.com/-08xDnxhh1ok/AAAAAAAAAAI/AAAAAAAAAM8/ul7cFdCa9sw/photo.jpg?sz=50",
+				"social_type": "GOOGLE",
+			},
+			'rank': 1,
+			'like_count': 313,
+			"created_time": "2017-05-17 12:22:39",
 		}
 	],
 	'role_json': {
@@ -82,11 +89,18 @@ person70002 = {
 			'weight': 100
 		}
 	],
-	'in_one_word': [
+	'quotations': [
 		{
-			'keyword': "김태희가 듣는 수업은\n언제나 학생들로 꽉 차있었다",
+			'quotation': "김태희가 듣는 수업은 언제나 학생들로 꽉 차있었다",
 			'reference': "당시 서울대 재학생",
-			'order': 0
+			"user": {
+				"nickname": "이영수",
+				"image_url": "https://lh6.googleusercontent.com/-08xDnxhh1ok/AAAAAAAAAAI/AAAAAAAAAM8/ul7cFdCa9sw/photo.jpg?sz=50",
+				"social_type": "GOOGLE",
+			},
+			'rank': 1,
+			'like_count': 132,
+			"created_time": "2017-05-17 12:22:39",
 		}
 	],
 	'role_json': {

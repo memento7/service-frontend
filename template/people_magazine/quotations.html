@@ -1,16 +1,15 @@
 {% extends "/people_magazine/_layout.html" %}
 {% block head %}
 	{{ super() }}
+	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
+{% endblock %}
 
+{% block foot %}
+	{{ super() }}
 	<script type="text/javascript">
-		function like_3line(id) {
-			alert('준비중입니다.')
-		}
-
-		function dislike_3line(id) {
-			alert('준비중입니다.')
-		}
+		quotations.render();
 	</script>
+
 {% endblock %}
 
 {% block content %}
@@ -21,11 +20,11 @@
 			<button class="write" onclick="alert('준비중입니다')">한마디로 작성하기</button>
 		</div>
 		<div class="fr">
-			<span class="filter-btn type0 active">
+			<span class="filter-btn type0 active" onclick="quotations.reload(0)">
 				<span class="radio"><i></i></span>
 				<span>호감순</span>
 			</span>
-			<span class="filter-btn type1">
+			<span class="filter-btn type1" onclick="quotations.reload(1)">
 				<span class="radio"><i></i></span>
 				<span>최신순</span>
 			</span>
@@ -33,27 +32,31 @@
 	</section>
 
 	<section id="quotations-full">
-	{% if person.quotations and person.quotations | length %}
+	{# {% if person.quotations and person.quotations | length %}
 		{% for quotation in person.quotations %}
-		<div class="board-tile">
-			<div>
-				
+		<div class="board-tile quotation-tile">
+			<div class="background"></div>
+			<div class="content">
+				<div class="text">
+					<h2>{{ quotation.quotation }}</h2>
+					{% if quotation.reference %}
+					<div class="reference">
+						- {{ quotation.reference }}
+					</div>
+					{% endif %}
+				</div>
 			</div>
 
 			<div class="meta clearfix">
 				<div class="fl">
-					<h4>@{{ quotation.author }}</h4>
-					<span class="date">{{ quotation.date }}</span>
+					<h4>@{{ quotation.user.nickname }}</h4>
+					<span class="date">{{ quotation.created_date }}</span>
 				</div>
 
 				<div class="btn-container fr">
 					<button class="like-btn" onclick="like_3line({{ quotation.id }})">
 						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-						<span>{{ quotation.like }}</span>
-					</button>
-					<button class="dislike-btn" onclick="dislike_3line({{ quotation.id }})">
-						<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
-						<span>{{ quotation.dislike }}</span>
+						<span>{{ quotation.like_count }}</span>
 					</button>
 				</div>
 			</div>
@@ -61,9 +64,47 @@
 		{% endfor %}
 	{% else %}
 	<div class="no-content">아직 '한마디로'가 없습니다</div>
-	{% endif %}
+	{% endif %} #}
 
 	</section>
 
+	{% raw %}
+	<script type="x-tmpl-mustache" id="template-quotations">
+		{{# if quotations.length }}
+			{{#each quotations }}
+			<div class="board-tile quotation-tile" id="quotation-{{ this.id }}">
+				<div class="background"></div>
+				<div class="content">
+					<div class="text">
+						<h2>{{ this.quotation }}</h2>
+						
+						{{# if this.reference }}
+						<div class="reference">
+							- {{ this.reference }}
+						</div>
+						{{/ if }}
+					</div>
+				</div>
+
+				<div class="meta clearfix">
+					<div class="fl">
+						<h4>@{{ this.user.nickname }}</h4>
+						<span class="date">{{ this.created_time }}</span>
+					</div>
+
+					<div class="btn-container fr">
+						<button class="like-btn" onclick="quotations.like({{ this.id }})">
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							<span>{{ this.like_count }}</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			{{/ each }}
+		{{else}}
+		<div class="no-content">아직 3줄 요약이 없습니다</div>
+		{{/ if }}
+	</script>
+	{% endraw %}
 
 {% endblock %}

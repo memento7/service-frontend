@@ -102,14 +102,13 @@ section#people-header .user-react .favorite.enabled{ color: #ffcc00; border-colo
 
 
 /* 한 마디로 */
-section#in-one-word{
+section#quotation{
 	padding: 0;
 	height: 100px;
-	text-align: center;
 	vertical-align: middle;
 }
 
-section#in-one-word .background{
+section#quotation .background{
 	height: inherit;
 	background-color: #8da5cb;
 	background-image: url('/images/quotation_bg.png');
@@ -117,26 +116,29 @@ section#in-one-word .background{
 }
 
 
-section#in-one-word .more{ position: relative; margin: 3px -10px 0 0; font-size: 25px }
-section#in-one-word .more a{ color: white; text-decoration: none; }
+section#quotation .more{ position: relative; margin: 3px -10px 0 0; font-size: 25px }
+section#quotation .more a{ color: white; text-decoration: none; }
 
+.quotation-tile .text{
+	padding: 0 10px;
+	text-align: center;
+}
+section#quotation .text{ color: white; }
 
-section#in-one-word h2{
+.quotation-tile .text h2{
 	position: relative;
 	margin: 0;
-	padding: 30px 10px 0;
-	font-size: 30px;
+	padding: 0;
+	font-size: 31px;
 	font-weight: 400;
 	vertical-align: middle;
-	color: white;
 }
 
-section#in-one-word .reference{
+.quotation-tile .text .reference{
 	position: relative;
 	margin: 9px 0 0 0;
 	font-size: 13px;
 	font-weight: 100;
-	color: white;
 }
 
 
@@ -453,9 +455,25 @@ section.role-entities .no-content{
 
 
 /* 한마디로 탭 */
-/*section#quotations-header{ padding: 0 0 10px 0 }*/
 section#quotations-header button.write,
 section#quotations-header .fr > span.active > .radio{ background-color: #ec407a }
+
+
+section#quotations-full{
+
+}
+
+section#quotations-full .content{
+	height: 100px;
+}
+
+section#quotations-full .background{
+	height: 100px;
+
+	background: white url('/images/quotation_bg_white.png');
+	background-size: 100% 100px;
+}
+
 
 
 @media(min-width: 1000px) {

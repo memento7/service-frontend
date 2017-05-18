@@ -6,22 +6,24 @@ var summeries3lines = (function(eventId) {
 			alert('오류가 발생했습니다');
 	};
 
-	return {
-		'render': function (sort) {
-			memento.callAPI('GET', '/events/' + eventId +'/summaries_3line' + (sort ? '?sort='+sort : ''), function (result) {
-				Handlebars.registerHelper("inc", function(value, options) {
-					return parseInt(value) + 1;
-				});
-
-				var template = Handlebars.compile( $('#template-3lines').html() );
-
-				$('#three-lines-full').html(
-					template({
-						'summaries3lines': result
-					})
-				);
+	function render(sort) {
+		memento.callAPI('GET', '/events/' + eventId +'/summaries_3line' + (sort ? '?sort='+sort : ''), function (result) {
+			Handlebars.registerHelper("inc", function(value, options) {
+				return parseInt(value) + 1;
 			});
-		},
+
+			var template = Handlebars.compile( $('#template-3lines').html() );
+
+			$('#three-lines-full').html(
+				template({
+					'summaries3lines': result
+				})
+			);
+		});
+	}
+
+	return {
+		'render': render,
 		'like': function(summaries3LineId) {
 			memento.callAPI(
 				'POST', '/events/' + eventId +'/summaries_3line/' + summaries3LineId + '/like',
@@ -41,25 +43,21 @@ var summeries3lines = (function(eventId) {
 				},
 				likeDislikeErrorCallback
 			);
+		},
+		'reload': function(type) {
+			$('.filter-btn').removeClass('active');
+
+			if (type == 0) {
+				// 호감순
+				$('.filter-btn.type0').addClass('active');
+				render();
+
+			}else {
+				// 최신순
+				$('.filter-btn.type1').addClass('active');
+				render('createdTime,desc')
+			}
 		}
 	}
 
 })(eventId);
-
-
-function reload3lines(type) {
-	$('.filter-btn').removeClass('active');
-
-	if (type == 0) {
-		// 호감순
-		$('.filter-btn.type0').addClass('active');
-		summeries3lines.render();
-
-	}else {
-		$('.filter-btn.type1').addClass('active');
-		// 최신순
-		summeries3lines.render('createdTime,desc')
-	}
-}
-
-summeries3lines.render();
