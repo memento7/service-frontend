@@ -12,14 +12,38 @@ var memento = (function () {
 		'favorites': [],
 	};
 	var loginCallbacks = [];
+	var progressCount = 0;
 
-	function callAPI(method, api, sucessCallback, errorCallback) {
+	function decreaseAjaxProgress() {
+		progressCount--;
+		if (progressCount <= 0)
+			$('#global-progress').hide();
+	}
+
+	function callAPI(method, api, sucessCallback, errorCallback, noProgressShow) {
+		if (!noProgressShow) {
+			progressCount++;
+			$('#global-progress').show();
+		}
+
 		$.ajax(API_BASE + api, {
 			method: method,
 			crossDomain: true,
 			crossOrigin: false,
-			success: sucessCallback,
-			error: errorCallback,
+			success: function (result) {
+				if (sucessCallback)
+					sucessCallback(result);
+
+				if (!noProgressShow)
+					decreaseAjaxProgress();
+			},
+			error: function(result) {
+				if (errorCallback)
+					errorCallback(result);
+
+				if (!noProgressShow)
+					decreaseAjaxProgress();
+			},
 			xhrFields: {
 				withCredentials: true
 			}
@@ -36,8 +60,8 @@ var memento = (function () {
 
 				for (var i = 0; i < loginCallbacks.length; i++)
 					loginCallbacks[i](loginedUser);
-			});
-		});
+			}, null, true);
+		}, null, true);
 	}
 
 	return {

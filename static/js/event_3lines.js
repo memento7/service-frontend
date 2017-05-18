@@ -48,15 +48,15 @@ var summeries3lines = (function(eventId) {
 
 
 function reload3lines(type) {
-	$('.reload-btn').removeClass('active');
+	$('.filter-btn').removeClass('active');
 
 	if (type == 0) {
 		// 호감순
-		$('.reload-btn.type0').addClass('active');
+		$('.filter-btn.type0').addClass('active');
 		summeries3lines.render();
 
 	}else {
-		$('.reload-btn.type1').addClass('active');
+		$('.filter-btn.type1').addClass('active');
 		// 최신순
 		summeries3lines.render('createdTime,desc')
 	}

@@ -319,30 +319,31 @@ i.index-bubble{
 	margin: 19px 15px 0 0;
 }
 
-.board-tile-header .fr > span{
+.board-tile-header .fr .filter-btn{
 	display: inline-block;
 	margin-left: 8px;
 	font-size: 14px;
 	font-weight: 300;
+	cursor: pointer;
 }
-.board-tile-header .fr > span.active{ font-weight: 400 }
+.board-tile-header .fr .filter-btn.active{ font-weight: 400 }
 
-.board-tile-header .fr > span > .radio{
+.board-tile-header .fr .filter-btn > .radio{
 	display: inline-block;
 	padding: 5px;
 	background-color: #b1bec6;
 	border-radius: 50%;
 }
-.board-tile-header .fr > span.active > .radio{ background-color: #333 }
+.board-tile-header .fr .filter-btn.active > .radio{ background-color: #333 }
 
-.board-tile-header .fr > span > .radio i{
+.board-tile-header .fr .filter-btn > .radio i{
 	display: inline-block;
 	width: 11px;
 	height: 11px;
 	background-color: #cfd9db;
 	border-radius: 50%;
 }
-.board-tile-header .fr > span.active > .radio i{ background-color: white }
+.board-tile-header .fr .filter-btn.active > .radio i{ background-color: white }
 
 
 
@@ -385,6 +386,64 @@ i.index-bubble{
 
 
 
+/* Progress */
+.progress-loader,
+.progress-loader:before,
+.progress-loader:after {
+	border-radius: 50%;
+	width: 2.5em;
+	height: 2.5em;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: load7 1.8s infinite ease-in-out;
+	animation: load7 1.8s infinite ease-in-out;
+}
+.progress-loader {
+	color: #ffffff;
+	font-size: 10px;
+	margin: 0 auto;
+	position: relative;
+	text-indent: -9999em;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+.progress-loader:before,
+.progress-loader:after {
+	content: '';
+	position: absolute;
+	top: 0;
+}
+.progress-loader:before {
+	left: -3.5em;
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+.progress-loader:after {
+	left: 3.5em;
+}
+@-webkit-keyframes load7 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 2.5em 0 -1.3em;
+	}
+	40% {
+		box-shadow: 0 2.5em 0 0;
+	}
+}
+@keyframes load7 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 2.5em 0 -1.3em;
+	}
+	40% {
+		box-shadow: 0 2.5em 0 0;
+	}
+}
 
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
