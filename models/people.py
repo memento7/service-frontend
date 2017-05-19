@@ -60,6 +60,7 @@ class People :
 		self.role_json = role_json
 
 		self.quotations = quotations
+		self.quotations.sort(key=lambda a: a['rank'])
 		self.status = status
 
 		self.images = images
@@ -106,6 +107,7 @@ class People :
 				role['stats2'] = {
 					'labels': [functions.l10n(i) for i in stats.keys()],
 					'datas': [functions.l10n(i) for i in stats.values()],
+					'mixed': [{'label':functions.l10n(k), 'data':functions.l10n(v)} for k, v in stats.items()],
 				}
 				stat_counts += 1
 

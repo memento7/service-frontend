@@ -33,16 +33,23 @@ i.icon.icon-sad{ background-position: -20px -44px }
 
 
 .label{
-	font-size: 13px;
-	margin: 1px 7px 1px 0;
-	padding: 2px 5px 1px;
-	background-color: #ddd;
-	border-radius: 1px;
+	margin: 1px 5px 1px 0;
+	padding: 3px 7px 0px 8px;
+	font-size: 12px;
 	font-weight: 300;
+
+	color: #666;
+	border: 1px solid #bbb;
+	border-radius: 15px;
+	line-height: 13px;
+}
+.label.white{
+	color: white;
+	border-color: white;
 }
 
 
-/* Isse & Category label sprites */
+/* Issue & Category label sprites */
 .issue-label,
 .category-label{
 	display: inline-block;
@@ -73,6 +80,26 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .category-label.white.category-world{ background-position: -169px 0 }
 .category-label.white.category-others{ background-position: -169px -17px }
 .category-label.white.category-news{ background-position: -169px -34px }
+
+
+/* Star sprite */
+.star-grade{
+	display: inline-block;
+	width: 70px;
+	height: 12px;
+	background-image: url('/images/star_grade_sprite.png');
+	background-size: 70px auto;
+}
+.star-grade.grade10{ background-position: 0 0 }
+.star-grade.grade9{ background-position: 0 -12px }
+.star-grade.grade8{ background-position: 0 -24px }
+.star-grade.grade7{ background-position: 0 -36px }
+.star-grade.grade6{ background-position: 0 -48px }
+.star-grade.grade5{ background-position: 0 -60px }
+.star-grade.grade4{ background-position: 0 -72px }
+.star-grade.grade3{ background-position: 0 -84px }
+.star-grade.grade2{ background-position: 0 -96px }
+.star-grade.grade1{ background-position: 0 -108px }
 
 
 

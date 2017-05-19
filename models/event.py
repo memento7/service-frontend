@@ -84,7 +84,7 @@ class Event :
 class EventIssueData :
 	""" event.issue_data DTO
 	"""
-	def __init__(self, issue_score, top_percentile=50, issue_rank=None,
+	def __init__(self, issue_score, top_percentile=None, issue_rank=None,
 				article_count=None, sns_count=None, comment_count=None, **kwarg) :
 
 		self.issue_score = issue_score
