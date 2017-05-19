@@ -446,6 +446,33 @@ i.index-bubble{
 	}
 }
 
+/* Popup */
+.popup{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 700;
+}
+
+.popup .background{
+	height: 100%;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	background-color: black;
+}
+
+.popup .content{
+	position: relative;
+	top: 40%;
+	width: 90%;
+	margin: 0 auto;
+	padding: 18px;
+	box-sizing: border-box;
+	background-color: white;
+}
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 	.issue-label,

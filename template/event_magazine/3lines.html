@@ -3,6 +3,24 @@
 {% block head %}
 	{{ super() }}
 	<script type="text/javascript" src="{{ geturl('assets', '/js/event_3lines.js') }}"></script>
+	<script type="text/javascript">
+		function openWritePopup() {
+			$("#three-lines-writing-popup").fadeIn();
+
+		}
+		function uploadSummaries3Lines(form) {
+			if (!form.line1.value || !form.line2.value || !form.line3.value) {
+				alert("내용을 입력 해 주세요");
+				return false;
+			}
+			summeries3lines.write([
+				form.line1.value,
+				form.line2.value,
+				form.line3.value
+			]);
+			$("#three-lines-writing-popup").fadeOut();
+		}
+	</script>
 {% endblock %}
 
 {% block foot %}
@@ -17,9 +35,27 @@
 {% block content %}
 	{{ super() }}
 
+	<div id="three-lines-writing-popup" class="popup">
+		<div class="background"></div>
+		<div class="content">
+			<form onsubmit="uploadSummaries3Lines(this); return false">
+				<h4>이 인물을 한마디로 표현한다면<br>어떻게 할 수 있을까요?</h4>
+				<div>
+					<input type="text" name="line1" placeholder="줄 1"><br>
+					<input type="text" name="line2" placeholder="줄 2"><br>
+					<input type="text" name="line3" placeholder="줄 3">
+				</div>
+				<div class="btn-container">
+					<button>등록</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
 	<section id="three-lines-header" class="board-tile-header clearfix">
 		<div class="fl">
-			<button class="write" onclick="alert('준비중입니다')">3줄 요약 작성하기</button>
+			<button class="write" onclick="openWritePopup()">3줄 요약 작성하기</button>
 		</div>
 		<div class="fr">
 			<span class="filter-btn type0 active" onclick="summeries3lines.reload(0)">
@@ -33,8 +69,7 @@
 		</div>
 	</section>
 
-	<section id="three-lines-full">
-	</section>
+	<section id="three-lines-full"></section>
 
 	{% raw %}
 	<script type="x-tmpl-mustache" id="template-3lines">

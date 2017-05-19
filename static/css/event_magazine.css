@@ -322,6 +322,30 @@ section#related-news ul li.no-img .content .source{ color: #666 }
 
 
 /* 3줄요약 탭 */
+#three-lines-writing-popup{
+}
+#three-lines-writing-popup h4{
+	margin: 0 0 10px;
+	padding: 0;
+	font-weight: 300;
+	font-size: 16px;
+}
+#three-lines-writing-popup input{
+	width: 100%;
+	border: 1px solid #ccc;
+}
+#three-lines-writing-popup .btn-container{
+	margin: 10px 0 0 0;
+	text-align: center;
+}
+#three-lines-writing-popup .btn-container button{
+	background-color: #eee;
+	padding: 4px 13px;
+	font-size: 13px;
+	border: none;
+	border-radius: 5px;
+}
+
 section#three-lines-header button.write,
 section#three-lines-header .fr > span.active > .radio{ background-color: #f37046 }
 

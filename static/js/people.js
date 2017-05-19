@@ -38,7 +38,7 @@ function setFavorite(ajaxCall) {
 	}
 
 	if (ajaxCall) {
-		memento.callAPI('POST', '/me/favorites/' + entityId, function (result) {
+		memento.uapi.post('/me/favorites/' + entityId, null, function (result) {
 			applyView();
 		});
 
@@ -56,7 +56,7 @@ function cancelFavorite(ajaxCall) {
 	}
 
 	if (ajaxCall) {
-		memento.callAPI('DELETE', '/me/favorites/' + entityId, function (result) {
+		memento.uapi.delete('/me/favorites/' + entityId, function (result) {
 			applyView();
 		});
 

@@ -191,6 +191,8 @@ class ImageAPI :
 	def get_hash_url(url, content_type) :
 		u = urllib.parse.urlparse(url)
 		extension = mimetypes.guess_extension(content_type)
+		if extension == '.jpe'
+			extension = '.jpg'
 
 		if not extension :
 			extension = '.' + u.path.split('.')[-1]

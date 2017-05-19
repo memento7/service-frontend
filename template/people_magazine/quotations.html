@@ -2,6 +2,20 @@
 {% block head %}
 	{{ super() }}
 	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
+	<script type="text/javascript">
+		function openWritePopup() {
+			$("#quotation-writing-popup").fadeIn();
+
+		}
+		function uploadQuotation(form) {
+			if (!form.quotation.value) {
+				alert("내용을 입력 해 주세요");
+				return false;
+			}
+			quotations.write(form.quotation.value);
+			$("#quotation-writing-popup").fadeOut();
+		}
+	</script>
 {% endblock %}
 
 {% block foot %}
@@ -15,9 +29,24 @@
 {% block content %}
 	{{ super() }}
 
+	<div id="quotation-writing-popup" class="popup">
+		<div class="background"></div>
+		<div class="content">
+			<form onsubmit="uploadQuotation(this); return false">
+				<h4>이 인물을 한마디로 표현한다면<br>어떻게 할 수 있을까요?</h4>
+				<div>
+					<textarea name="quotation"></textarea>
+				</div>
+				<div class="btn-container">
+					<button>등록</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<section id="quotations-header" class="board-tile-header clearfix">
 		<div class="fl">
-			<button class="write" onclick="alert('준비중입니다')">한마디로 작성하기</button>
+			<button class="write" onclick="openWritePopup()">한마디로 작성하기</button>
 		</div>
 		<div class="fr">
 			<span class="filter-btn type0 active" onclick="quotations.reload(0)">
@@ -31,42 +60,7 @@
 		</div>
 	</section>
 
-	<section id="quotations-full">
-	{# {% if person.quotations and person.quotations | length %}
-		{% for quotation in person.quotations %}
-		<div class="board-tile quotation-tile">
-			<div class="background"></div>
-			<div class="content">
-				<div class="text">
-					<h2>{{ quotation.quotation }}</h2>
-					{% if quotation.reference %}
-					<div class="reference">
-						- {{ quotation.reference }}
-					</div>
-					{% endif %}
-				</div>
-			</div>
-
-			<div class="meta clearfix">
-				<div class="fl">
-					<h4>@{{ quotation.user.nickname }}</h4>
-					<span class="date">{{ quotation.created_date }}</span>
-				</div>
-
-				<div class="btn-container fr">
-					<button class="like-btn" onclick="like_3line({{ quotation.id }})">
-						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-						<span>{{ quotation.like_count }}</span>
-					</button>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
-	{% else %}
-	<div class="no-content">아직 '한마디로'가 없습니다</div>
-	{% endif %} #}
-
-	</section>
+	<section id="quotations-full"></section>
 
 	{% raw %}
 	<script type="x-tmpl-mustache" id="template-quotations">
@@ -88,6 +82,7 @@
 
 				<div class="meta clearfix">
 					<div class="fl">
+						<img class="avatar" src="{{ this.user.image_url }}" width="25" height="25">
 						<h4>@{{ this.user.nickname }}</h4>
 						<span class="date">{{ this.created_time }}</span>
 					</div>
@@ -102,7 +97,7 @@
 			</div>
 			{{/ each }}
 		{{else}}
-		<div class="no-content">아직 3줄 요약이 없습니다</div>
+		<div class="no-content">아직 '한마디로'가 없습니다</div>
 		{{/ if }}
 	</script>
 	{% endraw %}

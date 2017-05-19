@@ -455,21 +455,42 @@ section.role-entities .no-content{
 
 
 /* 한마디로 탭 */
+#quotation-writing-popup{
+}
+#quotation-writing-popup h4{
+	margin: 0 0 10px;
+	padding: 0;
+	font-weight: 300;
+	font-size: 16px;
+}
+#quotation-writing-popup textarea{
+	width: 100%;
+	border: 1px solid #ccc;
+}
+#quotation-writing-popup .btn-container{
+	margin: 10px 0 0 0;
+	text-align: center;
+}
+#quotation-writing-popup .btn-container button{
+	background-color: #eee;
+	padding: 4px 13px;
+	font-size: 13px;
+	border: none;
+	border-radius: 5px;
+}
+
+
 section#quotations-header button.write,
 section#quotations-header .fr > span.active > .radio{ background-color: #ec407a }
 
 
 section#quotations-full{
-
 }
 
-section#quotations-full .content{
-	height: 100px;
-}
+section#quotations-full .content{ height: 100px }
 
 section#quotations-full .background{
 	height: 100px;
-
 	background: white url('/images/quotation_bg_white.png');
 	background-size: 100% 100px;
 }

@@ -20,42 +20,53 @@ var memento = (function () {
 			$('#global-progress').hide();
 	}
 
-	function callAPI(method, api, sucessCallback, errorCallback, noProgressShow) {
-		if (!noProgressShow) {
+	function callAPI(method, api, data, sucessCallback, errorCallback, hideProgressMask) {
+		console.log(method, api);
+
+		if (!hideProgressMask) {
 			progressCount++;
 			$('#global-progress').show();
 		}
 
-		$.ajax(API_BASE + api, {
+		var payload = {
 			method: method,
 			crossDomain: true,
-			crossOrigin: false,
+			//crossOrigin: false,
 			success: function (result) {
 				if (sucessCallback)
 					sucessCallback(result);
 
-				if (!noProgressShow)
+				if (!hideProgressMask)
 					decreaseAjaxProgress();
 			},
 			error: function(result) {
 				if (errorCallback)
 					errorCallback(result);
 
-				if (!noProgressShow)
+				if (!hideProgressMask)
 					decreaseAjaxProgress();
 			},
 			xhrFields: {
 				withCredentials: true
 			}
-		});
+		};
+
+		if (data) {
+			payload.data = data;
+			payloadprocessData = false;
+			payload.contentType = 'application/json';
+			// payload.dataType = 'json';
+		}
+
+		$.ajax(API_BASE + api, payload);
 	}
 
 	function updateLoginSession() {
-		callAPI('GET', '/me', function (result) {
+		callAPI('GET', '/me', null, function (result) {
 			loginedUser = result;
 			loginedUser.loggined = true;
 	
-			callAPI('GET', '/me/favorites', function (result2) {
+			callAPI('GET', '/me/favorites', null, function (result2) {
 				loginedUser.favorites = result2;
 
 				for (var i = 0; i < loginCallbacks.length; i++)
@@ -66,6 +77,21 @@ var memento = (function () {
 
 	return {
 		'callAPI': callAPI,
+		'uapi': {
+			'get': function(api, sucessCallback, errorCallback, hideProgressMask) {
+				return callAPI('GET', api, null, sucessCallback, errorCallback, hideProgressMask);
+			},
+			'post': function(api, data, sucessCallback, errorCallback, hideProgressMask) {
+				return callAPI('POST', api, data, sucessCallback, errorCallback, hideProgressMask);
+			},
+			'put': function(api, data, sucessCallback, errorCallback, hideProgressMask) {
+				return callAPI('PUT', api, data, sucessCallback, errorCallback, hideProgressMask);
+			},
+			'delete': function(api, sucessCallback, errorCallback, hideProgressMask) {
+				return callAPI('DELETE', api, null, sucessCallback, errorCallback, hideProgressMask);
+			}
+		},
+
 		'updateLoginSession': updateLoginSession,
 
 		'getLoginedUser': function() {

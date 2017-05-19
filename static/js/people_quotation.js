@@ -22,9 +22,6 @@ var quotations = (function(entityId) {
 					h2.css("font-size", parseInt(h2.css("font-size")) -1 + 'px');
 
 				else {
-					console.log(quotationText.height())
-					console.log(quotationText.innerHeight())
-
 					var newTop = (100 - quotationText.height()) / 2;
 					newTop = Math.max(newTop, minimumTop);
 					quotationText.css("padding-top", newTop + 'px');
@@ -35,7 +32,7 @@ var quotations = (function(entityId) {
 	}
 
 	function render(sort) {
-		memento.callAPI('GET', '/entities/' + entityId +'/quotations' + (sort ? '?sort='+sort : ''), function (result) {
+		memento.uapi.get('/entities/' + entityId +'/quotations' + (sort ? '?sort='+sort : ''), function (result) {
 			var template = Handlebars.compile( $('#template-quotations').html() );
 
 			$('#quotations-full').html(
@@ -48,12 +45,28 @@ var quotations = (function(entityId) {
 		});
 	}
 
+	function reload(type) {
+		$('.filter-btn').removeClass('active');
+
+		if (type == 0) {
+			// 호감순
+			$('.filter-btn.type0').addClass('active');
+			render();
+
+		}else {
+			// 최신순
+			$('.filter-btn.type1').addClass('active');
+			render('createdTime,desc')
+		}
+	}
+
 	return {
 		'resize': resize,
 		'render': render,
+		'reload': reload,
 		'like': function(quotationId) {
-			memento.callAPI(
-				'POST', '/entities/' + entityId +'/quotations/' + quotationId + '/like',
+			memento.uapi.post('/entities/' + entityId +'/quotations/' + quotationId + '/like',
+				null,
 				function (result) {
 					var dom = $('#quotation-' + quotationId + ' .like-btn span');
 					dom.html( parseInt(dom.html()) + 1 );
@@ -66,19 +79,16 @@ var quotations = (function(entityId) {
 				}
 			);
 		},
-		'reload': function(type) {
-			$('.filter-btn').removeClass('active');
-
-			if (type == 0) {
-				// 호감순
-				$('.filter-btn.type0').addClass('active');
-				render();
-
-			}else {
-				// 최신순
-				$('.filter-btn.type1').addClass('active');
-				render('createdTime,desc')
-			}
+		'write': function (quotation) {
+			memento.uapi.post('/entities/' + entityId +'/quotations',
+				quotation,
+				function (result) {
+					reload(1);
+				},
+				function (result) {
+					alert('오류가 발생했습니다');
+				}
+			);
 		}
 	}
 

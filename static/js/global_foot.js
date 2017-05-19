@@ -24,12 +24,12 @@
 			location.href = baseUrls.weekly;
 		});
 		$('aside.sidebar li.random-person').on('click', function() {
-			memento.callAPI('GET', '/entities/random', function(result) {
+			memento.uapi.get('/entities/random', function(result) {
 				location.href = baseUrls.people + result;
 			});
 		});
 		$('aside.sidebar li.random-event').on('click', function() {
-			memento.callAPI('GET', '/events/random', function(result) {
+			memento.uapi.get('/events/random', function(result) {
 				location.href = baseUrls.event + result;
 			});
 		});
@@ -63,6 +63,13 @@
 
 	// Register callback after logined
 	memento.registerLoginCallback(renderSidemenu);
+
+
+
+	/* Popup Closing */
+	$('.popup .background').on('click', function (e) {
+		$(e.currentTarget).parent().fadeOut();
+	});
 
 })();
 
