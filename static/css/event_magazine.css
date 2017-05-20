@@ -12,8 +12,8 @@ nav.magazine-nav ul li.selected{
 	color: #ff7044;
 	border-bottom-color: #ff7044;
 }
-
-
+.popup h4{ background-color: #ff7044 }
+.popup .btn-container button.submit{ background-color: #ff7044 }
 
 
 /* Common Header */
@@ -323,12 +323,6 @@ section#related-news ul li.no-img .content .source{ color: #666 }
 
 /* 3줄요약 탭 */
 #three-lines-writing-popup{
-}
-#three-lines-writing-popup h4{
-	margin: 0 0 10px;
-	padding: 0;
-	font-weight: 300;
-	font-size: 16px;
 }
 #three-lines-writing-popup input{
 	width: 100%;

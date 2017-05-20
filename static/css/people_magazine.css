@@ -12,6 +12,8 @@ nav.magazine-nav ul li.selected{
 	color: #ee3f7a;
 	border-bottom-color: #ee3f7a;
 }
+.popup h4{ background-color: #ee3f7a }
+.popup .btn-container button.submit{ background-color: #ee3f7a }
 
 
 /* 공통 헤더 */
@@ -342,7 +344,7 @@ section#people-stats{
 
 }
 
-section#people-stats .content{ padding: 0 15px }
+section#people-stats > .content{ padding: 0 15px }
 
 section#people-stats .stat{
 	margin: 5px auto;
@@ -355,39 +357,6 @@ section#people-stats .stat:first-child{ border-top: none; padding-top: 5px }
 section#people-stats .stat .header{ padding: 5px 0 }
 section#people-stats .stat .fr{
 	padding: 0 3px;
-}
-
-section#people-stats .stat .fr ol{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-section#people-stats .stat .fr ol li{
-	margin: 7px 0;
-	padding: 0;
-	font-size: 14px;
-	color: #999;
-}
-section#people-stats .stat .fr ol li i{
-	display: inline-block;
-	font-style: normal;
-	width: 17px;
-	line-height: 15px;
-	margin-right: 2px;
-	padding-top: 2px;
-
-	font-size: 12px;
-	text-align: center;
-	background-color: #b1bec6;
-	color: white;
-	border-radius: 50%;
-	font-weight: 300;
-}
-section#people-stats .stat .fr ol li .stat-label{
-	display: inline-block;
-	width: 68px;
-	font-weight: 300;
-	font-size: 13px;
 }
 
 section#people-stats .stat .fr .btn-container{
@@ -405,6 +374,48 @@ section#people-stats .stat .fr button.evaluate-btn{
 	font-weight: 300;
 	border-radius: 30px;
 }
+
+
+ol.stat-stars{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ol.stat-stars li{
+	margin: 7px 0;
+	padding: 0;
+	font-size: 14px;
+	color: #999;
+}
+ol.stat-stars li i{
+	display: inline-block;
+	font-style: normal;
+	width: 17px;
+	line-height: 15px;
+	margin-right: 2px;
+	padding-top: 2px;
+
+	font-size: 12px;
+	text-align: center;
+	background-color: #b1bec6;
+	color: white;
+	border-radius: 50%;
+	font-weight: 300;
+}
+ol.stat-stars li .stat-label{
+	display: inline-block;
+	width: 68px;
+	font-weight: 300;
+	font-size: 13px;
+}
+
+.stat-evaluate-popup{
+}
+.stat-evaluate-popup > .content{ margin-top: -180px }
+.stat-evaluate-popup ol.stat-stars{ margin: 12px 0; text-align: center; }
+.stat-evaluate-popup ol.stat-stars .label-container{ margin: 13px 0 1px }
+.stat-evaluate-popup ol.stat-stars li .stat-label{ width: auto; }
+
 
 
 
@@ -468,12 +479,7 @@ section.role-entities .no-content{
 /* 한마디로 탭 */
 #quotation-writing-popup{
 }
-#quotation-writing-popup h4{
-	margin: 0 0 10px;
-	padding: 0;
-	font-weight: 300;
-	font-size: 16px;
-}
+
 #quotation-writing-popup textarea{
 	width: 100%;
 	border: 1px solid #ccc;

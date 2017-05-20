@@ -1,6 +1,6 @@
 from lib import functions
 from lib.api import PublishAPI
-
+from data import consts
 import requests
 
 class People :
@@ -84,7 +84,7 @@ class People :
 		""" Init role datas from role_json
 		"""
 		roles = {}
-		stat_counts = 0
+		self.stat_exists = False
 
 		for roleid, value in self.role_json.items() :
 			roleinfo = People.get_roleinfo(roleid)
@@ -104,18 +104,24 @@ class People :
 
 
 			if stats :
-				role['stats2'] = {
-					'labels': [functions.l10n(i) for i in stats.keys()],
-					'datas': [functions.l10n(i) for i in stats.values()],
-					'mixed': [{'label':functions.l10n(k), 'data':functions.l10n(v)} for k, v in stats.items()],
-				}
-				stat_counts += 1
+				role['stats2'] = []
+				for stat_id in consts.role_stats[roleid] :
+					role['stats2'].append({
+						'id': stat_id,
+						'label': functions.l10n(stat_id),
+						'data': functions.l10n(stats[stat_id]),
+					})
 
+				role['stats2_labels'] = [ x['label'] for x in role['stats2'] ]
+				role['stats2_datas'] = [ x['data'] for x in role['stats2'] ]
+				
+				self.stat_exists = True
+				
 			role['data']['stats'] = stats
 
 
 		self.roles = roles
-		self.stat_counts = stat_counts
+
 
 
 	def get_role(self, id=None, name=None) :

@@ -100,6 +100,30 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .star-grade.grade3{ background-position: 0 -84px }
 .star-grade.grade2{ background-position: 0 -96px }
 .star-grade.grade1{ background-position: 0 -108px }
+.star-grade.grade0{ background-position: 0 -120px }
+
+.star-grade-big{
+	display: inline-block;
+	width: 210px;
+	height: 36px;
+	background-image: url('/images/star_grade_sprite_big.png');
+	background-size: 210px auto;
+}
+.star-grade-big.grade10{ background-position: 0 0 }
+.star-grade-big.grade9{ background-position: 0 -36px }
+.star-grade-big.grade8{ background-position: 0 -72px }
+.star-grade-big.grade7{ background-position: 0 -108px }
+.star-grade-big.grade6{ background-position: 0 -144px }
+.star-grade-big.grade5{ background-position: 0 -180px }
+.star-grade-big.grade4{ background-position: 0 -216px }
+.star-grade-big.grade3{ background-position: 0 -252px }
+.star-grade-big.grade2{ background-position: 0 -288px }
+.star-grade-big.grade1{ background-position: 0 -324px }
+.star-grade-big.grade0{ background-position: 0 -360px }
+
+
+
+
 
 
 
@@ -473,6 +497,8 @@ i.index-bubble{
 	}
 }
 
+
+
 /* Popup */
 .popup{
 	display: none;
@@ -483,24 +509,49 @@ i.index-bubble{
 	height: 100%;
 	z-index: 700;
 }
-
 .popup .background{
 	height: 100%;
 	opacity: 0.6;
 	filter: alpha(opacity=60);
 	background-color: black;
 }
-
-.popup .content{
+.popup > .content{
 	position: relative;
 	top: 40%;
 	width: 90%;
+	max-width: 400px;
 	margin: 0 auto;
-	padding: 18px;
 	box-sizing: border-box;
 	background-color: white;
 }
+.popup form{ margin: 0 }
 
+.popup h4{
+	margin: 0;
+	padding: 14px 0 12px;
+	background-color: #333;
+	color: white;
+	font-size: 17px;
+	font-weight: 300;
+	text-align: center;
+}
+.popup .btn-container{
+	background-color: #e3e4e8;
+	padding: 10px;
+	text-align: center;
+}
+.popup .btn-container button{
+	width: 120px;
+	padding: 5px 0 3px;
+	background-color: white;
+	border: 1px solid #d0d8db;
+	border-radius: 25px;
+	outline: none;
+}
+.popup .btn-container button.submit{ color: white; background-color: #333; font-weight: 300 }
+
+
+/* Responsive Control */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 	.issue-label,
 	.category-label{

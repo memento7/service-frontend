@@ -7,8 +7,36 @@
 	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
 
 	<script type="text/javascript">
-		function evaluateStats(roleId) {
-			alert('준비중입니다.');
+		function openStatPopup(roleId) {
+			$('.stat-' + roleId + ' .stat-evaluate-popup').fadeIn();
+
+			$('.stat-' + roleId + ' .stat-evaluate-popup input[type=hidden]').each(function (index, field) { field.value = "0"; });
+			for (var j = 1; j <= 10; j++)
+				$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').removeClass("grade" + j);
+			$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').addClass("grade0");
+		}
+
+		function closeStatPopup(roleId) {
+			$('.stat-' + roleId + ' .stat-evaluate-popup').fadeOut();
+			return false;
+		}
+
+		function uploadStatEvaluation(roleId, form) {
+			var data = [];
+			$(form).find('input[type=hidden]').each(function (index, field) {
+				data.push( parseInt(field.value) );
+			});
+
+			for (var i = 0; i < data.length; i++) {
+				if (!data[i]) {
+					alert("모든 항목을 평가 해 주세요!");
+					return false;
+				}
+			}
+
+			console.log(data);
+			alert(data);
+			// TO BE UPLOAD VIA API SERVER
 		}
 	</script>
 {% endblock %}
@@ -24,6 +52,23 @@
 			// after webfont-loading
 			quotations.resize(65, 20);
 		})
+
+		$('.stat-evaluate-popup .star-grade-big').on('click', function (event) {
+			var poses = [12, 27, 41, 56, 70, 85, 98, 113, 127, 140];
+			var correction = 3/2;
+
+			for (var i = 0; i < poses.length; i++) {
+
+				if (event.offsetX < poses[i] * correction) {
+					for (var j = 0; j <= 10; j++)
+						$(event.currentTarget).removeClass("grade" + j);
+
+					$(event.currentTarget).addClass("grade" + (i + 1));
+					$(event.currentTarget).parent().find('input[type=hidden]').val( i+1 );
+					break;
+				}
+			}
+		});
 	</script>
 {% endblock %}
 
@@ -133,7 +178,7 @@
 	</section>
 
 
-	{% if person.roles and person.stat_counts %}
+	{% if person.roles and person.stat_exists %}
 	<section id="people-stats" class="common-tile">
 		<h3>
 			<i class="icon icon-star"></i>
@@ -144,7 +189,7 @@
 			{% for roleid, roledata in person.roles.items() %}
 			{% if roledata.stats2 %}
 
-			<div class="stat">
+			<div class="stat stat-{{ roleid }}">
 				<div class="header">
 					<span class="label">{{ roledata.name }}</span>
 				</div>
@@ -153,8 +198,8 @@
 						<canvas id="stat-chart-{{ loop.index }}" width="165" height="160"></canvas>
 					</div>
 					<div class="fr">
-						<ol>
-							{% for d in roledata.stats2.mixed | sort(attribute='data') | reverse %}
+						<ol class="stat-stars">
+							{% for d in roledata.stats2 | sort(attribute='data', reverse=True) %}
 							<li>
 								<i>{{ loop.index }}</i>
 								<span class="stat-label">{{ d.label }}</span>
@@ -163,23 +208,51 @@
 							{% endfor %}
 						</ol>
 						<div class="btn-container">
-							<button class="evaluate-btn" onclick="evaluateStats('{{ roleid }}')">평가하기</button>
+							<button class="evaluate-btn" onclick="openStatPopup('{{ roleid }}')">평가하기</button>
 						</div>
+					</div>
+				</div>
+
+				<div class="stat-evaluate-popup popup">
+					<div class="background"></div>
+					<div class="content">
+						<form onsubmit="return false">
+							<h4>{{ roledata.name }} 능력 평가해보기</h4>
+							<div>
+								<ol class="stat-stars">
+									{% for d in roledata.stats2 %}
+									<li>
+										<div class="label-container">
+											<i>{{ loop.index }}</i>
+											<span class="stat-label">{{ d.label }}</span>
+										</div>
+										<div>
+											<span class="star-grade-big grade0"></span>
+											<input type="hidden" name="{{ d.id }}" value="0">
+										</div>
+									</li>
+									{% endfor %}
+								</ol>
+							</div>
+							<div class="btn-container">
+								<button class="submit" onclick="uploadStatEvaluation('{{ roleid }}', this.form)">평가</button>
+								<button class="cancel" onclick="closeStatPopup('{{ roleid }}')" return false;">취소</button>
+							</div>
+						</form>
 					</div>
 				</div>
 
 				<script type="text/javascript">
 					makeStatChart(
 						document.getElementById("stat-chart-{{ loop.index }}"),
-						{{ roledata.stats2.labels | safe }},
-						{{ roledata.stats2.datas | safe }}
+						{{ roledata.stats2_labels | safe }},
+						{{ roledata.stats2_datas | safe }}
 					);
 				</script>
 			</div>
 			{% endif %}
 			{% endfor %}
 		</div>
-
 	</section>
 	{% endif %}
 		

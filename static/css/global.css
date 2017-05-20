@@ -302,7 +302,7 @@ section.common-tile > a > i.view-more{
 }
 
 
-section.common-tile .content{
+section.common-tile > .content{
 	padding: 0 16px;
 }
 
