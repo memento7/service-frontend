@@ -1,3 +1,4 @@
+from jikji import Jikji
 from jikji import getview, addpage, addpagegroup
 from models.people import People
 from models.event import Event
@@ -22,7 +23,6 @@ getview('people.timeline').url_rule  = '/people/{ id }/timeline/'
 getview('people.inmac').url_rule  = '/people/{ id }/inmac/'
 getview('people.images').url_rule 	 = '/people/{ id }/images/'
 getview('people.quotations').url_rule 	 = '/people/{ id }/quotations/'
-#getview('people.role_data').url_rule = '/people/{ $1.id }/{ $2 }/'
 
 getview('event.index').url_rule 	 		 = '/event/{ id }/'
 getview('event.images').url_rule 			 = '/event/{ id }/images/'
@@ -49,15 +49,34 @@ addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # ê°
 
 
 # Get updated entites and register pages
-for data in PublishAPI.get('/entities/updated') :
-	person = People.register(data)
-	addpagegroup( PeoplePageGroup( model=person ) )
+page_num = 1
+while True :
+	result = PublishAPI.get('/entities/updated?page=%d' % page_num)
+	if type(result) is not list or len(result) == 0 : break
+
+	for data in result:
+		person = People.register(data)
+		addpagegroup( PeoplePageGroup( model=person ) )
+
+	if 'pagelimit' in Jikji.getinstance().options :
+		break
+	page_num += 1
+
 
 
 # Get updated events and register pages
-for data in PublishAPI.get('/events/updated') :
-	event = Event.register(data)
-	addpagegroup( EventPageGroup( model=event ) )
+page_num = 1
+while True :
+	result = PublishAPI.get('/events/updated?page=%d' % page_num)
+	if type(result) is not list or len(result) == 0 : break
+
+	for data in result:
+		event = Event.register(data)
+		addpagegroup( EventPageGroup( model=event ) )
+
+	if 'pagelimit' in Jikji.getinstance().options :
+		break
+	page_num += 1
 
 
 addpage(view='weekly.this_week')

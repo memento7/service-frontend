@@ -222,6 +222,10 @@ class ImageAPI :
 
 	@staticmethod
 	def get(url, size_mode='original') :
+		if 'production' not in Jikji.getinstance().options :
+			# Only Upload images on production-mode
+			return url
+
 		filehash = hashlib.sha1(url.encode()).hexdigest()
 		uploaded_image_url = ImageAPI.cache.get(
 			key='image_hash/%s' % filehash,
