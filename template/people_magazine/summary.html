@@ -16,11 +16,6 @@
 			$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').addClass("grade0");
 		}
 
-		function closeStatPopup(roleId) {
-			$('.stat-' + roleId + ' .stat-evaluate-popup').fadeOut();
-			return false;
-		}
-
 		function uploadStatEvaluation(roleId, form) {
 			var data = [];
 			$(form).find('input[type=hidden]').each(function (index, field) {
@@ -51,7 +46,7 @@
 		$(window).on('load', function() {
 			// after webfont-loading
 			quotations.resize(65, 20);
-		})
+		});
 
 		$('.stat-evaluate-popup .star-grade-big').on('click', function (event) {
 			var poses = [12, 27, 41, 56, 70, 85, 98, 113, 127, 140];
@@ -236,7 +231,7 @@
 							</div>
 							<div class="btn-container">
 								<button class="submit" onclick="uploadStatEvaluation('{{ roleid }}', this.form)">평가</button>
-								<button class="cancel" onclick="closeStatPopup('{{ roleid }}')" return false;">취소</button>
+								<button class="cancel">취소</button>
 							</div>
 						</form>
 					</div>

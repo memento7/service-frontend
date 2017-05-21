@@ -31,7 +31,26 @@ i.icon.icon-sad{ width: 20px; height: 20px }
 i.icon.icon-happy{ background-position: 0 -44px }
 i.icon.icon-sad{ background-position: -20px -44px }
 
+/* Sidebar icons */
+.sidebar-icon{
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+	margin: 0 1px;
+	background-image: url('/images/sidebar_icon_sprite.png');
+	background-size: 200px auto;
+}
+.sidebar-icon.icon-weekly{ background-position: 0 0 }
+.sidebar-icon.icon-people{ background-position: -55px 0 }
+.sidebar-icon.icon-event{ background-position: -110px 0 }
 
+.sidebar-icon.icon-facebook{ width: 50px; height:50px; background-position: 0 -50px }
+.sidebar-icon.icon-naver{ width: 50px; height:50px; background-position: -50px -50px }
+.sidebar-icon.icon-google{ width: 50px; height:50px; background-position: -100px -50px }
+
+
+
+/* Common Labels */
 .label{
 	margin: 1px 5px 1px 0;
 	padding: 3px 7px 0px 8px;
@@ -147,6 +166,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 
 
 
+
 /* Event Tile */
 .event-tile{
 
@@ -249,15 +269,20 @@ i.index-bubble{
 	padding: 3px 0px 1px 1px;
 
 	text-align: center;
-	background-color: #eceff1;
-	color: black;
-
 	font-size: 14px;
-	font-weight: 400;
 	font-style: normal;
 	vertical-align: middle;
 
 	border-radius: 20px 20px 0 20px;
+
+	background-color: #b1bec6;
+	color: white;
+	font-weight: 200;
+}
+i.index-bubble.light{
+	background-color: #eceff1;
+	color: black;
+	font-weight: 400;
 }
 
 
@@ -276,7 +301,7 @@ i.index-bubble{
 
 	border: 1px solid #ccc;
 	border-radius: 50%;
-	background-image: url('/images/person.png');
+	background-image: url('/images/avatar.png');
 	background-size: 55px auto;
 	background-position: center center;
 }
@@ -509,7 +534,7 @@ i.index-bubble{
 	height: 100%;
 	z-index: 700;
 }
-.popup .background{
+.popup > .background{
 	height: 100%;
 	opacity: 0.6;
 	filter: alpha(opacity=60);

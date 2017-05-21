@@ -6,7 +6,7 @@
 	<script type="text/javascript">
 		function openWritePopup() {
 			$("#three-lines-writing-popup").fadeIn();
-
+			$("#three-lines-writing-popup input[type=text]").val('');
 		}
 		function uploadSummaries3Lines(form) {
 			if (!form.line1.value || !form.line2.value || !form.line3.value) {
@@ -40,13 +40,23 @@
 		<div class="content">
 			<form onsubmit="uploadSummaries3Lines(this); return false">
 				<h4>3줄 요약 작성하기</h4>
-				<div>
-					<input type="text" name="line1" placeholder="줄 1"><br>
-					<input type="text" name="line2" placeholder="줄 2"><br>
-					<input type="text" name="line3" placeholder="줄 3">
-				</div>
+				<ol>
+					<li>
+						<i class="index-bubble">1</i>
+						<input type="text" name="line1" placeholder="내용을 입력하세요.">
+					</li>
+					<li>
+						<i class="index-bubble">2</i>
+						<input type="text" name="line2" placeholder="내용을 입력하세요.">
+					</li>
+					<li>
+						<i class="index-bubble">3</i>
+						<input type="text" name="line3" placeholder="내용을 입력하세요.">
+					</li>
+				</ol>
 				<div class="btn-container">
-					<button>등록</button>
+					<button class="submit">등록</button>
+					<button class="cancel">취소</button>
 				</div>
 			</form>
 		</div>

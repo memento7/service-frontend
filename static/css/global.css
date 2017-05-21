@@ -151,7 +151,7 @@ aside.sidebar{
 	top: 0;
 	right: 0;
 
-	width: 220px;
+	width: 245px;
 	height: 100%;
 	background-color: white;
 	z-index: 1000;
@@ -160,6 +160,9 @@ aside.sidebar{
 aside.sidebar > section.profile{
 	padding: 20px 0 10px;
 	text-align: center;
+	background: #fe646e;
+	background: -webkit-linear-gradient(-90deg, #fe646e 0%, #f79384 100%);
+	background: linear-gradient(90deg, #fe646e 0%, #f79384 100%);
 }
 
 aside.sidebar > section.profile .avatar{
@@ -171,28 +174,29 @@ aside.sidebar > section.profile .avatar{
 	background-size: 63px 63px;
 	border-radius: 50%;
 }
+aside.sidebar > section.profile .avatar.logined{ border: 2px solid white; }
 
 aside.sidebar > section.profile a{ text-decoration: none; }
 
 aside.sidebar > section.profile h3{
-	margin: 5px 0 10px;
+	margin: 13px 0;
 	padding: 0;
 	font-size: 18px;
-	font-weight: normal;
+	font-weight: 300;
+	color: white;
 }
-aside.sidebar > section.profile h3.loggedin-username{ margin: 5px 0 2px }
+aside.sidebar > section.profile h3.loggedin-username{ margin: 10px 0 7px }
 
 aside.sidebar > section.profile .logout-btn{
 	display: inline-block;
 	margin: 3px 0 5px;
-	padding: 3px 5px 1px;
-	color: white;
+	padding: 3px 10px 1px;
+	color: #222;
 	font-size: 12px;
-	background-color: #555;
-	border-radius: 4px;
-	transition: all 0.5s;
+	font-weight: 400;
+	background-color: white;
+	border-radius: 10px;
 }
-aside.sidebar > section.profile .logout-btn:hover{ background-color: #888 }
 
 aside.sidebar > section.profile .login-btn{
 	margin: 5px 10px;
@@ -221,45 +225,44 @@ aside.sidebar > section.profile .login-btn.naver .naver-icon{
 	background-size: 13.5px 12px;
 }
 
-
 aside.sidebar > section > h4{
-	margin: 20px 15px 2px;
+	margin: 20px 15px 8px;
 	padding: 1px 0;
 	font-weight: normal;
 	font-size: 14px;
 	color: #9B9B9B;
-	border-bottom: 1px solid #DBDBDB;
+	/*border-bottom: 1px solid #DBDBDB;*/
 }
 aside.sidebar > section ul{
-	margin: 5px 3px;
+	margin: 5px 10px;
 	padding: 0;
 	list-style: none;
 }
-/*aside.sidebar > section a{ color: #444; text-decoration: none; }*/
+aside.sidebar > section a{ color: #444; text-decoration: none; }
 aside.sidebar > section ul li{
 	margin: 0;
-	padding: 7px 15px;
+	padding: 0;
+	text-align: center;
 	font-size: 17px;
 	cursor: pointer;
 	transition: background-color 0.5s;
 }
 aside.sidebar > section ul li:hover{ background-color: #f0f0f0 }
 
-aside.sidebar > section.service-shortcuts ul li .fa{
-	width: 15px;
-	text-align: center;
-	color: #777;
-	padding-right: 4px;
-} 
-aside.sidebar > section.service-shortcuts ul li .fa-calendar{ color: #673AB7 }
-aside.sidebar > section.service-shortcuts ul li .fa-user{ color: #E91E63 }
-aside.sidebar > section.service-shortcuts ul li .fa-camera-retro{ color: #FF9800 }
-
-aside.sidebar > section.favorites a{
-	color: #333;
-	text-decoration: none;
+aside.sidebar > section.service-shortcuts ul li{
+	float: left;
+	width: 75px;
+	font-size: 13px;
 }
-aside.sidebar > section.favorites ul li{ padding: 2px 15px }
+aside.sidebar > section.service-shortcuts ul li > div{ margin-top: 4px }
+
+
+aside.sidebar > section.favorites{
+	margin-top: 20px;
+	border-top: 1px solid #DBDBDB; 
+}
+aside.sidebar > section.favorites a{ color: #333; text-decoration: none; }
+aside.sidebar > section.favorites ul li{ padding: 2px 10px }
 aside.sidebar > section.favorites .person-tile .left .image{ width: 35px; height: 35px; }
 
 aside.sidebar > section.favorites .empty{
