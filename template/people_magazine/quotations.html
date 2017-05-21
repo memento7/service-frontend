@@ -22,6 +22,11 @@
 	{{ super() }}
 	<script type="text/javascript">
 		quotations.render();
+
+		$(window).on('load', function() {
+			// after webfont-loading
+			quotations.resize();
+		});
 	</script>
 
 {% endblock %}
@@ -34,12 +39,14 @@
 		<div class="content">
 			<form onsubmit="uploadQuotation(this); return false">
 				<h4>한마디로 작성하기</h4>
-				<div>이 인물을 한마디로 표현한다면<br>어떻게 할 수 있을까요?</div>
-				<div>
-					<textarea name="quotation"></textarea>
+				<div class="editor">
+					<div class="background"></div>
+					<textarea name="quotation" placeholder="이 인물을 한마디로 표현하면?" required></textarea>
+					<textarea class="reference" name="reference" placeholder="출처나 인용이 있다면 써주세요" rows="1"></textarea>
 				</div>
 				<div class="btn-container">
-					<button>등록</button>
+					<button class="submit">등록</button>
+					<button class="cancel">취소</button>
 				</div>
 			</form>
 		</div>

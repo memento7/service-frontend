@@ -534,7 +534,7 @@ i.index-bubble.light{
 	height: 100%;
 	z-index: 700;
 }
-.popup .background{
+.popup > .background{
 	height: 100%;
 	opacity: 0.6;
 	filter: alpha(opacity=60);

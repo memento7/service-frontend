@@ -67,7 +67,7 @@
 
 
 	/* Popup Closing */
-	$('.popup .background').on('click', function (e) {
+	$('.popup > .background').on('click', function (e) {
 		var popup = $(e.currentTarget).parent();
 
 		if (popup.find('button.cancel').length)

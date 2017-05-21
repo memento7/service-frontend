@@ -478,24 +478,30 @@ section.role-entities .no-content{
 
 /* 한마디로 탭 */
 #quotation-writing-popup{
+	margin-top: -40px;
 }
-
-#quotation-writing-popup textarea{
-	width: 100%;
+#quotation-writing-popup .editor{
+	height: 120px;
+}
+#quotation-writing-popup .editor .background{
+	top: 45px;
+	height: inherit;
+	background: white url('/images/quotation_bg_white_short.png');
+	background-size: 100% 120px;
+}
+#quotation-writing-popup .editor textarea{
+	position: relative;
+	display: block;
+	width: 300px;
+	margin: 20px auto 5px;
+	padding: 5px;
 	border: 1px solid #ccc;
-}
-#quotation-writing-popup .btn-container{
-	margin: 10px 0 0 0;
+	resize: none;
+	font-size: 23px;
 	text-align: center;
 }
-#quotation-writing-popup .btn-container button{
-	background-color: #eee;
-	padding: 4px 13px;
-	font-size: 13px;
-	border: none;
-	border-radius: 5px;
-}
-
+#quotation-writing-popup .editor textarea:hover{ outline: none; border-color: #ec407a }
+#quotation-writing-popup .editor textarea.reference{ margin: 5px auto; font-size: 14px; width: 200px }
 
 section#quotations-header button.write,
 section#quotations-header .fr > span.active > .radio{ background-color: #ec407a }
@@ -503,9 +509,7 @@ section#quotations-header .fr > span.active > .radio{ background-color: #ec407a 
 
 section#quotations-full{
 }
-
 section#quotations-full .content{ height: 100px }
-
 section#quotations-full .background{
 	height: 100px;
 	background: white url('/images/quotation_bg_white.png');
