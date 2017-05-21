@@ -269,15 +269,20 @@ i.index-bubble{
 	padding: 3px 0px 1px 1px;
 
 	text-align: center;
-	background-color: #eceff1;
-	color: black;
-
 	font-size: 14px;
-	font-weight: 400;
 	font-style: normal;
 	vertical-align: middle;
 
 	border-radius: 20px 20px 0 20px;
+
+	background-color: #b1bec6;
+	color: white;
+	font-weight: 200;
+}
+i.index-bubble.light{
+	background-color: #eceff1;
+	color: black;
+	font-weight: 400;
 }
 
 

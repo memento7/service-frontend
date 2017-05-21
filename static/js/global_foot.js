@@ -68,7 +68,16 @@
 
 	/* Popup Closing */
 	$('.popup .background').on('click', function (e) {
-		$(e.currentTarget).parent().fadeOut();
+		var popup = $(e.currentTarget).parent();
+
+		if (popup.find('button.cancel').length)
+			return;
+		else
+			popup.fadeOut();
+	});
+	$('.popup button.cancel').on('click', function (e) {
+		e.preventDefault();
+		$(e.currentTarget).parents('.popup').fadeOut(200);
 	});
 
 })();

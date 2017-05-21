@@ -16,11 +16,6 @@
 			$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').addClass("grade0");
 		}
 
-		function closeStatPopup(roleId) {
-			$('.stat-' + roleId + ' .stat-evaluate-popup').fadeOut();
-			return false;
-		}
-
 		function uploadStatEvaluation(roleId, form) {
 			var data = [];
 			$(form).find('input[type=hidden]').each(function (index, field) {
@@ -236,7 +231,7 @@
 							</div>
 							<div class="btn-container">
 								<button class="submit" onclick="uploadStatEvaluation('{{ roleid }}', this.form)">평가</button>
-								<button class="cancel" onclick="closeStatPopup('{{ roleid }}')" return false;">취소</button>
+								<button class="cancel">취소</button>
 							</div>
 						</form>
 					</div>
