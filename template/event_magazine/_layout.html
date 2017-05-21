@@ -4,6 +4,8 @@
 
 {% block head %}
 	{{ super() }}
+	<meta property="og:image" content="{{ event.repr_image() }}">
+
 	<link rel="stylesheet" href="{{ geturl('assets', '/css/event_magazine.css') }}">
 	<script type="text/javascript">var eventId = {{ event.id }};</script>
 {% endblock %}

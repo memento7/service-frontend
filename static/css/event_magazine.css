@@ -55,7 +55,11 @@ section#related-people{
 
 }
 section#related-people .person{ width: 50% }
-section#related-people .person a{ text-decoration: none; }
+section#related-people .person a{
+	display: inline-block;
+	width: 150px;
+	text-decoration: none;
+}
 
 
 /* 3줄 요약 */

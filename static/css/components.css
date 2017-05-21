@@ -181,7 +181,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 	height: 80px;
 	background-color: #333;
 	background-size: auto 80px;
-	background-position: center center;
+	background-position: center 10%;
 	background-repeat: no-repeat;
 }
 

@@ -88,7 +88,7 @@ class EventIssueData :
 				article_count=None, sns_count=None, comment_count=None, **kwarg) :
 
 		self.issue_score = issue_score
-		self.top_percentile = top_percentile
+		self.top_percentile = max(0.1, top_percentile)
 		self.ranking = issue_rank
 
 		self.article_count = article_count
