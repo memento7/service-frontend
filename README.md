@@ -25,4 +25,4 @@ $ jikji . listen
 ```
 
 
-(*) To generate memento service, you need to configure authorization key on `lib/_security.py`
+(*) To generate memento service, you need to configure authorization key on `lib/security.py`

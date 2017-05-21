@@ -21,7 +21,7 @@ def geturl(module_name='', uri='/') :
 		return 'https://%smemento.live/%s' % (subdomain, uri)
 
 	elif 'development' in app.options :
-		subdomain = subdomain.replace('.', '_')
+		subdomain = subdomain.replace('.', '-')
 		return 'https://%sdev.memento.live/%s' % (subdomain, uri)
 
 	elif 'local' in app.options :

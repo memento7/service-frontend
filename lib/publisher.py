@@ -1,5 +1,8 @@
 from jikji import Jikji
 from jikji.publisher import Publisher, LocalPublisher, S3Publisher
+from lib import security
+
+import requests
 
 class MementoPublisher(Publisher) :
 
@@ -32,3 +35,30 @@ class MementoPublisher(Publisher) :
 				# Local Publish
 				lp = LocalPublisher('/var/www/dev')
 				lp.publish(generator, generation_result)
+
+
+				# Assets
+				assets_s, assets_f, assets_i, _ = generation_result[-1]
+				
+				# Purge Cloudflare Cache
+				file_groups = []
+				for index, pageurl in enumerate(assets_s) :
+					if index % 30 == 0 : # Max: 30 files per api call
+						file_groups.append([])
+
+					file_groups[-1].append('https://assets-dev.memento.live' + pageurl)
+
+				for files in file_groups :
+					print('Purge %d caches' % len(files))
+					requests.delete(
+						url='https://api.cloudflare.com/client/v4/zones/0d40f90e25cf5c29078f1dd09fcb8baa/purge_cache',
+						headers={
+							'X-Auth-Key': security.CLOUDFLARE_AUTH['key'],
+							'X-Auth-Email': security.CLOUDFLARE_AUTH['email'],
+							'Content-Type': 'application/json',
+						},
+						data={
+							'files': files
+						}
+					)
+				
