@@ -33,7 +33,6 @@
 			};
 		</script>
 		<script type="text/javascript" src="{{ geturl('assets', '/js/global.js') }}"></script>
-
 		{% endblock %}
 	</head>
 	<body>
@@ -69,6 +68,53 @@
 			</footer>
 		</div>
 
+		{% raw %}
+		<script type="x-tmpl-mustache" id="template-event-tile">
+			<div class="event-tile full-image clearfix">
+				{{# if event.images.[0] }}
+				<div class="fl content">
+				{{ else }}
+				<div class="content">
+				{{/ if }}
+					<h4>
+						<a href="{{ baseUrls.event }}{{ event.id }}">{{ event.title }}</a>
+					</h4>
+					<div class="labels emotion-bubbles">
+						<span class="issue-label {{ rank event.issue_data.top_percentile }}-rank"></span>
+						<span class="category-label category-{{ event.type }}"></span>
+						
+						{{# if event.emotions.[0] }}
+						<span class="emotion">
+							<i style="
+								width: {{ emotion_size event.emotions.[0].weight }}px;
+								height: {{ emotion_size event.emotions.[0].weight }}px;
+								background-color: red
+							"></i>
+							<span>{{ event.emotions.[0].emotion }}</span>
+						</span>
+						{{/ if }}
+
+						{{# if event.emotions.[1] }}
+						<span class="emotion">
+							<i style="
+								width: {{ emotion_size event.emotions.[1].weight }}px;
+								height: {{ emotion_size event.emotions.[1].weight }}px;
+								background-color: red
+							"></i>
+							<span>{{ event.emotions.[1].emotion }}</span>
+						</span>
+						{{/ if }}
+					</div>
+				</div>
+				{{# if event.images.[0] }}
+				<div class="fr">
+					<div class="image" style="{{ image_url event.images.[0] true }}"></div>
+				</div>
+				{{/ if }}
+			</div>
+		</script>
+		{% endraw %}
+		
 		<script type="text/javascript" src="{{ geturl('assets', '/js/global_foot.js') }}"></script>
 		{% block foot %}{% endblock %}
 	</body>

@@ -201,7 +201,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
 .event-tile.full-image{ padding-top: 14px }
-.event-tile.full-image .fl{ padding-bottom: 4px }
+.event-tile.full-image .content{ padding-bottom: 4px }
 .event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px; }
 
 .event-tile .date{
@@ -291,10 +291,12 @@ i.index-bubble.light{
 .person-tile{
 	font-weight: 300;
 }
-.person-tile .left{ margin-right: 10px }
-.person-tile .right{ margin: 10px 0 0 0 }
+.person-tile .content{ margin: 10px 0 0 0 }
+.person-tile .content.left{ margin-right: 10px }
+.person-tile .content.right{ margin-left: 10px }
+.person-tile .content.fr{ text-align: right }
 
-.person-tile .left .image{
+.person-tile .image{
 	display: inline-block;
 	width: 55px;
 	height: 55px;
@@ -306,16 +308,16 @@ i.index-bubble.light{
 	background-position: center center;
 }
 
-.person-tile .right h4{
+.person-tile h4{
 	margin: 0 0 2px 0;
 	padding: 0;
 	color: #444;
 	font-size: 16px;
 	font-weight: 300;
 }
-.person-tile .right h4 .sub{ font-size: 13px; color: #666 }
+.person-tile h4 .sub{ font-size: 13px; color: #666 }
 
-.person-tile .right .role{
+.person-tile .role{
 	font-size: 13px;
 	color: #888;
 }

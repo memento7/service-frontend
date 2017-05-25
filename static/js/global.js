@@ -110,3 +110,51 @@ var memento = (function () {
 })();
 
 
+(function() {
+	/**
+	 * Handlebar helpers
+	 */
+	Handlebars.registerHelper('if_eq', function(a, b, opts) {
+		if (a == b)
+			return opts.fn(this);
+		else
+			return opts.inverse(this);
+	});
+
+	Handlebars.registerHelper('if_neq', function(a, b, opts) {
+		if (a != b)
+			return opts.fn(this);
+		else
+			return opts.inverse(this);
+	});
+
+	Handlebars.registerHelper('rank', function(value, options) {
+		if (value === undefined)	return '?';
+		else if (value <= 2 )		return 's';
+		else if (value <= 10)		return 'a';
+		else if (value <= 50)		return 'b';
+		else 						return 'c';
+	});
+
+
+	Handlebars.registerHelper('image_url', function(value, css_mode, options) {
+		if (value === undefined || value == null) rv = null;
+		else if (typeof value == 'string')		  rv = value;
+		else if ('path' in value) 				  rv = value['path'];
+		else if ('url' in value) 				  rv = value['url'];
+		else									  rv = null;
+
+		if (css_mode) {
+			if (rv == null) return '';
+			else  			return "background-image: url('" + rv + "')";
+		}else
+			return rv;
+	});
+
+
+	Handlebars.registerHelper('emotion_size', function(value, options) {
+		return value / 5 * 13;
+	});
+
+})();
+

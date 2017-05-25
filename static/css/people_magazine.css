@@ -418,6 +418,52 @@ ol.stat-stars li .stat-label{
 
 
 
+/* 인맥 */
+section#inmac{
+
+}
+
+.inmac-resource{
+	display: inline-block;
+	margin: 0 1px;
+	background-image: url('/images/inmac_resource_sprite.png');
+	background-size: 45px auto;
+}
+.inmac-resource.women{ width: 24px; height: 24px; background-position: 0 0; background-size: 60px auto; }
+.inmac-resource.men{ width: 24px; height: 24px; background-position: -24px 0; background-size: 60px auto; }
+
+.inmac-resource.arrow{ width: 40px; height: 6px }
+.inmac-resource.arrow.left{ background-position: 0 -18px }
+.inmac-resource.arrow.left.enabled{ background-position: 0 -24px }
+.inmac-resource.arrow.right{ background-position: 0 -30px }
+.inmac-resource.arrow.right.enabled{ background-position: 0 -36px }
+
+
+section#inmac .vis-network{
+	outline: none;
+}
+
+section#inmac-relation .between{
+	width: 365px;
+	margin: 20px auto;
+}
+section#inmac-relation .between .person-tile{ position: relative; float: left; width: 145px }
+section#inmac-relation .between .person-tile h4 .sub{ margin-left: -3px }
+section#inmac-relation .between .person-tile .sex{ position: absolute; bottom: -4px }
+section#inmac-relation .between .person-tile .right .sex{ right: 38px }
+section#inmac-relation .between .person-tile .left .sex{ left: 38px }
+
+section#inmac-relation .between .relation{
+	float: left;
+	margin: 20px 10px 0 10px;
+}
+section#inmac-relation .between .relation .arrow{ margin: 2px 0 }
+
+section#inmac-relation .events{ }
+section#inmac-relation .events .event-tile{
+	border-top: 1px solid #ddd;
+	padding-left: 16px;
+}
 
 
 /* 사진 (탭) */

@@ -2,7 +2,11 @@
 	{% for emotion in emotions %}
 		{% if loop.index <= max %}
 		<span class="emotion">
-			<i style="width: {{ emotion.weight / 5 * max_size }}px; height: {{ emotion.weight / 5 * max_size }}px; background-color: {{ rand_color() }}"></i>
+			<i style="
+				width: {{ emotion.weight / 5 * max_size }}px;
+				height: {{ emotion.weight / 5 * max_size }}px;
+				background-color: {{ rand_color() }}
+			"></i>
 			<span>{{ emotion.emotion }}</span>
 		</span>
 		{% endif %}
@@ -26,7 +30,7 @@
 
 {% macro event_tile(event, show_date=False, full_image=False) -%}
 	<div class="event-tile {{ 'full-image' if full_image or '' }} clearfix">
-		<div class="fl">
+		<div class="content {{ 'fl' if event.repr_image() }}">
 			<h4>
 				<a href="{{ event.magazine_url() }}">{{ event.title }}</a>
 			</h4>
@@ -43,11 +47,11 @@
 			</div>
 			{% endif %}
 		</div>
+		{% if event.repr_image() %}
 		<div class="fr">
-			{% if event.repr_image() %}
 			<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
-			{% endif %}
 		</div>
+		{% endif %}
 	</div>
 {% endmacro %}
 

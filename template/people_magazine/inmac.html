@@ -1,10 +1,181 @@
 {% extends "/people_magazine/_layout.html" %}
 
+{% block head %}
+	{{ super() }}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.20.0/vis.min.js"></script>
+	<script type="text/javascript">
+		var entityData = {{ person.json() | safe }};
+		var network = null;
+		var relations = {};
+
+		$(window).on('load', function() {
+
+			// temp
+			$.get('/temp_relations1.json', function(result) {
+				for (var i = 0; i < result.length; i++)
+					relations[result[i].entity.id] = result[i];
+
+				draw(result);
+			});
+		});
+
+		function draw(relations) {
+			var nodes = [{
+				'id': 1,
+				'shape': 'circularImage',
+				'label': entityData.nickname,
+				'image': entityData.profile_image
+			}];
+			var edges = [];
+
+			for (var i = 0; i < relations.length; i++) {
+				var entity = relations[i]['entity'];
+
+				nodes.push({
+					'id': i+2,
+					'shape': 'circularImage',
+					'label': entity['nickname'],
+					'image': entity['images'][0]['url']
+				});
+				edges.push({'from': 1, 'to': i+2, 'value': relations[i]['weight']});
+			}
+
+			// create a network
+			var container = document.getElementById('inmac-network');
+			var data = {
+				nodes: nodes,
+				edges: edges
+			};
+			var options = {
+				nodes: {
+					borderWidth:2,
+					size:30,
+					color: {
+						border: '#cdd2d4',
+						background: '#ffffff'
+					},
+					font:{color:'#333'},
+					fixed: true
+				},
+				edges: {
+					color: '#b0bfc7',
+					scaling: {
+						max: 5
+					}
+				},
+				interaction: {
+					dragView: false,
+					zoomView: false,
+					dragView: false,
+					selectable: false,
+				}
+			};
+			network = new vis.Network(container, data, options);
+
+			network.on("click", function (params) {
+				var node = this.getNodeAt(params.pointer.DOM);
+				if (node) {
+					showRelations(node);
+				}
+			});
+		}
+
+		function showRelations(entityId) {
+			var eventTileTemplate = Handlebars.compile($('#template-event-tile').html());
+			var betweenTemplate = Handlebars.compile($('#template-inmac-between').html());
+
+			// temp
+			$.get('/temp_relations1_2.json', function(result) {
+				var html = "";
+
+				for (var i in result) {
+					var event = result[i];						
+					html += eventTileTemplate({
+						'event': event,
+						'baseUrls': baseUrls
+					});
+				}
+
+				$('#inmac-relation h3').html("'" + relations[entityId].entity.nickname + "' 와의 관계");
+				$('#inmac-relation .events').html(html);
+
+				var html = betweenTemplate({
+					'person1': entityData,
+					'person2': relations[entityId].entity
+				});
+				var betweenDom = $('#inmac-relation .between');
+				betweenDom.html(html);
+
+				// var widthSum = betweenDom.find('.person-tile:first').outerWidth(true) +
+				// 			betweenDom.find('.person-tile:last').outerWidth(true) +
+				// 			betweenDom.find('.relation').outerWidth(true);
+
+				// betweenDom.css('width', widthSum + 3 + "px");
+			});
+		}
+	</script>
+{% endblock %}
+
+
 {% block content %}
 	{{ super() }}
 
-	<div class="no-content">
-		준비중입니다
-	</div>
+	<section id="inmac">
+		<div id="inmac-network" style="height: 250px; background-color: white"></div>
+	</section>
 
+	<section id="inmac-relation" class="common-tile">
+		<h3></h3>
+		<div>
+			<div class="between clearfix">
+				
+			</div>
+			<div class="events"></div>
+		</div>
+	</section>
+
+	{% raw %}
+	<script type="x-tmpl-mustache" id="template-inmac-between">
+		<div class="person-tile clearfix">
+			<div class="fr right">
+				<span class="image" style="{{ image_url person1.profile_image true }}"></span>
+				<span class="sex inmac-resource men"></span>
+			</div>
+			<div class="fr left content">
+				<h4>
+					<span>{{ person1.nickname }}</span>
+					{{# if_neq person1.realname person1.nickname }}
+					<span class="sub">({{ person1.realname }})</span>
+					{{/ if_neq }}
+				</h4>
+				<div class="role">??</div>
+			</div>
+		</div>
+
+		<div class="relation">
+			<div>
+				<span class="inmac-resource arrow left enabled"></span>
+			</div>
+			<div>
+				<span class="inmac-resource arrow right enabled"></span>
+			</div>
+		</div>
+
+		<div class="person-tile clearfix">
+			<div class="fl left">
+				<span class="image" style="{{ image_url person2.images.[0] true }}"></span>
+				<span class="sex inmac-resource women"></span>
+			</div>
+			<div class="fl right content">
+				<h4>
+					<span>{{ person2.nickname }}</span>
+					{{# if_neq person2.realname person2.nickname }}
+					<span class="sub">({{ person2.realname }})</span>
+					{{/ if_neq }}
+				</h4>
+				<div class="role">??</div>
+			</div>
+		</div>
+	</script>
+	{% endraw %}
 {% endblock %}

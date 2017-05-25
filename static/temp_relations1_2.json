@@ -1,0 +1,2234 @@
+[
+	{
+		"id": 13203,
+		"title": "연예투데이 연예계 새해부터 연일 들썩‥비 근신 처분/강북 멋쟁이 음원 돌풍‥음중 출연 外",
+		"type": "news",
+		"date": "2013-01-12 00:00:00",
+		"issue_data": {
+			"article_count": 12,
+			"comment_count": 105,
+			"issue_score": 40,
+			"issue_rank": 174,
+			"top_percentile": 28.76033
+		},
+		"hit": 0,
+		"status": "SHOW",
+		"created_time": "2017-05-21 04:59:50",
+		"updated_time": "2017-05-21 04:59:50",
+		"emotions": [
+			{
+				"emotion": "만만",
+				"weight": 1
+			},
+			{
+				"emotion": "당연",
+				"weight": 2
+			},
+			{
+				"emotion": "관대",
+				"weight": 1
+			},
+			{
+				"emotion": "궁금",
+				"weight": 1
+			},
+			{
+				"emotion": "수두룩",
+				"weight": 1
+			}
+		],
+		"keywords": [
+			{
+				"keyword": "만남을",
+				"weight": 77
+			},
+			{
+				"keyword": "사람이",
+				"weight": 68
+			},
+			{
+				"keyword": "배우",
+				"weight": 77
+			},
+			{
+				"keyword": "통해",
+				"weight": 68
+			},
+			{
+				"keyword": "비의",
+				"weight": 63
+			},
+			{
+				"keyword": "금지",
+				"weight": 68
+			},
+			{
+				"keyword": "가수",
+				"weight": 86
+			},
+			{
+				"keyword": "핑크빛",
+				"weight": 63
+			},
+			{
+				"keyword": "연예뉴스",
+				"weight": 63
+			},
+			{
+				"keyword": "김태희가",
+				"weight": 68
+			},
+			{
+				"keyword": "드라마",
+				"weight": 68
+			},
+			{
+				"keyword": "것으로",
+				"weight": 68
+			},
+			{
+				"keyword": "비가",
+				"weight": 66
+			},
+			{
+				"keyword": "모습이",
+				"weight": 77
+			},
+			{
+				"keyword": "근신",
+				"weight": 68
+			},
+			{
+				"keyword": "소속사",
+				"weight": 66
+			},
+			{
+				"keyword": "첫",
+				"weight": 71
+			},
+			{
+				"keyword": "지난",
+				"weight": 86
+			},
+			{
+				"keyword": "대해",
+				"weight": 71
+			},
+			{
+				"keyword": "공식",
+				"weight": 63
+			},
+			{
+				"keyword": "김태희와",
+				"weight": 71
+			},
+			{
+				"keyword": "기자",
+				"weight": 66
+			},
+			{
+				"keyword": "열애",
+				"weight": 68
+			},
+			{
+				"keyword": "김태희는",
+				"weight": 74
+			},
+			{
+				"keyword": "비와",
+				"weight": 92
+			},
+			{
+				"keyword": "비",
+				"weight": 89
+			},
+			{
+				"keyword": "현재",
+				"weight": 63
+			},
+			{
+				"keyword": "남자",
+				"weight": 83
+			},
+			{
+				"keyword": "김태희의",
+				"weight": 74
+			},
+			{
+				"keyword": "사람의",
+				"weight": 66
+			},
+			{
+				"keyword": "지퍼",
+				"weight": 63
+			},
+			{
+				"keyword": "열애설",
+				"weight": 77
+			}
+		],
+		"images": [
+		],
+		"entities": [
+			{
+				"id": 2,
+				"nickname": "비",
+				"realname": "정지훈",
+				"images": [
+					{
+						"id": 1256,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F008%2F2017%2F01%2F18%2F2017011709463326096_2_99_20170118001604.jpg&type=b400",
+						"like_count": 0,
+						"weight": 100
+					},
+					{
+						"id": 1258,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F109%2F2015%2F12%2F28%2F201512281123772222_56809d622f276_99_20151228112507.jpg&type=b400",
+						"like_count": 0,
+						"weight": 80
+					},
+					{
+						"id": 1257,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles1.naver.net%2Fdata28%2F2007%2F9%2F17%2F290%2Faaaaa_dvd0428.jpg&type=b400",
+						"like_count": 0,
+						"weight": 90
+					}
+				]
+			}
+		],
+		"event_articles": [
+			{
+				"id": 11419,
+				"title": "국방부, 특혜 논란 비 7일간 근신 처분",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002711889",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5555,
+					"url": "http://mimgnews2.naver.net/image/018/2013/01/08/PS13010800148_59_20130108181507.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002711889"
+				},
+				"comment_count": 4,
+				"rank": 5,
+				"summary": ""
+			},
+			{
+				"id": 11418,
+				"title": "‘짝’ 남자 4호-여자 3호, 비오는 날 랜덤데이트 ‘유쾌’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=014&aid=0002789541",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5554,
+					"url": "http://mimgnews1.naver.net/image/014/2013/01/03/20130103013026802_59_20130103013102.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=014&aid=0002789541"
+				},
+				"comment_count": 0,
+				"rank": 10,
+				"summary": ""
+			},
+			{
+				"id": 11421,
+				"title": "박성광, 비-김태희에 1등 끼리 사귀는 더러운 세상",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002714134",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5556,
+					"url": "http://mimgnews1.naver.net/image/018/2013/01/14/PS13011400015_59_20130114082402.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002714134"
+				},
+				"comment_count": 1,
+				"rank": 9,
+				"summary": ""
+			},
+			{
+				"id": 11412,
+				"title": "‘열애설’ 김태희-비, 첫 인연 맺은 CF 다시보니…당시 분위기는?",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010657",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5548,
+					"url": "http://mimgnews2.naver.net/image/416/2013/01/01/30000209013_59_20130101120002.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010657"
+				},
+				"comment_count": 3,
+				"rank": 6,
+				"summary": ""
+			},
+			{
+				"id": 11416,
+				"title": "비♥김태희 연예계 공개연애 커플은 누구?",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=119&aid=0001960732",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5552,
+					"url": "http://mimgnews2.naver.net/image/119/2013/01/02/news1357089913_320904_1_m_59_20130102103148.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=119&aid=0001960732"
+				},
+				"comment_count": 3,
+				"rank": 8,
+				"summary": ""
+			},
+			{
+				"id": 11414,
+				"title": "김태희-비 열애설 후폭풍…CF계약서·탈모보행 구설",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010665",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5550,
+					"url": "http://mimgnews1.naver.net/image/416/2013/01/01/30000209001_59_20130101210101.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010665"
+				},
+				"comment_count": 35,
+				"rank": 1,
+				"summary": ""
+			},
+			{
+				"id": 11415,
+				"title": "비-김태희 열애설 나기전 광고 보니 이때부터?",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010679",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5551,
+					"url": "http://mimgnews2.naver.net/image/416/2013/01/01/30000209034_59_20130102093501.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010679"
+				},
+				"comment_count": 17,
+				"rank": 4,
+				"summary": ""
+			},
+			{
+				"id": 11413,
+				"title": "‘톱스타’ 김태희-비, 2013년 새해 열애설 주인공",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010647",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5549,
+					"url": "http://mimgnews2.naver.net/image/416/2013/01/01/30000209001_59_20130101115009.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=416&aid=0000010647"
+				},
+				"comment_count": 3,
+				"rank": 7,
+				"summary": ""
+			},
+			{
+				"id": 11422,
+				"title": "포근한 주말… 월요일 전국 눈비",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=404&aid=0000022064",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5557,
+					"url": "http://mimgnews2.naver.net/image/404/2013/01/18/j0118-3a_59_20130118144809.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=404&aid=0000022064"
+				},
+				"comment_count": 0,
+				"rank": 12,
+				"summary": ""
+			},
+			{
+				"id": 11417,
+				"title": "김태희 공식입장 비랑 만난다…열애 인정한 스타는?",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178859",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5553,
+					"url": "http://mimgnews1.naver.net/image/311/2013/01/02/1357061049312_59_20130102033302.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178859"
+				},
+				"comment_count": 22,
+				"rank": 2,
+				"summary": ""
+			},
+			{
+				"id": 11411,
+				"title": "‘비와 교제인정’ 김태희 소속사 “비와 연락은 아직..”",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002463967",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5547,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/01/201301012159775305_50e2ddfe4563f_59_20130101220402.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002463967"
+				},
+				"comment_count": 17,
+				"rank": 3,
+				"summary": ""
+			},
+			{
+				"id": 11420,
+				"title": "연예투데이 연예계 새해부터 연일 들썩‥비 근신 처분/강북 멋쟁이 음원 돌풍‥음중 출연 外",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=103&oid=214&aid=0000227204",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 0,
+				"rank": 11,
+				"summary": ""
+			}
+		],
+		"event_summaries3_lines": []
+	},
+	{
+		"id": 13204,
+		"title": "한미반도체, 올해 주목해야할 후공정 제조장비업체-KDB대우證",
+		"type": "entertain",
+		"date": "2013-01-03 00:00:00",
+		"issue_data": {
+			"article_count": 4,
+			"comment_count": 77,
+			"issue_score": 26,
+			"issue_rank": 205,
+			"top_percentile": 33.884296
+		},
+		"hit": 0,
+		"status": "SHOW",
+		"created_time": "2017-05-21 05:00:01",
+		"updated_time": "2017-05-21 05:00:01",
+		"emotions": [
+			{
+				"emotion": "먹먹",
+				"weight": 1
+			},
+			{
+				"emotion": "대단",
+				"weight": 1
+			},
+			{
+				"emotion": "한심",
+				"weight": 1
+			},
+			{
+				"emotion": "당연",
+				"weight": 1
+			},
+			{
+				"emotion": "억울",
+				"weight": 2
+			}
+		],
+		"keywords": [
+			{
+				"keyword": "현재",
+				"weight": 85
+			},
+			{
+				"keyword": "등이",
+				"weight": 81
+			},
+			{
+				"keyword": "대중은",
+				"weight": 85
+			},
+			{
+				"keyword": "비",
+				"weight": 106
+			},
+			{
+				"keyword": "한국은",
+				"weight": 81
+			},
+			{
+				"keyword": "드라마",
+				"weight": 115
+			},
+			{
+				"keyword": "수도",
+				"weight": 85
+			},
+			{
+				"keyword": "김태희의",
+				"weight": 85
+			},
+			{
+				"keyword": "연예",
+				"weight": 90
+			},
+			{
+				"keyword": "후지이",
+				"weight": 85
+			},
+			{
+				"keyword": "가장",
+				"weight": 85
+			},
+			{
+				"keyword": "측은",
+				"weight": 90
+			},
+			{
+				"keyword": "활동",
+				"weight": 85
+			},
+			{
+				"keyword": "배우",
+				"weight": 90
+			},
+			{
+				"keyword": "김태희는",
+				"weight": 94
+			},
+			{
+				"keyword": "이후",
+				"weight": 90
+			},
+			{
+				"keyword": "한국",
+				"weight": 123
+			},
+			{
+				"keyword": "비가",
+				"weight": 102
+			},
+			{
+				"keyword": "비의",
+				"weight": 102
+			},
+			{
+				"keyword": "미즈타",
+				"weight": 94
+			},
+			{
+				"keyword": "일본은",
+				"weight": 94
+			},
+			{
+				"keyword": "대한",
+				"weight": 81
+			},
+			{
+				"keyword": "한국에서",
+				"weight": 106
+			},
+			{
+				"keyword": "사람이",
+				"weight": 90
+			},
+			{
+				"keyword": "일본",
+				"weight": 98
+			},
+			{
+				"keyword": "이야기를",
+				"weight": 81
+			},
+			{
+				"keyword": "스타",
+				"weight": 94
+			},
+			{
+				"keyword": "김태희",
+				"weight": 106
+			},
+			{
+				"keyword": "일본에서",
+				"weight": 123
+			},
+			{
+				"keyword": "비와",
+				"weight": 90
+			},
+			{
+				"keyword": "군",
+				"weight": 106
+			},
+			{
+				"keyword": "연예인",
+				"weight": 81
+			}
+		],
+		"images": [
+			{
+				"id": 5558,
+				"url": "http://mimgnews1.naver.net/image/018/2013/01/03/PS13010300101_59_20130103132601.jpg?type=w540",
+				"weight": 10
+			}
+		],
+		"entities": [
+			{
+				"id": 2,
+				"nickname": "비",
+				"realname": "정지훈",
+				"images": [
+					{
+						"id": 1256,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F008%2F2017%2F01%2F18%2F2017011709463326096_2_99_20170118001604.jpg&type=b400",
+						"like_count": 0,
+						"weight": 100
+					},
+					{
+						"id": 1258,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F109%2F2015%2F12%2F28%2F201512281123772222_56809d622f276_99_20151228112507.jpg&type=b400",
+						"like_count": 0,
+						"weight": 80
+					},
+					{
+						"id": 1257,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles1.naver.net%2Fdata28%2F2007%2F9%2F17%2F290%2Faaaaa_dvd0428.jpg&type=b400",
+						"like_count": 0,
+						"weight": 90
+					}
+				]
+			}
+		],
+		"event_articles": [
+			{
+				"id": 11423,
+				"title": "한미반도체, 올해 주목해야할 후공정 제조장비업체-KDB대우證",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002709254",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5559,
+					"url": "http://mimgnews2.naver.net/image/018/2013/01/03/PS13010300100_59_20130103132601.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002709254"
+				},
+				"comment_count": 45,
+				"rank": 1,
+				"summary": ""
+			},
+			{
+				"id": 11426,
+				"title": "김효정의 이러쿵저러쿵 축복받지 못한 가수 비와 김태희의 사랑",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=103&oid=082&aid=0000371857",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5562,
+					"url": "http://imgnews.naver.net/image/082/2013/01/10/20130109000155_0_59_20130110144523.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=103&oid=082&aid=0000371857"
+				},
+				"comment_count": 0,
+				"rank": 4,
+				"summary": ""
+			},
+			{
+				"id": 11425,
+				"title": "비 김태희 데이트장소 알고보니 집 ‘서로 자택 오갔다’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=076&aid=0002295340",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5561,
+					"url": "http://mimgnews1.naver.net/image/076/2013/01/07/2013010801000387500029011_59_20130107163146.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=076&aid=0002295340"
+				},
+				"comment_count": 13,
+				"rank": 3,
+				"summary": ""
+			},
+			{
+				"id": 11424,
+				"title": "비, 월드 스타는 옛말…지금은 사고뭉치 스타",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=396&aid=0000054146",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5560,
+					"url": "http://mimgnews2.naver.net/image/396/2013/01/03/20130103021885_0_59_20130103151600.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=396&aid=0000054146"
+				},
+				"comment_count": 19,
+				"rank": 2,
+				"summary": ""
+			}
+		],
+		"event_summaries3_lines": []
+	},
+	{
+		"id": 13205,
+		"title": "비욘드 스테이지 보아, 로봇이 인간성을 얻는다면",
+		"type": "entertain",
+		"date": "2013-01-28 00:00:00",
+		"issue_data": {
+			"article_count": 27,
+			"comment_count": 5747,
+			"issue_score": 1743,
+			"issue_rank": 4,
+			"top_percentile": 0.661157
+		},
+		"hit": 0,
+		"status": "SHOW",
+		"created_time": "2017-05-21 05:00:11",
+		"updated_time": "2017-05-21 05:00:11",
+		"emotions": [
+			{
+				"emotion": "분명",
+				"weight": 2
+			},
+			{
+				"emotion": "궁금",
+				"weight": 2
+			},
+			{
+				"emotion": "심각",
+				"weight": 2
+			},
+			{
+				"emotion": "대단",
+				"weight": 3
+			},
+			{
+				"emotion": "충분",
+				"weight": 2
+			}
+		],
+		"keywords": [
+			{
+				"keyword": "정지훈",
+				"weight": 32
+			},
+			{
+				"keyword": "대해",
+				"weight": 33
+			},
+			{
+				"keyword": "첫",
+				"weight": 39
+			},
+			{
+				"keyword": "아이돌",
+				"weight": 33
+			},
+			{
+				"keyword": "정규",
+				"weight": 32
+			},
+			{
+				"keyword": "앨범",
+				"weight": 35
+			},
+			{
+				"keyword": "김태희와",
+				"weight": 35
+			},
+			{
+				"keyword": "중인",
+				"weight": 37
+			},
+			{
+				"keyword": "복무",
+				"weight": 34
+			},
+			{
+				"keyword": "공식",
+				"weight": 34
+			},
+			{
+				"keyword": "것은",
+				"weight": 34
+			},
+			{
+				"keyword": "것이",
+				"weight": 32
+			},
+			{
+				"keyword": "상병이",
+				"weight": 36
+			},
+			{
+				"keyword": "서울",
+				"weight": 35
+			},
+			{
+				"keyword": "음악",
+				"weight": 32
+			},
+			{
+				"keyword": "비가",
+				"weight": 38
+			},
+			{
+				"keyword": "군",
+				"weight": 36
+			},
+			{
+				"keyword": "것으로",
+				"weight": 39
+			},
+			{
+				"keyword": "통해",
+				"weight": 36
+			},
+			{
+				"keyword": "금지",
+				"weight": 34
+			},
+			{
+				"keyword": "비",
+				"weight": 60
+			},
+			{
+				"keyword": "기자",
+				"weight": 40
+			},
+			{
+				"keyword": "레전드",
+				"weight": 34
+			},
+			{
+				"keyword": "가수",
+				"weight": 51
+			},
+			{
+				"keyword": "배우",
+				"weight": 39
+			},
+			{
+				"keyword": "국방부",
+				"weight": 34
+			},
+			{
+				"keyword": "한국",
+				"weight": 32
+			},
+			{
+				"keyword": "지난",
+				"weight": 38
+			},
+			{
+				"keyword": "새",
+				"weight": 36
+			},
+			{
+				"keyword": "아티스트",
+				"weight": 32
+			},
+			{
+				"keyword": "정",
+				"weight": 34
+			},
+			{
+				"keyword": "서울=연합뉴스",
+				"weight": 34
+			}
+		],
+		"images": [
+			{
+				"id": 5563,
+				"url": "http://mimgnews1.naver.net/image/009/2013/01/28/20130128_1359301868..jpg_59_20130128080403.jpg?type=w540",
+				"weight": 10
+			}
+		],
+		"entities": [
+			{
+				"id": 2,
+				"nickname": "비",
+				"realname": "정지훈",
+				"images": [
+					{
+						"id": 1256,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F008%2F2017%2F01%2F18%2F2017011709463326096_2_99_20170118001604.jpg&type=b400",
+						"like_count": 0,
+						"weight": 100
+					},
+					{
+						"id": 1258,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F109%2F2015%2F12%2F28%2F201512281123772222_56809d622f276_99_20151228112507.jpg&type=b400",
+						"like_count": 0,
+						"weight": 80
+					},
+					{
+						"id": 1257,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles1.naver.net%2Fdata28%2F2007%2F9%2F17%2F290%2Faaaaa_dvd0428.jpg&type=b400",
+						"like_count": 0,
+						"weight": 90
+					}
+				]
+			}
+		],
+		"event_articles": [
+			{
+				"id": 11449,
+				"title": "비 피하는 브라우니",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006054744",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5582,
+					"url": "http://imgnews.naver.net/image/001/2013/01/23/PYH2013012304180001300_P2_59_20130123133609.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006054744"
+				},
+				"comment_count": 0,
+				"rank": 24,
+				"summary": ""
+			},
+			{
+				"id": 11453,
+				"title": "<새음반> 레이첼 야마가타 헤비웨이트",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=103&oid=001&aid=0006070746",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5586,
+					"url": "http://imgnews.naver.net/image/001/2013/01/31/AKR20130131193100005_01_i_59_20130131172334.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=103&oid=001&aid=0006070746"
+				},
+				"comment_count": 0,
+				"rank": 27,
+				"summary": ""
+			},
+			{
+				"id": 11429,
+				"title": "비 측 특혜 없었다..복장위반은 조치 따를 것",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006019563",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5565,
+					"url": "http://mimgnews2.naver.net/image/001/2013/01/02/PYH2012090101490001300_P2_59_20130102183302.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006019563"
+				},
+				"comment_count": 5538,
+				"rank": 1,
+				"summary": ""
+			},
+			{
+				"id": 11440,
+				"title": "비 아이돌 기획사 출신 빅스, 경쟁력 갖춘 이유?",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=396&aid=0000057939",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5575,
+					"url": "http://mimgnews2.naver.net/image/396/2013/01/18/20130118022346_0_59_20130118173937.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=396&aid=0000057939"
+				},
+				"comment_count": 16,
+				"rank": 6,
+				"summary": ""
+			},
+			{
+				"id": 11433,
+				"title": "Mnet 레전드 100-아티스트 발표 싸이, 비 포함…왜?",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000181309",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5568,
+					"url": "http://mimgnews1.naver.net/image/311/2013/01/10/1357792850131_59_20130110134509.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000181309"
+				},
+				"comment_count": 2,
+				"rank": 12,
+				"summary": ""
+			},
+			{
+				"id": 11441,
+				"title": "TD포토 김태희 남자 비 절도있는 거수경례",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006048202",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5576,
+					"url": "http://mimgnews1.naver.net/image/001/2013/01/19/PYH2013011901110001300_P2_59_20130119152904.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006048202"
+				},
+				"comment_count": 0,
+				"rank": 19,
+				"summary": ""
+			},
+			{
+				"id": 11427,
+				"title": "배우 김태희- 가수 비 교제중",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006018906",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5564,
+					"url": "http://mimgnews2.naver.net/image/001/2013/01/02/PYH2013010206050001300_P2_59_20130102142715.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006018906"
+				},
+				"comment_count": 1,
+				"rank": 14,
+				"summary": ""
+			},
+			{
+				"id": 11443,
+				"title": "징계받고 공식행사 나선 가수 비 ‘후폭풍’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=112&aid=0002385470",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 6,
+				"rank": 9,
+				"summary": ""
+			},
+			{
+				"id": 11452,
+				"title": "비욘드 스테이지 보아, 로봇이 인간성을 얻는다면",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=009&aid=0002882781",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5585,
+					"url": "http://mimgnews2.naver.net/image/009/2013/01/28/20130128_1359301856..jpg_59_20130128080403.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=009&aid=0002882781"
+				},
+				"comment_count": 0,
+				"rank": 26,
+				"summary": ""
+			},
+			{
+				"id": 11438,
+				"title": "스피드 태운-블락비 지코 듀엣곡 아쉽게 무산",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=396&aid=0000057028",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5573,
+					"url": "http://mimgnews1.naver.net/image/396/2013/01/15/20130115022002_0_59_20130115152414.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=396&aid=0000057028"
+				},
+				"comment_count": 12,
+				"rank": 7,
+				"summary": ""
+			},
+			{
+				"id": 11448,
+				"title": "전국 흐리고 곳곳에 눈·비...포근한 날씨 이어져",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=103&oid=422&aid=0000003378",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 0,
+				"rank": 23,
+				"summary": ""
+			},
+			{
+				"id": 11432,
+				"title": "‘희비’ 때문에 도마 오른 연예병사들, 어떻게 생활하기에…",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=020&aid=0002396442",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5567,
+					"url": "http://mimgnews1.naver.net/image/020/2013/01/04/52042641.1_59_20130105055105.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=020&aid=0002396442"
+				},
+				"comment_count": 69,
+				"rank": 2,
+				"summary": ""
+			},
+			{
+				"id": 11435,
+				"title": "연일 뜨거운 소녀시대, 뮤직비디오 의상까지 ‘hot’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=009&aid=0002874984",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5570,
+					"url": "http://imgnews.naver.net/image/009/2013/01/14/20130114_1358148486..jpg_59_20130114163208.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=009&aid=0002874984"
+				},
+				"comment_count": 20,
+				"rank": 4,
+				"summary": ""
+			},
+			{
+				"id": 11439,
+				"title": "데이비드 보위와 본 조비 록스타들 봄바람 타고 온다",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=028&aid=0002172444",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5574,
+					"url": "http://mimgnews2.naver.net/image/028/2013/01/15/135824836870_20130116_59_20130115202521.JPG?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=028&aid=0002172444"
+				},
+				"comment_count": 0,
+				"rank": 18,
+				"summary": ""
+			},
+			{
+				"id": 11437,
+				"title": "스피드 태운 “친동생 블락비 지코 선의의 라이벌”",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=086&aid=0002141091",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5572,
+					"url": "http://mimgnews1.naver.net/image/086/2013/01/15/thumb_7kdsj201301151059518784_59_20130115151336.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=086&aid=0002141091"
+				},
+				"comment_count": 2,
+				"rank": 13,
+				"summary": ""
+			},
+			{
+				"id": 11445,
+				"title": "겨울비",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006054497",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5579,
+					"url": "http://imgnews.naver.net/image/001/2013/01/23/PYH2013012302680001300_P2_59_20130123112429.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006054497"
+				},
+				"comment_count": 0,
+				"rank": 20,
+				"summary": ""
+			},
+			{
+				"id": 11446,
+				"title": "겨울비 조우",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006055155",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5580,
+					"url": "http://imgnews.naver.net/image/001/2013/01/23/PYH2013012307270001300_P2_59_20130123153930.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006055155"
+				},
+				"comment_count": 0,
+				"rank": 21,
+				"summary": ""
+			},
+			{
+				"id": 11428,
+				"title": "군, 가수 비 부당 외출 의혹 조사 착수",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=052&aid=0000438854",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 0,
+				"rank": 16,
+				"summary": ""
+			},
+			{
+				"id": 11450,
+				"title": "비오는 날 사무실 풍경",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006055379",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5583,
+					"url": "http://imgnews.naver.net/image/001/2013/01/23/PYH2013012308910001300_P2_59_20130123162622.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006055379"
+				},
+				"comment_count": 0,
+				"rank": 25,
+				"summary": ""
+			},
+			{
+				"id": 11436,
+				"title": "하이힐 벗은 글램, “소시와 비교 악플 많았지만…”인터뷰",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=117&aid=0002300619",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5571,
+					"url": "http://mimgnews1.naver.net/image/117/2013/01/15/201301151732331138_1_59_20130117184701.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=117&aid=0002300619"
+				},
+				"comment_count": 49,
+				"rank": 3,
+				"summary": ""
+			},
+			{
+				"id": 11434,
+				"title": "동해해경청장, 전력 국가위기관리상황 대비 울진원전 방문",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=002&aid=0001989515",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5569,
+					"url": "http://imgnews.naver.net/image/002/2013/01/14/30130114083455_59_20130114100102.JPG?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=002&aid=0001989515"
+				},
+				"comment_count": 0,
+				"rank": 17,
+				"summary": ""
+			},
+			{
+				"id": 11442,
+				"title": "가수 비가 충분히 반성했다는데… “충분해?”",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=143&aid=0002099408",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5577,
+					"url": "http://mimgnews2.naver.net/image/143/2013/01/19/130119m6-9_59_20130119152003.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=143&aid=0002099408"
+				},
+				"comment_count": 6,
+				"rank": 8,
+				"summary": ""
+			},
+			{
+				"id": 11430,
+				"title": "국방부, 가수 비 부당외출·외박 특혜 여부 조사",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=214&aid=0000226303",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 4,
+				"rank": 11,
+				"summary": ""
+			},
+			{
+				"id": 11444,
+				"title": "오늘 날씨 전국 눈 또는 비",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=105&oid=020&aid=0002401410",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5578,
+					"url": "http://imgnews.naver.net/image/020/2013/01/22/52477161.2_59_20130122101617.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=105&oid=020&aid=0002401410"
+				},
+				"comment_count": 1,
+				"rank": 15,
+				"summary": ""
+			},
+			{
+				"id": 11447,
+				"title": "할머니 비 맞으면 안돼요",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006054756",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5581,
+					"url": "http://imgnews.naver.net/image/001/2013/01/23/PYH2013012304020001300_P2_59_20130123133912.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=001&aid=0006054756"
+				},
+				"comment_count": 0,
+				"rank": 22,
+				"summary": ""
+			},
+			{
+				"id": 11451,
+				"title": "미스터미스터 배우 비주얼? 보컬그룹이에요",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002474507",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5584,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/26/201301261727774856_510397ed4a19e_59_20130126174702.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002474507"
+				},
+				"comment_count": 5,
+				"rank": 10,
+				"summary": ""
+			},
+			{
+				"id": 11431,
+				"title": "열애설 가수 비, 복무규율 위반..軍, 징계위 회부종합2보",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006021014",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5566,
+					"url": "http://mimgnews2.naver.net/image/001/2013/01/03/PYH2012061602200001300_P2_59_20130103152328.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006021014"
+				},
+				"comment_count": 16,
+				"rank": 5,
+				"summary": ""
+			}
+		],
+		"event_summaries3_lines": []
+	},
+	{
+		"id": 13206,
+		"title": "배두나 ‘클라우드 아틀라스’ 주연급 출연 … 비·이병헌도 활약 돋보여",
+		"type": "news",
+		"date": "2013-01-27 00:00:00",
+		"issue_data": {
+			"article_count": 46,
+			"comment_count": 14884,
+			"issue_score": 4497,
+			"issue_rank": 1,
+			"top_percentile": 0.16528925
+		},
+		"hit": 0,
+		"status": "SHOW",
+		"created_time": "2017-05-21 05:00:41",
+		"updated_time": "2017-05-21 05:00:41",
+		"emotions": [
+			{
+				"emotion": "당연",
+				"weight": 3
+			},
+			{
+				"emotion": "확실",
+				"weight": 2
+			},
+			{
+				"emotion": "중요",
+				"weight": 8
+			},
+			{
+				"emotion": "잔인",
+				"weight": 2
+			},
+			{
+				"emotion": "대단",
+				"weight": 2
+			}
+		],
+		"keywords": [
+			{
+				"keyword": "김태희와",
+				"weight": 25
+			},
+			{
+				"keyword": "가수",
+				"weight": 25
+			},
+			{
+				"keyword": "비",
+				"weight": 42
+			},
+			{
+				"keyword": "3월",
+				"weight": 23
+			},
+			{
+				"keyword": "무단",
+				"weight": 21
+			},
+			{
+				"keyword": "영화",
+				"weight": 23
+			},
+			{
+				"keyword": "2011년",
+				"weight": 24
+			},
+			{
+				"keyword": "열애설에",
+				"weight": 23
+			},
+			{
+				"keyword": "통해",
+				"weight": 21
+			},
+			{
+				"keyword": "대해",
+				"weight": 20
+			},
+			{
+				"keyword": "재배포",
+				"weight": 25
+			},
+			{
+				"keyword": "이후",
+				"weight": 21
+			},
+			{
+				"keyword": "데이트를",
+				"weight": 22
+			},
+			{
+				"keyword": "배우",
+				"weight": 23
+			},
+			{
+				"keyword": "기자",
+				"weight": 27
+			},
+			{
+				"keyword": "김태희",
+				"weight": 29
+			},
+			{
+				"keyword": "복무",
+				"weight": 23
+			},
+			{
+				"keyword": "전재",
+				"weight": 21
+			},
+			{
+				"keyword": "열애",
+				"weight": 25
+			},
+			{
+				"keyword": "김태희는",
+				"weight": 22
+			},
+			{
+				"keyword": "비의",
+				"weight": 32
+			},
+			{
+				"keyword": "워쇼스키",
+				"weight": 24
+			},
+			{
+				"keyword": "사람의",
+				"weight": 22
+			},
+			{
+				"keyword": "군",
+				"weight": 25
+			},
+			{
+				"keyword": "열애설",
+				"weight": 25
+			},
+			{
+				"keyword": "지난",
+				"weight": 25
+			},
+			{
+				"keyword": "사람은",
+				"weight": 21
+			},
+			{
+				"keyword": "김태희,",
+				"weight": 22
+			},
+			{
+				"keyword": "특혜",
+				"weight": 22
+			},
+			{
+				"keyword": "3개월째",
+				"weight": 22
+			},
+			{
+				"keyword": "비와",
+				"weight": 25
+			},
+			{
+				"keyword": "비가",
+				"weight": 28
+			}
+		],
+		"images": [
+			{
+				"id": 5587,
+				"url": "http://imgnews.naver.net/image/353/2013/01/27/26212251_59_20130127031802.jpg?type=w540",
+				"weight": 10
+			}
+		],
+		"entities": [
+			{
+				"id": 2,
+				"nickname": "비",
+				"realname": "정지훈",
+				"images": [
+					{
+						"id": 1256,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F008%2F2017%2F01%2F18%2F2017011709463326096_2_99_20170118001604.jpg&type=b400",
+						"like_count": 0,
+						"weight": 100
+					},
+					{
+						"id": 1258,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F109%2F2015%2F12%2F28%2F201512281123772222_56809d622f276_99_20151228112507.jpg&type=b400",
+						"like_count": 0,
+						"weight": 80
+					},
+					{
+						"id": 1257,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles1.naver.net%2Fdata28%2F2007%2F9%2F17%2F290%2Faaaaa_dvd0428.jpg&type=b400",
+						"like_count": 0,
+						"weight": 90
+					}
+				]
+			}
+		],
+		"event_articles": [
+			{
+				"id": 11492,
+				"title": "中네티즌, 비 김태희 열애 양분화 “김태희 미워 vs 비 공공의적”",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=112&aid=0002380122",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5626,
+					"url": "http://mimgnews1.naver.net/image/112/2013/01/04/20130103001172_1_59_20130104082133.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=112&aid=0002380122"
+				},
+				"comment_count": 309,
+				"rank": 6,
+				"summary": ""
+			},
+			{
+				"id": 11493,
+				"title": "블락비 전속계약 취소해달라 소속사 상대 가처분 신청",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=421&aid=0000117250",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5627,
+					"url": "http://mimgnews1.naver.net/image/421/2013/01/04/339956_article_59_20130104103020.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=421&aid=0000117250"
+				},
+				"comment_count": 836,
+				"rank": 3,
+				"summary": ""
+			},
+			{
+				"id": 11468,
+				"title": "열애설 김태희-비, 2년전 밀착 스킨십",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=076&aid=0002293872",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5602,
+					"url": "http://mimgnews2.naver.net/image/076/2013/01/01/2013010201000039700000921_59_20130101100015.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=076&aid=0002293872"
+				},
+				"comment_count": 3,
+				"rank": 30,
+				"summary": ""
+			},
+			{
+				"id": 11471,
+				"title": "비와 열애설 김태희, 그동안 또 누구와 핑크빛 소문?…김동완 하정우",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178694",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5605,
+					"url": "http://mimgnews2.naver.net/image/311/2013/01/01/1357008879697_59_20130101115702.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178694"
+				},
+				"comment_count": 41,
+				"rank": 12,
+				"summary": ""
+			},
+			{
+				"id": 11479,
+				"title": "김태희, 비와 열애 부인한뒤 다시 인정…왜?전문 포함",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=382&aid=0000083260",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5613,
+					"url": "http://mimgnews2.naver.net/image/382/2013/01/02/51990038.2_59_20130102013101.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=382&aid=0000083260"
+				},
+				"comment_count": 37,
+				"rank": 15,
+				"summary": ""
+			},
+			{
+				"id": 11491,
+				"title": "가수 비 징계위원회 회부…연예병사 제도 개선",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=143&aid=0002097800",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5625,
+					"url": "http://mimgnews2.naver.net/image/143/2013/01/04/0104-ddd07_59_20130104120702.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=143&aid=0002097800"
+				},
+				"comment_count": 4,
+				"rank": 28,
+				"summary": ""
+			},
+			{
+				"id": 11454,
+				"title": "김태희-비 열애설, 어떤 이슈를 삼켰나",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178702",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5588,
+					"url": "http://mimgnews2.naver.net/image/311/2013/01/01/1357013517230_59_20130101135107.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178702"
+				},
+				"comment_count": 38,
+				"rank": 14,
+				"summary": ""
+			},
+			{
+				"id": 11457,
+				"title": "김태희 측 “비와 열애설? 사귀는 사람없는데..” 부인",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277795",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5591,
+					"url": "http://mimgnews2.naver.net/image/213/2013/01/01/20130101_1357004003_36476800_1_59_20130101140004.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277795"
+				},
+				"comment_count": 1205,
+				"rank": 2,
+				"summary": ""
+			},
+			{
+				"id": 11464,
+				"title": "비·김태희, 새해 첫 열애설…“3개월째 열애 중?”",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=382&aid=0000083238",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5598,
+					"url": "http://mimgnews2.naver.net/image/382/2013/01/01/51980883.6_59_20130101130003.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=382&aid=0000083238"
+				},
+				"comment_count": 21,
+				"rank": 19,
+				"summary": ""
+			},
+			{
+				"id": 11467,
+				"title": "비, 김태희와 열애소식에 외박 특혜 논란 재점화",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277799",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5601,
+					"url": "http://mimgnews1.naver.net/image/213/2013/01/01/20130101_1357007637_70232600_1_59_20130101140002.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277799"
+				},
+				"comment_count": 39,
+				"rank": 13,
+				"summary": ""
+			},
+			{
+				"id": 11482,
+				"title": "김태희 연인 비, 군특혜 논란 외신 주목… BBC 톱장식",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000278295",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5616,
+					"url": "http://mimgnews2.naver.net/image/213/2013/01/03/20130103_1357179373_31701600_1_59_20130103130302.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000278295"
+				},
+				"comment_count": 289,
+				"rank": 7,
+				"summary": ""
+			},
+			{
+				"id": 11475,
+				"title": "비 탈모보행, 김태희와 열애설 이상으로 뜨거운 관심",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277841",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5609,
+					"url": "http://mimgnews1.naver.net/image/213/2013/01/01/20130101_1357007637_70232600_1_59_20130101180005.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277841"
+				},
+				"comment_count": 4,
+				"rank": 27,
+				"summary": ""
+			},
+			{
+				"id": 11481,
+				"title": "‘무릎팍도사’ 라나 워쇼스키 “비? 넋이 나갈정도로 매력적”",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=382&aid=0000083639",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5615,
+					"url": "http://mimgnews1.naver.net/image/382/2013/01/03/52041421.2_59_20130103235302.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=382&aid=0000083639"
+				},
+				"comment_count": 92,
+				"rank": 8,
+				"summary": ""
+			},
+			{
+				"id": 11465,
+				"title": "첩보원 김태희와 닌자 비, 비밀작전 방불케 한 데이트 비법은",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178768",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5599,
+					"url": "http://mimgnews1.naver.net/image/311/2013/01/01/1357020133283_59_20130101163001.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178768"
+				},
+				"comment_count": 10,
+				"rank": 21,
+				"summary": ""
+			},
+			{
+				"id": 11459,
+				"title": "비 소속사, 김태희와의 열애설에 …전혀 몰랐다",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178689",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5593,
+					"url": "http://mimgnews2.naver.net/image/311/2013/01/01/1357003681938_59_20130101105716.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178689"
+				},
+				"comment_count": 5,
+				"rank": 24,
+				"summary": ""
+			},
+			{
+				"id": 11498,
+				"title": "비",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=312&aid=0000015512",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5631,
+					"url": "http://mimgnews1.naver.net/image/312/2013/01/18/163247591_1.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=312&aid=0000015512"
+				},
+				"comment_count": 737,
+				"rank": 4,
+				"summary": ""
+			},
+			{
+				"id": 11474,
+				"title": "김태희-비, 2013년 새해 첫 열애설 주인공..데이트 포착",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=014&aid=0002788483",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5608,
+					"url": "http://mimgnews2.naver.net/image/014/2013/01/01/20130101105124401_59_20130101105201.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=014&aid=0002788483"
+				},
+				"comment_count": 10,
+				"rank": 22,
+				"summary": ""
+			},
+			{
+				"id": 11472,
+				"title": "비·김태희, 3개월째 열애…국내 최고 톱스타 커플 탄생",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277788",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5606,
+					"url": "http://mimgnews2.naver.net/image/213/2013/01/01/20130101_1356997855_59437100_1_59_20130101140018.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277788"
+				},
+				"comment_count": 10214,
+				"rank": 1,
+				"summary": ""
+			},
+			{
+				"id": 11488,
+				"title": "블락비 소속사 상대 가처분 신청, 수입 정산 없고 홍보비 면목 돈 받고 잠적",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=047&aid=0002016123",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5622,
+					"url": "http://mimgnews2.naver.net/image/047/2013/01/04/IE001502147_STD_59_20130104123518.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=047&aid=0002016123"
+				},
+				"comment_count": 52,
+				"rank": 11,
+				"summary": ""
+			},
+			{
+				"id": 11484,
+				"title": "가수 비 징계위원회 회부…연예병사 제도 개선",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=022&aid=0002478924",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5618,
+					"url": "http://mimgnews2.naver.net/image/022/2013/01/04/20130104020254_0_59_20130104093403.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=022&aid=0002478924"
+				},
+				"comment_count": 5,
+				"rank": 25,
+				"summary": ""
+			},
+			{
+				"id": 11476,
+				"title": "김태희-비 열애설에 네티즌 반응도 제각각, 이럴 수가...",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277790",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5610,
+					"url": "http://mimgnews1.naver.net/image/213/2013/01/01/20130101_1357001310_17326700_1_59_20130101100302.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277790"
+				},
+				"comment_count": 34,
+				"rank": 16,
+				"summary": ""
+			},
+			{
+				"id": 11485,
+				"title": "김태희의 남자 비 사건 외국에 퍼지더니",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=277&aid=0002909077",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5619,
+					"url": "http://mimgnews2.naver.net/image/277/2013/01/04/2013010309054341216_1_59_20130104134601.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=277&aid=0002909077"
+				},
+				"comment_count": 6,
+				"rank": 23,
+				"summary": ""
+			},
+			{
+				"id": 11494,
+				"title": "한달만에 눈·비 없는 금요일…주말 나들이 ‘OK’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=003&aid=0004912939",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5628,
+					"url": "http://mimgnews1.naver.net/image/003/2013/01/05/NISI20120830_0006944536_web_59_20130105154505.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=003&aid=0004912939"
+				},
+				"comment_count": 67,
+				"rank": 10,
+				"summary": ""
+			},
+			{
+				"id": 11455,
+				"title": "김태희, 방송 중 사실상 비 언급? 호감형 외모에 재치…",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178699",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5589,
+					"url": "http://mimgnews2.naver.net/image/311/2013/01/01/1357011281350_59_20130101125702.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178699"
+				},
+				"comment_count": 3,
+				"rank": 29,
+				"summary": ""
+			},
+			{
+				"id": 11470,
+				"title": "국방홍보원측 비·김태희 열애, 전혀 몰랐다",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277797",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5604,
+					"url": "http://mimgnews1.naver.net/image/213/2013/01/01/20130101_1357006283_68082500_1_59_20130101140005.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=213&aid=0000277797"
+				},
+				"comment_count": 26,
+				"rank": 18,
+				"summary": ""
+			},
+			{
+				"id": 11456,
+				"title": "비·김태희, 열애설 불구 침묵 묵묵부답 능사아니다",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=404&aid=0000020873",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5590,
+					"url": "http://mimgnews1.naver.net/image/404/2013/01/01/G130101_005_59_20130101144101.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=404&aid=0000020873"
+				},
+				"comment_count": 4,
+				"rank": 26,
+				"summary": ""
+			},
+			{
+				"id": 11460,
+				"title": "김태희 비, 돈은 비가 훨씬 많이 번다? 연예인 연소득 공개 눈길",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178691",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5594,
+					"url": "http://mimgnews1.naver.net/image/311/2013/01/01/1357005997454_59_20130101112408.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=311&aid=0000178691"
+				},
+				"comment_count": 15,
+				"rank": 20,
+				"summary": ""
+			},
+			{
+				"id": 11489,
+				"title": "블락비, 소속사 전속계약 효력 가처분신청 ‘정산의무 불이행’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002710119",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5623,
+					"url": "http://mimgnews2.naver.net/image/018/2013/01/04/PS13010400070_59_20130104123003.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=018&aid=0002710119"
+				},
+				"comment_count": 71,
+				"rank": 9,
+				"summary": ""
+			},
+			{
+				"id": 11495,
+				"title": "비워야 비로서 보이는 것들, 깨달음 외",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006029218",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5629,
+					"url": "http://mimgnews2.naver.net/image/001/2013/01/09/AKR20130108211600005_04_i_59_20130109114227.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=001&aid=0006029218"
+				},
+				"comment_count": 669,
+				"rank": 5,
+				"summary": ""
+			},
+			{
+				"id": 11477,
+				"title": "김태희 교제 인정 “비와 사귄지 1개월”",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=081&aid=0002314858",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5611,
+					"url": "http://mimgnews1.naver.net/image/081/2013/01/02/BOO_20130102102203_V_59_20130102105744.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=081&aid=0002314858"
+				},
+				"comment_count": 27,
+				"rank": 17,
+				"summary": ""
+			}
+		],
+		"event_summaries3_lines": []
+	},
+	{
+		"id": 13208,
+		"title": "배두나 ‘클라우드 아틀라스’ 주연급 출연 … 비·이병헌도 활약 돋보여",
+		"type": "news",
+		"date": "2013-01-27 00:00:00",
+		"issue_data": {
+			"article_count": 15,
+			"comment_count": 754,
+			"issue_score": 237,
+			"issue_rank": 67,
+			"top_percentile": 11.07438
+		},
+		"hit": 0,
+		"status": "SHOW",
+		"created_time": "2017-05-21 05:02:43",
+		"updated_time": "2017-05-21 05:02:43",
+		"emotions": [
+			{
+				"emotion": "허술",
+				"weight": 1
+			},
+			{
+				"emotion": "먹먹",
+				"weight": 1
+			},
+			{
+				"emotion": "잔인",
+				"weight": 2
+			},
+			{
+				"emotion": "대단",
+				"weight": 1
+			},
+			{
+				"emotion": "애매",
+				"weight": 1
+			}
+		],
+		"keywords": [
+			{
+				"keyword": "재배포",
+				"weight": 36
+			},
+			{
+				"keyword": "근신",
+				"weight": 40
+			},
+			{
+				"keyword": "정지훈",
+				"weight": 34
+			},
+			{
+				"keyword": "첫",
+				"weight": 38
+			},
+			{
+				"keyword": "보도자료",
+				"weight": 33
+			},
+			{
+				"keyword": "나라사랑",
+				"weight": 35
+			},
+			{
+				"keyword": "19일",
+				"weight": 34
+			},
+			{
+				"keyword": "모습을",
+				"weight": 34
+			},
+			{
+				"keyword": "기자",
+				"weight": 34
+			},
+			{
+				"keyword": "그의",
+				"weight": 35
+			},
+			{
+				"keyword": "비의",
+				"weight": 51
+			},
+			{
+				"keyword": "엔터테인먼트",
+				"weight": 33
+			},
+			{
+				"keyword": "비",
+				"weight": 43
+			},
+			{
+				"keyword": "무단전재",
+				"weight": 35
+			},
+			{
+				"keyword": "징계를",
+				"weight": 35
+			},
+			{
+				"keyword": "외부",
+				"weight": 35
+			},
+			{
+				"keyword": "오후",
+				"weight": 36
+			},
+			{
+				"keyword": "군",
+				"weight": 36
+			},
+			{
+				"keyword": "비가",
+				"weight": 47
+			},
+			{
+				"keyword": "행사에",
+				"weight": 47
+			},
+			{
+				"keyword": "통해",
+				"weight": 40
+			},
+			{
+				"keyword": "금지",
+				"weight": 37
+			},
+			{
+				"keyword": "가수",
+				"weight": 43
+			},
+			{
+				"keyword": "이후",
+				"weight": 43
+			},
+			{
+				"keyword": "걷기",
+				"weight": 36
+			},
+			{
+				"keyword": "육군",
+				"weight": 33
+			},
+			{
+				"keyword": "서울시민과",
+				"weight": 34
+			},
+			{
+				"keyword": "한국",
+				"weight": 34
+			},
+			{
+				"keyword": "개최한",
+				"weight": 33
+			},
+			{
+				"keyword": "처분",
+				"weight": 34
+			},
+			{
+				"keyword": "서울",
+				"weight": 34
+			},
+			{
+				"keyword": "시민",
+				"weight": 43
+			}
+		],
+		"images": [
+			{
+				"id": 5648,
+				"url": "http://imgnews.naver.net/image/353/2013/01/27/26212251_59_20130127031802.jpg?type=w540",
+				"weight": 10
+			}
+		],
+		"entities": [
+			{
+				"id": 2,
+				"nickname": "비",
+				"realname": "정지훈",
+				"images": [
+					{
+						"id": 1256,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F008%2F2017%2F01%2F18%2F2017011709463326096_2_99_20170118001604.jpg&type=b400",
+						"like_count": 0,
+						"weight": 100
+					},
+					{
+						"id": 1258,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F109%2F2015%2F12%2F28%2F201512281123772222_56809d622f276_99_20151228112507.jpg&type=b400",
+						"like_count": 0,
+						"weight": 80
+					},
+					{
+						"id": 1257,
+						"type": "default",
+						"url": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles1.naver.net%2Fdata28%2F2007%2F9%2F17%2F290%2Faaaaa_dvd0428.jpg&type=b400",
+						"like_count": 0,
+						"weight": 90
+					}
+				]
+			}
+		],
+		"event_articles": [
+			{
+				"id": 11527,
+				"title": "비, 근신 이후 걷기 대회로 첫 공식행사 참석",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=111&aid=0000316443",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5658,
+					"url": "http://mimgnews1.naver.net/image/111/2013/01/19/1328685608384_1_182633_59_20130119154204.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=111&aid=0000316443"
+				},
+				"comment_count": 1,
+				"rank": 7,
+				"summary": ""
+			},
+			{
+				"id": 11529,
+				"title": "전국 흐리고 곳곳에 눈·비...포근한 날씨 이어져",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=103&oid=422&aid=0000003378",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 0,
+				"rank": 13,
+				"summary": ""
+			},
+			{
+				"id": 11526,
+				"title": "가수 비, 근신 이후 외부 첫 나들이",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=057&aid=0000208461",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 2,
+				"rank": 6,
+				"summary": ""
+			},
+			{
+				"id": 11517,
+				"title": "비",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=312&aid=0000015512",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5649,
+					"url": "http://mimgnews1.naver.net/image/312/2013/01/18/163247591_1.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=312&aid=0000015512"
+				},
+				"comment_count": 737,
+				"rank": 1,
+				"summary": ""
+			},
+			{
+				"id": 11525,
+				"title": "사진비,이렇게 많은 취재진이!",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471364",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5657,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/19/201301191408773367_50fa2a8823a0c_59_20130119141002.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471364"
+				},
+				"comment_count": 0,
+				"rank": 12,
+				"summary": ""
+			},
+			{
+				"id": 11522,
+				"title": "사진친절한 비,앞에 조심하세요!",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471365",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5654,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/19/201301191409778543_50fa2ae3d27f7_59_20130119141203.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471365"
+				},
+				"comment_count": 2,
+				"rank": 5,
+				"summary": ""
+			},
+			{
+				"id": 11520,
+				"title": "포토엔비 ‘당당한 대한민국 육군의 얼굴’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471352",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5652,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/19/201301191349772230_50fa2631dba9f_59_20130119140611.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471352"
+				},
+				"comment_count": 4,
+				"rank": 3,
+				"summary": ""
+			},
+			{
+				"id": 11530,
+				"title": "배두나 ‘클라우드 아틀라스’ 주연급 출연 … 비·이병헌도 활약 돋보여",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=353&aid=0000012636",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5659,
+					"url": "http://imgnews.naver.net/image/353/2013/01/27/26212251_59_20130127031802.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=353&aid=0000012636"
+				},
+				"comment_count": 0,
+				"rank": 14,
+				"summary": ""
+			},
+			{
+				"id": 11523,
+				"title": "사진비,걷기 준비 완료!",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471366",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5655,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/19/201301191411774387_50fa2b13d7457_59_20130119141212.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471366"
+				},
+				"comment_count": 0,
+				"rank": 10,
+				"summary": ""
+			},
+			{
+				"id": 11531,
+				"title": "전국에 비, 해안지방은 강한 바람 예상",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=014&aid=0002807705",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5660,
+					"url": "http://mimgnews2.naver.net/image/014/2013/02/01/20130201172430598_59_20130201172724.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=014&aid=0002807705"
+				},
+				"comment_count": 0,
+				"rank": 15,
+				"summary": ""
+			},
+			{
+				"id": 11524,
+				"title": "사진비,긴장된 표정",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471363",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5656,
+					"url": "http://mimgnews1.naver.net/image/109/2013/01/19/201301191407773062_50fa2a3fd4c9c_59_20130119140902.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471363"
+				},
+				"comment_count": 0,
+				"rank": 11,
+				"summary": ""
+			},
+			{
+				"id": 11519,
+				"title": "오늘의 날씨 구름 많고 중부 곳곳 가끔 눈·비",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471354",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5651,
+					"url": "http://mimgnews1.naver.net/image/109/2013/01/19/201301191352778574_50fa26ebec46b_59_20130119140619.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471354"
+				},
+				"comment_count": 2,
+				"rank": 4,
+				"summary": ""
+			},
+			{
+				"id": 11528,
+				"title": "징계받고 공식행사 나선 가수 비 ‘후폭풍’",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=112&aid=0002385470",
+				"crawl_target": "네이버 뉴스",
+				"comment_count": 6,
+				"rank": 2,
+				"summary": ""
+			},
+			{
+				"id": 11518,
+				"title": "사진비,살인 미소 여전하죠?",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471360",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5650,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/19/201301191401771421_50fa2907434ee_59_20130119140704.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471360"
+				},
+				"comment_count": 0,
+				"rank": 8,
+				"summary": ""
+			},
+			{
+				"id": 11521,
+				"title": "사진비,걷기대회에 참석합니다",
+				"source_url": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471362",
+				"crawl_target": "네이버 뉴스",
+				"image": {
+					"id": 5653,
+					"url": "http://mimgnews2.naver.net/image/109/2013/01/19/201301191407775703_50fa2a126a47b_59_20130119140801.jpg?type=w540",
+					"source_link": "http://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=106&oid=109&aid=0002471362"
+				},
+				"comment_count": 0,
+				"rank": 9,
+				"summary": ""
+			}
+		],
+		"event_summaries3_lines": []
+	}
+]
