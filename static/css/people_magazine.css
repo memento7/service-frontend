@@ -443,6 +443,14 @@ section#inmac .vis-network{
 	outline: none;
 }
 
+section#inmac-relation{ display: none; }
+
+section#inmac-relation .close{
+	margin: -2px 10px 0;
+	color: #616d73;
+	font-size: 18px;
+}
+
 section#inmac-relation .between{
 	width: 365px;
 	margin: 20px auto;
@@ -459,7 +467,6 @@ section#inmac-relation .between .relation{
 }
 section#inmac-relation .between .relation .arrow{ margin: 2px 0 }
 
-section#inmac-relation .events{ }
 section#inmac-relation .events .event-tile{
 	border-top: 1px solid #ddd;
 	padding-left: 16px;

@@ -1,7 +1,5 @@
 var quotations = (function(entityId) {
-	/* Resize Quotations
-	*/
-
+	
 	var RESIZER_DEFAULT_DEST_HEIGHT = 75;
 	var RESIZER_DEFAULT_MINIMUM_TOP = 0;
 

@@ -80,8 +80,9 @@ section#trendy-people ul a li{
 	font-size: 12px;
 	font-weight: 100;
 }
-section#trendy-people ul a .person-tile h4{ color: white }
-section#trendy-people ul a .person-tile .role{ color: #ddd }
+section#trendy-people ul .person-tile .image{ border: none; }
+section#trendy-people ul .person-tile h4{ color: white }
+section#trendy-people ul .person-tile .role{ color: #fbdfdc }
 
 
 
