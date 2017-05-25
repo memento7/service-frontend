@@ -93,15 +93,12 @@ var inmac = (function(entityId) {
 				})
 			).show();
 
-			var eventsHTML = "";
-			for (var i in result) {
-				var event = result[i];						
-				eventsHTML += eventTileTemplate({
-					'event': event,
+			$('#inmac-relation .events').html(
+				eventTileTemplate({
+					'events': result,
 					'baseUrls': baseUrls
-				});
-			}
-			$('#inmac-relation .events').html(eventsHTML);
+				})
+			);
 
 		});
 	}

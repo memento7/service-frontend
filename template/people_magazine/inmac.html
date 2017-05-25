@@ -51,7 +51,7 @@
 							<span class="sub">({{ person1.realname }})</span>
 							{{/ if_neq }}
 						</h4>
-						<div class="role">??</div>
+						<div class="role">{{ roles person1.roles }}</div>
 					</div>
 				</div>
 
@@ -76,7 +76,7 @@
 							<span class="sub">({{ person2.realname }})</span>
 							{{/ if_neq }}
 						</h4>
-						<div class="role">??</div>
+						<div class="role">{{ roles person2.role_json }}</div>
 					</div>
 				</div>
 			</div>

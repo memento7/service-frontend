@@ -32,7 +32,7 @@
 	<div class="event-tile {{ 'full-image' if full_image or '' }} clearfix">
 		<div class="content {{ 'fl' if event.repr_image() }}">
 			<h4>
-				<a href="{{ event.magazine_url() }}">{{ event.title }}</a>
+				<a href="{{ event.magazine_url() }}">{{ event.title | truncate(35) }}</a>
 			</h4>
 			
 			<div class="labels emotion-bubbles">
@@ -62,7 +62,7 @@
 			<div>
 				<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
 			</div>
-			<h4>{{ event.title }}</h4>
+			<h4>{{ event.title | truncate(30) }}</h4>
 		</a>
 		<div class="labels">
 			{{ issue_label(event.issue_data) }}

@@ -5,37 +5,22 @@
 {% block head %}
 	{{ super() }}
 
-	<style type="text/css">
-		header{
-			background-color: white;
-		}
-
-		section#search{
-			position: relative;
-			padding: 5px 0 12px;
-			z-index: 3;
-			background-color: white;
-		}
-
-		section#search form{ margin: 0; padding: 0; }
-	</style>	
+	<link rel="stylesheet" href="{{ geturl('assets', '/css/search.css') }}">
+	<script type="text/javascript" src="{{ geturl('assets', '/js/search.js') }}"></script>
 {% endblock %}
-
 
 {% block foot %}
 	{{ super() }}
 
 	<script type="text/javascript">
-		function searchSubmit(form) {
-			if (form.q.value)
-				location.hash = "#q=" + form.q.value;
-			return false;
-		}
+		var params = parseHash(location.hash);
+		
+		searchEvent(params['q']);
+		searchPeople(params['q']);
+		document.forms['search'].q.value = params['q'];
 	</script>
-	
+
 {% endblock %}
-
-
 
 {% block content %}
 	<section id="search">
@@ -54,8 +39,12 @@
 			<i class="icon icon-people"></i>
 			<span>인물 검색</span>
 		</h3>
-		<div class="content">
-			
+		<div class="result clearfix"></div>
+		<div class="more-btn">
+			<span class="content">
+				<span>인물 더보기</span>
+				<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+			</span>
 		</div>
 	</section>
 
@@ -64,9 +53,25 @@
 			<i class="icon icon-news"></i>
 			<span>사건 검색</span>
 		</h3>
-		<div class="content">
-			
-		</div>
+		<div class="result"></div>
 	</section>
+
+	{% raw %}
+	<script type="x-tmpl-mustache" id="template-person-tile">
+		<div class="person-tile mini-person-tile">
+			<div class="image" style="{{ image_url person.images.[0] true }}"></div>
+
+			<h4>
+				<span>{{ person.nickname }}</span>
+				{{# if_neq person.realname person.nickname }}
+				<span class="sub">({{ person.realname }})</span>
+				{{/ if_neq }}
+			</h4>
+			<div class="role">
+				{{ roles person.role_json }}
+			</div>			
+		</div>
+	</script>
+	{% endraw %}
 {% endblock %}
 

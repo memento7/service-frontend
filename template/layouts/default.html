@@ -70,48 +70,58 @@
 
 		{% raw %}
 		<script type="x-tmpl-mustache" id="template-event-tile">
+			{{#each events }}
 			<div class="event-tile full-image clearfix">
-				{{# if event.images.[0] }}
+				{{# if this.images.[0] }}
 				<div class="fl content">
 				{{ else }}
 				<div class="content">
 				{{/ if }}
 					<h4>
-						<a href="{{ baseUrls.event }}{{ event.id }}">{{ event.title }}</a>
+						<a href="{{ baseUrls.event }}{{ this.id }}">{{ truncate this.title 35 }}</a>
 					</h4>
 					<div class="labels emotion-bubbles">
-						<span class="issue-label {{ rank event.issue_data.top_percentile }}-rank"></span>
-						<span class="category-label category-{{ event.type }}"></span>
+						<span class="issue-label {{ rank this.issue_data.top_percentile }}-rank"></span>
+						<span class="category-label category-{{ this.type }}"></span>
 						
-						{{# if event.emotions.[0] }}
+						{{# if this.emotions.[0] }}
 						<span class="emotion">
 							<i style="
-								width: {{ emotion_size event.emotions.[0].weight }}px;
-								height: {{ emotion_size event.emotions.[0].weight }}px;
+								width: {{ emotion_size this.emotions.[0].weight }}px;
+								height: {{ emotion_size this.emotions.[0].weight }}px;
 								background-color: red
 							"></i>
-							<span>{{ event.emotions.[0].emotion }}</span>
+							<span>{{ this.emotions.[0].emotion }}</span>
 						</span>
 						{{/ if }}
 
-						{{# if event.emotions.[1] }}
+						{{# if this.emotions.[1] }}
 						<span class="emotion">
 							<i style="
-								width: {{ emotion_size event.emotions.[1].weight }}px;
-								height: {{ emotion_size event.emotions.[1].weight }}px;
+								width: {{ emotion_size this.emotions.[1].weight }}px;
+								height: {{ emotion_size this.emotions.[1].weight }}px;
 								background-color: red
 							"></i>
-							<span>{{ event.emotions.[1].emotion }}</span>
+							<span>{{ this.emotions.[1].emotion }}</span>
 						</span>
 						{{/ if }}
 					</div>
 				</div>
-				{{# if event.images.[0] }}
+				{{# if this.images.[0] }}
 				<div class="fr">
-					<div class="image" style="{{ image_url event.images.[0] true }}"></div>
+					<div class="image" style="{{ image_url this.images.[0] true }}"></div>
 				</div>
 				{{/ if }}
 			</div>
+			{{/ each }}
+			{{# if showMoreBtn }}
+			<div class="more-btn">
+				<span class="content">
+					<span>사건 더보기</span>
+					<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+				</span>
+			</div>
+			{{/ if }}
 		</script>
 		{% endraw %}
 		

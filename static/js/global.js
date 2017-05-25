@@ -5,7 +5,8 @@ var memento = (function () {
 
 	//var AUTH_BASE = 'https://auth.memento.live';
 	var AUTH_BASE = 'https://base.memento.live/auth';
-	var API_BASE = 'https://uapi.memento.live';
+	// var API_BASE = 'https://uapi.memento.live';
+	var API_BASE = 'https://server1.memento.live:8443/uapi';
 
 	var loginedUser = {
 		'loggined': false,
@@ -230,10 +231,40 @@ var sidebar = (function () {
 			return rv;
 	});
 
+	var ROLE_DICT = {
+		'ACTOR': '배우',
+		'SINGER': '가수',
+		'POLITICIAN': '정치인',
+		'SPORTS': '스포츠선수',
+		'MODEL': '모델',
+		'COMEDIAN': '코미디언',
+		'ENTREPRENEUR': '기업인',
+		'PUBLIC_FIGURE': '공인'
+	};
+	Handlebars.registerHelper('roles', function(value, options) {
+		var rv = [];
+		for (var key in value)
+			if (ROLE_DICT[key])
+				rv.push(ROLE_DICT[key]);
+			
+		return rv.join(',');
+	});
 
 	Handlebars.registerHelper('emotion_size', function(value, options) {
 		return value / 5 * 13;
 	});
+
+	Handlebars.registerHelper ('truncate', function (str, len) {
+	if (str.length > len && str.length > 0) {
+		var new_str = str + " ";
+		new_str = str.substr (0, len);
+		new_str = str.substr (0, new_str.lastIndexOf(" "));
+		new_str = (new_str.length > 0) ? new_str : str.substr (0, len);
+
+		return new Handlebars.SafeString ( new_str +'...' ); 
+	}
+	return str;
+});
 
 })();
 
