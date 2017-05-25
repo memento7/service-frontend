@@ -2,20 +2,6 @@
 {% block head %}
 	{{ super() }}
 	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
-	<script type="text/javascript">
-		function openWritePopup() {
-			$("#quotation-writing-popup").fadeIn();
-
-		}
-		function uploadQuotation(form) {
-			if (!form.quotation.value) {
-				alert("내용을 입력 해 주세요");
-				return false;
-			}
-			quotations.write(form.quotation.value);
-			$("#quotation-writing-popup").fadeOut();
-		}
-	</script>
 {% endblock %}
 
 {% block foot %}
@@ -37,7 +23,7 @@
 	<div id="quotation-writing-popup" class="popup">
 		<div class="background"></div>
 		<div class="content">
-			<form onsubmit="uploadQuotation(this); return false">
+			<form onsubmit="quotations.upload(this); return false">
 				<h4>한마디로 작성하기</h4>
 				<div class="editor">
 					<div class="background"></div>
@@ -54,7 +40,7 @@
 
 	<section id="quotations-header" class="board-tile-header clearfix">
 		<div class="fl">
-			<button class="write" onclick="openWritePopup()">한마디로 작성하기</button>
+			<button class="write" onclick="quotations.openWritePopup()">한마디로 작성하기</button>
 		</div>
 		<div class="fr">
 			<span class="filter-btn type0 active" onclick="quotations.reload(0)">

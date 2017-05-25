@@ -24,6 +24,38 @@ var summeries3lines = (function(eventId) {
 
 	return {
 		'render': render,
+
+		'openWritePopup': function() {
+			if (!memento.getLoginedUser().loggined) {
+				sidebar.open();
+				return false;
+			}
+			$("#three-lines-writing-popup").fadeIn();
+			$("#three-lines-writing-popup input[type=text]").val('');
+		},
+
+		'upload': function(form) {
+			if (!form.line1.value || !form.line2.value || !form.line3.value) {
+				alert("내용을 입력 해 주세요");
+				return false;
+			}
+			memento.uapi.post('/events/' + eventId +'/summaries_line',
+				[
+					form.line1.value,
+					form.line2.value,
+					form.line3.value
+				],
+				function (result) {
+					reload(1);
+				},
+				function (result) {
+					alert('오류가 발생했습니다');
+				}
+			);
+
+			$("#three-lines-writing-popup").fadeOut();
+		},
+
 		'like': function(summaries3LineId) {
 			memento.uapi.post('/events/' + eventId +'/summaries_3line/' + summaries3LineId + '/like',
 				null,
@@ -57,17 +89,6 @@ var summeries3lines = (function(eventId) {
 				$('.filter-btn.type1').addClass('active');
 				render('createdTime,desc')
 			}
-		},
-		'write': function (summaries3Line) {
-			memento.uapi.post('/events/' + eventId +'/summaries_line',
-				summaries3Line,
-				function (result) {
-					reload(1);
-				},
-				function (result) {
-					alert('오류가 발생했습니다');
-				}
-			);
 		}
 	}
 

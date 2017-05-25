@@ -64,6 +64,36 @@ var quotations = (function(entityId) {
 		'resize': resize,
 		'render': render,
 		'reload': reload,
+
+		'openWritePopup': function() {
+			if (!memento.getLoginedUser().loggined) {
+				sidebar.open();
+				return false;
+			}
+			$("#quotation-writing-popup").fadeIn();
+		},
+
+		'upload': function(form) {
+			if (!form.quotation.value) {
+				alert("내용을 입력 해 주세요");
+				return false;
+			}
+			memento.uapi.post('/entities/' + entityId +'/quotations',
+				{
+					"quotation": form.quotation.value,
+					"reference": form.reference.value
+				},
+				function (result) {
+					reload(1);
+				},
+				function (result) {
+					alert('오류가 발생했습니다');
+				}
+			);
+
+			$("#quotation-writing-popup").fadeOut();
+		},
+
 		'like': function(quotationId) {
 			memento.uapi.post('/entities/' + entityId +'/quotations/' + quotationId + '/like',
 				null,
@@ -76,17 +106,6 @@ var quotations = (function(entityId) {
 						alert('이미 추천하셨습니다');
 					else
 						alert('오류가 발생했습니다');
-				}
-			);
-		},
-		'write': function (quotation) {
-			memento.uapi.post('/entities/' + entityId +'/quotations',
-				quotation,
-				function (result) {
-					reload(1);
-				},
-				function (result) {
-					alert('오류가 발생했습니다');
 				}
 			);
 		}

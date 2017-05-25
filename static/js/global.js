@@ -21,7 +21,7 @@ var memento = (function () {
 	}
 
 	function callAPI(method, api, data, sucessCallback, errorCallback, hideProgressMask) {
-		console.log(method, api);
+		//console.log(method, api);
 
 		if (!hideProgressMask) {
 			progressCount++;
@@ -31,7 +31,7 @@ var memento = (function () {
 		var payload = {
 			method: method,
 			crossDomain: true,
-			//crossOrigin: false,
+			// crossOrigin: false,
 			success: function (result) {
 				if (sucessCallback)
 					sucessCallback(result);
@@ -59,6 +59,7 @@ var memento = (function () {
 		}
 
 		$.ajax(API_BASE + api, payload);
+		return true;
 	}
 
 	function updateLoginSession() {
@@ -82,12 +83,24 @@ var memento = (function () {
 				return callAPI('GET', api, null, sucessCallback, errorCallback, hideProgressMask);
 			},
 			'post': function(api, data, sucessCallback, errorCallback, hideProgressMask) {
+				if (!loginedUser.loggined) {
+					sidebar.open();
+					return false;
+				}
 				return callAPI('POST', api, data, sucessCallback, errorCallback, hideProgressMask);
 			},
 			'put': function(api, data, sucessCallback, errorCallback, hideProgressMask) {
+				if (!loginedUser.loggined) {
+					sidebar.open();
+					return false;
+				}
 				return callAPI('PUT', api, data, sucessCallback, errorCallback, hideProgressMask);
 			},
 			'delete': function(api, sucessCallback, errorCallback, hideProgressMask) {
+				if (!loginedUser.loggined) {
+					sidebar.open();
+					return false;
+				}
 				return callAPI('DELETE', api, null, sucessCallback, errorCallback, hideProgressMask);
 			}
 		},
@@ -109,6 +122,72 @@ var memento = (function () {
 
 })();
 
+var sidebar = (function () {
+	/* 
+	 * Sidebar handling
+	 */
+	 
+	var sidebarTemplate;
+	var sidebarRendered = false;
+	var sidebarOpened = false;
+
+	function render() {
+		if (!sidebarTemplate) return;
+		var template = Handlebars.compile(sidebarTemplate);
+		
+		$('#global-sidebar').html(template({
+			'user': memento.getLoginedUser()
+		}));
+
+		$('aside.sidebar')
+			.sidebar({side: 'right'})
+			.show();
+
+
+		// Register listeners
+		$('aside.sidebar li.weekly-memento').on('click', function() {
+			location.href = baseUrls.weekly;
+		});
+		$('aside.sidebar li.random-person').on('click', function() {
+			memento.uapi.get('/entities/random', function(result) {
+				location.href = baseUrls.people + result;
+			});
+		});
+		$('aside.sidebar li.random-event').on('click', function() {
+			memento.uapi.get('/events/random', function(result) {
+				location.href = baseUrls.event + result;
+			});
+		});
+
+		sidebarRendered = true;
+
+		if (sidebarOpened) // If already opened, re-open sidebar
+			openSidemenu();
+	}
+
+	function open() {
+		if (!sidebarRendered) return;
+
+		$('aside.sidebar').trigger('sidebar:open');
+		$('#mask').fadeIn();
+		sidebarOpened = true;
+
+		$('#mask').one('click', function() {
+			$('aside.sidebar').trigger('sidebar:close');
+			$('#mask').fadeOut();
+			sidebarOpened = false;
+		});
+	}
+
+	return {
+		'setTemplate': function(template) {
+			sidebarTemplate = template;
+		},
+		'render': render,
+		'open': open
+	};
+
+})();
 
 (function() {
 	/**

@@ -44,9 +44,10 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .sidebar-icon.icon-people{ background-position: -55px 0 }
 .sidebar-icon.icon-event{ background-position: -110px 0 }
 
-.sidebar-icon.icon-facebook{ width: 50px; height:50px; background-position: 0 -50px }
-.sidebar-icon.icon-naver{ width: 50px; height:50px; background-position: -50px -50px }
-.sidebar-icon.icon-google{ width: 50px; height:50px; background-position: -100px -50px }
+.sidebar-icon.icon-facebook{ width: 50px; height:50px; background-position: 0 -55px }
+.sidebar-icon.icon-naver{ width: 50px; height:50px; background-position: -50px -55px }
+.sidebar-icon.icon-google{ width: 50px; height:50px; background-position: -100px -55px }
+.sidebar-icon.icon-heart{ width: 50px; height:50px; background-position: -150px -55px }
 
 
 

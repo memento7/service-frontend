@@ -40,6 +40,7 @@ function setFavorite(ajaxCall) {
 	if (ajaxCall) {
 		memento.uapi.post('/me/favorites/' + entityId, null, function (result) {
 			applyView();
+			memento.updateLoginSession();
 		});
 
 	}else
@@ -58,6 +59,7 @@ function cancelFavorite(ajaxCall) {
 	if (ajaxCall) {
 		memento.uapi.delete('/me/favorites/' + entityId, function (result) {
 			applyView();
+			memento.updateLoginSession();
 		});
 
 	}else
