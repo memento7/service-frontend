@@ -22,8 +22,8 @@ section.common-tile h3 i.icon{ vertical-align: middle; margin-bottom: 2px }
 
 section.common-tile > a > i.view-more{
 	position: absolute;
-	top: 3px;
-	right: 6px;
+	top: 4px;
+	right: 8px;
 	font-size: 32px;
 	font-weight: 100;
 	color: #92a5af;
