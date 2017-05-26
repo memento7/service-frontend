@@ -44,9 +44,10 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .sidebar-icon.icon-people{ background-position: -55px 0 }
 .sidebar-icon.icon-event{ background-position: -110px 0 }
 
-.sidebar-icon.icon-facebook{ width: 50px; height:50px; background-position: 0 -50px }
-.sidebar-icon.icon-naver{ width: 50px; height:50px; background-position: -50px -50px }
-.sidebar-icon.icon-google{ width: 50px; height:50px; background-position: -100px -50px }
+.sidebar-icon.icon-facebook{ width: 50px; height:50px; background-position: 0 -55px }
+.sidebar-icon.icon-naver{ width: 50px; height:50px; background-position: -50px -55px }
+.sidebar-icon.icon-google{ width: 50px; height:50px; background-position: -100px -55px }
+.sidebar-icon.icon-heart{ width: 50px; height:50px; background-position: -150px -55px }
 
 
 
@@ -188,7 +189,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .event-tile h4{
 	margin: 0 0 5px;
 	padding: 0;
-	font-size: 19px;
+	font-size: 18px;
 	font-weight: 300;
 }
 .event-tile a{
@@ -201,7 +202,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .event-tile .labels.emotion-bubbles .emotion{ vertical-align: top }
 
 .event-tile.full-image{ padding-top: 14px }
-.event-tile.full-image .fl{ padding-bottom: 4px }
+.event-tile.full-image .content{ padding-bottom: 4px }
 .event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px; }
 
 .event-tile .date{
@@ -212,7 +213,15 @@ i.icon.icon-sad{ background-position: -20px -44px }
 	font-weight: 100;
 }
 
-
+.more-btn{
+	background-color: #fafafa;
+	text-align: center;
+	padding: 8px 0;
+	border-top: 1px solid #e4e5e6;
+	border-bottom: 1px solid #e4e5e6;
+}
+.more-btn .content span{ color: #4a4a4a; font-size: 15px; font-weight: 300; vertical-align: middle; }
+.more-btn .content i{ color: #aeaeae; font-size: 20px; vertical-align: middle; }
 
 
 /* Mini Event Tile (extends .event-tile) */
@@ -291,10 +300,12 @@ i.index-bubble.light{
 .person-tile{
 	font-weight: 300;
 }
-.person-tile .left{ margin-right: 10px }
-.person-tile .right{ margin: 10px 0 0 0 }
+.person-tile .content{ margin: 10px 0 0 0 }
+.person-tile .content.left{ margin-right: 10px }
+.person-tile .content.right{ margin-left: 10px }
+.person-tile .content.fr{ text-align: right }
 
-.person-tile .left .image{
+.person-tile .image{
 	display: inline-block;
 	width: 55px;
 	height: 55px;
@@ -306,16 +317,16 @@ i.index-bubble.light{
 	background-position: center center;
 }
 
-.person-tile .right h4{
+.person-tile h4{
 	margin: 0 0 2px 0;
 	padding: 0;
 	color: #444;
 	font-size: 16px;
 	font-weight: 300;
 }
-.person-tile .right h4 .sub{ font-size: 13px; color: #666 }
+.person-tile h4 .sub{ font-size: 13px; color: #666 }
 
-.person-tile .right .role{
+.person-tile .role{
 	font-size: 13px;
 	color: #888;
 }

@@ -8,6 +8,11 @@
 
 	<script type="text/javascript">
 		function openStatPopup(roleId) {
+			if (!memento.getLoginedUser().loggined) {
+				sidebar.open();
+				return false;
+			}
+			
 			$('.stat-' + roleId + ' .stat-evaluate-popup').fadeIn();
 
 			$('.stat-' + roleId + ' .stat-evaluate-popup input[type=hidden]').each(function (index, field) { field.value = "0"; });

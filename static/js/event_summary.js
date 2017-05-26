@@ -39,13 +39,13 @@ var swiper = new Swiper('.swiper-container', {
 			.attr("r", function(d) { return d.r; })
 			.style("fill", function(d) { return color(d.data.title); });
 
-			node.append("text")
-				.selectAll("tspan")
-				.data(function(d) { return d.data.title.split(/(?=[A-Z][^A-Z])/g); })
-				.enter().append("tspan")
-				.attr("x", 0)
-				.attr("y", function(d, i, nodes) { return 18 + (i - nodes.length / 2 - 0.5) * 13; })
-				.text(function(d) { return d });
+		node.append("text")
+			.selectAll("tspan")
+			.data(function(d) { return d.data.title.split(/(?=[A-Z][^A-Z])/g); })
+			.enter().append("tspan")
+			.attr("x", 0)
+			.attr("y", function(d, i, nodes) { return 18 + (i - nodes.length / 2 - 0.5) * 13; })
+			.text(function(d) { return d });
 	}
 
 	var positiveEmotions = [];

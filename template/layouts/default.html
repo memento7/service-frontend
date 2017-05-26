@@ -33,7 +33,6 @@
 			};
 		</script>
 		<script type="text/javascript" src="{{ geturl('assets', '/js/global.js') }}"></script>
-
 		{% endblock %}
 	</head>
 	<body>
@@ -69,6 +68,63 @@
 			</footer>
 		</div>
 
+		{% raw %}
+		<script type="x-tmpl-mustache" id="template-event-tile">
+			{{#each events }}
+			<div class="event-tile full-image clearfix">
+				{{# if this.images.[0] }}
+				<div class="fl content">
+				{{ else }}
+				<div class="content">
+				{{/ if }}
+					<h4>
+						<a href="{{ baseUrls.event }}{{ this.id }}">{{ truncate this.title 35 }}</a>
+					</h4>
+					<div class="labels emotion-bubbles">
+						<span class="issue-label {{ rank this.issue_data.top_percentile }}-rank"></span>
+						<span class="category-label category-{{ this.type }}"></span>
+						
+						{{# if this.emotions.[0] }}
+						<span class="emotion">
+							<i style="
+								width: {{ emotion_size this.emotions.[0].weight }}px;
+								height: {{ emotion_size this.emotions.[0].weight }}px;
+								background-color: red
+							"></i>
+							<span>{{ this.emotions.[0].emotion }}</span>
+						</span>
+						{{/ if }}
+
+						{{# if this.emotions.[1] }}
+						<span class="emotion">
+							<i style="
+								width: {{ emotion_size this.emotions.[1].weight }}px;
+								height: {{ emotion_size this.emotions.[1].weight }}px;
+								background-color: red
+							"></i>
+							<span>{{ this.emotions.[1].emotion }}</span>
+						</span>
+						{{/ if }}
+					</div>
+				</div>
+				{{# if this.images.[0] }}
+				<div class="fr">
+					<div class="image" style="{{ image_url this.images.[0] true }}"></div>
+				</div>
+				{{/ if }}
+			</div>
+			{{/ each }}
+			{{# if showMoreBtn }}
+			<div class="more-btn">
+				<span class="content">
+					<span>사건 더보기</span>
+					<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+				</span>
+			</div>
+			{{/ if }}
+		</script>
+		{% endraw %}
+		
 		<script type="text/javascript" src="{{ geturl('assets', '/js/global_foot.js') }}"></script>
 		{% block foot %}{% endblock %}
 	</body>

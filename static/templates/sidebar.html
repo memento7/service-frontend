@@ -55,11 +55,10 @@
 					<li class="person-tile">
 						<div class="clearfix">
 							<div class="fl left">
-								<span class="image" style="background-image: url('{{ this.images.[0].url }}')"></span>
+								<span class="image" style="{{ image_url this.images.[0] true }}"></span>
 							</div>
-							<div class="fl right">
+							<div class="fl right content">
 								<div>{{ this.nickname }}</div>
-								
 							</div>
 						</div>
 					</li>
@@ -69,6 +68,7 @@
 
 		{{ else }}
 			<div class="empty">
+				<i class="sidebar-icon icon-heart"></i>
 				<p>즐겨찾기한 인물이 없습니다</p>
 				<p>좋아하는 인물에 하트표시를<br>남겨보세요!</p>
 			</div>

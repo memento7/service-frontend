@@ -5,7 +5,8 @@ var memento = (function () {
 
 	//var AUTH_BASE = 'https://auth.memento.live';
 	var AUTH_BASE = 'https://base.memento.live/auth';
-	var API_BASE = 'https://uapi.memento.live';
+	// var API_BASE = 'https://uapi.memento.live';
+	var API_BASE = 'https://server1.memento.live:8443/uapi';
 
 	var loginedUser = {
 		'loggined': false,
@@ -21,7 +22,7 @@ var memento = (function () {
 	}
 
 	function callAPI(method, api, data, sucessCallback, errorCallback, hideProgressMask) {
-		console.log(method, api);
+		//console.log(method, api);
 
 		if (!hideProgressMask) {
 			progressCount++;
@@ -31,7 +32,7 @@ var memento = (function () {
 		var payload = {
 			method: method,
 			crossDomain: true,
-			//crossOrigin: false,
+			// crossOrigin: false,
 			success: function (result) {
 				if (sucessCallback)
 					sucessCallback(result);
@@ -59,6 +60,7 @@ var memento = (function () {
 		}
 
 		$.ajax(API_BASE + api, payload);
+		return true;
 	}
 
 	function updateLoginSession() {
@@ -82,12 +84,24 @@ var memento = (function () {
 				return callAPI('GET', api, null, sucessCallback, errorCallback, hideProgressMask);
 			},
 			'post': function(api, data, sucessCallback, errorCallback, hideProgressMask) {
+				if (!loginedUser.loggined) {
+					sidebar.open();
+					return false;
+				}
 				return callAPI('POST', api, data, sucessCallback, errorCallback, hideProgressMask);
 			},
 			'put': function(api, data, sucessCallback, errorCallback, hideProgressMask) {
+				if (!loginedUser.loggined) {
+					sidebar.open();
+					return false;
+				}
 				return callAPI('PUT', api, data, sucessCallback, errorCallback, hideProgressMask);
 			},
 			'delete': function(api, sucessCallback, errorCallback, hideProgressMask) {
+				if (!loginedUser.loggined) {
+					sidebar.open();
+					return false;
+				}
 				return callAPI('DELETE', api, null, sucessCallback, errorCallback, hideProgressMask);
 			}
 		},
@@ -109,4 +123,148 @@ var memento = (function () {
 
 })();
 
+var sidebar = (function () {
+	/* 
+	 * Sidebar handling
+	 */
+	 
+	var sidebarTemplate;
+	var sidebarRendered = false;
+	var sidebarOpened = false;
+
+	function render() {
+		if (!sidebarTemplate) return;
+		var template = Handlebars.compile(sidebarTemplate);
+		
+		$('#global-sidebar').html(template({
+			'user': memento.getLoginedUser()
+		}));
+
+		$('aside.sidebar')
+			.sidebar({side: 'right'})
+			.show();
+
+
+		// Register listeners
+		$('aside.sidebar li.weekly-memento').on('click', function() {
+			location.href = baseUrls.weekly;
+		});
+		$('aside.sidebar li.random-person').on('click', function() {
+			memento.uapi.get('/entities/random', function(result) {
+				location.href = baseUrls.people + result;
+			});
+		});
+		$('aside.sidebar li.random-event').on('click', function() {
+			memento.uapi.get('/events/random', function(result) {
+				location.href = baseUrls.event + result;
+			});
+		});
+
+		sidebarRendered = true;
+
+		if (sidebarOpened) // If already opened, re-open sidebar
+			openSidemenu();
+	}
+
+	function open() {
+		if (!sidebarRendered) return;
+
+		$('aside.sidebar').trigger('sidebar:open');
+		$('#mask').fadeIn();
+		sidebarOpened = true;
+
+		$('#mask').one('click', function() {
+			$('aside.sidebar').trigger('sidebar:close');
+			$('#mask').fadeOut();
+			sidebarOpened = false;
+		});
+	}
+
+	return {
+		'setTemplate': function(template) {
+			sidebarTemplate = template;
+		},
+		'render': render,
+		'open': open
+	};
+
+})();
+
+(function() {
+	/**
+	 * Handlebar helpers
+	 */
+	Handlebars.registerHelper('if_eq', function(a, b, opts) {
+		if (a == b)
+			return opts.fn(this);
+		else
+			return opts.inverse(this);
+	});
+
+	Handlebars.registerHelper('if_neq', function(a, b, opts) {
+		if (a != b)
+			return opts.fn(this);
+		else
+			return opts.inverse(this);
+	});
+
+	Handlebars.registerHelper('rank', function(value, options) {
+		if (value === undefined)	return '?';
+		else if (value <= 2 )		return 's';
+		else if (value <= 10)		return 'a';
+		else if (value <= 50)		return 'b';
+		else 						return 'c';
+	});
+
+
+	Handlebars.registerHelper('image_url', function(value, css_mode, options) {
+		if (value === undefined || value == null) rv = null;
+		else if (typeof value == 'string')		  rv = value;
+		else if ('path' in value) 				  rv = value['path'];
+		else if ('url' in value) 				  rv = value['url'];
+		else									  rv = null;
+
+		if (css_mode) {
+			if (rv == null) return '';
+			else  			return "background-image: url('" + rv + "')";
+		}else
+			return rv;
+	});
+
+	var ROLE_DICT = {
+		'ACTOR': '배우',
+		'SINGER': '가수',
+		'POLITICIAN': '정치인',
+		'SPORTS': '스포츠선수',
+		'MODEL': '모델',
+		'COMEDIAN': '코미디언',
+		'ENTREPRENEUR': '기업인',
+		'PUBLIC_FIGURE': '공인'
+	};
+	Handlebars.registerHelper('roles', function(value, options) {
+		var rv = [];
+		for (var key in value)
+			if (ROLE_DICT[key])
+				rv.push(ROLE_DICT[key]);
+			
+		return rv.join(',');
+	});
+
+	Handlebars.registerHelper('emotion_size', function(value, options) {
+		return value / 5 * 13;
+	});
+
+	Handlebars.registerHelper ('truncate', function (str, len) {
+	if (str.length > len && str.length > 0) {
+		var new_str = str + " ";
+		new_str = str.substr (0, len);
+		new_str = str.substr (0, new_str.lastIndexOf(" "));
+		new_str = (new_str.length > 0) ? new_str : str.substr (0, len);
+
+		return new Handlebars.SafeString ( new_str +'...' ); 
+	}
+	return str;
+});
+
+})();
 

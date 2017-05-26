@@ -3,24 +3,6 @@
 {% block head %}
 	{{ super() }}
 	<script type="text/javascript" src="{{ geturl('assets', '/js/event_3lines.js') }}"></script>
-	<script type="text/javascript">
-		function openWritePopup() {
-			$("#three-lines-writing-popup").fadeIn();
-			$("#three-lines-writing-popup input[type=text]").val('');
-		}
-		function uploadSummaries3Lines(form) {
-			if (!form.line1.value || !form.line2.value || !form.line3.value) {
-				alert("내용을 입력 해 주세요");
-				return false;
-			}
-			summeries3lines.write([
-				form.line1.value,
-				form.line2.value,
-				form.line3.value
-			]);
-			$("#three-lines-writing-popup").fadeOut();
-		}
-	</script>
 {% endblock %}
 
 {% block foot %}
@@ -38,7 +20,7 @@
 	<div id="three-lines-writing-popup" class="popup">
 		<div class="background"></div>
 		<div class="content">
-			<form onsubmit="uploadSummaries3Lines(this); return false">
+			<form onsubmit="summeries3lines.upload(this); return false">
 				<h4>3줄 요약 작성하기</h4>
 				<ol>
 					<li>
@@ -65,7 +47,7 @@
 
 	<section id="three-lines-header" class="board-tile-header clearfix">
 		<div class="fl">
-			<button class="write" onclick="openWritePopup()">3줄 요약 작성하기</button>
+			<button class="write" onclick="summeries3lines.openWritePopup()">3줄 요약 작성하기</button>
 		</div>
 		<div class="fr">
 			<span class="filter-btn type0 active" onclick="summeries3lines.reload(0)">

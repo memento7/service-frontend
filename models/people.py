@@ -1,7 +1,7 @@
 from lib import functions
 from lib.api import PublishAPI
 from data import consts
-import requests
+import requests, json
 
 class People :
 
@@ -78,6 +78,19 @@ class People :
 			self.events.append( Event(**event) )
 
 		self.init_roles()
+
+
+	def json(self) :
+		""" Get json object
+		"""
+		return json.dumps({
+			'nickname': self.nickname,
+			'realname': self.realname,
+			'roles': self.roles,
+			'status': self.status,
+			'profile_image': self.profile_image(),
+			'repr_image': self.repr_image(),
+		});
 
 
 	def init_roles(self) :
