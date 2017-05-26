@@ -18,6 +18,7 @@
 		searchEvent(params['q']);
 		searchPeople(params['q']);
 		document.forms['search'].q.value = params['q'];
+		document.forms['searchg'].q.value = params['q'];
 	</script>
 
 {% endblock %}
@@ -26,7 +27,7 @@
 	<section id="search">
 		<form name="search" method="GET" action="/search" onsubmit="return searchSubmit(this);">
 			<div class="search-box clearfix">
-				<input class="fl" type="text" name="q">
+				<input class="fl" type="text" name="q" onfocus="$(this).parent().addClass('focused')" onblur="$(this).parent().removeClass('focused')">
 				<button class="search">
 					<i class="fa fa-search fr"></i>
 				</button>

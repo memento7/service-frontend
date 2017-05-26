@@ -29,3 +29,15 @@ $('.popup button.cancel').on('click', function (e) {
 	e.preventDefault();
 	$(e.currentTarget).parents('.popup').fadeOut(200);
 });
+
+
+/* Search */
+function searchSubmit(form) {
+	if (form.q.value) {
+		if (searchPage)
+			location.hash = '#q=' + encodeURI(form.q.value);
+		else
+			location.href = baseUrls.main + 'search/#q=' + encodeURI(form.q.value);
+	}
+	return false;
+}

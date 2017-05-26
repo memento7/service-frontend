@@ -133,10 +133,12 @@ section#timeline ul li .circle{
 }
 
 
-@media(min-width: 1000px) {
+@media(min-width: 900px) {
 	header{
 		/*border-bottom: 2px solid #ab46bc;*/
 	}
+
+	header .logo{ margin-left: -443px }
 
 	header .logo{
 		background-position: 0 -96px;

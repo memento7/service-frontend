@@ -144,16 +144,19 @@ section#weekly-mementos .item .content .box{
 }
 
 
-@media(min-width: 1000px) {
+@media(min-width: 900px) {
 	header .logo{
 		background-position: 0 0;
 	}
 
-	#wrap > .background{ height: 200px }
+	#wrap > .background{ height: 173px }
 
 	section#search{
-		padding-top: 20px;
+		display: none;
+		/*padding-top: 20px;*/
 	}
+
+	section#trendy-people{ padding-top: 40px }
 
 	section#trendy-people ul .person-tile .image{
 		width: 70px;

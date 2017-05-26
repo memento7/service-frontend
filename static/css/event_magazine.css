@@ -354,7 +354,7 @@ section#three-lines-full .board-tile .three-line-summary{ padding: 12px 13px }
 
 
 
-@media(min-width: 1000px) {
+@media(min-width: 900px) {
 	header{
 		/*border-bottom: 2px solid #ff7044;*/
 	}
@@ -362,6 +362,8 @@ section#three-lines-full .board-tile .three-line-summary{ padding: 12px 13px }
 	header .logo{
 		background-position: 0 -64px;
 	}
+
+	header .logo{ margin-left: -446px }
 
 	section#event-header{
 		height: 250px;

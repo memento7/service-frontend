@@ -571,7 +571,7 @@ section#quotations-full .background{
 
 
 
-@media(min-width: 1000px) {
+@media(min-width: 900px) {
 	header{
 		/*border-bottom: 2px solid #ee3f7a;*/
 	}
@@ -583,6 +583,8 @@ section#quotations-full .background{
 	section#people-header{
 		height: 250px;
 	}
+
+	header .logo{ margin-left: -443px }
 
 	section#people-trend .graph-area svg.graph-small{ display: none }
 	section#people-trend .graph-area svg.graph-large{ display: block }

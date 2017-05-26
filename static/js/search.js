@@ -79,8 +79,5 @@ function parseHash(hash) {
 	return params;
 }
 
-function searchSubmit(form) {
-	if (form.q.value)
-		location.hash = "#q=" + encodeURI(form.q.value);
-	return false;
-}
+
+var searchPage = true;

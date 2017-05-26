@@ -60,6 +60,15 @@
 				<a href="{{ geturl() }}">
 					<div class="logo"></div>
 				</a>
+
+				<form name="searchg" class="search-form" method="GET" action="/search" onsubmit="return searchSubmit(this);">
+					<div class="search-box clearfix">
+						<input class="fl" type="text" name="q" onfocus="$(this).parent().addClass('focused')" onblur="$(this).parent().removeClass('focused')">
+						<button class="search">
+							<i class="fa fa-search fr"></i>
+						</button>
+					</div>
+				</form>
 			</header>
 			{% block content %}{% endblock %}
 
