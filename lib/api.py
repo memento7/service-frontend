@@ -32,7 +32,7 @@ class RestClient :
 			return cls.HEADERS
 
 
-	def call(cls, method, api, data=None, headers=None, parsejson=True) :
+	def call(cls, method, api, data=None, headers=None, parsejson=True, verify=True) :
 		""" Rest Call to server
 		:params
 			- method: GET, POST, PUT, or DELETE
@@ -56,7 +56,8 @@ class RestClient :
 		r = getattr(requests, method.lower())(
 			url = url,
 			data = data,
-			headers = RestClient.get_headers(cls, headers)
+			headers = RestClient.get_headers(cls, headers),
+			verify=verify,
 		)
 
 		try :
@@ -80,11 +81,14 @@ class RestClient :
 
 class PublishAPI(RestClient) :
 
-	BASE_URL = 'https://api.memento.live/publish'
+	#BASE_URL = 'https://api.memento.live/publish'
+	BASE_URL = 'https://server1.memento.live:8443/api/publish'
 	HEADERS = {
 		'Authorization': settings.BASIC_AUTH_KEY,
 		'Content-Type': 'application/json',
 	}
+
+	requests.packages.urllib3.disable_warnings()
 
 	@staticmethod
 	def get(api, headers=None) :
@@ -95,6 +99,7 @@ class PublishAPI(RestClient) :
 			method = 'GET', 
 			api = api,
 			headers = headers,
+			verify = False,
 		)
 
 
@@ -108,6 +113,7 @@ class PublishAPI(RestClient) :
 			api = api,
 			data = data,
 			headers = headers,
+			verify = False,
 		)
 
 	@staticmethod
@@ -120,6 +126,7 @@ class PublishAPI(RestClient) :
 			api = api,
 			data = data,
 			headers = headers,
+			verify = False,
 		)
 
 	@staticmethod
@@ -131,6 +138,7 @@ class PublishAPI(RestClient) :
 			method = 'DELETE', 
 			api = api,
 			headers = headers,
+			verify = False,
 		)
 
 
