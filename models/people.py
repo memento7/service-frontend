@@ -115,14 +115,13 @@ class People :
 			role['related_entities'] = value.get('related_entities', {})
 			stats = role['data'].get('stats', None)
 
-
 			if stats :
 				role['stats2'] = []
 				for stat_id in consts.role_stats[roleid] :
 					role['stats2'].append({
 						'id': stat_id,
 						'label': functions.l10n(stat_id),
-						'data': functions.l10n(stats[stat_id]),
+						'data': stats[stat_id] / stats.get('stats_count', 1),
 					})
 
 				role['stats2_labels'] = [ x['label'] for x in role['stats2'] ]

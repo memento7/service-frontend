@@ -145,7 +145,7 @@
 			{% for wm in weekly_mementos %}
 			<div class="item">
 				{% if wm.events | length %}
-				<div class="background" style="{{ wm.events[0].repr_image(True) }}"></div>
+				<div class="background" style="{{ wm.events[0].repr_image(True) | safe }}"></div>
 				{% else %}
 				<div class="background"></div>
 				{% endif %}

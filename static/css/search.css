@@ -40,4 +40,6 @@ section#event-result .result .event-tile{
 
 @media(min-width: 900px) {
 	section#search{ display: none; }
+
+	section#people-result .result .person-tile{ width: 20% }
 }
