@@ -572,8 +572,12 @@ section#quotations-full .background{
 
 
 @media(min-width: 1000px) {
-	#wrap header{
-		border-bottom: 2px solid #ee3f7a;
+	header{
+		/*border-bottom: 2px solid #ee3f7a;*/
+	}
+
+	header .logo{
+		background-position: 0 -32px;
 	}
 
 	section#people-header{

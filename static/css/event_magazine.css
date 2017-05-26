@@ -355,8 +355,12 @@ section#three-lines-full .board-tile .three-line-summary{ padding: 12px 13px }
 
 
 @media(min-width: 1000px) {
-	#wrap header{
-		border-bottom: 2px solid #ff7044;
+	header{
+		/*border-bottom: 2px solid #ff7044;*/
+	}
+
+	header .logo{
+		background-position: 0 -64px;
 	}
 
 	section#event-header{

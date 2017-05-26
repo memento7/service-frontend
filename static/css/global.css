@@ -278,40 +278,6 @@ aside.sidebar > section.favorites .empty p{ margin: 3px 0 }
 
 
 
-/* Common Tile Section */
-section.common-tile{
-	position: relative;
-	margin: 8px 0;
-	padding: 14px 0;
-	background-color: white;
-	color: #444;
-}
-
-section.common-tile h3{
-	margin: 0 0 5px 14px;
-	font-size: 17px;
-	font-weight: 400;
-	color: black;
-	vertical-align: middle;
-}
-section.common-tile h3 i.icon{ vertical-align: middle; margin-bottom: 2px }
-
-section.common-tile > a > i.view-more{
-	position: absolute;
-	top: 3px;
-	right: 6px;
-	font-size: 32px;
-	font-weight: 100;
-	color: #92a5af;
-}
-
-
-section.common-tile > .content{
-	padding: 0 16px;
-}
-
-
-
 /* Magzine Navigation */
 nav.magazine-nav{
 	background-color: white;
@@ -382,6 +348,7 @@ footer{
 	font-size: 13px;
 	color: #999;
 	text-align: center;
+	clear: both;
 }
 
 
@@ -392,9 +359,9 @@ footer{
 	}
 	#wrap{
 		position: relative;
-		width: 1000px;
-		min-height: calc(100% - 56px);
-		margin: 56px auto 0;
+		width: 850px;
+		min-height: calc(100% - 80px);
+		margin: 80px auto 0;
 		/*box-shadow: 0px 0px 3px #ccc;*/
 	}
 
@@ -406,13 +373,17 @@ footer{
 
 		height: 44px;
 		padding-top: 10px;
-		background: #3a3535;
+		/*background: #3a3535;
 		background-image: url('/images/header_bg_pattern.png');
 		background-repeat: no-repeat;
-		background-position: 150px 0;
-		/*background-color: white;
-		box-shadow: 0px 0px 3px #ccc;*/
+		background-position: 150px 0;*/
+
+		background-color: white;
+		/* box-shadow: 0px 0px 3px #ccc;*/
 	}
+
+	header .menu-bar{ background-position: -400px 0 !important }
+
 }
 
 
