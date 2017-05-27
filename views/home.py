@@ -20,6 +20,12 @@ def home() :
 		]
 	)
 
+
+@register_view
+def callback() :
+	return render_template('callback.html')
+
+
 @register_view
 def search() :
 	return render_template('search.html')

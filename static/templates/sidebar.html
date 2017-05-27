@@ -5,7 +5,7 @@
 			<div class="avatar logined" style="background-image: url('{{ user.image_url }}')"></div>
 			<h3 class="loggedin-username">{{ user.nickname }}</h3>
 			<div>
-				<a href="https://base.memento.live/logout" class="logout-btn">로그아웃</a>
+				<span class="logout-btn" onclick="memento.logout()">로그아웃</span>
 			</div>
 
 		{{ else }}

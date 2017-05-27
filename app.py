@@ -17,6 +17,7 @@ from datetime import datetime, timedelta
 """ Config URLs
 """
 getview('home.home').url_rule = '/'
+getview('home.callback').url_rule = '/callback.html'
 getview('home.search').url_rule = '/search/'
 
 getview('people.index').url_rule 	 = '/people/{ id }/'
@@ -39,6 +40,7 @@ getview('weekly.recent_week').url_rule = '/weekly/'
 """
 
 addpage(view='home.home')
+addpage(view='home.callback')
 addpage(view='home.search')
 
 

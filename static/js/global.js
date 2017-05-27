@@ -5,8 +5,7 @@ var memento = (function () {
 
 	//var AUTH_BASE = 'https://auth.memento.live';
 	var AUTH_BASE = 'https://base.memento.live/auth';
-	// var API_BASE = 'https://uapi.memento.live';
-	var API_BASE = 'https://server1.memento.live:8443/uapi';
+	var API_BASE = 'https://uapi.memento.live';
 
 	var loginedUser = {
 		'loggined': false,
@@ -53,10 +52,10 @@ var memento = (function () {
 		};
 
 		if (data) {
-			payload.data = data;
-			payloadprocessData = false;
+			payload.data = JSON.stringify(data);
+			//payload.processData = false;
 			payload.contentType = 'application/json';
-			// payload.dataType = 'json';
+			payload.dataType = 'json';
 		}
 
 		$.ajax(API_BASE + api, payload);
@@ -113,7 +112,21 @@ var memento = (function () {
 		},
 
 		'login': function (type) {
-			location.href = AUTH_BASE + '/' + type// + '?redirect=' + encodeURI(location.href);
+			window.open(AUTH_BASE + '/' + type, 'loginPopup', "height=500,width=600,top=100,left=100");
+
+			$(window).one('message', function (e) {
+				if (e.originalEvent.data == 'loggined') {
+					updateLoginSession();
+				}
+			});
+		},
+
+		'logout': function() {
+			window.open('https://base.memento.live/logout', 'logoutPopup', "height=200,width=300");
+
+			$(window).one('message', function (e) {
+				updateLoginSession();
+			});
 		},
 
 		'registerLoginCallback': function(func) {
