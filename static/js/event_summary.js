@@ -51,7 +51,7 @@ var swiper = new Swiper('.swiper-container', {
 	var positiveEmotions = [];
 	var negativeEmotions = [];
 
-	// TO Be enhanced
+	// TODO: Enhancement
 
 	for (var i=0; i<emotions.length; i++) {
 		var posWords = ['사랑', '멋', '놀라', '행복', '공감', '대단', '재밌', '축하', '예쁨', '황홀', '아름']

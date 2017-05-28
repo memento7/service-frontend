@@ -121,6 +121,7 @@ header .menu-bar{
 	background-image: url('/images/logo_sprite.png');
 	background-size: 422px;
 	background-position: -400px 0;
+	cursor: pointer;
 }
 
 header form.search-form{ display: none; }
@@ -251,10 +252,12 @@ aside.sidebar > section ul li{
 }
 aside.sidebar > section ul li:hover{ background-color: #f0f0f0 }
 
+aside.sidebar > section.service-shortcuts ul{ margin-bottom: 0 }
 aside.sidebar > section.service-shortcuts ul li{
 	float: left;
 	width: 75px;
 	font-size: 13px;
+	padding: 7px 0;
 }
 aside.sidebar > section.service-shortcuts ul li > div{ margin-top: 4px }
 
@@ -323,7 +326,7 @@ nav.magazine-nav ul li.selected{
 	background: white;
 	border: none;
 	outline: none;
-	font-size: 15px;
+	font-size: 16px;
 	color: #333;
 	margin: 0;
 	font-weight: 300;
@@ -338,7 +341,7 @@ nav.magazine-nav ul li.selected{
 	background: none;
 	border: none;
 	outline: none;
-	margin: 4px 0 0 8px;
+	margin: 5px 0 0 8px;
 	padding: 0;
 }
 .search-box .fa-search{

@@ -72,4 +72,5 @@ class MementoPublisher(Publisher) :
 
 				except requests.exceptions.HTTPError as e :
 					cprint.error('%s' % e.response.status_code)
+					print(e)
 				

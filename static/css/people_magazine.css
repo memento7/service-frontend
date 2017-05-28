@@ -72,24 +72,30 @@ section#people-header h1 .sub{
 
 section#people-header .user-react{
 	position: absolute;
-	bottom: 30px;
-	right: 20px;
+	bottom: 20px;
+	right: 15px;
 	z-index: 5;
 }
 section#people-header .user-react .favorite{
-	color: white;
-	font-size: 13px;
-	font-weight: 100;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	background-color: white;
+	color: #ed3e7b;
 
-	padding: 3px 5px 2px;
-	border: 1px solid white;
-	background-color: rgba(0,0,0,0.3);
-	border-radius: 20px;
+	border: 1px solid #ccc;
+	font-size: 20px;
+	font-weight: 100;
 
 	cursor: pointer;
 }
-section#people-header .user-react .favorite.enabled{ color: #ffcc00; border-color: #ffcc00 }
+section#people-header .user-react .favorite.enabled{ background-color: #ed3e7b; color: white; border-color: white }
 
+section#people-header .user-react .favorite i.fa{
+	margin-top: 6px;
+}
 
 
 
@@ -186,7 +192,7 @@ section#people-trend i.index-bubble.index3{ background-color: #9473ce }
 
 section#people-trend .graph-area{
 	position: relative;
-	padding: 0 15px 5px;
+	padding: 0 15px 10px;
 }
 
 section#people-trend .graph-area svg.graph-large{ display: none; }
@@ -352,6 +358,7 @@ section#people-stats .stat{
 	border-top: 1px solid #ddd;
 	max-width: 400px;
 }
+
 section#people-stats .stat:first-child{ border-top: none; padding-top: 5px }
 
 section#people-stats .stat .header{ padding: 5px 0 }
@@ -361,7 +368,7 @@ section#people-stats .stat .fr{
 
 section#people-stats .stat .fr .btn-container{
 	text-align: center;
-	margin-top: 5px;
+	margin-top: 15px;
 }
 section#people-stats .stat .fr button.evaluate-btn{
 	padding: 4px 0;
@@ -414,6 +421,8 @@ ol.stat-stars li .stat-label{
 .stat-evaluate-popup > .content{ margin-top: -180px }
 .stat-evaluate-popup ol.stat-stars{ margin: 12px 0; text-align: center; }
 .stat-evaluate-popup ol.stat-stars .label-container{ margin: 13px 0 1px }
+.stat-evaluate-popup ol.stat-stars .star-grade-big{ cursor: pointer; }
+
 .stat-evaluate-popup ol.stat-stars li .stat-label{ width: auto; }
 
 
@@ -586,15 +595,22 @@ section#quotations-full .background{
 
 	header .logo{ margin-left: -443px }
 
+	section#quotation .background{ background-image: url('/images/quotation_bg_long.png') }
+
+	section#people-trend .graph-area{ padding: 0 20px 10px }
 	section#people-trend .graph-area svg.graph-small{ display: none }
 	section#people-trend .graph-area svg.graph-large{ display: block }
 	section#people-trend .graph-area .overlay i.index-bubble{ margin-left: 0 }
 
+	section#people-trend .graph-area .overlay{ width: calc(100% - 40px) }
+	section#people-trend .graph-area .overlay .date{ margin-left: 3px }
+
 	section#people-stats .stat{
 		float: left;
 		border-top: none;
-		margin: 5px 40px;
-		width: 400px;
+		margin: 5px 22px;
+		width: 380px;
 	}
+	section#people-stats .count1 .stat{ margin: 5px auto; float: none; }
 }
 

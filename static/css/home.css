@@ -113,19 +113,21 @@ section#day-3years-ago .description{
 section#day-3years-ago .gallery-event-tile{ margin-top: 10px; }
 
 
+
+
 /* 위클리 메멘토 */
 section#weekly-mementos{
 	padding-bottom: 0;
 }
 
 section#weekly-mementos > .content{ padding: 8px 0 0 0 }
+section#weekly-mementos a{ color: white; text-decoration: none; }
 
 section#weekly-mementos .item{
 	position: relative;
 	height: 85px;
 	margin: 2px 0;
 }
-section#weekly-mementos .item a{ color: white; text-decoration: none; }
 section#weekly-mementos .item .background{ height: inherit; filter: brightness(30%); }
 section#weekly-mementos .item .content{
 	position: relative;

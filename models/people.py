@@ -97,7 +97,7 @@ class People :
 		""" Init role datas from role_json
 		"""
 		roles = {}
-		self.stat_exists = False
+		self.stat2_count = 0
 
 		for roleid, value in self.role_json.items() :
 			roleinfo = People.get_roleinfo(roleid)
@@ -117,19 +117,19 @@ class People :
 
 			if stats :
 				role['stats2'] = []
-				stat_count = max(1, role['data'].get('stats_count', 1))
+				stats_count = max(1, role['data'].get('stats_count', 1))
 
 				for stat_id in consts.role_stats[roleid] :
 					role['stats2'].append({
 						'id': stat_id,
 						'label': functions.l10n(stat_id),
-						'data': stats[stat_id] / stat_count,
+						'data': stats[stat_id] / stats_count,
 					})
 
 				role['stats2_labels'] = [ x['label'] for x in role['stats2'] ]
 				role['stats2_datas'] = [ x['data'] for x in role['stats2'] ]
 				
-				self.stat_exists = True
+				self.stat2_count += 1
 				
 			role['data']['stats'] = stats
 

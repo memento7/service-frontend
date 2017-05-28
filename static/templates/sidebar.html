@@ -51,7 +51,7 @@
 		{{# if user.favorites.length }}
 			<ul>
 			{{#each user.favorites }}
-				<a href="/people/{{ this.id }}">
+				<a href="{{ ../baseUrls.people }}{{ this.id }}">
 					<li class="person-tile">
 						<div class="clearfix">
 							<div class="fl left">

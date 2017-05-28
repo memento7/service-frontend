@@ -136,30 +136,30 @@
 	</section>
 
 	<section id="weekly-mementos" class="common-tile">
-		<h3>위클리 메멘토</h3>
 		<a href="{{ geturl('weekly') }}">
+			<h3>위클리 메멘토</h3>
 			<i class="fa fa-angle-right view-more"></i>
 		</a>
 		
 		<div class="content clearfix">
 			{% for wm in weekly_mementos %}
-			<div class="item">
-				{% if wm.events | length %}
-				<div class="background" style="{{ wm.events[0].repr_image(True) | safe }}"></div>
-				{% else %}
-				<div class="background"></div>
-				{% endif %}
+			<a href="{{ geturl('weekly', '/%s.%s/%s/' % (wm.year, wm.month, wm.week)) }}">
+				<div class="item">
+					{% if wm.events | length %}
+					<div class="background" style="{{ wm.events[0].repr_image(True) | safe }}"></div>
+					{% else %}
+					<div class="background"></div>
+					{% endif %}
 
-				<div class="content">
-					<a href="{{ geturl('weekly', '/%s.%s/%s/' % (wm.year, wm.month, wm.week)) }}">
+					<div class="content">
 						<span class="box">{{ wm.month }}월 {{ wm.week }}주차</span>
 						<span class="description">
 							{{ wm.year }}.{{ fill_zero(wm.start_date.month) }}.{{ fill_zero(wm.start_date.day) }} ~
 							{% if wm.start_date.month != wm.end_date.month %}{{ fill_zero(wm.end_date.month) }}.{% endif %}{{ fill_zero(wm.end_date.day) }}
 						</span>
-					</a>
+					</div>
 				</div>
-			</div>
+			</a>
 			{% endfor %}
 		</div>
 	</section>

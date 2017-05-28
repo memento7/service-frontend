@@ -150,7 +150,8 @@ var sidebar = (function () {
 		var template = Handlebars.compile(sidebarTemplate);
 		
 		$('#global-sidebar').html(template({
-			'user': memento.getLoginedUser()
+			'user': memento.getLoginedUser(),
+			'baseUrls': baseUrls
 		}));
 
 		$('aside.sidebar')
@@ -263,21 +264,29 @@ var sidebar = (function () {
 		return rv.join(',');
 	});
 
+	Handlebars.registerHelper('random_color', function(options) {
+		var colors = ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#0097A7',
+		'#00796B','#43A047','#64DD17','#FDD835','#EF6C00','#795548','#607D8B'];
+
+		return colors[Math.floor( Math.random() * colors.length )];
+	});
+
 	Handlebars.registerHelper('emotion_size', function(value, options) {
 		return value / 5 * 13;
 	});
 
-	Handlebars.registerHelper ('truncate', function (str, len) {
-	if (str.length > len && str.length > 0) {
-		var new_str = str + " ";
-		new_str = str.substr (0, len);
-		new_str = str.substr (0, new_str.lastIndexOf(" "));
-		new_str = (new_str.length > 0) ? new_str : str.substr (0, len);
 
-		return new Handlebars.SafeString ( new_str +'...' ); 
-	}
-	return str;
-});
+	Handlebars.registerHelper ('truncate', function (str, len, options) {
+		if (str.length > len && str.length > 0) {
+			var new_str = str + " ";
+			new_str = str.substr (0, len);
+			new_str = str.substr (0, new_str.lastIndexOf(" "));
+			new_str = (new_str.length > 0) ? new_str : str.substr (0, len);
+
+			return new Handlebars.SafeString ( new_str +'...' ); 
+		}
+		return str;
+	});
 
 })();
 
