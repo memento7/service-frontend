@@ -31,6 +31,7 @@
 				'event': "{{ geturl('event') }}",
 				'weekly': "{{ geturl('weekly') }}",
 			};
+			var searchPage = false;
 		</script>
 		<script type="text/javascript" src="{{ geturl('assets', '/js/global.js') }}"></script>
 		{% endblock %}
@@ -61,7 +62,7 @@
 					<div class="logo"></div>
 				</a>
 
-				<form name="searchg" class="search-form" method="GET" action="/search" onsubmit="return searchSubmit(this);">
+				<form name="searchg" class="search-form" action="{{ geturl('', 'search') }}" method="GET" onsubmit="return searchSubmit(this);">
 					<div class="search-box clearfix">
 						<input class="fl" type="text" name="q" onfocus="$(this).parent().addClass('focused')" onblur="$(this).parent().removeClass('focused')">
 						<button class="search">

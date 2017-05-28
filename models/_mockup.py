@@ -34,8 +34,8 @@ person70001 = {
 					'perform': 6.8,
 					'roleplay': 4.1,
 					'stability': 1.6,
-					'stats_count': 1,
 				},
+				'stats_count': 1,
 				'related_entities': [],
 			}
 		},
@@ -47,8 +47,8 @@ person70001 = {
 					'emotional': 3.3,
 					'composition': 2.1,
 					'singability': 3.6,
-					'stats_count': 1,
 				},
+				'stats_count': 1,
 				'related_entities': [],
 			}
 		}
@@ -114,8 +114,8 @@ person70002 = {
 					'perform': 7.9,
 					'roleplay': 4.1,
 					'stability': 1.6,
-					'stats_count': 1,
 				},
+				'stats_count': 1,
 				'related_entities': [],
 			}
 		}

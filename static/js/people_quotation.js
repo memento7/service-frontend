@@ -54,7 +54,7 @@ var quotations = (function(entityId) {
 		}else {
 			// 최신순
 			$('.filter-btn.type1').addClass('active');
-			render('createdTime,desc')
+			render('createdTime,desc');
 		}
 	}
 

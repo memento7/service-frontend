@@ -26,6 +26,9 @@ function searchPeople(keyword, page) {
 				searchPeople(keyword, page+1);
 			});
 		}
+	}, function(error) {
+		$('#people-result .result').append('<div class="no-content">오류가 발생했습니다</div>');
+		$('#people-result .more-btn').remove();
 	});
 }
 
@@ -57,6 +60,9 @@ function searchEvent(keyword, page) {
 				searchEvent(keyword, page+1);
 			});
 		}
+	}, function(error) {
+		$('#event-result .result').append('<div class="no-content">오류가 발생했습니다</div>');
+		$('#event-result .more-btn').remove();
 	});
 }
 
@@ -80,4 +86,4 @@ function parseHash(hash) {
 }
 
 
-var searchPage = true;
+searchPage = true;

@@ -117,11 +117,13 @@ class People :
 
 			if stats :
 				role['stats2'] = []
+				stat_count = max(1, role['data'].get('stats_count', 1))
+
 				for stat_id in consts.role_stats[roleid] :
 					role['stats2'].append({
 						'id': stat_id,
 						'label': functions.l10n(stat_id),
-						'data': stats[stat_id] / stats.get('stats_count', 1),
+						'data': stats[stat_id] / stat_count,
 					})
 
 				role['stats2_labels'] = [ x['label'] for x in role['stats2'] ]

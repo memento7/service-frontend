@@ -176,7 +176,7 @@ var sidebar = (function () {
 		sidebarRendered = true;
 
 		if (sidebarOpened) // If already opened, re-open sidebar
-			openSidemenu();
+			open();
 	}
 
 	function open() {

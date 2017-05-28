@@ -22,6 +22,21 @@ var summeries3lines = (function(eventId) {
 		});
 	}
 
+	function reload(type) {
+		$('.filter-btn').removeClass('active');
+
+		if (type == 0) {
+			// 호감순
+			$('.filter-btn.type0').addClass('active');
+			render();
+
+		}else {
+			// 최신순
+			$('.filter-btn.type1').addClass('active');
+			render('createdTime,desc')
+		}
+	}
+
 	return {
 		'render': render,
 
@@ -39,7 +54,7 @@ var summeries3lines = (function(eventId) {
 				alert("내용을 입력 해 주세요");
 				return false;
 			}
-			memento.uapi.post('/events/' + eventId +'/summaries_line',
+			memento.uapi.post('/events/' + eventId +'/summaries_3line',
 				[
 					form.line1.value,
 					form.line2.value,
@@ -76,20 +91,7 @@ var summeries3lines = (function(eventId) {
 				likeDislikeErrorCallback
 			);
 		},
-		'reload': function(type) {
-			$('.filter-btn').removeClass('active');
-
-			if (type == 0) {
-				// 호감순
-				$('.filter-btn.type0').addClass('active');
-				render();
-
-			}else {
-				// 최신순
-				$('.filter-btn.type1').addClass('active');
-				render('createdTime,desc')
-			}
-		}
+		'reload': reload
 	}
 
 })(eventId);
