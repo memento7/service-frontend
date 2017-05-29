@@ -5,40 +5,8 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
+	<script type="text/javascript" src="{{ geturl('assets', '/js/people_summary.js') }}"></script>
 
-	<script type="text/javascript">
-		function openStatPopup(roleId) {
-			if (!memento.getLoginedUser().loggined) {
-				sidebar.open();
-				return false;
-			}
-			
-			$('.stat-' + roleId + ' .stat-evaluate-popup').fadeIn();
-
-			$('.stat-' + roleId + ' .stat-evaluate-popup input[type=hidden]').each(function (index, field) { field.value = "0"; });
-			for (var j = 1; j <= 10; j++)
-				$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').removeClass("grade" + j);
-			$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').addClass("grade0");
-		}
-
-		function uploadStatEvaluation(roleId, form) {
-			var data = [];
-			$(form).find('input[type=hidden]').each(function (index, field) {
-				data.push( parseInt(field.value) );
-			});
-
-			for (var i = 0; i < data.length; i++) {
-				if (!data[i]) {
-					alert("모든 항목을 평가 해 주세요!");
-					return false;
-				}
-			}
-
-			console.log(data);
-			alert(data);
-			// TO BE UPLOAD VIA API SERVER
-		}
-	</script>
 {% endblock %}
 
 
@@ -47,27 +15,11 @@
 	
 	<script type="text/javascript">
 		quotations.resize(65, 20);
-
+		peopleSummary.init();
+		
 		$(window).on('load', function() {
 			// after webfont-loading
 			quotations.resize(65, 20);
-		});
-
-		$('.stat-evaluate-popup .star-grade-big').on('click', function (event) {
-			var poses = [12, 27, 41, 56, 70, 85, 98, 113, 127, 140];
-			var correction = 3/2;
-
-			for (var i = 0; i < poses.length; i++) {
-
-				if (event.offsetX < poses[i] * correction) {
-					for (var j = 0; j <= 10; j++)
-						$(event.currentTarget).removeClass("grade" + j);
-
-					$(event.currentTarget).addClass("grade" + (i + 1));
-					$(event.currentTarget).parent().find('input[type=hidden]').val( i+1 );
-					break;
-				}
-			}
 		});
 	</script>
 {% endblock %}
@@ -178,14 +130,14 @@
 	</section>
 
 
-	{% if person.roles and person.stat_exists %}
+	{% if person.roles and person.stat2_count %}
 	<section id="people-stats" class="common-tile">
 		<h3>
 			<i class="icon icon-star"></i>
 			<span>재미로 보는 능력치</span>
 		</h3>
 
-		<div class="content clearfix">
+		<div class="content clearfix count{{ person.stat2_count }}">
 			{% for roleid, roledata in person.roles.items() %}
 			{% if roledata.stats2 %}
 
@@ -208,7 +160,7 @@
 							{% endfor %}
 						</ol>
 						<div class="btn-container">
-							<button class="evaluate-btn" onclick="openStatPopup('{{ roleid }}')">평가하기</button>
+							<button class="evaluate-btn" onclick="peopleSummary.openStatPopup('{{ roleid }}')">평가하기</button>
 						</div>
 					</div>
 				</div>
@@ -227,7 +179,7 @@
 											<span class="stat-label">{{ d.label }}</span>
 										</div>
 										<div>
-											<span class="star-grade-big grade0"></span>
+											<span class="star-grade-big grade0 stat-{{ d.id }}"></span>
 											<input type="hidden" name="{{ d.id }}" value="0">
 										</div>
 									</li>
@@ -235,7 +187,7 @@
 								</ol>
 							</div>
 							<div class="btn-container">
-								<button class="submit" onclick="uploadStatEvaluation('{{ roleid }}', this.form)">평가</button>
+								<button class="submit" onclick="peopleSummary.uploadStatEvaluation('{{ roleid }}', this.form)">평가</button>
 								<button class="cancel">취소</button>
 							</div>
 						</form>
@@ -243,7 +195,7 @@
 				</div>
 
 				<script type="text/javascript">
-					makeStatChart(
+					peopleMagazine.makeStatChart(
 						document.getElementById("stat-chart-{{ loop.index }}"),
 						{{ roledata.stats2_labels | safe }},
 						{{ roledata.stats2_datas | safe }}
