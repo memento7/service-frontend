@@ -51,10 +51,10 @@ var summeries3lines = (function(eventId) {
 
 		'upload': function(form) {
 			if (!form.line1.value || !form.line2.value || !form.line3.value) {
-				alert("내용을 입력 해 주세요");
+				alert("내용을 모두 입력 해 주세요");
 				return false;
 			}
-			memento.uapi.post('/events/' + eventId +'/summaries_3line',
+			memento.uapi.post('/events/' + eventId + '/summaries_3line',
 				[
 					form.line1.value,
 					form.line2.value,
@@ -69,6 +69,19 @@ var summeries3lines = (function(eventId) {
 			);
 
 			$("#three-lines-writing-popup").fadeOut();
+		},
+
+		'delete': function(quotationId) {
+			if (confirm("정말 삭제하시겠습니까?")) {
+				memento.uapi.delete('/events/' + eventId + '/summaries_3line/' + quotationId,
+					function (result) {
+						reload(1);
+					},
+					function (result) {
+						alert('오류가 발생했습니다');
+					}
+				);
+			}
 		},
 
 		'like': function(summaries3LineId) {

@@ -61,6 +61,15 @@
 		{{# if quotations.length }}
 			{{#each quotations }}
 			<div class="board-tile quotation-tile" id="quotation-{{ this.id }}">
+				<div class="more-actions">
+					<button onclick="openMoreAction(this)">
+						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+					</button>
+					<ul>
+						<li onclick="quotations.delete({{ this.id }})">삭제하기</li>
+					</ul>
+				</div>
+
 				<div class="background"></div>
 				<div class="content">
 					<div class="text">

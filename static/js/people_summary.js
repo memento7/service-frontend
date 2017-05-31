@@ -44,23 +44,27 @@ var peopleSummary = (function(entityId) {
 				sidebar.open();
 				return false;
 			}
-			// TODO: load evaluating info from API Server
 			
-			$('.stat-' + roleId + ' .stat-evaluate-popup').fadeIn();
+			var popup = $('.stat-' + roleId + ' .stat-evaluate-popup');
+			popup.find('.more-actions').hide();
+			popup.fadeIn();
 
-			$('.stat-' + roleId + ' .stat-evaluate-popup input[type=hidden]').each(function (index, field) { field.value = "0"; });
+
+			popup.find('input[type=hidden]').each(function (index, field) { field.value = "0"; });
 			for (var j = 1; j <= 10; j++)
-				$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').removeClass("grade" + j);
-			$('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big').addClass("grade0");
+				popup.find('.star-grade-big').removeClass("grade" + j);
+			popup.find('.star-grade-big').addClass("grade0");
+
 
 			loadStatEvaluation(roleId, function(stats) {
-				
 				for (var key in stats) {
-					var dom = $('.stat-' + roleId + ' .stat-evaluate-popup .star-grade-big.stat-'+key);
+					var dom = popup.find('.star-grade-big.stat-'+key);
 					dom.removeClass("grade0");
 					dom.addClass("grade" + stats[key]);
 					dom.parent().find('input[type=hidden]').val( stats[key] );
 				}
+
+				popup.find('.more-actions').show();
 			});
 		},
 
@@ -91,7 +95,21 @@ var peopleSummary = (function(entityId) {
 					alert('오류가 발생했습니다');
 				}
 			);
-		}
+		},
+
+		'deleteStatEvaluation': function(roleId) {
+			if (confirm("정말 삭제하시겠습니까?")) {
+				memento.uapi.delete('/entities/' + entityId + '/roles/' + roleId + '/stats',
+					function (result) {
+						alert('삭제되었습니다!');
+						closeStatPopup(roleId);
+					},
+					function (result) {
+						alert('오류가 발생했습니다');
+					}
+				);
+			}
+		},
 	}
 
 })(entityId);

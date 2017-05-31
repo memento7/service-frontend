@@ -170,6 +170,16 @@
 					<div class="content">
 						<form onsubmit="return false">
 							<h4>{{ roledata.name }} 능력 평가해보기</h4>
+							
+							<div class="more-actions">
+								<button onclick="openMoreAction(this)">
+									<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+								</button>
+								<ul>
+									<li onclick="peopleSummary.deleteStatEvaluation('{{ roleid }}')">평가 삭제하기</li>
+								</ul>
+							</div>
+
 							<div>
 								<ol class="stat-stars">
 									{% for d in roledata.stats2 %}

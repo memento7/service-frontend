@@ -54,6 +54,8 @@ class Event :
 		self.keywords = keywords
 		self.emotions = emotions
 		self.summaries3lines = event_summaries3_lines
+		self.summaries3lines.sort(key=lambda s: s['rank'])
+
 		self.images = images
 
 		self.created_time = created_time

@@ -509,6 +509,54 @@ i.index-bubble.light{
 
 
 
+/* More Actions */
+.more-actions{
+	position: absolute;
+	z-index: 10;
+	right: 0;
+}
+
+.more-actions button{
+	display: inline-block;
+	background: none;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+
+	margin: 4px 5px;
+	padding: 3px 0;
+	width: 22px;
+	color: #999;
+	transition: all 0.3s;
+}
+.more-actions button:hover{ background-color: #eee }
+.more-actions button:active{ background-color: #ccc }
+
+
+.more-actions ul{
+	display: none;
+	position: absolute;
+	right: 5px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	width: 100px;
+
+	background-color: #fff;
+	border: 1px solid #bbb;
+	border-radius: 2px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+.more-actions ul li{
+	padding: 4px 8px 3px;
+	font-size: 14px;
+	color: #222;
+	cursor: pointer;
+}
+
+
+
 /* Progress */
 .progress-loader,
 .progress-loader:before,

@@ -419,7 +419,7 @@ ol.stat-stars li .stat-label{
 .stat-evaluate-popup{
 }
 .stat-evaluate-popup > .content{ margin-top: -180px }
-.stat-evaluate-popup ol.stat-stars{ margin: 12px 0; text-align: center; }
+.stat-evaluate-popup ol.stat-stars{ margin: 20px 0; text-align: center; }
 .stat-evaluate-popup ol.stat-stars .label-container{ margin: 13px 0 1px }
 .stat-evaluate-popup ol.stat-stars .star-grade-big{ cursor: pointer; }
 

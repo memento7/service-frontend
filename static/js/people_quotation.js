@@ -76,7 +76,7 @@ var quotations = (function(entityId) {
 				alert("내용을 입력 해 주세요");
 				return false;
 			}
-			memento.uapi.post('/entities/' + entityId +'/quotations',
+			memento.uapi.post('/entities/' + entityId + '/quotations',
 				{
 					"quotation": form.quotation.value,
 					"reference": form.reference.value
@@ -92,8 +92,21 @@ var quotations = (function(entityId) {
 			$("#quotation-writing-popup").fadeOut();
 		},
 
+		'delete': function(quotationId) {
+			if (confirm("정말 삭제하시겠습니까?")) {
+				memento.uapi.delete('/entities/' + entityId + '/quotations/' + quotationId,
+					function (result) {
+						reload(1);
+					},
+					function (result) {
+						alert('오류가 발생했습니다');
+					}
+				);
+			}
+		},
+
 		'like': function(quotationId) {
-			memento.uapi.post('/entities/' + entityId +'/quotations/' + quotationId + '/like',
+			memento.uapi.post('/entities/' + entityId + '/quotations/' + quotationId + '/like',
 				null,
 				function (result) {
 					var dom = $('#quotation-' + quotationId + ' .like-btn span');

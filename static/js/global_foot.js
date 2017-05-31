@@ -30,6 +30,17 @@ $('.popup button.cancel').on('click', function (e) {
 	$(e.currentTarget).parents('.popup').fadeOut(200);
 });
 
+function openMoreAction(button) {
+	var ul = $(button).parent().find('ul');
+	ul.show();
+
+	setTimeout(function() {
+		$(window).one('click', function(e) {
+			ul.hide();
+		});
+	}, 10);
+}
+
 
 /* Search */
 function searchSubmit(form) {

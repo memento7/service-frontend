@@ -113,7 +113,10 @@ section#three-lines .meta .author{
 	display: inline-block;
 	margin-right: 4px;
 }
-
+section#three-lines .meta .action{
+	display: inline-block;
+	margin-left: 4px;
+}
 
 
 
