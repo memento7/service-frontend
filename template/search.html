@@ -59,19 +59,21 @@
 
 	{% raw %}
 	<script type="x-tmpl-mustache" id="template-person-tile">
-		<div class="person-tile mini-person-tile">
-			<div class="image" style="{{ image_url person.images.[0] true }}"></div>
+		<a href="{{ baseUrls.people }}{{ person.id }}">
+			<div class="person-tile mini-person-tile">
+				<div class="image" style="{{ image_url person.images.[0] true }}"></div>
 
-			<h4>
-				<span>{{ person.nickname }}</span>
-				{{# if_neq person.realname person.nickname }}
-				<span class="sub">({{ person.realname }})</span>
-				{{/ if_neq }}
-			</h4>
-			<div class="role">
-				{{ roles person.role_json }}
-			</div>			
-		</div>
+				<h4>
+					<span>{{ person.nickname }}</span>
+					{{# if_neq person.realname person.nickname }}
+					<span class="sub">({{ person.realname }})</span>
+					{{/ if_neq }}
+				</h4>
+				<div class="role">
+					{{ roles person.role_json }}
+				</div>
+			</div>
+		</a>
 	</script>
 	{% endraw %}
 {% endblock %}

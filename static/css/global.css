@@ -199,6 +199,7 @@ aside.sidebar > section.profile .logout-btn{
 	font-weight: 400;
 	background-color: white;
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 aside.sidebar > section.profile .login-btn{

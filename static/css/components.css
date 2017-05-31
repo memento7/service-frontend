@@ -253,6 +253,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 	padding: 8px 0;
 	border-top: 1px solid #e4e5e6;
 	border-bottom: 1px solid #e4e5e6;
+	cursor: pointer;
 }
 .more-btn .content span{ color: #4a4a4a; font-size: 15px; font-weight: 300; vertical-align: middle; }
 .more-btn .content i{ color: #aeaeae; font-size: 20px; vertical-align: middle; }

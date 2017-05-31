@@ -23,13 +23,11 @@ var peopleImages = (function(entityId) {
 			function (result) {
 				for (var i = 0; i < result.length; i++) {
 					var imageId = result[i].image_id;
+					
+					$('#image-' + imageId).find('button .value').html(result[i].like_count);
+
 					if (result[i].action == 'LIKE') {
 						$('#image-' + imageId).find('button').addClass('enabled');
-						
-						// tmp
-						// TODO: GET Count from API Server
-						var valueDom = $('#image-' + imageId).find('.value');
-						valueDom.html( parseInt(valueDom.html()) + 1 );
 					}
 				}
 			},

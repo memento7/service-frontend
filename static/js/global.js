@@ -73,7 +73,16 @@ var memento = (function () {
 				for (var i = 0; i < loginCallbacks.length; i++)
 					loginCallbacks[i](loginedUser);
 			}, null, true);
-		}, null, true);
+
+		}, function(error) {
+			// not loggined
+			console.log(error);
+			loginedUser = null;
+
+			for (var i = 0; i < loginCallbacks.length; i++)
+				loginCallbacks[i](loginedUser);
+
+		}, true);
 	}
 
 	return {
