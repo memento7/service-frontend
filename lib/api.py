@@ -81,7 +81,9 @@ class RestClient :
 
 class PublishAPI(RestClient) :
 
-	BASE_URL = 'https://api.memento.live/publish'
+	#BASE_URL = 'https://api.memento.live/publish'
+	BASE_URL = 'https://manage.memento.live/api/publish'
+
 	HEADERS = {
 		'Authorization': settings.BASIC_AUTH_KEY,
 		'Content-Type': 'application/json',

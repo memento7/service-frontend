@@ -127,7 +127,7 @@ section#issue-rank{
 
 section#issue-rank .content{
 	position: relative;
-	max-width: 350px;
+	max-width: 320px;
 	margin: 0 auto 10px;
 }
 
@@ -186,7 +186,7 @@ section#issue-rank .full-label.c-rank{ color: #5448ab }
 
 section#issue-rank .comment{
 	width: calc(100% - 110px);
-	margin-top: 2px;
+	margin-top: 0;
 	font-size: 13px;
 	color: #333;
 }
@@ -211,13 +211,13 @@ section#issue-rank .circle-wrap .circle .content{
 section#issue-rank .circle-wrap .circle .content strong{ color: #fd7346; font-weight: normal; }
 
 section#issue-rank .sources{
-	margin: 8px 0 0 10px;
+	margin: 10px 0 0 50px;
 	font-size: 14px;
 	color: #666;
 }
 section#issue-rank .sources .fl{
-	width: 33%;
-	text-align: center;
+	width: 65px;
+	text-align: left;
 }
 section#issue-rank .sources span{ display: inline-block; vertical-align: middle; }
 section#issue-rank .sources i{ vertical-align: middle; }

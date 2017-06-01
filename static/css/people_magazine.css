@@ -596,6 +596,7 @@ section#quotations-full .background{
 	header .logo{ margin-left: -443px }
 
 	section#quotation .background{ background-image: url('/images/quotation_bg_long.png') }
+	section#quotations-full .background{ background-image: url('/images/quotation_bg_white_long.png') }
 
 	section#people-trend .graph-area{ padding: 0 20px 10px }
 	section#people-trend .graph-area svg.graph-small{ display: none }

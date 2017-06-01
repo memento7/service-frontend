@@ -3,9 +3,8 @@ var memento = (function () {
 	 * Memento front-end global vars and functions
 	 */
 
-	//var AUTH_BASE = 'https://auth.memento.live';
-	var AUTH_BASE = 'https://base.memento.live/auth';
-	var API_BASE = 'https://uapi.memento.live';
+	var AUTH_BASE = 'https://manage.memento.live/auth';
+	var API_BASE = 'https://manage.memento.live/uapi';
 
 	var loginedUser = {
 		'loggined': false,
