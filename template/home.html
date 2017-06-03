@@ -89,7 +89,7 @@
 	<section id="trendy-people">
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
-				{% for person in trendy_people.values() %}
+				{% for person in trendy_people %}
 				<a href="{{ person.magazine_url() }}" class="person hidden2">
 					<li>
 						{% if person.status == 4 %}
@@ -113,7 +113,7 @@
 		</a> #}
 
 		<div class="content clearfix">
-			{% for event in watchable_events.values() %}
+			{% for event in watchable_events %}
 				{% if loop.index <= 3 %}
 					{{ event_tile.mini_event_tile(event) }}
 				{% endif %}
@@ -124,7 +124,9 @@
 
 	<section id="day-3years-ago" class="common-tile">
 		<h3>3년전 오늘</h3>
-		<div class="description">2014년 3월 1일의 주요사건</div>
+		<div class="description">
+			{{ event_3years_ago_date.year }}년 {{ event_3years_ago_date.month }}월 {{ event_3years_ago_date.day }}일의 주요사건
+		</div>
 
 		{% if event_3years_ago %}
 			{{ event_tile.gallery_event_tile(event_3years_ago) }}
