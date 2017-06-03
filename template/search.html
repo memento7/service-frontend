@@ -61,7 +61,7 @@
 	<script type="x-tmpl-mustache" id="template-person-tile">
 		<a href="{{ baseUrls.people }}{{ person.id }}">
 			<div class="person-tile mini-person-tile">
-				<div class="image" style="{{ image_url person.images.[0] true }}"></div>
+				<div class="image" style="{{ profile_image person true }}"></div>
 
 				<h4>
 					<span>{{ person.nickname }}</span>

@@ -239,7 +239,7 @@ var sidebar = (function () {
 	});
 
 
-	Handlebars.registerHelper('image_url', function(value, css_mode, options) {
+	function image_url(value, css_mode, options) {
 		if (value === undefined || value == null) rv = null;
 		else if (typeof value == 'string')		  rv = value;
 		else if ('path' in value) 				  rv = value['path'];
@@ -251,6 +251,18 @@ var sidebar = (function () {
 			else  			return "background-image: url('" + rv + "')";
 		}else
 			return rv;
+	}
+	Handlebars.registerHelper('image_url', image_url);
+
+
+	Handlebars.registerHelper('profile_image', function(person, css_mode, options) {
+		for (var i = 0; i < person.images.length; i++) {
+			var image = person.images[i];
+			if (image['type'] == 'profile')  {
+				return image_url(image, css_mode);
+			}
+		}
+		return image_url(person.images[0], css_mode);
 	});
 
 	var ROLE_DICT = {

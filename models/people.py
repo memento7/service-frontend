@@ -49,7 +49,7 @@ class People :
 
 	
 	def __init__(self, id, nickname, realname, role_json={},
-				images=[], profile_image=None, events=[], quotations=[], status=0,
+				images=[], events=[], quotations=[], status=0,
 				created_time=None, updated_time=None, published_time=None, **kwarg):
 
 		from models.event import Event
@@ -65,9 +65,6 @@ class People :
 
 		self.images = images
 		self.images.sort(key=lambda a: a['weight'], reverse=True)
-
-
-		self.profile_image_url = profile_image
 		
 		self.created_time = created_time
 		self.updated_time = updated_time
@@ -169,11 +166,11 @@ class People :
 	def profile_image(self, css_mode=False) :
 		""" Get profile image of person
 		"""
-		if getattr(self, 'profile_image_url') :
-			return functions.first_image([{'url': self.profile_image_url}], css_mode, True)
+		for image in self.images :
+			if image.get('type') == 'profile' :
+				return functions.image_url(image, css_mode, True)
 
-		else :
-			return self.repr_image(css_mode, True)
+		return self.repr_image(css_mode, True)
 
 
 	def get_timelines(self) :
