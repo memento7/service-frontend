@@ -68,6 +68,7 @@
 		{{# if summaries3lines.length }}
 			{{#each summaries3lines }}
 			<div class="board-tile" id="summaries3-{{ this.id }}">
+				{{# if_eq ../loginedUser.id this.user.id }}
 				<div class="more-actions">
 					<button onclick="openMoreAction(this)">
 						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -76,6 +77,7 @@
 						<li onclick="summeries3lines.delete({{ this.id }})">삭제하기</li>
 					</ul>
 				</div>
+				{{/ if_eq }}
 
 				<ol class="three-line-summary">
 					{{#each this.summaries }}

@@ -16,7 +16,8 @@ var summeries3lines = (function(eventId) {
 
 			$('#three-lines-full').html(
 				template({
-					'summaries3lines': result
+					'summaries3lines': result,
+					'loginedUser': memento.getLoginedUser()
 				})
 			);
 		});

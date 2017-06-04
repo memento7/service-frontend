@@ -35,7 +35,8 @@ var quotations = (function(entityId) {
 
 			$('#quotations-full').html(
 				template({
-					'quotations': result
+					'quotations': result,
+					'loginedUser': memento.getLoginedUser()
 				})
 			);
 

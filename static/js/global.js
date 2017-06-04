@@ -8,10 +8,25 @@ var memento = (function () {
 
 	var loginedUser = {
 		'loggined': false,
+		'id': -1,
 		'favorites': [],
 	};
 	var loginCallbacks = [];
 	var progressCount = 0;
+
+
+	// Local Storage Process
+	if (localStorage) {
+		var session = localStorage.getItem('session');
+
+		if (session) 
+			loginedUser = JSON.parse(session);
+	}
+
+	loginCallbacks.push(function(logginedUser) {
+		if (localStorage)
+			localStorage.setItem('session', JSON.stringify(loginedUser));
+	});
 
 	function decreaseAjaxProgress() {
 		progressCount--;
@@ -76,7 +91,12 @@ var memento = (function () {
 		}, function(error) {
 			// not loggined
 			console.log(error);
-			loginedUser = null;
+
+			loginedUser = {
+				'loggined': false,
+				'id': -1,
+				'favorites': [],
+			};
 
 			for (var i = 0; i < loginCallbacks.length; i++)
 				loginCallbacks[i](loginedUser);

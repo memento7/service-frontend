@@ -61,6 +61,7 @@
 		{{# if quotations.length }}
 			{{#each quotations }}
 			<div class="board-tile quotation-tile" id="quotation-{{ this.id }}">
+				{{# if_eq ../loginedUser.id this.user.id }}
 				<div class="more-actions">
 					<button onclick="openMoreAction(this)">
 						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -69,6 +70,7 @@
 						<li onclick="quotations.delete({{ this.id }})">삭제하기</li>
 					</ul>
 				</div>
+				{{/ if_eq }}
 
 				<div class="background"></div>
 				<div class="content">
