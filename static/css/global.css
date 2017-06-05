@@ -280,6 +280,16 @@ aside.sidebar > section.favorites .empty{
 aside.sidebar > section.favorites .empty .icon-heart{ margin-bottom: 10px }
 aside.sidebar > section.favorites .empty p{ margin: 3px 0 }
 
+aside.sidebar > section.footer{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	font-size: 12px;
+	text-align: center;
+	padding: 10px 0;
+}
+
+
 
 
 

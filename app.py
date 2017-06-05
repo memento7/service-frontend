@@ -18,6 +18,9 @@ from datetime import datetime, timedelta
 """
 getview('home.home').url_rule = '/'
 getview('home.callback').url_rule = '/callback.html'
+getview('home.about').url_rule = '/about/'
+getview('home.terms').url_rule = '/terms/'
+getview('home.privacy').url_rule = '/privacy/'
 getview('home.search').url_rule = '/search/'
 
 getview('people.index').url_rule 	 = '/people/{ id }/'
@@ -41,6 +44,9 @@ getview('weekly.recent_week').url_rule = '/weekly/'
 
 addpage(view='home.home')
 addpage(view='home.callback')
+addpage(view='home.about')
+addpage(view='home.terms')
+addpage(view='home.privacy')
 addpage(view='home.search')
 
 
@@ -49,6 +55,9 @@ addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70001) ) ) # 
 addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70002) ) ) # 가데이터 - 수지
 addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # 가데이터 - 김태희,비 결혼
 
+
+app = Jikji.getinstance()
+pagelimit = int(app.options.get('pagelimit', -1))
 
 
 # Get updated entites and register pages
@@ -61,7 +70,7 @@ while True :
 		person = People.register(data)
 		addpagegroup( PeoplePageGroup( model=person ) )
 
-	if 'pagelimit' in Jikji.getinstance().options :
+	if pagelimit != -1 and pagelimit <= page_num :
 		break
 	page_num += 1
 
@@ -77,7 +86,7 @@ while True :
 		event = Event.register(data)
 		addpagegroup( EventPageGroup( model=event ) )
 
-	if 'pagelimit' in Jikji.getinstance().options :
+	if pagelimit != -1 and pagelimit <= page_num :
 		break
 	page_num += 1
 

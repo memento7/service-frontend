@@ -57,7 +57,22 @@ def home() :
 
 @register_view
 def callback() :
-	return render_template('callback.html')
+	return render_template('intro/callback.html')
+
+
+@register_view
+def about() :
+	return render_template('intro/about.html')
+
+
+@register_view
+def terms() :
+	return render_template('intro/terms.html')
+
+
+@register_view
+def privacy() :
+	return render_template('intro/privacy.html')
 
 
 @register_view
