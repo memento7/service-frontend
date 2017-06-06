@@ -441,7 +441,7 @@ section#inmac{
 .inmac-resource.women{ width: 24px; height: 24px; background-position: 0 0; background-size: 60px auto; }
 .inmac-resource.men{ width: 24px; height: 24px; background-position: -24px 0; background-size: 60px auto; }
 
-.inmac-resource.arrow{ width: 40px; height: 6px }
+.inmac-resource.arrow{ width: 45px; height: 6px }
 .inmac-resource.arrow.left{ background-position: 0 -18px }
 .inmac-resource.arrow.left.enabled{ background-position: 0 -24px }
 .inmac-resource.arrow.right{ background-position: 0 -30px }

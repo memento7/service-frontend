@@ -12,7 +12,7 @@
 {% block foot %}
 	{{ super() }}
 	<script type="text/javascript">
-		$.get('/temp_relations1.json', function(result) {
+		memento.uapi.get('/entities/' + entityId +'/relations', function (result) {
 			inmac.setRelations(result);
 			inmac.draw();
 		});
@@ -42,7 +42,7 @@
 				<div class="person-tile clearfix">
 					<div class="fr right">
 						<span class="image" style="{{ image_url person1.profile_image true }}"></span>
-						<span class="sex inmac-resource men"></span>
+						<!--<span class="sex inmac-resource men"></span>-->
 					</div>
 					<div class="fr left content">
 						<h4>
@@ -56,18 +56,31 @@
 				</div>
 
 				<div class="relation">
+					{{# if_eq inbound.type "INSTAGRAM" }}
 					<div>
 						<span class="inmac-resource arrow left enabled"></span>
 					</div>
+					{{ else }}
+					<div>
+						<span class="inmac-resource arrow left"></span>
+					</div>
+					{{/ if_eq }}
+
+					{{# if_eq outbound.type "INSTAGRAM" }}
 					<div>
 						<span class="inmac-resource arrow right enabled"></span>
 					</div>
+					{{ else }}
+					<div>
+						<span class="inmac-resource arrow right"></span>
+					</div>
+					{{/ if_eq }}
 				</div>
 
 				<div class="person-tile clearfix">
 					<div class="fl left">
 						<span class="image" style="{{ profile_image person2 true }}"></span>
-						<span class="sex inmac-resource women"></span>
+						<!--<span class="sex inmac-resource women"></span>-->
 					</div>
 					<div class="fl right content">
 						<h4>

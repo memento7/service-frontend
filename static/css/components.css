@@ -112,7 +112,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 	background-size: 210px auto;
 }
 .issue-label{ width: 45px; }
-.category-label{ width: 40px; }
+.category-label{ width: 40px; background-position: -87px -34px }
 
 .issue-label.s-rank{ background-position: 0 0 }
 .issue-label.a-rank{ background-position: 0 -17px }
@@ -215,7 +215,8 @@ i.icon.icon-sad{ background-position: -20px -44px }
 	width: 120px;
 	height: 80px;
 	background-color: transparent;
-	background-size: auto 80px;
+	/*background-size: auto 80px;*/
+	background-size: 120px auto;
 	background-position: center 10%;
 	background-repeat: no-repeat;
 }
@@ -237,7 +238,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 
 .event-tile.full-image{ padding-top: 14px }
 .event-tile.full-image .content{ padding-bottom: 4px }
-.event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; background-size: auto 87px; }
+.event-tile.full-image .image{ margin: -14px -10px 0 0; height: 87px; /*background-size: auto 87px;*/background-size: 110px auto; }
 
 .event-tile .date{
 	margin: 2px 0 2px 2px;

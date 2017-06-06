@@ -178,7 +178,8 @@ section#weekly-mementos .item .content .box{
 	section#watchable-event .content .mini-event-tile{ width: calc(33% - 25px); margin-right: 30px }
 	section#watchable-event .content .mini-event-tile .image{
 		height: 110px;
-		background-size: auto 110px;
+		/*background-size: auto 110px;*/
+		background-size: 150px auto;
 	}
 
 	section#day-3years-ago{

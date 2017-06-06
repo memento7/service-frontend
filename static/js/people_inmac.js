@@ -29,8 +29,8 @@ var inmac = (function(entityId) {
 	};
 
 	var network = null;
-	var relations = {};
-	var relation_list = [];
+	var relatedEntities = [];
+	var socialRelations = {};
 
 	var eventTileTemplate;
 	var inmacRelationTemplate;
@@ -44,7 +44,7 @@ var inmac = (function(entityId) {
 		
 		// Main
 		nodes.push({
-			'id': 1,
+			'id': 0,
 			'shape': 'circularImage',
 			'label': entityData.nickname,
 			'image': entityData.profile_image,
@@ -53,20 +53,23 @@ var inmac = (function(entityId) {
 			'y': CENTER_POS.y
 		});
 
-		for (var i = 0; i < relation_list.length; i++) {
-			var entity = relation_list[i]['entity'];
-			var theta = i / relation_list.length * 2 * Math.PI;
+		for (var i = 1; i < relatedEntities.length; i++) {
+			var curEntity = relatedEntities[i];
+			var theta = i / relatedEntities.length * 2 * Math.PI;
+
+			var imageUrl = (curEntity.images.length) ? curEntity.images[0]['url'] : 'https://assets-dev.memento.live/images/avatar.png';
 
 			nodes.push({
-				'id': i+2,
+				'id': i,
 				'shape': 'circularImage',
-				'label': entity.nickname,
-				'image': entity.images[0]['url'],
+				'label': curEntity.nickname,
+				'image': imageUrl,
 				'size': 26,
 				'x': 120 * Math.cos(theta) + CENTER_POS.x,
 				'y': 120 * Math.sin(theta) + CENTER_POS.y
 			});
-			edges.push({'from': 1, 'to': i+2, 'value': relation_list[i]['weight']});
+			edges.push({'from': 0, 'to': i, 'value': 1}); // TODO: weight calc
+			//edges.push({'from': 1, 'to': i+2, 'value': relatedEntities[i]['weight']});
 		}
 
 		// create a network
@@ -74,22 +77,24 @@ var inmac = (function(entityId) {
 		network = new vis.Network(container, {nodes: nodes, edges: edges}, VISJS_OPTIONS);
 
 		network.on("click", function (params) {
-			var node = this.getNodeAt(params.pointer.DOM);
-			if (node && node != 1)
-				showRelations(node);
+			var nodeId = this.getNodeAt(params.pointer.DOM);
+			if (nodeId && nodeId != entityId)
+				showRelations( relatedEntities[nodeId].id, nodeId );
 		});
 	}
 
-	function showRelations(entityId) {
+	function showRelations(withEntityId, nodeId) {
 		if (!eventTileTemplate) eventTileTemplate = Handlebars.compile($('#template-event-tile').html());
 		if (!inmacRelationTemplate) inmacRelationTemplate = Handlebars.compile($('#template-inmac-relation').html());
 		
-		// temp
-		$.get('/temp_relations1_2.json', function(result) {
+		memento.uapi.get('/entities/' + entityId +'/events?withEntityId=' + withEntityId, function (result) {
+
 			$('#inmac-relation').html(
 				inmacRelationTemplate({
 					'person1': entityData,
-					'person2': relations[entityId].entity
+					'person2': relatedEntities[nodeId],
+					'outbound': socialRelations[entityId][withEntityId],
+					'inbound': socialRelations[withEntityId][entityId],
 				})
 			).show();
 
@@ -99,16 +104,30 @@ var inmac = (function(entityId) {
 					'baseUrls': baseUrls
 				})
 			);
-
 		});
 	}
 
 	return {
 		'setRelations': function(data) {
-			relation_list = data;
-			
-			for (var i = 0; i < data.length; i++)
-				relations[data[i].entity.id] = data[i];
+			relatedEntities = data.entities;
+
+			socialRelations = {};
+			for (var i = 0; i < data.relations.length; i++) {
+				var r = data.relations[i];
+				var sid = r.source_entity_id;
+				var tid = r.target_entity_id;
+
+				if (!socialRelations[sid])
+					socialRelations[sid] = {};
+
+				if (!socialRelations[tid])
+					socialRelations[tid] = {};
+
+				socialRelations[sid][tid] = {
+					'type': r.relation_type,
+					'metadata': r.metadata
+				}
+			}
 		},
 		'draw': draw,
 		'showRelations': showRelations
