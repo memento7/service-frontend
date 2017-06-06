@@ -55,8 +55,10 @@ var inmac = (function(entityId) {
 
 		for (var i = 1; i < relatedEntities.length; i++) {
 			var curEntity = relatedEntities[i];
-			var theta = i / relatedEntities.length * 2 * Math.PI;
 
+			if (curEntity.id == entityId) continue;
+
+			var theta = i / relatedEntities.length * 2 * Math.PI;
 			var imageUrl = (curEntity.images.length) ? curEntity.images[0]['url'] : 'https://assets-dev.memento.live/images/avatar.png';
 
 			nodes.push({
@@ -95,6 +97,7 @@ var inmac = (function(entityId) {
 					'person2': relatedEntities[nodeId],
 					'outbound': socialRelations[entityId][withEntityId],
 					'inbound': socialRelations[withEntityId][entityId],
+					'baseUrls': baseUrls
 				})
 			).show();
 
