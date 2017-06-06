@@ -28,6 +28,8 @@ var inmac = (function(entityId) {
 		}
 	};
 
+	var DEFAULT_IMAGE = 'https://assets-dev.memento.live/images/avatar.png';
+
 	var network = null;
 	var relatedEntities = [];
 	var socialRelations = {};
@@ -47,7 +49,7 @@ var inmac = (function(entityId) {
 			'id': 0,
 			'shape': 'circularImage',
 			'label': entityData.nickname,
-			'image': entityData.profile_image,
+			'image': entityData.profile_image ? entityData.profile_image : DEFAULT_IMAGE,
 			'size': 30,
 			'x': CENTER_POS.x,
 			'y': CENTER_POS.y
@@ -59,7 +61,7 @@ var inmac = (function(entityId) {
 			if (curEntity.id == entityId) continue;
 
 			var theta = i / relatedEntities.length * 2 * Math.PI;
-			var imageUrl = (curEntity.images.length) ? curEntity.images[0]['url'] : 'https://assets-dev.memento.live/images/avatar.png';
+			var imageUrl = (curEntity.images.length) ? curEntity.images[0]['url'] : DEFAULT_IMAGE;
 
 			nodes.push({
 				'id': i,
