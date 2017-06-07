@@ -250,6 +250,10 @@ var sidebar = (function () {
 			return opts.inverse(this);
 	});
 
+	Handlebars.registerHelper('replace', function(value, match, replace_string, options) {
+		return value.replace(match, replace_string);
+	});
+
 	Handlebars.registerHelper('rank', function(value, options) {
 		if (value === undefined)	return '?';
 		else if (value <= 2 )		return 's';
@@ -312,7 +316,7 @@ var sidebar = (function () {
 	});
 
 	Handlebars.registerHelper('emotion_size', function(value, options) {
-		return value / 5 * 13;
+		return value / 20 * 13;
 	});
 
 

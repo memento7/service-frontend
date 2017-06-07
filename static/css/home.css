@@ -146,6 +146,22 @@ section#weekly-mementos .item .content .box{
 }
 
 
+/* 배너 */
+section#pc-banner{
+	display: none;
+}
+section#pc-banner a{ text-decoration: none; }
+section#pc-banner .banner{
+	font-size: 24px;
+	font-weight: 300;
+	margin: 0;
+	padding: 50px 0;
+	text-align: center;
+	color: #fe646e;
+	background-color: #ffe8e8;
+}
+
+
 @media(min-width: 900px) {
 	header .logo{
 		background-position: 0 0;
@@ -193,4 +209,13 @@ section#weekly-mementos .item .content .box{
 		right: 0;
 		width: 290px;
 	}
+
+	section#pc-banner{
+		display: block;
+		position: absolute;
+		margin-top: 327px;
+		right: 0;
+		width: 290px;
+	}
+
 }

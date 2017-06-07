@@ -92,7 +92,7 @@
 					</h4>
 					<div class="labels emotion-bubbles">
 						<span class="issue-label {{ rank this.issue_data.top_percentile }}-rank"></span>
-						<span class="category-label category-{{ this.type }}"></span>
+						<span class="category-label category-{{ replace this.type '/' '-' }}"></span>
 						
 						{{# if this.emotions.[0] }}
 						<span class="emotion">

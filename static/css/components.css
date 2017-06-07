@@ -111,8 +111,8 @@ i.icon.icon-sad{ background-position: -20px -44px }
 	background-image: url('/images/label_sprite.png');
 	background-size: 210px auto;
 }
-.issue-label{ width: 45px; }
-.category-label{ width: 40px; background-position: -87px -34px }
+.issue-label{ width: 45px; background-position: 0 -68px }
+.category-label{ width: 40px; background-position: -169px -68px }
 
 .issue-label.s-rank{ background-position: 0 0 }
 .issue-label.a-rank{ background-position: 0 -17px }
@@ -120,20 +120,29 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .issue-label.c-rank{ background-position: 0 -51px }
 
 .category-label.category-entertain{ background-position: -46px 0; width: 32px }
-.category-label.category-politic{ background-position: -46px -17px; width: 32px }
+.category-label.category-politics{ background-position: -46px -17px; width: 32px }
 .category-label.category-sports{ background-position: -46px -34px }
-.category-label.category-media{ background-position: -46px -51px }
+.category-label.category-social{ background-position: -46px -51px; width: 32px }
+.category-label.category-economy{ background-position: -46px -68px; width: 32px }
+
 .category-label.category-world{ background-position: -87px 0; width: 32px }
-.category-label.category-others{ background-position: -87px -17px; width: 32px }
-.category-label.category-news{ background-position: -87px -34px; width: 32px }
+.category-label.category-tv{ background-position: -87px -17px; width: 28px }
+.category-label.category-life-culture{ background-position: -87px -34px }
+.category-label.category-it-science{ background-position: -87px -51px }
+.category-label.category-others{ background-position: -87px -68px; width: 32px }
+
 
 .category-label.white.category-entertain{ background-position: -128px 0 }
-.category-label.white.category-politic{ background-position: -128px -17px }
+.category-label.white.category-politics{ background-position: -128px -17px }
 .category-label.white.category-sports{ background-position: -128px -34px }
-.category-label.white.category-media{ background-position: -128px -51px }
+.category-label.white.category-social{ background-position: -128px -51px }
+.category-label.white.category-economy{ background-position: -128px -68px }
+
 .category-label.white.category-world{ background-position: -169px 0 }
-.category-label.white.category-others{ background-position: -169px -17px }
-.category-label.white.category-news{ background-position: -169px -34px }
+.category-label.white.category-tv{ background-position: -169px -17px }
+.category-label.white.category-life-culture{ background-position: -169px -34px }
+.category-label.white.category-it-science{ background-position: -169px -51px }
+.category-label.white.category-others{ background-position: -169px -68px }
 
 
 /* Star sprite */

@@ -16,19 +16,19 @@ function searchPeople(keyword, page) {
 		}
 		
 		if (result.length == 0) {
-			$('#people-result .more-btn').remove();
-			
+			$('#people-result .more-btn').hide();
 			if (page == 0)
 				$('#people-result .result').append('<div class="no-content">검색 결과가 없습니다</div>');
 
 		}else {
+			$('#people-result .more-btn').show();
 			$('#people-result .more-btn').one('click', function () {
 				searchPeople(keyword, page+1);
 			});
 		}
 	}, function(error) {
 		$('#people-result .result').append('<div class="no-content">오류가 발생했습니다</div>');
-		$('#people-result .more-btn').remove();
+		$('#people-result .more-btn').hide();
 	});
 }
 

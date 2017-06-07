@@ -8,7 +8,9 @@ class Event :
 
 	tag_remover = re.compile(r'<[^>]+>')
 	_instances = {}
-	CATEGORIES = ['entertain', 'politic', 'sports', 'media', 'world', 'news']
+	# CATEGORIES = ['entertain', 'politic', 'sports', 'media', 'world', 'news']
+	CATEGORIES = ['entertain', 'politics', 'sports', 'social', 'economy',
+				  'world', 'tv', 'life/culture', 'it/science']
 
 	@staticmethod
 	def register(data) :
@@ -71,7 +73,7 @@ class Event :
 
 	def get_category(self) :
 		if self.category in Event.CATEGORIES :
-			return self.category
+			return self.category.replace('/', '-')
 		else :
 			return 'others'
 

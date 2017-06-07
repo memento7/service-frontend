@@ -44,7 +44,7 @@ class WeeklyMemento :
 
 		self.start_date, self.end_date = WeeklyMemento.get_week_bound(date)
 
-		data = PublishAPI.get('/events/toprank?fromDate=%s&toDate=%s'
+		data = PublishAPI.get('/events/toprank?fromDate=%s&toDate=%s&rankLimit=15'
 			% (self.start_date.strftime('%Y-%m-%d'), self.end_date.strftime('%Y-%m-%d'))
 		)
 		
