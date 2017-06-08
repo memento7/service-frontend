@@ -48,39 +48,6 @@ var swiper = new Swiper('.swiper-container', {
 			.text(function(d) { return d });
 	}
 
-	var positiveEmotions = [];
-	var negativeEmotions = [];
-
-	// TODO: Enhancement
-
-	for (var i=0; i<emotions.length; i++) {
-		if (emotions[i].pos)
-			positiveEmotions.push(emotions[i]);
-
-		else if (emotions[i].neg)
-			negativeEmotions.push(emotions[i]);
-
-		else {
-			// temp: random
-			if (Math.random() > 0.5)
-				positiveEmotions.push(emotions[i]);
-			else
-				negativeEmotions.push(emotions[i]);
-			
-		}
-
-		// var posWords = ['사랑', '멋', '놀라', '행복', '공감', '대단', '재밌', '축하', '예쁨', '황홀', '아름']
-		// for (var j=0; j<posWords.length; j++)
-		// 	if (emotions[i].title.indexOf(posWords[j]) != -1) 
-		// 		positiveEmotions.push(emotions[i]);
-
-		// var negWords = ['부러', '부럽', '나빠', '나쁨', '슬퍼', '무서', '화', '슬픔', '수줍']
-		// for (var j=0; j<negWords.length; j++)
-		// 	if (emotions[i].title.indexOf(negWords[j]) != -1) 
-		// 		negativeEmotions.push(emotions[i]);
-	}
-
-	render("#emotions-positive", positiveEmotions, 'emotion');
-	render("#emotions-negative", negativeEmotions, 'emotion');
+	render("#emotions-svg", emotions, 'emotion');
 
 })();

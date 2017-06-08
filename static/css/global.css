@@ -297,6 +297,7 @@ aside.sidebar > section.footer{
 /* Magzine Navigation */
 nav.magazine-nav{
 	background-color: white;
+	overflow: auto;
 }
 
 nav.magazine-nav ul{

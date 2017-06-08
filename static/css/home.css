@@ -161,6 +161,18 @@ section#pc-banner .banner{
 	background-color: #ffe8e8;
 }
 
+@media(max-width: 350px) {
+	section#trendy-people ul a li{
+		width: 63px;
+	}
+
+	section#trendy-people ul .person-tile .image{
+		width: 57px;
+		height: 57px;
+		background-size: auto 57px;
+	}
+}
+
 
 @media(min-width: 900px) {
 	header .logo{

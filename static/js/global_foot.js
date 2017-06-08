@@ -30,6 +30,25 @@ $('.popup button.cancel').on('click', function (e) {
 	$(e.currentTarget).parents('.popup').fadeOut(200);
 });
 
+
+/* Grid Images */
+function resizeGirdImageTiles() {
+	var windowWidth = $(window).width();
+
+	if (windowWidth < 300)
+		$('.grid-image-tile').css('width', windowWidth - 10);
+	else if (windowWidth < 575)
+		$('.grid-image-tile').css('width', windowWidth / 2 - 15);
+	else if (windowWidth <= 660)
+		$('.grid-image-tile').css('width', '180px');
+	else
+		$('.grid-image-tile').css('width', '210px');
+
+}
+resizeGirdImageTiles();
+$(window).on('resize', resizeGirdImageTiles);
+
+
 function openMoreAction(button) {
 	var ul = $(button).parent().find('ul');
 	ul.show();

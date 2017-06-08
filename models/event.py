@@ -1,5 +1,6 @@
 from models.people import People
 from lib import functions
+import settings
 
 from datetime import datetime
 import re
@@ -88,13 +89,31 @@ class Event :
 class EventIssueData :
 	""" event.issue_data DTO
 	"""
+
+	tp_distribution = []
+	with open(settings.ROOT_PATH + '/data/tp.dat') as file :
+		for line in file.readlines() :
+			tmp = line.split(' ')
+			tp_distribution.append((float(tmp[0]), int(tmp[1])))
+
 	def __init__(self, issue_score, top_percentile=None, issue_rank=None,
 				article_count=None, sns_count=None, comment_count=None, **kwarg) :
 
 		self.issue_score = issue_score
 
-		if top_percentile : self.top_percentile = max(0.1, top_percentile)
-		else : 				self.top_percentile = None
+		if top_percentile :
+			self.top_percentile = max(0.1, top_percentile)
+		else : 
+			# Fallback
+			self.top_percentile = None
+
+			for tp, issue_score in EventIssueData.tp_distribution :
+				if issue_score >= self.issue_score :
+					self.top_percentile = tp
+					break
+
+
+
 
 		self.ranking = issue_rank
 
@@ -108,7 +127,7 @@ class EventIssueData :
 
 	
 	def rank(self) :
-		if self.top_percentile is None :	return '?'
+		if self.top_percentile is None :	return None
 		elif self.top_percentile <= 2  :	return 's'
 		elif self.top_percentile <= 10 :	return 'a'
 		elif self.top_percentile <= 50 :	return 'b'

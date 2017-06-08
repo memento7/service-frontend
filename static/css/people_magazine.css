@@ -432,6 +432,8 @@ section#inmac{
 
 }
 
+section#inmac #inmac-network canvas{ touch-action: initial !important }
+
 .inmac-resource{
 	display: inline-block;
 	margin: 0 1px;
@@ -578,6 +580,10 @@ section#quotations-full .background{
 	background-size: 100% 100px;
 }
 
+
+@media(max-width: 350px) {
+	nav.magazine-nav ul{ padding: 0 5px }
+}
 
 
 @media(min-width: 900px) {

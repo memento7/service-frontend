@@ -234,7 +234,7 @@ section#emotions .content{
 	padding: 0 15px 15px;
 	height: 150px;
 }
-section#emotions .content > .fl,
+/*section#emotions .content > .fl,
 section#emotions .content > .fr{ width: 50%; position: relative; }
 
 section#emotions .content .icon-wrapper{
@@ -255,6 +255,14 @@ section#emotions .content .container{
 	width: calc(100% - 17px);
 	height: 150px;
 	margin: 10px;
+	border: 1px solid #e6e7e9;
+	border-radius: 6px;
+}*/
+
+section#emotions .content .container{
+	height: 140px;
+	margin: 10px;
+	padding: 10px;
 	border: 1px solid #e6e7e9;
 	border-radius: 6px;
 }

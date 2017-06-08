@@ -64,7 +64,7 @@ class People :
 		self.status = status
 
 		self.images = images
-		self.images.sort(key=lambda a: a['weight'], reverse=True)
+		self.images.sort(key=lambda a: a.get('like_count', 0), reverse=True)
 		
 		self.created_time = created_time
 		self.updated_time = updated_time
