@@ -80,8 +80,10 @@ ol.three-line-summary li span{
 	vertical-align: middle;
 	color: #333;
 	font-weight: 300;
+	width: calc(100% - 30px);
+	vertical-align: top;
 }
-ol.three-line-summary li i{ margin-right: 5px }
+ol.three-line-summary li i{ margin-right: 5px; vertical-align: top }
 
 
 section#three-lines{

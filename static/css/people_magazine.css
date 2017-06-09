@@ -432,7 +432,11 @@ section#inmac{
 
 }
 
-section#inmac #inmac-network canvas{ touch-action: initial !important }
+section#inmac #inmac-network canvas{
+	touch-action: initial !important;
+	-webkit-user-drag: initial !important;
+	user-select: initial !important;
+}
 
 .inmac-resource{
 	display: inline-block;
