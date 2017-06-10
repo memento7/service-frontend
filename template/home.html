@@ -108,17 +108,22 @@
 
 	<section id="watchable-event" class="common-tile">
 		<h3>볼만한 사건들</h3>
-		{# <a href="/events">
-			<i class="fa fa-angle-right view-more"></i>
-		</a> #}
 
 		<div class="content clearfix">
-			{% for event in watchable_events %}
-				{% if loop.index <= 3 %}
-					{{ event_tile.mini_event_tile(event) }}
-				{% endif %}
 
-			{% endfor %}
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					{% for event_group in watchable_events | slice(3) %}
+					<div class="swiper-slide">
+						{% for event in event_group %}
+							{{ event_tile.mini_event_tile(event) }}
+						{% endfor %}
+					</div>
+					{% endfor %}
+				</div>
+				<div class="swiper-button-prev swiper-button-black"></div>
+				<div class="swiper-button-next swiper-button-black"></div>
+			</div>
 		</div>
 	</section>
 

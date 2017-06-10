@@ -76,7 +76,9 @@ section#weekly-header .navigation .next-btn i{ margin-left: 3px }
 
 /* 타임라인 */
 section#timeline{
-	margin: 35px 0 10px;
+	position: relative;
+	margin: 25px 0 10px;
+	z-index: 3;
 }
 
 section#timeline ul{

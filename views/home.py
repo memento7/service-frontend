@@ -30,6 +30,8 @@ def home() :
 					rank_limit)) :
 		watchable_events.append( Event(**event) )
 
+	watchable_events = watchable_events[0:9]
+
 	# Proceess 3years ago
 	ago_3year_date = datetime(now.year-3, now.month, now.day)
 	tmp = PublishAPI.get('/events/toprank?fromDate=%s&toDate=%s' % (
