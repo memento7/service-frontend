@@ -187,10 +187,10 @@ section#people-trend{
 }
 
 section#people-trend i.index-bubble{ color: white }
-section#people-trend i.index-bubble.index1{ background-color: #26c7db }
-section#people-trend i.index-bubble.index2{ background-color: #738ffd }
-section#people-trend i.index-bubble.index3{ background-color: #9473ce }
-section#people-trend i.index-bubble.index4{ background-color: #e24ad5 }
+section#people-trend i.index-bubble.index1{ background-color: #26c7db; z-index: 4 }
+section#people-trend i.index-bubble.index2{ background-color: #738ffd; z-index: 3 }
+section#people-trend i.index-bubble.index3{ background-color: #9473ce; z-index: 2 }
+section#people-trend i.index-bubble.index4{ background-color: #e24ad5; z-index: 1 }
 
 section#people-trend .graph-area{
 	position: relative;

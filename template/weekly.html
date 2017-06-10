@@ -6,6 +6,14 @@
 	{{ super() }}
 
 	<link rel="stylesheet" type="text/css" href="{{ geturl('assets', '/css/weekly_memento.css') }}">
+
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('#timeline .event-tile').each(function(i, target) {
+				$(target).find('.image').css('height', $(target).outerHeight(true) + 'px');
+			});
+		});
+	</script>
 {% endblock %}
 
 
