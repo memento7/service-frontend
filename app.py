@@ -10,7 +10,7 @@ from views.event import EventPageGroup
 from lib.api import PublishAPI
 
 import requests
-import settings
+import time
 from datetime import datetime, timedelta
 
 
@@ -73,6 +73,7 @@ while True :
 	if pagelimit != -1 and pagelimit <= page_num :
 		break
 	page_num += 1
+	time.sleep(0.5)
 
 
 
@@ -89,6 +90,7 @@ while True :
 	if pagelimit != -1 and pagelimit <= page_num :
 		break
 	page_num += 1
+	time.sleep(0.5)
 
 
 addpage(view='weekly.recent_week')

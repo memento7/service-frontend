@@ -213,7 +213,10 @@ class ImageAPI :
 	def make_thumbnail(image_path, output_path, basewidth=300) :
 		from PIL import Image
 
-		img = Image.open(image_path)
+		try :
+			img = Image.open(image_path)
+		except OSError :
+			return None
 
 		wpercent = basewidth / float(img.size[0])
 		hsize = int(float(img.size[1]) * float(wpercent))
@@ -223,6 +226,8 @@ class ImageAPI :
 			Image.ANTIALIAS
 		)
 		img.save(output_path)
+
+		return True
 
 
 	@staticmethod
@@ -246,7 +251,11 @@ class ImageAPI :
 
 		tmp_img_path = ImageAPI.cache.cachedir + '/image_' + filehash
 
-		filename, headers = urllib.request.urlretrieve(url, tmp_img_path)
+		try :
+			filename, headers = urllib.request.urlretrieve(url, tmp_img_path)
+		except Exception :
+			return url
+
 		content_type = headers['Content-Type']
 
 		object_key = ImageAPI.get_hash_url(
@@ -260,11 +269,14 @@ class ImageAPI :
 		thumbnail_path = tmp_img_path + '_thumbnail.' + object_key.split('.')[-1]
 
 		# Make Thumbnail
-		ImageAPI.make_thumbnail(
+		ret = ImageAPI.make_thumbnail(
 			image_path=tmp_img_path,
 			output_path=thumbnail_path,
 			basewidth=300
 		)
+
+		if ret is None :
+			return url
 
 		# Upload S3
 		import boto3
