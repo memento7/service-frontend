@@ -315,10 +315,6 @@ var sidebar = (function () {
 		return colors[Math.floor( Math.random() * colors.length )];
 	});
 
-	Handlebars.registerHelper('emotion_size', function(value, options) {
-		return value / 20 * 13;
-	});
-
 
 	Handlebars.registerHelper ('truncate', function (str, len, options) {
 		if (str.length > len && str.length > 0) {

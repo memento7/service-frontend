@@ -25,6 +25,7 @@ section#people-header{
 section#people-header .background{
 	height: inherit;
 	z-index: 1;
+	background-position: center 35%;
 	/*filter: brightness(90%);*/
 }
 section#people-header .background-filter{

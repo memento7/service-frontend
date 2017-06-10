@@ -203,6 +203,9 @@ i.icon.icon-sad{ background-position: -20px -44px }
 .emotion-bubbles .emotion > span{ vertical-align: middle; }
 .emotion-bubbles .emotion > i{
 	display: inline-block;
+	width: 8px;
+	height: 8px;
+
 	background-color: #ccc;
 	border-radius: 50%;
 	vertical-align: middle;
@@ -226,6 +229,7 @@ i.icon.icon-sad{ background-position: -20px -44px }
 	background-color: transparent;
 	/*background-size: auto 80px;*/
 	background-size: 120px auto;
+	background-size: cover !important;
 	background-position: center 10%;
 	background-repeat: no-repeat;
 }

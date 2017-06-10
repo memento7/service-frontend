@@ -24,13 +24,16 @@ def home() :
 
 	# Process watchable events
 	watchable_events = []
-	for event in PublishAPI.get('/events/toprank?fromDate=%s&toDate=%s&rankLimit=%d' % (
+	for event_data in PublishAPI.get('/events/toprank?fromDate=%s&toDate=%s&rankLimit=%d' % (
 					(now - timedelta(days=20)).strftime('%Y-%m-%d'),
 					now.strftime('%Y-%m-%d'),
-					rank_limit)) :
-		watchable_events.append( Event(**event) )
-
+					18)) :
+		event = Event(**event_data)
+		if event.repr_image() :
+			watchable_events.append( event )
+	
 	watchable_events = watchable_events[0:9]
+
 
 	# Proceess 3years ago
 	ago_3year_date = datetime(now.year-3, now.month, now.day)

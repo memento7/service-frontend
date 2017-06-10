@@ -99,22 +99,14 @@
 						
 						{{# if this.emotions.[0] }}
 						<span class="emotion">
-							<i style="
-								width: {{ emotion_size this.emotions.[0].weight }}px;
-								height: {{ emotion_size this.emotions.[0].weight }}px;
-								background-color: {{ random_color }}
-							"></i>
+							<i style="background-color: {{ random_color }}"></i>
 							<span>{{ this.emotions.[0].emotion }}</span>
 						</span>
 						{{/ if }}
 
 						{{# if this.emotions.[1] }}
 						<span class="emotion">
-							<i style="
-								width: {{ emotion_size this.emotions.[1].weight }}px;
-								height: {{ emotion_size this.emotions.[1].weight }}px;
-								background-color: {{ random_color }}
-							"></i>
+							<i style="background-color: {{ random_color }}"></i>
 							<span>{{ this.emotions.[1].emotion }}</span>
 						</span>
 						{{/ if }}

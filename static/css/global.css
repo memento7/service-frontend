@@ -87,7 +87,8 @@ html,body{
 	width: 100%;
 	background-color: #999;
 	background-size: 100% auto;
-	background-position: center 40%;
+	background-size: cover;
+	background-position: center 20%;
 }
 
 

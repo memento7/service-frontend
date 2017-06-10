@@ -2,11 +2,7 @@
 	{% for emotion in emotions %}
 		{% if loop.index <= max %}
 		<span class="emotion">
-			<i style="
-				width: {{ emotion.weight / 20 * max_size }}px;
-				height: {{ emotion.weight / 20 * max_size }}px;
-				background-color: {{ rand_color() }}
-			"></i>
+			<i style="background-color: {{ rand_color() }}"></i>
 			<span>{{ emotion.emotion }}</span>
 		</span>
 		{% endif %}
