@@ -74,7 +74,10 @@
 			{% block content %}{% endblock %}
 
 			<footer>
-				&copy; memento
+				{% block memento_time %}
+				<div class="memento-time">이 페이지는 {{ _page.render_time.strftime('%y년 %m월 %d일 %H시') }}에 생성되었습니다</div>
+				{% endblock %}
+				<div>&copy; <a href="{{ geturl() }}about">memento</a></div>
 			</footer>
 		</div>
 

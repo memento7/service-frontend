@@ -112,6 +112,10 @@ var inmac = (function(entityId) {
 					'baseUrls': baseUrls
 				})
 			);
+
+			$('html, body').animate({
+				scrollTop: $("#inmac-relation").offset().top
+			}, 1000);
 		});
 	}
 

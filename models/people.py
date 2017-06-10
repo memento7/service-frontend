@@ -181,7 +181,7 @@ class People :
 		events = sorted(self.events, key=lambda d: d.issue_data.issue_score, reverse=True)
 		
 		return [
-			sorted(events[0:7], key=date_sorting_lambda, reverse=True),
+			sorted(events[0:10], key=date_sorting_lambda, reverse=True),
 			sorted(events[0:20], key=date_sorting_lambda, reverse=True),
 			sorted(events[0:40], key=date_sorting_lambda, reverse=True),
 			sorted(events, key=date_sorting_lambda, reverse=True),

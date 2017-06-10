@@ -1,5 +1,6 @@
 from models.event import Event
 from lib.api import PublishAPI
+import functions
 
 from datetime import datetime, timedelta
 import math
@@ -18,7 +19,10 @@ class WeeklyMemento :
 		start_date, end_date = WeeklyMemento.get_week_bound(date)
 		diff = start_date - day1
 
-		if end_date > datetime.now() :
+		today = datetime.today()
+		today = datetime(today.year, today.month, today.day) # Remove hour, minute, seconds
+		
+		if end_date >= today :
 			return None
 
 		if end_date.month == date.month :
@@ -53,5 +57,17 @@ class WeeklyMemento :
 
 		self.next_week = WeeklyMemento.get_week(date + timedelta(days=7))
 		self.prev_week = WeeklyMemento.get_week(date + timedelta(days=-7))
+
+
+	def repr_image(self, css_mode=False, thumbnail=False) :
+		""" Get representative image of weekly-memento
+		"""
+		n_events = sorted(self.events[0:10], key=lambda d: d.issue_data.issue_score, reverse=True)
+
+		if len(n_events) :
+			return n_events[0].repr_image(css_mode, thumbnail)
+		else :
+			return functions.image_url(None, css_mode, thumbnail)
+
 
 

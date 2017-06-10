@@ -14,6 +14,7 @@ def weekly(year, month, week) :
 	w = WeeklyMemento(year, month, week)
 
 	return render_template('weekly.html',
+		weekly_memento = w,
 		year=w.year,
 		month=w.month,
 		week=w.week,

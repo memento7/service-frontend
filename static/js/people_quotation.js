@@ -71,6 +71,7 @@ var quotations = (function(entityId) {
 				sidebar.open();
 				return false;
 			}
+			$("#quotation-writing-popup textarea").val('');
 			$("#quotation-writing-popup").fadeIn();
 		},
 

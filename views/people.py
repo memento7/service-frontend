@@ -89,7 +89,7 @@ class PeoplePageGroup(PageGroup) :
 
 		# Process trends
 		sorted_trend = sorted(trend_graph, key=lambda d: d['value'], reverse=True)
-		top_trend_graph = sorted_trend[0:3] # 전체 그래프중 가장 높은 3개 날짜
+		top_trend_graph = sorted_trend[0:4] # 전체 그래프중 가장 높은 4개 날짜
 
 		top_trends = {}
 

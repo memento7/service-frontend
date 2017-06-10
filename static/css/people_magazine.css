@@ -189,6 +189,7 @@ section#people-trend i.index-bubble{ color: white }
 section#people-trend i.index-bubble.index1{ background-color: #26c7db }
 section#people-trend i.index-bubble.index2{ background-color: #738ffd }
 section#people-trend i.index-bubble.index3{ background-color: #9473ce }
+section#people-trend i.index-bubble.index4{ background-color: #e24ad5 }
 
 section#people-trend .graph-area{
 	position: relative;
