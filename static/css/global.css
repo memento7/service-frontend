@@ -70,8 +70,8 @@ html,body{
 	width: 100%;
 	height: 100%;
 	background-color: black;
-	opacity: 0.6;
-	filter: alpha(opacity=60);
+	opacity: 0.5;
+	filter: alpha(opacity=50);
 	z-index: 900;
 }
 
@@ -87,7 +87,8 @@ html,body{
 	width: 100%;
 	background-color: #999;
 	background-size: 100% auto;
-	background-position: center 40%;
+	background-size: cover;
+	background-position: center 20%;
 }
 
 
@@ -110,16 +111,41 @@ header .logo{
 	margin-left: -100px;
 	
 	background-image: url('/images/logo_sprite.png');
-	background-size: 200px;
+	background-size: 422px;
 }
 
 header .menu-bar{
 	margin: 4px 12px;
-	font-size: 23px;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background-image: url('/images/logo_sprite.png');
+	background-size: 422px;
+	background-position: -400px 0;
 	cursor: pointer;
-	color: #999;
 }
 
+header form.search-form{ display: none; }
+
+
+/* Global progress */
+#global-progress{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#global-progress .progress-loader{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -15px 0 0 -15px;
+}
 
 
 /* Sidebar */
@@ -129,15 +155,20 @@ aside.sidebar{
 	top: 0;
 	right: 0;
 
-	width: 220px;
+	width: 245px;
 	height: 100%;
 	background-color: white;
 	z-index: 1000;
 	font-weight: 300;
+
+	overflow: auto;
 }
 aside.sidebar > section.profile{
 	padding: 20px 0 10px;
 	text-align: center;
+	background: #fe646e;
+	background: -webkit-linear-gradient(-90deg, #fe646e 0%, #f79384 100%);
+	background: linear-gradient(90deg, #fe646e 0%, #f79384 100%);
 }
 
 aside.sidebar > section.profile .avatar{
@@ -149,26 +180,30 @@ aside.sidebar > section.profile .avatar{
 	background-size: 63px 63px;
 	border-radius: 50%;
 }
+aside.sidebar > section.profile .avatar.logined{ border: 2px solid white; }
+
+aside.sidebar > section.profile a{ text-decoration: none; }
 
 aside.sidebar > section.profile h3{
-	margin: 5px 0 10px;
+	margin: 13px 0;
 	padding: 0;
 	font-size: 18px;
-	font-weight: normal;
+	font-weight: 300;
+	color: white;
 }
-aside.sidebar > section.profile h3.loggedin-username{ margin: 5px 0 2px }
+aside.sidebar > section.profile h3.loggedin-username{ margin: 10px 0 7px }
 
 aside.sidebar > section.profile .logout-btn{
 	display: inline-block;
 	margin: 3px 0 5px;
-	padding: 3px 5px 1px;
-	color: white;
+	padding: 3px 10px 1px;
+	color: #222;
 	font-size: 12px;
-	background-color: #555;
-	border-radius: 4px;
-	transition: all 0.5s;
+	font-weight: 400;
+	background-color: white;
+	border-radius: 10px;
+	cursor: pointer;
 }
-aside.sidebar > section.profile .logout-btn:hover{ background-color: #888 }
 
 aside.sidebar > section.profile .login-btn{
 	margin: 5px 10px;
@@ -197,87 +232,78 @@ aside.sidebar > section.profile .login-btn.naver .naver-icon{
 	background-size: 13.5px 12px;
 }
 
-
 aside.sidebar > section > h4{
-	margin: 20px 15px 2px;
+	margin: 12px 15px 10px;
 	padding: 1px 0;
 	font-weight: normal;
 	font-size: 14px;
 	color: #9B9B9B;
-	border-bottom: 1px solid #DBDBDB;
+	/*border-bottom: 1px solid #DBDBDB;*/
 }
 aside.sidebar > section ul{
-	margin: 5px 3px;
+	margin: 5px 10px;
 	padding: 0;
 	list-style: none;
 }
-/*aside.sidebar > section a{ color: #444; text-decoration: none; }*/
+aside.sidebar > section a{ color: #444; text-decoration: none; }
 aside.sidebar > section ul li{
 	margin: 0;
-	padding: 7px 15px;
+	padding: 0;
+	text-align: center;
 	font-size: 17px;
 	cursor: pointer;
 	transition: background-color 0.5s;
 }
 aside.sidebar > section ul li:hover{ background-color: #f0f0f0 }
 
-aside.sidebar > section.service-shortcuts ul li .fa{
-	width: 15px;
-	text-align: center;
-	color: #777;
-	padding-right: 4px;
-} 
-aside.sidebar > section.service-shortcuts ul li .fa-calendar{ color: #673AB7 }
-aside.sidebar > section.service-shortcuts ul li .fa-user{ color: #E91E63 }
-aside.sidebar > section.service-shortcuts ul li .fa-camera-retro{ color: #FF9800 }
+aside.sidebar > section.service-shortcuts ul{ margin-bottom: 0 }
+aside.sidebar > section.service-shortcuts ul li{
+	float: left;
+	width: 75px;
+	font-size: 13px;
+	padding: 7px 0;
+}
+aside.sidebar > section.service-shortcuts ul li > div{ margin-top: 4px }
+
+
+aside.sidebar > section.favorites{
+	margin-top: 20px;
+	border-top: 1px solid #DBDBDB; 
+}
+aside.sidebar > section.favorites a{ color: #333; text-decoration: none; }
+aside.sidebar > section.favorites ul li{ padding: 2px 10px }
+aside.sidebar > section.favorites .person-tile .left .image{ width: 35px; height: 35px; background-size: auto 35px }
 
 aside.sidebar > section.favorites .empty{
-	padding: 5px 15px;
+	padding: 0 15px;
 	font-size: 14px;
 	text-align: center;
 	color: #555;
 }
-aside.sidebar > section.favorites .empty p{ margin: 2px 0 }
+aside.sidebar > section.favorites .empty .icon-heart{ margin-bottom: 10px }
+aside.sidebar > section.favorites .empty p{ margin: 3px 0 }
 
-
-
-
-
-/* Common Tile Section */
-section.common-tile{
+aside.sidebar > section.footer{
 	position: relative;
-	margin: 8px 0;
-	padding: 14px 0;
-	background-color: white;
-	color: #444;
-}
-
-section.common-tile h3{
-	margin: 0 0 5px 14px;
-	font-size: 17px;
-	font-weight: 400;
-	color: black;
-}
-
-section.common-tile > a > i.view-more{
-	position: absolute;
-	top: 3px;
-	right: 6px;
-	font-size: 32px;
-	font-weight: 100;
-	color: #92a5af;
+	width: 100%;
+	bottom: 0;
+	font-size: 12px;
+	text-align: center;
+	padding: 10px 0;
+	margin-top: 20px;
+	/*background-color: white;*/
+	border-top: 1px solid #DBDBDB;
 }
 
 
-section.common-tile .content{
-	padding: 0 16px;
-}
+
 
 
 
 /* Magzine Navigation */
 nav.magazine-nav{
 	background-color: white;
+	overflow: auto;
 }
 
 nav.magazine-nav ul{
@@ -302,48 +328,111 @@ nav.magazine-nav ul li.selected{
 	border-bottom-color: #ff3333;
 }
 
+
+
+.search-box{
+	margin: 0 12px;
+	padding: 0;
+	border: 1px solid #bbb;
+	border-radius: 30px;
+	transition: border 0.5s;
+}
+.search-box.focused{ border-color: #fe646e }
+.search-box.focused .fa-search{ color: #fe646e }
+
+.search-box input{
+	background: white;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	color: #333;
+	margin: 0;
+	font-weight: 300;
+	padding: 4px 7px 4px 12px;
+	width: calc(100% - 30px);
+	border-radius: 30px 0 0 30px;
+	transition: background 0.5s;
+}
+
+
+.search-box button{
+	background: none;
+	border: none;
+	outline: none;
+	margin: 5px 0 0 8px;
+	padding: 0;
+}
+.search-box .fa-search{
+	color: inherit;
+	font-size: 15px;
+	margin: 0;
+	color: #999;
+}
+
+
 footer{
 	padding: 8px 0 10px 0;
 	font-size: 13px;
 	color: #999;
 	text-align: center;
+	clear: both;
+}
+
+footer a{
+	color: #999 !important;
+	text-decoration: none;
+}
+footer a:hover{ color: #777 !important }
+footer .memento-time{
+	font-size: 11px;
+	padding-bottom: 4px;
 }
 
 
-@media(min-width: 1000px) {
+@media(min-width: 900px) {
 	html,body{
 		/*background-color: #efefef;*/
 		overflow-x: hidden;
 	}
 	#wrap{
 		position: relative;
-		width: 1000px;
-		min-height: calc(100% - 56px);
-		margin: 56px auto 0;
+		width: 880px;
+		min-height: calc(100% - 80px);
+		margin: 80px auto 0;
 		/*box-shadow: 0px 0px 3px #ccc;*/
 	}
-
 	#wrap header{
 		width: 100%;
 		position: fixed;
 		top: 0;
 		left: 0;
-
 		height: 44px;
 		padding-top: 10px;
-		background: #3a3535;
-		background-image: url('/images/header_bg_pattern.png');
-		background-repeat: no-repeat;
-		background-position: 150px 0;
-		/*background-color: white;
-		box-shadow: 0px 0px 3px #ccc;*/
+		background-color: white;
+		box-shadow: 0px 0px 3px #ccc;
+	}
+
+	header .menu-bar{ background-position: -400px 0 !important }
+
+	header .logo{ margin-left: -476px }
+
+	header form.search-form{
+		position: absolute;
+		display: block;
+		width: 230px;
+		left: 50%;
+		top: 13px;
+		margin-left: 190px;
 	}
 }
 
-
+@media(min-width: 1000px) {
+	header form.search-form{ margin-left: 225px }
+}
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	header .logo{
+	header .logo,
+	header .menu-bar{
 		background-image: url('/images/logo_sprite@2x.png');
 	}
 }

@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+header{
+	background-color: white;
+}
+
+section#search{
+	position: relative;
+	padding: 5px 0 12px;
+	z-index: 3;
+	background-color: white;
+}
+
+section#search form{ margin: 0; padding: 0; }
+
+section#people-result{
+	padding-bottom: 0;
+}
+
+section#people-result .result{ margin: 10px 0 }
+
+section#people-result .result .person-tile{
+	float: left;
+	width: 33%;
+	margin: 5px 0;
+	text-align: center;
+}
+
+
+section#event-result{
+	padding-bottom: 0;
+}
+section#event-result h3{ padding-bottom: 3px }
+
+section#event-result .result .event-tile{
+	border-top: 1px solid #e4e5e6;
+	padding-left: 16px;
+}
+
+
+@media(min-width: 900px) {
+	section#search{ display: none; }
+
+	section#people-result .result .person-tile{ width: 20% }
+}

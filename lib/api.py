@@ -32,7 +32,7 @@ class RestClient :
 			return cls.HEADERS
 
 
-	def call(cls, method, api, data=None, headers=None, parsejson=True) :
+	def call(cls, method, api, data=None, headers=None, parsejson=True, verify=True) :
 		""" Rest Call to server
 		:params
 			- method: GET, POST, PUT, or DELETE
@@ -56,7 +56,8 @@ class RestClient :
 		r = getattr(requests, method.lower())(
 			url = url,
 			data = data,
-			headers = RestClient.get_headers(cls, headers)
+			headers = RestClient.get_headers(cls, headers),
+			verify=verify,
 		)
 
 		try :
@@ -80,11 +81,15 @@ class RestClient :
 
 class PublishAPI(RestClient) :
 
-	BASE_URL = 'https://api.memento.live/publish'
+	#BASE_URL = 'https://api.memento.live/publish'
+	BASE_URL = 'https://manage.memento.live/api/publish'
+
 	HEADERS = {
 		'Authorization': settings.BASIC_AUTH_KEY,
 		'Content-Type': 'application/json',
 	}
+
+	#requests.packages.urllib3.disable_warnings()
 
 	@staticmethod
 	def get(api, headers=None) :
@@ -191,6 +196,8 @@ class ImageAPI :
 	def get_hash_url(url, content_type) :
 		u = urllib.parse.urlparse(url)
 		extension = mimetypes.guess_extension(content_type)
+		if extension == '.jpe' :
+			extension = '.jpg'
 
 		if not extension :
 			extension = '.' + u.path.split('.')[-1]
@@ -220,6 +227,10 @@ class ImageAPI :
 
 	@staticmethod
 	def get(url, size_mode='original') :
+		if 'production' not in Jikji.getinstance().options :
+			# Only Upload images on production-mode
+			return url
+
 		filehash = hashlib.sha1(url.encode()).hexdigest()
 		uploaded_image_url = ImageAPI.cache.get(
 			key='image_hash/%s' % filehash,

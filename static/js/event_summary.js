@@ -3,12 +3,17 @@ var swiper = new Swiper('.swiper-container', {
 	paginationClickable: true
 });
 
+$(window).load(function () {
+	var slideHeight = $('.swiper-slide .container').outerHeight(true);
+
+	$('.swiper-wrapper').css('height', slideHeight + 'px');
+});
 
 // Emotions
-(function(svgId) {
+(function() {
 	var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-	function render(svgId, data) {
+	function render(svgId, data, key) {
 		var svg = d3.select(svgId),
 			width = $(svgId).width(),
 			height = $(svgId).height();
@@ -37,35 +42,17 @@ var swiper = new Swiper('.swiper-container', {
 
 		node.append("circle")
 			.attr("r", function(d) { return d.r; })
-			.style("fill", function(d) { return color(d.data.title); });
+			.style("fill", function(d) { return color(d.data[key]); });
 
-			node.append("text")
-				.selectAll("tspan")
-				.data(function(d) { return d.data.title.split(/(?=[A-Z][^A-Z])/g); })
-				.enter().append("tspan")
-				.attr("x", 0)
-				.attr("y", function(d, i, nodes) { return 18 + (i - nodes.length / 2 - 0.5) * 13; })
-				.text(function(d) { return d });
+		node.append("text")
+			.selectAll("tspan")
+			.data(function(d) { return d.data[key].split(/(?=[A-Z][^A-Z])/g); })
+			.enter().append("tspan")
+			.attr("x", 0)
+			.attr("y", function(d, i, nodes) { return 18 + (i - nodes.length / 2 - 0.5) * 13; })
+			.text(function(d) { return d });
 	}
 
-	var positiveEmotions = [];
-	var negativeEmotions = [];
-
-	// TO Be enhanced
-
-	for (var i=0; i<emotions.length; i++) {
-		var posWords = ['사랑', '멋', '놀라', '행복', '공감', '대단', '재밌', '축하', '예쁨', '황홀', '아름']
-		for (var j=0; j<posWords.length; j++)
-			if (emotions[i].title.indexOf(posWords[j]) != -1) 
-				positiveEmotions.push(emotions[i]);
-
-		var negWords = ['부러', '부럽', '나빠', '나쁨', '슬퍼', '무서', '화', '슬픔', '수줍']
-		for (var j=0; j<negWords.length; j++)
-			if (emotions[i].title.indexOf(negWords[j]) != -1) 
-				negativeEmotions.push(emotions[i]);
-	}
-
-	render("#emotions-positive", positiveEmotions);
-	render("#emotions-negative", negativeEmotions);
+	render("#emotions-svg", emotions, 'emotion');
 
 })();

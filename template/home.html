@@ -14,89 +14,167 @@
 {% endblock %}
 
 
+{% block foot %}
+	{{ super() }}
+
+	<script type="text/javascript">
+
+		var PERSON_PER_VIEW = 4;
+
+		function renderTrendyPeople() {
+			if ($(window).width() >= 1000) PERSON_PER_VIEW = 6;
+			else if ($(window).width() >= 650) PERSON_PER_VIEW = 5;
+			else PERSON_PER_VIEW = 4;
+
+			var oldSlides = $('#trendy-people .swiper-wrapper .swiper-slide');
+			var items = $('#trendy-people a.person');
+			var container;			
+
+			for (var i = 0; i < items.length; i++) {
+				if (i % PERSON_PER_VIEW == 0) {
+					var slide = $('<div class="swiper-slide"><ul></ul></div>');
+					$('#trendy-people .swiper-wrapper').append(slide);
+
+					container = slide.find('ul');
+				}
+
+				$(items[i]).detach().appendTo(container).removeClass('hidden2');
+			}
+
+			oldSlides.remove();
+
+			new Swiper('.swiper-container', {
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+			});
+
+			// resize
+			var liDom = $('#trendy-people ul li')
+			var rest = $('#trendy-people .swiper-wrapper').width() - liDom.width() * PERSON_PER_VIEW;
+			liDom.css({
+				'margin-left':  (rest / PERSON_PER_VIEW / 2) + 'px',
+				'margin-right': (rest / PERSON_PER_VIEW / 2) + 'px'
+			});
+		}
+
+
+		renderTrendyPeople();
+		$(window).on('resize', renderTrendyPeople);
+
+
+		function searchSubmit(form) {
+			if (form.q.value)
+				location.href = "/search#q=" + form.q.value;
+			return false;
+		}
+	</script>
+	
+{% endblock %}
+
+
 {% block content %}
 	<div class="background"></div>
 
 	<section id="search">
-		<div class="search-box clearfix">
-			<input class="fl" type="text" name="q">
-			<i class="fa fa-search fr"></i>
-		</div>
+		<form name="search" method="GET" action="/search" onsubmit="return searchSubmit(this);">
+			<div class="search-box clearfix">
+				<input class="fl" type="text" name="q">
+				<button class="search">
+					<i class="fa fa-search fr"></i>
+				</button>
+			</div>
+		</form>
 	</section>
 
 	<section id="trendy-people">
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
-				{% set s = ((people | length) / 4) |round(0, 'ceil') | int %}
-				{% for person_group in people.values() | slice(s) %}
-				
-				<div class="swiper-slide">
-					<ul>
-						{% for person in person_group %}
-						<a href="{{ person.magazine_url() }}">
-							<li>
-								{% if person.status == 4 %}
-									{# Temp #}
-									{{ person_tile.mini_person_tile(person, '(가데이터)') }}
-								{% else %}
-									{{ person_tile.mini_person_tile(person) }}
-								{% endif %}
-							</li>
-						</a>
-						{% endfor %}
-					</ul>
-				</div>
+				{% for person in trendy_people %}
+				<a href="{{ person.magazine_url() }}" class="person hidden2">
+					<li>
+						{% if person.status == 4 %}
+							{{ person_tile.mini_person_tile(person, '(가데이터)') }}
+						{% else %}
+							{{ person_tile.mini_person_tile(person) }}
+						{% endif %}
+					</li>
+				</a>
 				{% endfor %}
 			</div>
 			<div class="swiper-button-prev swiper-button-white"></div>
 			<div class="swiper-button-next swiper-button-white"></div>
 		</div>
-
-		<script type="text/javascript">
-			var swiper = new Swiper('.swiper-container', {
-				nextButton: '.swiper-button-next',
-				prevButton: '.swiper-button-prev',
-			});
-
-			function resizeSlide() {
-				var liDom = $('#trendy-people ul li')
-				var rest = $('#trendy-people .swiper-wrapper').width() - liDom.width() * 4;
-				liDom.css({
-					'margin-left':  (rest / 8) + 'px',
-					'margin-right': (rest / 8) + 'px'
-				});
-			}
-			resizeSlide();
-			$(window).on('resize', resizeSlide);
-
-		</script>
 	</section>
 
 	<section id="watchable-event" class="common-tile">
 		<h3>볼만한 사건들</h3>
-		{# <a href="/events">
-			<i class="fa fa-angle-right view-more"></i>
-		</a> #}
 
 		<div class="content clearfix">
-			{% for event in events.values() %}
-				{% if loop.index <= 3 %}
-					{{ event_tile.mini_event_tile(event) }}
-				{% endif %}
 
-			{% endfor %}
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					{% for event_group in watchable_events | slice(3) %}
+					<div class="swiper-slide">
+						{% for event in event_group %}
+							{{ event_tile.mini_event_tile(event) }}
+						{% endfor %}
+					</div>
+					{% endfor %}
+				</div>
+				<div class="swiper-button-prev swiper-button-black"></div>
+				<div class="swiper-button-next swiper-button-black"></div>
+			</div>
 		</div>
 	</section>
 
 	<section id="day-3years-ago" class="common-tile">
 		<h3>3년전 오늘</h3>
-		<div class="description">2014년 3월 1일의 주요사건</div>
+		<div class="description">
+			{{ event_3years_ago_date.year }}년 {{ event_3years_ago_date.month }}월 {{ event_3years_ago_date.day }}일의 주요사건
+		</div>
 
-		{{ event_tile.gallery_event_tile(events[80001]) }}
-
-		{# <div class="content clearfix">
-			<div class="no-content">이벤트가 없습니다</div>
-		</div> #}
+		{% if event_3years_ago %}
+			{{ event_tile.gallery_event_tile(event_3years_ago) }}
+		{% else %}
+			<div class="content clearfix">
+				<div class="no-content">사건이 없습니다</div>
+			</div>
+		{% endif %}
 	</section>
+
+	<section id="weekly-mementos" class="common-tile">
+		<a href="{{ geturl('weekly') }}">
+			<h3>위클리 메멘토</h3>
+			<i class="fa fa-angle-right view-more"></i>
+		</a>
+		
+		<div class="content clearfix">
+			{% for wm in weekly_mementos %}
+			<a href="{{ geturl('weekly', '/%s.%s/%s/' % (wm.year, wm.month, wm.week)) }}">
+				<div class="item">
+					<div class="background" style="{{ wm.repr_image(True) | safe }}"></div>
+
+					<div class="content">
+						<span class="box">{{ wm.month }}월 {{ wm.week }}주차</span>
+						<span class="description">
+							{{ wm.year }}.{{ fill_zero(wm.start_date.month) }}.{{ fill_zero(wm.start_date.day) }} ~
+							{% if wm.start_date.month != wm.end_date.month %}{{ fill_zero(wm.end_date.month) }}.{% endif %}{{ fill_zero(wm.end_date.day) }}
+						</span>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</section>
+
+	<section id="pc-banner">
+		<a href="/about">
+			<div class="banner">
+				메멘토<br>
+				서비스 소개
+			</div>
+		</a>	
+	</section>
+
 {% endblock %}
 

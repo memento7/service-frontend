@@ -1,40 +1,18 @@
 {% extends "/people_magazine/_layout.html" %}
 
+{% block head %}
+	{{ super() }}
+	<script type="text/javascript" src="{{ geturl('assets', '/js/people_images.js') }}"></script>
+{% endblock %}
+
 {% block foot %}
 	{{ super() }}
 
 	<script type="text/javascript">
-		(function(){
-			var grid = new Minigrid({
-				container: 'ul.image-container',
-				item: 'ul.image-container li',
-				gutter: 8
-			});
-
-			$(window).on('resize', function () {
-				grid.mount();
-			});
-			$(window).on('load', function() {
-				grid.mount();
-			})
-			grid.mount();
-
-		})();
-
-		function procLikeImage(imageId, target) {
-			// TODO: Implement API Calling
-
-			if ($(target).hasClass('enabled')) {
-				$(target).removeClass('enabled');
-
-			}else {
-				$(target).addClass('enabled');
-			}
-		}
+		peopleImages.init();
 	</script>
-	
 {% endblock %}
-	
+
 {% block content %}
 	{{ super() }}
 
@@ -48,14 +26,14 @@
 
 		<ul class="image-container">
 			{% for image in person.images %}
-				<li class="grid-image-tile">
+				<li class="grid-image-tile" id="image-{{ image.id }}">
 					<img src="{{ image_url(image) }}">
 					<div class="background-filter"></div>
 
 					<div class="content">
-						<button onclick="procLikeImage({{ image.id }}, this)">
+						<button onclick="peopleImages.act({{ image.id }}, this)">
 							<i class="fa fa-heart" aria-hidden="true"></i>
-							<span>{{ image.weight }}</span>
+							<span class="value">{{ image.like_count }}</span>
 						</button>
 					</div>
 				</li>

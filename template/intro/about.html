@@ -1,0 +1,83 @@
+{% extends '/layouts/default.html' %}
+
+{% block title %}서비스 소개 - 메멘토{% endblock %}
+
+{% block head %}
+	{{ super() }}
+
+	<meta property="og:image" content="{{ geturl('assets', '/images/cover.png') }}">
+	<link rel="stylesheet" href="{{ geturl('assets', '/css/intro_page.css') }}">
+
+{% endblock %}
+
+{% block content %}
+	<h1>서비스 소개</h1>
+
+	<section class="common-tile center">
+		<h3>메멘토란?</h3>
+		<p>
+			메멘토는 인터넷에 흩어진 정보를 모두 모아<br>
+			<strong>인공지능</strong>(AI) 시스템을 통해 정보를 분석하고 가공하여<br>
+			
+			유명인 &quot;그&quot;가 살았던 삶을 들려 주는 서비스에요.
+		</p>
+	</section>
+	
+	<section class="common-tile center">
+		<h3>메멘토에서는 보고싶은 것만 볼 수 있어요</h3>
+		<p>
+			인터넷에서 관심있는 누군가를 검색하면 보기싫은 기사와 블로그 글 들이 너무 많고 다 똑같은 얘기만 해요.
+		</p>
+		<p>
+			메멘토에서는 중복되는 정보, 불필요한 내용을 보여주지 않아요.<br>
+			사람만큼 똑똑한 기계가 정리해준, <strong>보고싶은 내용</strong>들만 보세요.
+		</p>
+	</section>
+	
+	<section class="common-tile center">
+		<h3>메멘토에서는 순간의 기억을 담아요</h3>
+		<p>
+			어떤 사건이 일어나면 당사자의 반응과 행동만 나타나는 것이 아니에요.<br>
+			그 사건을 접한 다양한 사람들의 <strong>반응</strong>과, <strong>순간의 분위기</strong>가 함께 나타나는데,
+			그 순간에 있지 않으면 분위기를 느끼기 힘들죠.
+		</p>
+
+		<p>
+			메멘토에서는 사람들의 스토리와 사건을 만들며 그 순간의 기억을 담기위해 많은 시도를 했어요.
+		</p>
+	
+		<p>
+			다른 일 때문에 그 순간에 있지 못했어도, 메멘토를 통해 그 <strong>기억을 함께</strong>하세요.<br>
+			잊혀져선 안되는 일도, 메멘토를 통해 영원히 기억하세요.
+		</p>
+	</section>
+	
+	<section class="common-tile center">
+		<h3>기계가 못하는 일들은 사람들과 함께 채워나가요</h3>
+		<p>
+			아무리 기계가 똑똑하다고 해서 모든 걸 다 할 수는 없어요.<br>
+			여러분들의 참여를 통해 메멘토의 기억을 같이 채워나가요.
+		</p>
+	</section>
+	
+	<section class="common-tile center">
+		<h3>메멘토는 계속 발전하는 중이에요</h3>
+		<p>
+			메멘토는 기업이나 전문가가 만든 서비스가 아닌, 돈없는 대학생 3명이 머리를 맞대고 만든 서비스에요.
+		</p>
+		<p>
+			아직 부족함이 많지만, 계속되는 연구와 노력을 통해, 세상의 모든 기억을 담을 수 있는 서비스로 발전하는 걸 목표로 하고 있어요.
+		</p>
+	</section>
+
+	<section class="center footer">
+		<a href="/about/">서비스 소개</a>
+		<span>·</span>
+		<a href="/terms/">이용약관</a>
+		<span>·</span>
+		<a href="/privacy/">개인정보처리방침</a>
+	</section>
+
+{% endblock %}
+
+{% block memento_time %}{% endblock %}

@@ -4,6 +4,8 @@
 
 {% block head %}
 	{{ super() }}
+	<meta property="og:image" content="{{ person.repr_image() }}">
+	
 	<link rel="stylesheet" href="{{ geturl('assets', '/css/people_magazine.css') }}">
 
 	<script type="text/javascript">
@@ -15,19 +17,18 @@
 
 {% block content %}
 	<section id="people-header">
-		<div class="background" style="{{ person.repr_image(True)  }}"></div>
+		<div class="background" style="{{ person.repr_image(True) | safe  }}"></div>
 		<div class="background-filter"></div>
 
 		<div class="user-react">
 			<span class="favorite">
-				<i class="fa fa-star-o star" aria-hidden="true"></i>
-				<span>즐겨찾기</span>
+				<i class="fa fa-heart-o" aria-hidden="true"></i>
 			</span>
 		</div>
 
 		<ul class="roles clearfix">
 			{% for role in person.get_roles() %}
-			<li>{{ role }}</li>
+			<li class="label white">{{ role }}</li>
 			{% endfor %}
 		</ul>
 
@@ -43,9 +44,11 @@
 
 	<nav class="magazine-nav">
 		<ul class="clearfix">
-			{{ nav_li(person.magazine_url(),			   '요약', 	page == 'summary') }}
-			{{ nav_li(person.magazine_url() + '/timeline', '타임라인', page == 'timeline') }}
-			{{ nav_li(person.magazine_url() + '/images',   '사진', 	page == 'images') }}
+			{{ nav_li(person.magazine_url(),			     '요약', 	  page == 'summary') }}
+			{{ nav_li(person.magazine_url() + '/timeline',   '타임라인', page == 'timeline') }}
+			{{ nav_li(person.magazine_url() + '/inmac',      'IN맥', page == 'inmac') }}
+			{{ nav_li(person.magazine_url() + '/images',     '사진', 	  page == 'images') }}
+			{{ nav_li(person.magazine_url() + '/quotations', '한마디로', page == 'quotations') }}
 
 			{# {% for roleid, roledata in person.roles.items() %}
 			{% if roledata.stats %}

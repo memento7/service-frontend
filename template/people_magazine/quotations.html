@@ -1,0 +1,110 @@
+{% extends "/people_magazine/_layout.html" %}
+{% block head %}
+	{{ super() }}
+	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
+{% endblock %}
+
+{% block foot %}
+	{{ super() }}
+	<script type="text/javascript">
+		quotations.render();
+
+		$(window).on('load', function() {
+			// after webfont-loading
+			quotations.resize();
+		});
+	</script>
+
+{% endblock %}
+
+{% block content %}
+	{{ super() }}
+
+	<div id="quotation-writing-popup" class="popup">
+		<div class="background"></div>
+		<div class="content">
+			<form onsubmit="quotations.upload(this); return false">
+				<h4>한마디로 작성하기</h4>
+				<div class="editor">
+					<div class="background"></div>
+					<textarea name="quotation" placeholder="이 인물을 한마디로 표현하면?" required></textarea>
+					<textarea class="reference" name="reference" placeholder="출처나 인용이 있다면 써주세요" rows="1"></textarea>
+				</div>
+				<div class="btn-container">
+					<button class="submit">등록</button>
+					<button class="cancel">취소</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<section id="quotations-header" class="board-tile-header clearfix">
+		<div class="fl">
+			<button class="write" onclick="quotations.openWritePopup()">한마디로 작성하기</button>
+		</div>
+		<div class="fr">
+			<span class="filter-btn type0 active" onclick="quotations.reload(0)">
+				<span class="radio"><i></i></span>
+				<span>호감순</span>
+			</span>
+			<span class="filter-btn type1" onclick="quotations.reload(1)">
+				<span class="radio"><i></i></span>
+				<span>최신순</span>
+			</span>
+		</div>
+	</section>
+
+	<section id="quotations-full"></section>
+
+	{% raw %}
+	<script type="x-tmpl-mustache" id="template-quotations">
+		{{# if quotations.length }}
+			{{#each quotations }}
+			<div class="board-tile quotation-tile" id="quotation-{{ this.id }}">
+				{{# if_eq ../loginedUser.id this.user.id }}
+				<div class="more-actions">
+					<button onclick="openMoreAction(this)">
+						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+					</button>
+					<ul>
+						<li onclick="quotations.delete({{ this.id }})">삭제하기</li>
+					</ul>
+				</div>
+				{{/ if_eq }}
+
+				<div class="background"></div>
+				<div class="content">
+					<div class="text">
+						<h2>{{ this.quotation }}</h2>
+						
+						{{# if this.reference }}
+						<div class="reference">
+							- {{ this.reference }}
+						</div>
+						{{/ if }}
+					</div>
+				</div>
+
+				<div class="meta clearfix">
+					<div class="fl">
+						<img class="avatar" src="{{ this.user.image_url }}" width="25" height="25">
+						<h4>@{{ this.user.nickname }}</h4>
+						<span class="date">{{ this.created_time }}</span>
+					</div>
+
+					<div class="btn-container fr">
+						<button class="like-btn" onclick="quotations.like({{ this.id }})">
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							<span>{{ this.like_count }}</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			{{/ each }}
+		{{else}}
+		<div class="no-content">아직 '한마디로'가 없습니다</div>
+		{{/ if }}
+	</script>
+	{% endraw %}
+
+{% endblock %}

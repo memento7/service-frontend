@@ -1,5 +1,6 @@
 from models.people import People
 from lib import functions
+import settings
 
 from datetime import datetime
 import re
@@ -8,7 +9,9 @@ class Event :
 
 	tag_remover = re.compile(r'<[^>]+>')
 	_instances = {}
-	CATEGORIES = ['연예', '정치', '스포츠', '미디어', '세계', '기타']
+	# CATEGORIES = ['entertain', 'politic', 'sports', 'media', 'world', 'news']
+	CATEGORIES = ['entertain', 'politics', 'sports', 'social', 'economy',
+				  'world', 'tv', 'life/culture', 'it/science']
 
 	@staticmethod
 	def register(data) :
@@ -28,7 +31,7 @@ class Event :
 
 	def __init__(self, id, title, type, date, issue_data,
 				images=[], entities=[], event_articles=[],
-				keywords=[], emotions=[], summaries=[], summaries3line=[],
+				keywords=[], emotions=[], summaries=[], event_summaries3_lines=[],
 				hit=0, created_time=None, updated_time=None, published_time=None, **kwarg) :
 		
 		self.id = id
@@ -53,7 +56,9 @@ class Event :
 
 		self.keywords = keywords
 		self.emotions = emotions
-		self.summaries3line = summaries3line
+		self.summaries3lines = event_summaries3_lines
+		self.summaries3lines.sort(key=lambda s: s['rank'])
+
 		self.images = images
 
 		self.created_time = created_time
@@ -67,8 +72,13 @@ class Event :
 		return functions.first_image(self.images, css_mode, thumbnail)
 
 
-	def category_id(self) :
-		return chr( Event.CATEGORIES.index(self.category) + 97 )
+	def get_category(self) :
+		if self.category in Event.CATEGORIES :
+			return self.category.replace('/', '-')
+		else :
+			return 'others'
+
+		#return chr( Event.CATEGORIES.index(self.category) + 97 )
 
 
 	def magazine_url(self) :
@@ -79,11 +89,32 @@ class Event :
 class EventIssueData :
 	""" event.issue_data DTO
 	"""
-	def __init__(self, issue_score, top_percentile, issue_rank=None,
+
+	tp_distribution = []
+	with open(settings.ROOT_PATH + '/data/tp.dat') as file :
+		for line in file.readlines() :
+			tmp = line.split(' ')
+			tp_distribution.append((float(tmp[0]), int(tmp[1])))
+
+	def __init__(self, issue_score, top_percentile=None, issue_rank=None,
 				article_count=None, sns_count=None, comment_count=None, **kwarg) :
 
 		self.issue_score = issue_score
-		self.top_percentile = top_percentile
+
+		if top_percentile :
+			self.top_percentile = max(0.1, top_percentile)
+		else : 
+			# Fallback
+			self.top_percentile = None
+
+			for tp, issue_score in EventIssueData.tp_distribution :
+				if issue_score >= self.issue_score :
+					self.top_percentile = tp
+					break
+
+
+
+
 		self.ranking = issue_rank
 
 		self.article_count = article_count
@@ -96,7 +127,7 @@ class EventIssueData :
 
 	
 	def rank(self) :
-		if self.top_percentile is None :	return '?'
+		if self.top_percentile is None :	return None
 		elif self.top_percentile <= 2  :	return 's'
 		elif self.top_percentile <= 10 :	return 'a'
 		elif self.top_percentile <= 50 :	return 'b'

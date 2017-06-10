@@ -1,59 +1,115 @@
 {% extends "/event_magazine/_layout.html" %}
+
 {% block head %}
 	{{ super() }}
-
-	<script type="text/javascript">
-		function like_3line(id) {
-			alert('준비중입니다.')
-		}
-
-		function hate_3line(id) {
-			alert('준비중입니다.')
-		}
-	</script>
+	<script type="text/javascript" src="{{ geturl('assets', '/js/event_3lines.js') }}"></script>
 {% endblock %}
+
+{% block foot %}
+	{{ super() }}
+	<script type="text/javascript">
+		summeries3lines.render();
+	</script>
+
+{% endblock %}
+
 
 {% block content %}
 	{{ super() }}
 
-	<section id="three-line-summaries-full" class="common-tile">
-		<div class="write-container">
-			<button class="write" onclick="alert('준비중입니다')">3줄 요약 작성하기</button>
+	<div id="three-lines-writing-popup" class="popup">
+		<div class="background"></div>
+		<div class="content">
+			<form onsubmit="summeries3lines.upload(this); return false">
+				<h4>3줄 요약 작성하기</h4>
+				<ol>
+					<li>
+						<i class="index-bubble">1</i>
+						<input type="text" name="line1" placeholder="내용을 입력하세요.">
+					</li>
+					<li>
+						<i class="index-bubble">2</i>
+						<input type="text" name="line2" placeholder="내용을 입력하세요.">
+					</li>
+					<li>
+						<i class="index-bubble">3</i>
+						<input type="text" name="line3" placeholder="내용을 입력하세요.">
+					</li>
+				</ol>
+				<div class="btn-container">
+					<button class="submit">등록</button>
+					<button class="cancel">취소</button>
+				</div>
+			</form>
 		</div>
+	</div>
 
-	{% if event.summaries3line and event.summaries3line | length %}
-		{% for summary in event.summaries3line %}
-		<div class="three-line-tile">
-			<div class="clearfix">
-				<h4>@{{ summary.author }}</h4>
-				<span class="date">{{ summary.date }}</span>
-			</div>
-			
-			<ol class="three-line-summary">
-				{% for line in summary.content %}
-				<li>
-					<i class="l{{ loop.index }} index-bubble">{{ loop.index }}</i>
-					<span>{{ line }}</span>
-				</li>
-				{% endfor %}
-			</ol>
-			<div class="btn-container">
-				<button class="like-btn" onclick="like_3line({{ summary.id }})">
-					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-					<span>{{ summary.like }}</span>
-				</button>
-				<button class="hate-btn" onclick="hate_3line({{ summary.id }})">
-					<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
-					<span>{{ summary.hate }}</span>
-				</button>
-			</div>
+
+	<section id="three-lines-header" class="board-tile-header clearfix">
+		<div class="fl">
+			<button class="write" onclick="summeries3lines.openWritePopup()">3줄 요약 작성하기</button>
 		</div>
-		{% endfor %}
-	{% else %}
-	<div class="no-content">아직 3줄 요약이 없습니다</div>
-	{% endif %}
-
+		<div class="fr">
+			<span class="filter-btn type0 active" onclick="summeries3lines.reload(0)">
+				<span class="radio"><i></i></span>
+				<span>호감순</span>
+			</span>
+			<span class="filter-btn type1" onclick="summeries3lines.reload(1)">
+				<span class="radio"><i></i></span>
+				<span>최신순</span>
+			</span>
+		</div>
 	</section>
 
+	<section id="three-lines-full"></section>
 
+	{% raw %}
+	<script type="x-tmpl-mustache" id="template-3lines">
+		{{# if summaries3lines.length }}
+			{{#each summaries3lines }}
+			<div class="board-tile" id="summaries3-{{ this.id }}">
+				{{# if_eq ../loginedUser.id this.user.id }}
+				<div class="more-actions">
+					<button onclick="openMoreAction(this)">
+						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+					</button>
+					<ul>
+						<li onclick="summeries3lines.delete({{ this.id }})">삭제하기</li>
+					</ul>
+				</div>
+				{{/ if_eq }}
+
+				<ol class="three-line-summary">
+					{{#each this.summaries }}
+					<li>
+						<i class="l{{inc @index}} index-bubble">{{inc @index}}</i>
+						<span>{{ this }}</span>
+					</li>
+					{{/ each }}
+				</ol>
+				<div class="meta clearfix">
+					<div class="fl">
+						<img class="avatar" src="{{ this.user.image_url }}" width="25" height="25">
+						<h4>@{{ this.user.nickname }}</h4>
+						<span class="date">{{ this.created_time }}</span>
+					</div>
+
+					<div class="btn-container fr">
+						<button class="like-btn" onclick="summeries3lines.like({{ this.id }})">
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+							<span>{{ this.like_count }}</span>
+						</button>
+						<button class="dislike-btn" onclick="summeries3lines.dislike({{ this.id }})">
+							<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
+							<span>{{ this.dislike_count }}</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			{{/ each }}
+		{{else}}
+		<div class="no-content">아직 3줄 요약이 없습니다</div>
+		{{/ if }}
+	</script>
+	{% endraw %}
 {% endblock %}

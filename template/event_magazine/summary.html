@@ -22,7 +22,7 @@
 
 	<section id="related-people" class="common-tile">
 		<h3>
-			<i class="event-icon icon-people"></i>
+			<i class="icon icon-people"></i>
 			<span>관련 인물</span>
 		</h3>
 		<div class="content clearfix">
@@ -36,37 +36,44 @@
 		</div>
 	</section>
 
-	<section id="three-line-summaries" class="common-tile">
+	<section id="three-lines" class="common-tile">
 		<div class="more fr">
 			<a href="./3lines">
 				<i class="fa fa-angle-right" aria-hidden="true"></i>
 			</a>
 		</div>
 		<h3>
-			<i class="event-icon icon-pen"></i>
+			<i class="icon icon-pen"></i>
 			<span>3줄 요약</span>
 		</h3>
 
 		<div class="content">
-		{% if event.summaries3line and event.summaries3line | length %}
+		{% if event.summaries3lines and event.summaries3lines | length %}
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-					{% for summary in event.summaries3line %}
+					{% for summary in event.summaries3lines %}
 					<div class="swiper-slide">
-						<ol class="three-line-summary">
-							{% for line in summary.content %}
-							<li>
-								<i class="l{{ loop.index }} index-bubble">{{ loop.index }}</i>
-								<span>{{ line }}</span>
-							</li>
-							{% endfor %}
-						</ol>
-						<div class="meta">
-							<span class="author">@{{ summary.author }}</span>
-							<span>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<span>{{ summary.like }}</span>
-							</span>
+						<div class="container">
+							<ol class="three-line-summary">
+								{% for line in summary.summaries %}
+								<li>
+									<i class="l{{ loop.index }} index-bubble light">{{ loop.index }}</i>
+									<span>{{ line }}</span>
+								</li>
+								{% endfor %}
+							</ol>
+							<div class="meta">
+								<span class="author">@{{ summary.user.nickname }}</span>
+								
+								<span class="action">
+									<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+									<span>{{ summary.like_count }}</span>
+								</span>
+								<span class="action">
+									<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
+									<span>{{ summary.dislike_count }}</span>
+								</span>
+							</div>
 						</div>
 					</div>
 					{% endfor %}
@@ -81,7 +88,7 @@
 
 	<section id="issue-rank" class="common-tile">
 		<h3>
-			<i class="event-icon icon-rank"></i>
+			<i class="icon icon-rank"></i>
 			<span>이슈 등급</span>
 		</h3>
 		<div class="content clearfix">
@@ -128,19 +135,19 @@
 				</div>
 				<div class="sources clearfix">
 					<div class="fl">
-						<i class="event-icon icon-news"></i>
+						<i class="icon icon-news-small"></i>
 						<span>{{ event.issue_data.f_article_count }}</span>
 					</div>
 
 					<div class="fl">
-						<i class="event-icon icon-talk"></i>
+						<i class="icon icon-talk"></i>
 						<span>{{ event.issue_data.f_comment_count }}</span>
 					</div>
 
-					<div class="fl">
-						<i class="event-icon icon-share"></i>
+					{# <div class="fl">
+						<i class="icon icon-share"></i>
 						<span>{{ event.issue_data.f_sns_count }}</span>
-					</div>
+					</div> #}
 				</div>
 			</div>
 
@@ -149,32 +156,19 @@
 
 	<section id="emotions" class="common-tile">
 		<h3>
-			<i class="event-icon icon-balloon"></i>
+			<i class="icon icon-balloon"></i>
 			<span>사람들의 반응</span>
 		</h3>
 		<div class="content clearfix">
-			<div class="fl">
-				<div class="icon-wrapper">
-					<i class="event-icon icon-happy"></i>
-				</div>
-				<div class="container">
-					<svg id="emotions-positive" width="100%" height="100%" font-size="13" text-anchor="middle"></svg>
-				</div>
-			</div>
-			<div class="fr">
-				<div class="icon-wrapper">
-					<i class="event-icon icon-sad"></i>
-				</div>
-				<div class="container">
-					<svg id="emotions-negative" width="100%" height="100%" font-size="13" text-anchor="middle"></svg>
-				</div>
+			<div class="container">
+				<svg id="emotions-svg" width="100%" height="100%" font-size="13" text-anchor="middle"></svg>
 			</div>
 		</div>
 	</section>
 
 	<section id="keywords" class="common-tile">
 		<h3>
-			<i class="event-icon icon-keyword"></i>
+			<i class="icon icon-keyword"></i>
 			<span>연관 키워드</span>
 		</h3>
 		<div>

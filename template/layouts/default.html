@@ -31,9 +31,9 @@
 				'event': "{{ geturl('event') }}",
 				'weekly': "{{ geturl('weekly') }}",
 			};
+			var searchPage = false;
 		</script>
 		<script type="text/javascript" src="{{ geturl('assets', '/js/global.js') }}"></script>
-
 		{% endblock %}
 	</head>
 	<body>
@@ -49,23 +49,87 @@
 
 		<div id="mask"></div>
 		<div id="global-sidebar"></div>
+		<div id="global-progress">
+			<div class="progress-loader"></div>
+		</div>
 
 		<div id="wrap">
 			<header>
 				<div class="fr">
-					<i class="fa fa-bars menu-bar" aria-hidden="true"></i>
+					<span class="menu-bar"></span>
 				</div>
 				<a href="{{ geturl() }}">
 					<div class="logo"></div>
 				</a>
+
+				<form name="searchg" class="search-form" action="{{ geturl('', 'search') }}" method="GET" onsubmit="return searchSubmit(this);">
+					<div class="search-box clearfix">
+						<input class="fl" type="text" name="q" onfocus="$(this).parent().addClass('focused')" onblur="$(this).parent().removeClass('focused')">
+						<button class="search">
+							<i class="fa fa-search fr"></i>
+						</button>
+					</div>
+				</form>
 			</header>
 			{% block content %}{% endblock %}
 
 			<footer>
-				&copy; memento
+				{% block memento_time %}
+				<div class="memento-time">이 페이지는 {{ _page.render_time.strftime('%y년 %m월 %d일 %H시') }}에 생성되었습니다</div>
+				{% endblock %}
+				<div>&copy; <a href="{{ geturl() }}about">memento</a></div>
 			</footer>
 		</div>
 
+		{% raw %}
+		<script type="x-tmpl-mustache" id="template-event-tile">
+			{{#each events }}
+			<div class="event-tile full-image clearfix">
+				{{# if this.images.[0] }}
+				<div class="fl content">
+				{{ else }}
+				<div class="content">
+				{{/ if }}
+					<h4>
+						<a href="{{ ../baseUrls.event }}{{ this.id }}">{{ truncate this.title 35 }}</a>
+					</h4>
+					<div class="labels emotion-bubbles">
+						<span class="issue-label {{ rank this.issue_data.top_percentile }}-rank"></span>
+						<span class="category-label category-{{ replace this.type '/' '-' }}"></span>
+						
+						{{# if this.emotions.[0] }}
+						<span class="emotion">
+							<i style="background-color: {{ random_color }}"></i>
+							<span>{{ this.emotions.[0].emotion }}</span>
+						</span>
+						{{/ if }}
+
+						{{# if this.emotions.[1] }}
+						<span class="emotion">
+							<i style="background-color: {{ random_color }}"></i>
+							<span>{{ this.emotions.[1].emotion }}</span>
+						</span>
+						{{/ if }}
+					</div>
+				</div>
+				{{# if this.images.[0] }}
+				<div class="fr">
+					<div class="image" style="{{ image_url this.images.[0] true }}"></div>
+				</div>
+				{{/ if }}
+			</div>
+			{{/ each }}
+			{{# if showMoreBtn }}
+			<div class="more-btn">
+				<span class="content">
+					<span>사건 더보기</span>
+					<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+				</span>
+			</div>
+			{{/ if }}
+		</script>
+		{% endraw %}
+		
 		<script type="text/javascript" src="{{ geturl('assets', '/js/global_foot.js') }}"></script>
 		{% block foot %}{% endblock %}
 	</body>

@@ -21,7 +21,7 @@ def geturl(module_name='', uri='/') :
 		return 'https://%smemento.live/%s' % (subdomain, uri)
 
 	elif 'development' in app.options :
-		subdomain = subdomain.replace('.', '_')
+		subdomain = subdomain.replace('.', '-')
 		return 'https://%sdev.memento.live/%s' % (subdomain, uri)
 
 	elif 'local' in app.options :
@@ -88,18 +88,6 @@ def range_svg_pos(ratio, radius, cx, cy) :
 		round(-radius * math.cos(math.pi * ratio), 4) + cx,
 		round(-radius * math.sin(math.pi * ratio), 4) + cy,
 	)
-
-
-def iow_size(word) :
-	""" Get In-One-Word size
-
-		<TO BE REFACTORED>
-	"""
-	s = 200 / len(word)
-	if s > 33 : s = 33
-	if s < 17 : s = 17
-
-	return "%dpx" % int(s)
 
 
 

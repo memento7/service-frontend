@@ -11,11 +11,18 @@ person70001 = {
 			'weight': 100
 		}
 	],
-	'in_one_word': [
+	'quotations': [
 		{
-			'keyword': "국민 첫사랑",
+			'quotation': "국민 첫사랑",
 			'reference': "",
-			'order': 0
+			"user": {
+				"nickname": "이영수",
+				"image_url": "https://lh6.googleusercontent.com/-08xDnxhh1ok/AAAAAAAAAAI/AAAAAAAAAM8/ul7cFdCa9sw/photo.jpg?sz=50",
+				"social_type": "GOOGLE",
+			},
+			'rank': 1,
+			'like_count': 313,
+			"created_time": "2017-05-17 12:22:39",
 		}
 	],
 	'role_json': {
@@ -28,6 +35,7 @@ person70001 = {
 					'roleplay': 4.1,
 					'stability': 1.6,
 				},
+				'stats_count': 1,
 				'related_entities': [],
 			}
 		},
@@ -40,6 +48,7 @@ person70001 = {
 					'composition': 2.1,
 					'singability': 3.6,
 				},
+				'stats_count': 1,
 				'related_entities': [],
 			}
 		}
@@ -82,11 +91,18 @@ person70002 = {
 			'weight': 100
 		}
 	],
-	'in_one_word': [
+	'quotations': [
 		{
-			'keyword': "김태희가 듣는 수업은\n언제나 학생들로 꽉 차있었다",
+			'quotation': "김태희가 듣는 수업은 언제나 학생들로 꽉 차있었다",
 			'reference': "당시 서울대 재학생",
-			'order': 0
+			"user": {
+				"nickname": "이영수",
+				"image_url": "https://lh6.googleusercontent.com/-08xDnxhh1ok/AAAAAAAAAAI/AAAAAAAAAM8/ul7cFdCa9sw/photo.jpg?sz=50",
+				"social_type": "GOOGLE",
+			},
+			'rank': 1,
+			'like_count': 132,
+			"created_time": "2017-05-17 12:22:39",
 		}
 	],
 	'role_json': {
@@ -99,6 +115,7 @@ person70002 = {
 					'roleplay': 4.1,
 					'stability': 1.6,
 				},
+				'stats_count': 1,
 				'related_entities': [],
 			}
 		}
@@ -116,19 +133,19 @@ person70002 = {
 			},
 			'emotions': [
 				{
-					'title': "축하",
+					'emotion': "축하",
 					'weight': 0.7
 				},
 				{
-					'title': "사랑",
+					'emotion': "사랑",
 					'weight': 0.7
 				},
 				{
-					'title': "부럽",
+					'emotion': "부럽",
 					'weight': 0.5
 				},
 				{
-					'title': "아름답",
+					'emotion': "아름답",
 					'weight': 0.4
 				},
 			],
@@ -221,7 +238,7 @@ event80001 = {
 	'id': 80001,
 	'date': "2017-01-01 00:00:00",
 	'title': "김태희·비 열애끝에 결혼",
-	'type': '연예',
+	'type': 'entertain',
 	'issue_data': {
 		'issue_score': 300000,
 		'issue_rank': 8,
@@ -230,16 +247,16 @@ event80001 = {
 		'comment_count': 41231,
 	},
 	'emotions': [
-		{ 'title': "축하", 'weight': 0.7 },
-		{ 'title': "사랑", 'weight': 0.7 },
-		{ 'title': "부럽", 'weight': 0.5 },
-		{ 'title': "아름답", 'weight': 0.4 },
-		{ 'title': "슬픔", 'weight': 0.3 },
-		{ 'title': "예쁨", 'weight': 0.3 },
-		{ 'title': "황홀", 'weight': 0.2 },
-		{ 'title': "멋짐", 'weight': 0.2 },
-		{ 'title': "화남", 'weight': 0.1 },
-		{ 'title': "수줍", 'weight': 0.1 },
+		{ 'emotion': "축하", 'weight': 0.7 },
+		{ 'emotion': "사랑", 'weight': 0.7 },
+		{ 'emotion': "부럽", 'weight': 0.5 },
+		{ 'emotion': "아름답", 'weight': 0.4 },
+		{ 'emotion': "슬픔", 'weight': 0.3 },
+		{ 'emotion': "예쁨", 'weight': 0.3 },
+		{ 'emotion': "황홀", 'weight': 0.2 },
+		{ 'emotion': "멋짐", 'weight': 0.2 },
+		{ 'emotion': "화남", 'weight': 0.1 },
+		{ 'emotion': "수줍", 'weight': 0.1 },
 	],
 	'keywords': [
 		{ 'keyword': "결혼식", 'weight': 80 },
@@ -262,30 +279,38 @@ event80001 = {
 			'weight': 100,
 		}
 	],
-	'summaries3line': [
+	'event_summaries3_lines': [
 		{
-			'id': 1,
-			'content': [
+			'id': 900001,
+			'summaries': [
 				'배우 김태희와 가수 비가 연애 5년만에 결혼했다.',
 				'비는 자신의 인스타그램에 손편지로 이를 알렸다.',
 				'결혼식은 소박하게 성당에서 진행되었다.'
 			],
-			'author': '요약GO',
-			'like': 130,
-			'hate': 3,
-			'date': '2017-01-03 13:03:42'
+			'user': {
+				'nickname': '요약GO',
+				'image_url': 'https://telegram.org/file/811140058/2/7GzMJk4Ij54/a1649c56fa9f805828',
+			},
+			'like_count': 130,
+			'dislike_count': 3,
+			'rank': 1,
+			'created_time': '2017-01-03 13:03:42',
 		},
 		{
-			'id': 2,
-			'content': [
+			'id': 900002,
+			'summaries': [
 				'김태희 진짜 예쁘다',
 				'김태희는 왜 아직도 이렇게 이쁘냐;',
 				'하.. 비 도둑놈...'
 			],
-			'author': 'Prev',
-			'like': 91,
-			'hate': 46,
-			'date': '2017-01-10 10:45:13'
+			'user': {
+				'nickname': 'Prev',
+				'image_url': 'https://lh6.googleusercontent.com/-08xDnxhh1ok/AAAAAAAAAAI/AAAAAAAAAM8/ul7cFdCa9sw/photo.jpg?sz=50',
+			},
+			'like_count': 91,
+			'dislike_count': 46,
+			'rank': 2,
+			'created_time': '2017-01-10 10:45:13'
 		}
 	],
 

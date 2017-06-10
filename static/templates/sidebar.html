@@ -2,10 +2,10 @@
 	<section class="profile">
 
 		{{# if user.loggined }}
-			<div class="avatar" style="background-image: url('{{ user.image_url }}')"></div>
+			<div class="avatar logined" style="background-image: url('{{ user.image_url }}')"></div>
 			<h3 class="loggedin-username">{{ user.nickname }}</h3>
 			<div>
-				<a href="https://base.memento.live/logout" class="logout-btn">로그아웃</a>
+				<span class="logout-btn" onclick="memento.logout()">로그아웃</span>
 			</div>
 
 		{{ else }}
@@ -30,18 +30,18 @@
 	</section>
 	<section class="service-shortcuts">
 		<h4>서비스 바로가기</h4>
-		<ul>
+		<ul class="clearfix">
 			<li class="weekly-memento">
-				<i class="fa fa-calendar" aria-hidden="true"></i>
-				<span>위클리 메멘토</span>
+				<i class="sidebar-icon icon-weekly"></i>
+				<div>위클리 메멘토</div>
 			</li>
 			<li class="random-person">
-				<i class="fa fa-user" aria-hidden="true"></i>
-				<span>랜덤 인물</span>
+				<i class="sidebar-icon icon-people"></i>
+				<div>랜덤 인물</div>
 			</li>
 			<li class="random-event">
-				<i class="fa fa-camera-retro" aria-hidden="true"></i>
-				<span>랜덤 사건</span>
+				<i class="sidebar-icon icon-event"></i>
+				<div>랜덤 사건</div>
 			</li>
 		</ul>
 	</section>
@@ -51,27 +51,35 @@
 		{{# if user.favorites.length }}
 			<ul>
 			{{#each user.favorites }}
-				<li class="person">
-					<a href="/people/{{ this.id }}">
+				<a href="{{ ../baseUrls.people }}{{ this.id }}">
+					<li class="person-tile">
 						<div class="clearfix">
 							<div class="fl left">
-								<span class="image" style="background-image: url('{{ this.image }}')"></span>
+								<span class="image" style="{{ profile_image this true }}"></span>
 							</div>
-							<div class="fl right">
+							<div class="fl right content">
 								<div>{{ this.nickname }}</div>
-								
 							</div>
 						</div>
-					</a>
-				</li>
+					</li>
+				</a>
 			{{/ each }}
 			</ul>
 
 		{{ else }}
 			<div class="empty">
+				<i class="sidebar-icon icon-heart"></i>
 				<p>즐겨찾기한 인물이 없습니다</p>
 				<p>좋아하는 인물에 하트표시를<br>남겨보세요!</p>
 			</div>
 		{{/ if }}
+	</section>
+
+	<section class="footer">
+		<a href="{{ baseUrls.main }}about">서비스 소개</a>
+		<span>·</span>
+		<a href="{{ baseUrls.main }}terms">이용약관</a>
+		<span>·</span>
+		<a href="{{ baseUrls.main }}privacy">개인정보처리방침</a>
 	</section>
 </aside>

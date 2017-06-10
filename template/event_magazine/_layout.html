@@ -4,18 +4,20 @@
 
 {% block head %}
 	{{ super() }}
-	<link rel="stylesheet" href="{{ geturl('assets', '/css/event_magazine.css') }}">
+	<meta property="og:image" content="{{ event.repr_image() }}">
 
+	<link rel="stylesheet" href="{{ geturl('assets', '/css/event_magazine.css') }}">
+	<script type="text/javascript">var eventId = {{ event.id }};</script>
 {% endblock %}
 
 
 {% block content %}
 	<section id="event-header">
-		<div class="background" style="{{ event.repr_image(True) }}"></div>
+		<div class="background" style="{{ event.repr_image(True) | safe }}"></div>
 
 		<div class="content">
 			<h3>
-				<span>{{ event.date.year }}년 {{ event.date.month }}월</span>
+				<span>{{ event.date.year }}년 {{ event.date.month }}월 {{ event.date.day }}일</span>
 				{{ event_tile.category_label(event, 'white') }}
 			</h3>
 			<h1{% if (event.title | length) > 25 %} style="font-size:25px"{% endif %}>

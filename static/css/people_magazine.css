@@ -4,30 +4,16 @@ header{
 	position: absolute;
 }
 
-header .logo{
-	background-position: 0 -64px;
-}
+header .logo{ background-position: -200px -32px }
+header .menu-bar{ background-position: -400px -22px }
 
-header .fr .fa-bars{
-	color: white;
-}
 
 nav.magazine-nav ul li.selected{
 	color: #ee3f7a;
 	border-bottom-color: #ee3f7a;
 }
-
-/* Event Icon Sprite */
-i.people-icon{
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	margin: 0 1px;
-	background-image: url('/images/people_icon_sprite.png');
-	background-size: 30px auto;
-}
-i.people-icon.icon-trend{ background-position: 0 0 }
-i.people-icon.icon-star{ background-position: -15px 0 }
+.popup h4{ background-color: #ee3f7a }
+.popup .btn-container button.submit{ background-color: #ee3f7a }
 
 
 /* 공통 헤더 */
@@ -39,6 +25,7 @@ section#people-header{
 section#people-header .background{
 	height: inherit;
 	z-index: 1;
+	background-position: center 35%;
 	/*filter: brightness(90%);*/
 }
 section#people-header .background-filter{
@@ -64,13 +51,6 @@ section#people-header ul.roles{
 
 section#people-header ul.roles li{
 	float: left;
-	margin: 0 5px 0 0;
-	padding: 3px 7px 0px 8px;
-	color: white;
-	font-size: 12px;
-	border: 1px solid white;
-	border-radius: 15px;
-	line-height: 13px;
 }
 
 
@@ -93,24 +73,30 @@ section#people-header h1 .sub{
 
 section#people-header .user-react{
 	position: absolute;
-	bottom: 30px;
-	right: 20px;
+	bottom: 20px;
+	right: 15px;
 	z-index: 5;
 }
 section#people-header .user-react .favorite{
-	color: white;
-	font-size: 13px;
-	font-weight: 100;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	background-color: white;
+	color: #ed3e7b;
 
-	padding: 3px 5px 2px;
-	border: 1px solid white;
-	background-color: rgba(0,0,0,0.3);
-	border-radius: 20px;
+	border: 1px solid #ccc;
+	font-size: 20px;
+	font-weight: 100;
 
 	cursor: pointer;
 }
-section#people-header .user-react .favorite.enabled{ color: #ffcc00; border-color: #ffcc00 }
+section#people-header .user-react .favorite.enabled{ background-color: #ed3e7b; color: white; border-color: white }
 
+section#people-header .user-react .favorite i.fa{
+	margin-top: 6px;
+}
 
 
 
@@ -118,37 +104,43 @@ section#people-header .user-react .favorite.enabled{ color: #ffcc00; border-colo
 
 
 /* 한 마디로 */
-section#in-one-word{
+section#quotation{
 	padding: 0;
 	height: 100px;
-	text-align: center;
 	vertical-align: middle;
 }
 
-section#in-one-word .background{
+section#quotation .background{
 	height: inherit;
 	background-color: #8da5cb;
-	background-image: url('/images/iow_bg.png');
+	background-image: url('/images/quotation_bg.png');
 	background-size: 100% 100px;
 }
 
 
-section#in-one-word h2{
+section#quotation .more{ position: relative; margin: 3px -10px 0 0; font-size: 25px }
+section#quotation .more a{ color: white; text-decoration: none; }
+
+.quotation-tile .text{
+	padding: 0 10px;
+	text-align: center;
+}
+section#quotation .text{ color: white; }
+
+.quotation-tile .text h2{
 	position: relative;
 	margin: 0;
-	padding: 30px 5px 0;
-	font-size: 30px;
+	padding: 0;
+	font-size: 31px;
 	font-weight: 400;
 	vertical-align: middle;
-	color: white;
 }
 
-section#in-one-word .reference{
+.quotation-tile .text .reference{
 	position: relative;
 	margin: 9px 0 0 0;
 	font-size: 13px;
 	font-weight: 100;
-	color: white;
 }
 
 
@@ -198,10 +190,11 @@ section#people-trend i.index-bubble{ color: white }
 section#people-trend i.index-bubble.index1{ background-color: #26c7db }
 section#people-trend i.index-bubble.index2{ background-color: #738ffd }
 section#people-trend i.index-bubble.index3{ background-color: #9473ce }
+section#people-trend i.index-bubble.index4{ background-color: #e24ad5 }
 
 section#people-trend .graph-area{
 	position: relative;
-	padding: 0 15px 5px;
+	padding: 0 15px 10px;
 }
 
 section#people-trend .graph-area svg.graph-large{ display: none; }
@@ -349,63 +342,152 @@ section.timeline ul li .event-tile{
 section.timeline ul li .event-tile:last-child{ margin-bottom: 10px }
 
 section.timeline ul li .event-tile > .fl{ width: calc(100% - 110px) }
-section.timeline ul li .event-tile .image{ width: 100px; height: 70px; background-size: 100px 70px }
+section.timeline ul li .event-tile .image{ width: 100px; height: 70px; background-size: 100px auto }
 
 
 
 
-/* 전적 정보 */
+/* 재미로 보는 능력치 */
 section#people-stats{
 
 }
 
-section#people-stats .content{ padding: 0 15px }
+section#people-stats > .content{ padding: 0 15px }
 
-section#people-stats .content .stat{ margin: 10px 3px; }
-section#people-stats .content .stat .fr a{
-	display: inline-block;
-	font-size: 13px;
-	color: #666;
-	text-decoration: none;
-	margin: 4px 3px 0 0;
+section#people-stats .stat{
+	margin: 5px auto;
+	padding: 10px 0 5px;
+	border-top: 1px solid #ddd;
+	max-width: 400px;
 }
 
-section#people-stats .content.total-1stats .stat{ float: none }
-section#people-stats .content.total-1stats .stat canvas{ margin: 0 auto }
+section#people-stats .stat:first-child{ border-top: none; padding-top: 5px }
 
-
-section#people-stats .comments{
-	width: calc(100% - 201px);
-	border-left: 1px solid #ddd;
-	margin-left: 10px;
-	padding-left: 10px;
-	height: 125px;
-	font-size: 13px;
+section#people-stats .stat .header{ padding: 5px 0 }
+section#people-stats .stat .fr{
+	padding: 0 3px;
 }
-section#people-stats .comments ul{
+
+section#people-stats .stat .fr .btn-container{
+	text-align: center;
+	margin-top: 15px;
+}
+section#people-stats .stat .fr button.evaluate-btn{
+	padding: 4px 0;
+	border: none;
+	outline: none;
+	width: 110px;
+	background-color: #ec407a;
+	color: white;
+	font-size: 13px;
+	font-weight: 300;
+	border-radius: 30px;
+}
+
+
+ol.stat-stars{
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-
-section#people-stats .comments .no-comments{
-	margin: 45px 0 37px;
-	text-align: center;
-	color: #888;
+ol.stat-stars li{
+	margin: 7px 0;
+	padding: 0;
+	font-size: 14px;
+	color: #999;
 }
-
-section#people-stats .comments .btn-container{ text-align: center; }
-
-section#people-stats .comments .evaluate-btn{
+ol.stat-stars li i{
 	display: inline-block;
-	margin: 5px auto;
-	padding: 4px 7px 3px;
-	background-color: #ff3333;
+	font-style: normal;
+	width: 17px;
+	line-height: 15px;
+	margin-right: 2px;
+	padding-top: 2px;
+
+	font-size: 12px;
+	text-align: center;
+	background-color: #b1bec6;
 	color: white;
-	border: none;
-	border-radius: 4px;
+	border-radius: 50%;
+	font-weight: 300;
+}
+ol.stat-stars li .stat-label{
+	display: inline-block;
+	width: 68px;
+	font-weight: 300;
+	font-size: 13px;
 }
 
+.stat-evaluate-popup{
+}
+.stat-evaluate-popup > .content{ margin-top: -180px }
+.stat-evaluate-popup ol.stat-stars{ margin: 20px 0; text-align: center; }
+.stat-evaluate-popup ol.stat-stars .label-container{ margin: 13px 0 1px }
+.stat-evaluate-popup ol.stat-stars .star-grade-big{ cursor: pointer; }
+
+.stat-evaluate-popup ol.stat-stars li .stat-label{ width: auto; }
+
+
+
+/* 인맥 */
+section#inmac{
+
+}
+
+section#inmac #inmac-network canvas{
+	touch-action: initial !important;
+	-webkit-user-drag: initial !important;
+	user-select: initial !important;
+}
+
+.inmac-resource{
+	display: inline-block;
+	margin: 0 1px;
+	background-image: url('/images/inmac_resource_sprite.png');
+	background-size: 45px auto;
+}
+.inmac-resource.women{ width: 24px; height: 24px; background-position: 0 0; background-size: 60px auto; }
+.inmac-resource.men{ width: 24px; height: 24px; background-position: -24px 0; background-size: 60px auto; }
+
+.inmac-resource.arrow{ width: 45px; height: 6px }
+.inmac-resource.arrow.left{ background-position: 0 -18px }
+.inmac-resource.arrow.left.enabled{ background-position: 0 -24px }
+.inmac-resource.arrow.right{ background-position: 0 -30px }
+.inmac-resource.arrow.right.enabled{ background-position: 0 -36px }
+
+
+section#inmac .vis-network{
+	outline: none;
+}
+
+section#inmac-relation{ display: none; }
+
+section#inmac-relation .close{
+	margin: -2px 10px 0;
+	color: #616d73;
+	font-size: 18px;
+}
+
+section#inmac-relation .between{
+	width: 365px;
+	margin: 20px auto;
+}
+section#inmac-relation .between .person-tile{ position: relative; float: left; width: 145px }
+section#inmac-relation .between .person-tile h4 .sub{ margin-left: -3px }
+section#inmac-relation .between .person-tile .sex{ position: absolute; bottom: -4px }
+section#inmac-relation .between .person-tile .right .sex{ right: 38px }
+section#inmac-relation .between .person-tile .left .sex{ left: 38px }
+
+section#inmac-relation .between .relation{
+	float: left;
+	margin: 20px 10px 0 10px;
+}
+section#inmac-relation .between .relation .arrow{ margin: 2px 0 }
+
+section#inmac-relation .events .event-tile{
+	border-top: 1px solid #ddd;
+	padding-left: 16px;
+}
 
 
 /* 사진 (탭) */
@@ -464,18 +546,84 @@ section.role-entities .no-content{
 
 
 
+/* 한마디로 탭 */
+#quotation-writing-popup{
+	margin-top: -40px;
+}
+#quotation-writing-popup .editor{
+	height: 120px;
+}
+#quotation-writing-popup .editor .background{
+	top: 45px;
+	height: inherit;
+	background: white url('/images/quotation_bg_white_short.png');
+	background-size: 100% 120px;
+}
+#quotation-writing-popup .editor textarea{
+	position: relative;
+	display: block;
+	width: 300px;
+	margin: 20px auto 5px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	resize: none;
+	font-size: 23px;
+	text-align: center;
+}
+#quotation-writing-popup .editor textarea:hover{ outline: none; border-color: #ec407a }
+#quotation-writing-popup .editor textarea.reference{ margin: 5px auto; font-size: 14px; width: 200px }
 
-@media(min-width: 1000px) {
-	#wrap header{
-		border-bottom: 2px solid #ee3f7a;
+section#quotations-header button.write,
+section#quotations-header .fr > span.active > .radio{ background-color: #ec407a }
+
+
+section#quotations-full{
+}
+section#quotations-full .content{ height: 100px }
+section#quotations-full .background{
+	height: 100px;
+	background: white url('/images/quotation_bg_white.png');
+	background-size: 100% 100px;
+}
+
+
+@media(max-width: 350px) {
+	nav.magazine-nav ul{ padding: 0 5px }
+}
+
+
+@media(min-width: 900px) {
+	header{
+		/*border-bottom: 2px solid #ee3f7a;*/
+	}
+
+	header .logo{
+		background-position: 0 -32px;
 	}
 
 	section#people-header{
 		height: 250px;
 	}
 
+	header .logo{ margin-left: -443px }
+
+	section#quotation .background{ background-image: url('/images/quotation_bg_long.png') }
+	section#quotations-full .background{ background-image: url('/images/quotation_bg_white_long.png') }
+
+	section#people-trend .graph-area{ padding: 0 20px 10px }
 	section#people-trend .graph-area svg.graph-small{ display: none }
 	section#people-trend .graph-area svg.graph-large{ display: block }
 	section#people-trend .graph-area .overlay i.index-bubble{ margin-left: 0 }
+
+	section#people-trend .graph-area .overlay{ width: calc(100% - 40px) }
+	section#people-trend .graph-area .overlay .date{ margin-left: 3px }
+
+	section#people-stats .stat{
+		float: left;
+		border-top: none;
+		margin: 5px 22px;
+		width: 380px;
+	}
+	section#people-stats .count1 .stat{ margin: 5px auto; float: none; }
 }
 

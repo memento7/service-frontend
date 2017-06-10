@@ -4,46 +4,16 @@ header{
 	position: absolute;
 }
 
-header .logo{
-	background-position: 0 -96px;
-}
+header .logo{ background-position: -200px -64px }
+header .menu-bar{ background-position: -400px -22px }
 
-header .fr .fa-bars{
-	color: white;
-}
 
 nav.magazine-nav ul li.selected{
 	color: #ff7044;
 	border-bottom-color: #ff7044;
 }
-
-
-/* Event Icon Sprite */
-i.event-icon{
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	margin: 0 1px;
-	background-image: url('/images/event_icon_sprite.png');
-	background-size: 75px auto;
-}
-i.event-icon.icon-people{ background-position: 0 0 }
-i.event-icon.icon-pen{ background-position: -15px 0 }
-i.event-icon.icon-rank{ background-position: -30px 0 }
-i.event-icon.icon-balloon{ background-position: -45px 0 }
-i.event-icon.icon-keyword{ background-position: -60px 0 }
-
-i.event-icon.icon-news,
-i.event-icon.icon-talk,
-i.event-icon.icon-share{ width: 14px; height: 14px }
-i.event-icon.icon-news{ background-position: 0 -15px }
-i.event-icon.icon-talk{ background-position: -14px -15px }
-i.event-icon.icon-share{ background-position: -28px -15px }
-
-i.event-icon.icon-happy,
-i.event-icon.icon-sad{ width: 20px; height: 20px }
-i.event-icon.icon-happy{ background-position: 0 -30px }
-i.event-icon.icon-sad{ background-position: -20px -30px }
+.popup h4{ background-color: #ff7044 }
+.popup .btn-container button.submit{ background-color: #ff7044 }
 
 
 /* Common Header */
@@ -85,7 +55,11 @@ section#related-people{
 
 }
 section#related-people .person{ width: 50% }
-section#related-people .person a{ text-decoration: none; }
+section#related-people .person a{
+	display: inline-block;
+	width: 150px;
+	text-decoration: none;
+}
 
 
 /* 3줄 요약 */
@@ -105,81 +79,63 @@ ol.three-line-summary li span{
 	margin-top: 3px;
 	vertical-align: middle;
 	color: #333;
+	font-weight: 300;
+	width: calc(100% - 30px);
+	vertical-align: top;
 }
-ol.three-line-summary li i{ margin-right: 5px }
+ol.three-line-summary li i{ margin-right: 5px; vertical-align: top }
 
 
-section#three-line-summaries{
+section#three-lines{
 	background-color: #788898;
 	color: white;
 	padding-bottom: 4px;
 }
-section#three-line-summaries h3{ color: white; font-weight: 100 }
-section#three-line-summaries ol.three-line-summary li span{ color: white; font-weight: 100 }
+section#three-lines h3{ color: white; font-weight: 100 }
+section#three-lines ol.three-line-summary li span{ color: white; font-weight: 100 }
 
-section#three-line-summaries .swiper-container{ height: 130px }
-section#three-line-summaries .swiper-pagination-bullet{ border: 1px solid white; background: none; opacity: 1 }
-section#three-line-summaries .swiper-pagination-bullet-active{ background: white }
-section#three-line-summaries .swiper-pagination-bullet{ width: 7px; height: 7px; }
+/*section#three-lines .swiper-container{ height: 130px }*/
 
-section#three-line-summaries .more{ margin: -5px 8px 0 0; font-size: 25px;}
-section#three-line-summaries .more a{ color: white; text-decoration: none; }
+section#three-lines .swiper-wrapper{
+	height: 130px;
+	/*overflow-y: auto;*/
+}
+section#three-lines .swiper-wrapper .swiper-slide{ overflow: auto; }
+section#three-lines .swiper-wrapper .swiper-slide .container{ padding-bottom: 40px }
 
-section#three-line-summaries .no-content{ color: white; font-weight: 100; padding: 40px 0 53px }
 
-section#three-line-summaries .meta{
+section#three-lines .swiper-pagination{
+	background-color: #788898;
+	padding: 10px 0;
+	bottom: 0;
+}
+
+
+section#three-lines .swiper-pagination-bullet{ border: 1px solid white; background: none; opacity: 1 }
+section#three-lines .swiper-pagination-bullet-active{ background: white }
+section#three-lines .swiper-pagination-bullet{ width: 7px; height: 7px; }
+
+section#three-lines .more{ margin: -5px 8px 0 0; font-size: 25px;}
+section#three-lines .more a{ color: white; text-decoration: none; }
+
+section#three-lines .no-content{ color: white; font-weight: 100; padding: 40px 0 53px }
+
+section#three-lines .meta{
 	margin-top: 4px;
 	text-align: right;
 	font-size: 12px;
 	color: white;
 	font-weight: 100;
 }
-section#three-line-summaries .meta .author{
+section#three-lines .meta .author{
 	display: inline-block;
 	margin-right: 4px;
 }
-
-
-/* 3줄요약 탭 */
-section#three-line-summaries-full{ padding: 0 }
-section#three-line-summaries-full .write-container{
-	padding-bottom: 10px;
-	border-bottom: 1px solid #ddd;
-}
-
-section#three-line-summaries-full button.write{
-	margin: 15px 15px 4px;
-	padding: 7px 0;
-	border: 1px solid #ccc;
-	outline: none;
-	width: calc(100% - 30px);
-	background-color: white;
-
-}
-
-section#three-line-summaries-full .three-line-tile{
-	border-bottom: 1px solid #ddd;
-	padding: 15px 15px 12px;
-}
-section#three-line-summaries-full .three-line-tile h4{
+section#three-lines .meta .action{
 	display: inline-block;
-	margin: 0 4px 3px 0;
-	font-weight: normal;
+	margin-left: 4px;
 }
-section#three-line-summaries-full .three-line-tile .date{ font-size: 12px; color: #666; }
 
-section#three-line-summaries-full .three-line-tile .btn-container{ text-align: right }
-section#three-line-summaries-full .three-line-tile .like-btn,
-section#three-line-summaries-full .three-line-tile .hate-btn{
-	padding: 3px 5px 1px;
-	border: 1px solid #ccc;
-	outline: none;
-	background-color: white;
-	font-weight: bold;
-	font-size: 12px;
-}
-section#three-line-summaries-full .three-line-tile .like-btn{ color: #e94a23 }
-section#three-line-summaries-full .three-line-tile .hate-btn{ color: #007acf }
 
 
 /* 이슈 랭크 */
@@ -189,7 +145,7 @@ section#issue-rank{
 
 section#issue-rank .content{
 	position: relative;
-	max-width: 350px;
+	max-width: 320px;
 	margin: 0 auto 10px;
 }
 
@@ -248,7 +204,7 @@ section#issue-rank .full-label.c-rank{ color: #5448ab }
 
 section#issue-rank .comment{
 	width: calc(100% - 110px);
-	margin-top: 2px;
+	margin-top: 0;
 	font-size: 13px;
 	color: #333;
 }
@@ -273,13 +229,13 @@ section#issue-rank .circle-wrap .circle .content{
 section#issue-rank .circle-wrap .circle .content strong{ color: #fd7346; font-weight: normal; }
 
 section#issue-rank .sources{
-	margin: 8px 0 0 10px;
+	margin: 10px 0 0 50px;
 	font-size: 14px;
 	color: #666;
 }
 section#issue-rank .sources .fl{
-	width: 33%;
-	text-align: center;
+	width: 65px;
+	text-align: left;
 }
 section#issue-rank .sources span{ display: inline-block; vertical-align: middle; }
 section#issue-rank .sources i{ vertical-align: middle; }
@@ -296,7 +252,7 @@ section#emotions .content{
 	padding: 0 15px 15px;
 	height: 150px;
 }
-section#emotions .content > .fl,
+/*section#emotions .content > .fl,
 section#emotions .content > .fr{ width: 50%; position: relative; }
 
 section#emotions .content .icon-wrapper{
@@ -319,6 +275,14 @@ section#emotions .content .container{
 	margin: 10px;
 	border: 1px solid #e6e7e9;
 	border-radius: 6px;
+}*/
+
+section#emotions .content .container{
+	height: 140px;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid #e6e7e9;
+	border-radius: 6px;
 }
 
 section#emotions .content svg g text{ fill: white; font-weight: 100 }
@@ -331,6 +295,24 @@ section#keywords{
 }
 section#keywords > div{ padding: 0 15px; text-align: center; }
 section#keywords img{ max-width: 100% }
+
+
+
+/* 사진 (탭) */
+section#images{
+}
+
+section#images ul{
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+section#images ul li{
+	width: 174px;
+}
+
+section#images ul li img{ width: 100% }
 
 
 
@@ -370,28 +352,47 @@ section#related-news ul li.no-img .content h4{ font-weight: 400 }
 section#related-news ul li.no-img .content .source{ color: #666 }
 
 
-/* 사진 (탭) */
-section#images{
-}
 
-section#images ul{
-	margin: 0 auto;
-	padding: 0;
+
+/* 3줄요약 탭 */
+#three-lines-writing-popup{
+}
+#three-lines-writing-popup .content{ margin-top: -50px }
+#three-lines-writing-popup ol{
 	list-style: none;
+	margin: 0;
+	padding: 5px 15px 15px;
+}
+#three-lines-writing-popup ol li{
+	margin: 9px 0;
+}
+#three-lines-writing-popup ol li input{
+	width: 250px;
+	width: calc(100% - 35px);
+	margin-left: 5px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	font-size: 14px;
 }
 
-section#images ul li{
-	width: 174px;
-}
-
-section#images ul li img{ width: 100% }
+section#three-lines-header button.write,
+section#three-lines-header .fr > span.active > .radio{ background-color: #f37046 }
 
 
+section#three-lines-full .board-tile .three-line-summary{ padding: 12px 13px }
 
-@media(min-width: 1000px) {
-	#wrap header{
-		border-bottom: 2px solid #ff7044;
+
+
+@media(min-width: 900px) {
+	header{
+		/*border-bottom: 2px solid #ff7044;*/
 	}
+
+	header .logo{
+		background-position: 0 -64px;
+	}
+
+	header .logo{ margin-left: -446px }
 
 	section#event-header{
 		height: 250px;

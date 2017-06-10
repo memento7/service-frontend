@@ -2,8 +2,8 @@
 	{% for emotion in emotions %}
 		{% if loop.index <= max %}
 		<span class="emotion">
-			<i style="width: {{ emotion.weight * max_size }}px; height: {{ emotion.weight * max_size }}px; background-color: {{ rand_color() }}"></i>
-			<span>{{ emotion.title }}</span>
+			<i style="background-color: {{ rand_color() }}"></i>
+			<span>{{ emotion.emotion }}</span>
 		</span>
 		{% endif %}
 	{% endfor %}
@@ -18,17 +18,17 @@
 
 
 {% macro category_label(event, class_append='') -%}
-	<span class="category-label category-{{ event.category_id() }} {{ class_append }}">
-		<span class="hidden2">{{ event.category }}</span>
+	<span class="category-label category-{{ event.get_category() }} {{ class_append }}">
+		<span class="hidden2">{{ l10n(event.category) }}</span>
 	</span>
 {% endmacro %}
 
 
 {% macro event_tile(event, show_date=False, full_image=False) -%}
 	<div class="event-tile {{ 'full-image' if full_image or '' }} clearfix">
-		<div class="fl">
+		<div class="content {{ 'fl' if event.repr_image() }}">
 			<h4>
-				<a href="{{ event.magazine_url() }}">{{ event.title }}</a>
+				<a href="{{ event.magazine_url() }}">{{ event.title | truncate(35) }}</a>
 			</h4>
 			
 			<div class="labels emotion-bubbles">
@@ -43,11 +43,11 @@
 			</div>
 			{% endif %}
 		</div>
+		{% if event.repr_image() %}
 		<div class="fr">
-			{% if event.repr_image() %}
-			<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
-			{% endif %}
+			<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) | safe }}"></div>
 		</div>
+		{% endif %}
 	</div>
 {% endmacro %}
 
@@ -56,9 +56,9 @@
 	<div class="event-tile mini-event-tile">
 		<a href="{{ event.magazine_url() }}">
 			<div>
-				<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) }}"></div>
+				<div class="image" style="{{ event.repr_image(css_mode=True, thumbnail=True) | safe }}"></div>
 			</div>
-			<h4>{{ event.title }}</h4>
+			<h4>{{ event.title | truncate(30) }}</h4>
 		</a>
 		<div class="labels">
 			{{ issue_label(event.issue_data) }}
@@ -74,7 +74,7 @@
 {% macro gallery_event_tile(event) -%}
 	<a href="{{ event.magazine_url() }}">
 		<div class="event-tile gallery-event-tile">
-			<div class="background" style="{{ event.repr_image(css_mode=True) }}"></div>
+			<div class="background" style="{{ event.repr_image(css_mode=True) | safe }}"></div>
 			
 			<div class="labels">
 				{{ issue_label(event.issue_data) }}
