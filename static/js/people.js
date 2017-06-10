@@ -82,12 +82,18 @@ $(window).ready(function() {
 	});
 
 	memento.registerLoginCallback(function(loginedUser) {
+		var favoriteNotSelected = true;
+
 		for (var i = 0; i < loginedUser.favorites.length; i++) {
 			if (loginedUser.favorites[i].id == entityId) {
 				peopleMagazine.setFavorite(false);
+				favoriteNotSelected = false;
 				break;
 			}
 		}
+
+		if (favoriteNotSelected)
+			peopleMagazine.cancelFavorite(false);
 	});
 	
 });

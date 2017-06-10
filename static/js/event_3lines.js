@@ -7,7 +7,9 @@ var summeries3lines = (function(eventId) {
 	};
 
 	function render(sort) {
-		memento.uapi.get('/events/' + eventId +'/summaries_3line' + (sort ? '?sort='+sort : ''), function (result) {
+		if (!sort) sort = 'likeCount,desc';
+		
+		memento.uapi.get('/events/' + eventId +'/summaries_3line?sort=' + sort, function (result) {
 			Handlebars.registerHelper("inc", function(value, options) {
 				return parseInt(value) + 1;
 			});

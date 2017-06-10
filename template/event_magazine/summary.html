@@ -53,25 +53,27 @@
 				<div class="swiper-wrapper">
 					{% for summary in event.summaries3lines %}
 					<div class="swiper-slide">
-						<ol class="three-line-summary">
-							{% for line in summary.summaries %}
-							<li>
-								<i class="l{{ loop.index }} index-bubble light">{{ loop.index }}</i>
-								<span>{{ line }}</span>
-							</li>
-							{% endfor %}
-						</ol>
-						<div class="meta">
-							<span class="author">@{{ summary.user.nickname }}</span>
-							
-							<span class="action">
-								<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-								<span>{{ summary.like_count }}</span>
-							</span>
-							<span class="action">
-								<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
-								<span>{{ summary.dislike_count }}</span>
-							</span>
+						<div class="container">
+							<ol class="three-line-summary">
+								{% for line in summary.summaries %}
+								<li>
+									<i class="l{{ loop.index }} index-bubble light">{{ loop.index }}</i>
+									<span>{{ line }}</span>
+								</li>
+								{% endfor %}
+							</ol>
+							<div class="meta">
+								<span class="author">@{{ summary.user.nickname }}</span>
+								
+								<span class="action">
+									<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+									<span>{{ summary.like_count }}</span>
+								</span>
+								<span class="action">
+									<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
+									<span>{{ summary.dislike_count }}</span>
+								</span>
+							</div>
 						</div>
 					</div>
 					{% endfor %}

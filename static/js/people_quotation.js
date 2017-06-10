@@ -30,7 +30,9 @@ var quotations = (function(entityId) {
 	}
 
 	function render(sort) {
-		memento.uapi.get('/entities/' + entityId +'/quotations' + (sort ? '?sort='+sort : ''), function (result) {
+		if (!sort) sort = 'likeCount,desc';
+
+		memento.uapi.get('/entities/' + entityId +'/quotations?sort=' + sort, function (result) {
 			var template = Handlebars.compile( $('#template-quotations').html() );
 
 			$('#quotations-full').html(

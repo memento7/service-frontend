@@ -94,7 +94,23 @@ section#three-lines{
 section#three-lines h3{ color: white; font-weight: 100 }
 section#three-lines ol.three-line-summary li span{ color: white; font-weight: 100 }
 
-section#three-lines .swiper-container{ height: 130px }
+/*section#three-lines .swiper-container{ height: 130px }*/
+
+section#three-lines .swiper-wrapper{
+	height: 130px;
+	/*overflow-y: auto;*/
+}
+section#three-lines .swiper-wrapper .swiper-slide{ overflow: auto; }
+section#three-lines .swiper-wrapper .swiper-slide .container{ padding-bottom: 40px }
+
+
+section#three-lines .swiper-pagination{
+	background-color: #788898;
+	padding: 10px 0;
+	bottom: 0;
+}
+
+
 section#three-lines .swiper-pagination-bullet{ border: 1px solid white; background: none; opacity: 1 }
 section#three-lines .swiper-pagination-bullet-active{ background: white }
 section#three-lines .swiper-pagination-bullet{ width: 7px; height: 7px; }

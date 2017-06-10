@@ -3,6 +3,11 @@ var swiper = new Swiper('.swiper-container', {
 	paginationClickable: true
 });
 
+$(window).load(function () {
+	var slideHeight = $('.swiper-slide .container').outerHeight(true);
+
+	$('.swiper-wrapper').css('height', slideHeight + 'px');
+});
 
 // Emotions
 (function() {

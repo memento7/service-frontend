@@ -20,11 +20,14 @@ var inmac = (function(entityId) {
 		layout: {
 			hierarchical: false
 		},
+		// interaction: {
+		// 	dragView: false,
+		// 	zoomView: false,
+		// 	dragView: false,
+		// 	selectable: false,
+		// }
 		interaction: {
-			dragView: false,
 			zoomView: false,
-			dragView: false,
-			selectable: false,
 		}
 	};
 
