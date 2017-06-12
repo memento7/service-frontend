@@ -163,19 +163,24 @@ section#weekly-mementos .item .content .box{
 
 
 /* 배너 */
-section#pc-banner{
-	display: none;
+section#banner{
+	/*display: none;*/
 }
-section#pc-banner a{ text-decoration: none; }
-section#pc-banner .banner{
-	font-size: 24px;
+section#banner a{ text-decoration: none; }
+section#banner .banner{
+	margin: 0 auto 6px;
+	text-align: center;
+	/*font-size: 24px;
 	font-weight: 300;
 	margin: 0;
 	padding: 50px 0;
 	text-align: center;
 	color: #fe646e;
-	background-color: #ffe8e8;
+	background-color: #ffe8e8;*/
 }
+section#banner .banner .pc{ display: none }
+section#banner .banner .mobile{ max-width: 450px }
+
 
 @media(max-width: 350px) {
 	section#trendy-people ul a li{
@@ -251,12 +256,15 @@ section#pc-banner .banner{
 		width: 290px;
 	}
 
-	section#pc-banner{
+	section#banner{
 		display: block;
 		position: absolute;
 		margin-top: 327px;
 		right: 0;
 		width: 290px;
 	}
+
+	section#banner .banner .pc{ display: initial; }
+	section#banner .banner .mobile{ display: none; }
 
 }

@@ -217,6 +217,8 @@ class ImageAPI :
 			img = Image.open(image_path)
 		except OSError :
 			return None
+		except FileNotFoundError :
+			return None
 
 		wpercent = basewidth / float(img.size[0])
 		hsize = int(float(img.size[1]) * float(wpercent))

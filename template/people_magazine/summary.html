@@ -7,6 +7,14 @@
 	<script type="text/javascript" src="{{ geturl('assets', '/js/people_quotation.js') }}"></script>
 	<script type="text/javascript" src="{{ geturl('assets', '/js/people_summary.js') }}"></script>
 
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('#people-trend .events .event-tile').each(function(i, target) {
+				$(target).find('.image').css('height', $(target).outerHeight(true) + 'px');
+			});
+		});
+	</script>
+
 {% endblock %}
 
 
