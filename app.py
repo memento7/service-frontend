@@ -95,6 +95,7 @@ while True :
 
 addpage(view='weekly.recent_week')
 
+page_num = 0
 # Weekly memento
 for d in range(1, 40) :
 	today = datetime.now()
@@ -102,5 +103,9 @@ for d in range(1, 40) :
 
 	year, month, week = WeeklyMemento.get_week( today - timedelta(days=d*7) )
 	addpage(view='weekly.weekly', params=(year, month, week))	
+
+	if pagelimit != -1 and pagelimit <= page_num :
+		break
+	page_num += 1
 
 

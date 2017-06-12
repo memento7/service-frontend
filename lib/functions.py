@@ -7,6 +7,8 @@ from lib.api import ImageAPI
 def geturl(module_name='', uri='/') :
 	""" Get module url with app option
 	"""
+	if module_name == '': module_name = 'beta' #tmp
+
 	uri = str(uri)
 
 	if uri[0] == '/' : uri = uri[1:]

@@ -13,6 +13,49 @@ class MementoPublisher(Publisher) :
 			pass
 		
 
+		def upload_to_production(self, generator, subdomain, pages) :
+			if type(pages) != list :
+				pages = [pages]
+
+
+			if subdomain == None or subdomain == '@' :
+				#bucket_name = 'memento.live'
+				bucket_name = 'beta.memento.live' #temp
+			else :
+				bucket_name = '%s.memento.live' % subdomain
+
+			import boto3, mimetypes
+			from jikji.generator import urltopath
+			s3 = boto3.resource('s3')
+
+			for pageurl in pages :
+				file = generator.get_tmp_filepath(pageurl)
+
+				if subdomain == None or subdomain == '@' :
+					pass
+				else :
+					if pageurl.find(subdomain) == 1 :
+						pageurl = pageurl[len(subdomain) + 1 : ]
+
+
+				object_key = urltopath(pageurl)
+				
+				try :
+					content_type = mimetypes.guess_type(file)[0]
+				except Exception :
+					pass
+
+				if not content_type :
+					content_type = 'binary/octet-stream'
+
+				cprint.okb('UPLOAD ' + bucket_name + '  ' + object_key)
+				s3.Object(bucket_name, object_key).put(
+					Body = open(file, 'rb'),
+					ACL = 'public-read',
+					ContentType = content_type,
+				)
+
+
 		def publish(self, generator, generation_result=None) :
 			""" Publish implmentation function
 			:param generator: Generator object
@@ -20,16 +63,26 @@ class MementoPublisher(Publisher) :
 			"""
 
 			if 'production' in generator.app.options :
-				# Upload S3
-				# TODO
-				print('Currently production publish is not supported')
-				# for sucesses, errors, ignores, pagegroup in generation_result :
-				# 	print( pagegroup )
-				# 	if pagegroup :
-				# 		print( pagegroup.getpages()[0].view.__dict__ )
-				# 	print( sucesses )
-				# 	if pagegroup :
-				# 		pagegroup.after_published(sucesses, errors, ignores)
+				from views.people import PeoplePageGroup
+				from views.event import EventPageGroup
+
+				for sucesses, errors, ignores, pagegroup in generation_result :
+					if not pagegroup :
+						self.upload_to_production(generator, 'assets', sucesses)
+						
+					elif type(pagegroup) == PeoplePageGroup :
+						self.upload_to_production(generator, 'people', sucesses)
+
+					elif type(pagegroup) == EventPageGroup :
+						self.upload_to_production(generator, 'event', sucesses)
+
+					else :
+						for page in sucesses :
+							if page.find('/weekly') == 0 :
+								self.upload_to_production(generator, 'weekly', page)
+
+							else : 
+								self.upload_to_production(generator, '@', page)
 
 
 			elif 'development' in generator.app.options :
