@@ -109,7 +109,7 @@ class MementoPublisher(Publisher) :
 
 				all_urls.append( functions.geturl(subdomain, pageurl) )
 			
-			purge_cloudflare_cache(all_urls)
+			self.purge_cloudflare_cache(all_urls)
 
 
 
