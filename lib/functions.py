@@ -115,11 +115,12 @@ def image_url(image, css_mode=False, thumbnail=False) :
 	:param thumbnail: if True, use thumbnail (300x)
 	"""
 
-	if image is None :		rv = None
-	elif type(image) == str :	rv = image
-	elif 'path' in image : 	rv = image['path']
-	elif 'url' in image : 	rv = image['url']
-	else :					rv = None
+	if image is None :				rv = None
+	elif type(image) == str :		rv = image
+	elif 'path' in image : 			rv = image['path']
+	elif 'url' in image : 			rv = image['url']
+	elif 'source_link' in image : 	rv = image['source_link']
+	else :							rv = None
 
 	if rv is not None :
 		rv = ImageAPI.get(rv, ('300x' if thumbnail else 'original'))

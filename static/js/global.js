@@ -268,6 +268,7 @@ var sidebar = (function () {
 		else if (typeof value == 'string')		  rv = value;
 		else if ('path' in value) 				  rv = value['path'];
 		else if ('url' in value) 				  rv = value['url'];
+		else if ('source_link' in value) 		  rv = value['source_link'];
 		else									  rv = null;
 
 		if (css_mode) {
