@@ -64,7 +64,7 @@ var inmac = (function(entityId) {
 			if (curEntity.id == entityId) continue;
 
 			var theta = i / relatedEntities.length * 2 * Math.PI;
-			var imageUrl = (curEntity.images.length) ? curEntity.images[0]['url'] : DEFAULT_IMAGE;
+			var imageUrl = (curEntity.images.length) ? image_url(curEntity.images[0]) : DEFAULT_IMAGE;
 
 			nodes.push({
 				'id': i,

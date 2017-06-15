@@ -63,7 +63,11 @@ pagelimit = int(app.options.get('pagelimit', -1))
 # Get updated entites and register pages
 page_num = 0
 while True :
-	result = PublishAPI.get('/entities/updated?page=%d' % page_num)
+	if 'allpeople' in app.options :
+		result = PublishAPI.get('/entities?page=%d' % page_num)
+	else :
+		result = PublishAPI.get('/entities/updated?page=%d' % page_num)
+
 	if type(result) is not list or len(result) == 0 : break
 
 	for data in result:

@@ -72,8 +72,11 @@ class MementoPublisher(Publisher) :
 
 
 			if subdomain == '@' :
-				#bucket_name = 'memento.live'
-				bucket_name = 'beta.memento.live' #temp
+				if 'beta' in generator.app.options :
+					bucket_name = 'beta.memento.live'
+				else :
+					bucket_name = 'memento.live'
+
 			else :
 				bucket_name = '%s.memento.live' % subdomain
 
