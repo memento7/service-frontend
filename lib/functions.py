@@ -4,16 +4,18 @@ from jikji import Jikji
 from lib.api import ImageAPI
 
 
-def geturl(module_name='', uri='/') :
+def geturl(module_name='@', uri='/') :
 	""" Get module url with app option
 	"""
-	if module_name == '': module_name = 'beta' #tmp
+	if 'production' in app.options 'beta' in app.options and module_name == '@' :
+		module_name = 'beta'
+
 
 	uri = str(uri)
 
 	if uri[0] == '/' : uri = uri[1:]
-	if module_name : subdomain = module_name + '.'
-	else : 			 subdomain = ''
+	if module_name == '@' : subdomain = ''
+	else : 			 		subdomain = module_name + '.'
 
 	if module_name == 'assets' : module_name = None
 
