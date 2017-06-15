@@ -13,8 +13,6 @@ class MementoPublisher(Publisher) :
 			pass
 		
 
-
-
 		def publish(self, generator, generation_result=None) :
 			""" Publish implmentation function
 			:param generator: Generator object
@@ -59,6 +57,10 @@ class MementoPublisher(Publisher) :
 					purging_urls.append( functions.geturl('assets', pageurl) )
 
 				self.purge_cloudflare_cache(purging_urls)
+
+
+			# Super method
+			Publisher.publish(self, generator, generation_result)
 
 
 
