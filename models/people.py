@@ -57,7 +57,7 @@ class People :
 		self.id = id
 		self.nickname = nickname
 		self.realname = realname
-		self.role_json = role_json
+		self.role_json = role_json or kwarg.get('roleJson')
 
 		self.quotations = quotations
 		self.quotations.sort(key=lambda a: a['rank'])

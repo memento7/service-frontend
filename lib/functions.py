@@ -8,7 +8,7 @@ def geturl(module_name='@', uri='/') :
 	""" Get module url with app option
 	"""
 	app = Jikji.getinstance()
-	
+
 	if 'production' in app.options and 'beta' in app.options and module_name == '@' :
 		module_name = 'beta'
 
@@ -32,13 +32,13 @@ def geturl(module_name='@', uri='/') :
 	elif 'local' in app.options :
 		base = 'http://%slocal.memento.live:7000' % subdomain
 
-		if module_name :
+		if module_name and module_name != '@' :
 			return '%s/%s/%s' % (base, module_name, uri)
 		else :
 			return '%s/%s' % (base, uri)
 
 	else :
-		if module_name :
+		if module_name and module_name != '@' :
 			return '/%s/%s' % (module_name, uri)
 		else :
 			return '/%s' % (uri)

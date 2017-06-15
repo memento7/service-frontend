@@ -398,4 +398,6 @@ section#three-lines-full .board-tile .three-line-summary{ padding: 12px 13px }
 		height: 250px;
 	}
 	section#keywords img{ height: 170px; width: auto }
+
+	section#related-people .person a{ width: inherit; }
 }
