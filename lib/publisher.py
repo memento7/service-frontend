@@ -42,6 +42,18 @@ class MementoPublisher(Publisher) :
 								self.upload_to_production(generator, '@', page)
 
 
+				# Purge Cloudflare Cache
+				from lib import functions
+
+				assets_s, assets_f, assets_i, _ = generation_result[-1]
+
+				purging_urls = []
+				for pageurl in assets_s :
+					purging_urls.append( functions.geturl('assets', pageurl) )
+
+				self.purge_cloudflare_cache(purging_urls)
+
+
 			elif 'development' in generator.app.options :
 				# Local Publish
 				lp = LocalPublisher('/var/www/dev')
@@ -112,9 +124,9 @@ class MementoPublisher(Publisher) :
 					ContentType = content_type,
 				)
 
-				all_urls.append( functions.geturl(subdomain, pageurl) )
+				#all_urls.append( functions.geturl(subdomain, pageurl) )
 			
-			self.purge_cloudflare_cache(all_urls)
+			#self.purge_cloudflare_cache(all_urls)
 
 
 
