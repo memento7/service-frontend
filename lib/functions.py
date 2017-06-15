@@ -7,6 +7,8 @@ from lib.api import ImageAPI
 def geturl(module_name='@', uri='/') :
 	""" Get module url with app option
 	"""
+	app = Jikji.getinstance()
+	
 	if 'production' in app.options and 'beta' in app.options and module_name == '@' :
 		module_name = 'beta'
 
@@ -19,7 +21,6 @@ def geturl(module_name='@', uri='/') :
 
 	if module_name == 'assets' : module_name = None
 
-	app = Jikji.getinstance()
 
 	if 'production' in app.options :
 		return 'https://%smemento.live/%s' % (subdomain, uri)
