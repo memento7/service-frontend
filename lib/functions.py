@@ -4,18 +4,23 @@ from jikji import Jikji
 from lib.api import ImageAPI
 
 
-def geturl(module_name='', uri='/') :
+def geturl(module_name='@', uri='/') :
 	""" Get module url with app option
 	"""
+	app = Jikji.getinstance()
+
+	if 'production' in app.options and 'beta' in app.options and module_name == '@' :
+		module_name = 'beta'
+
+
 	uri = str(uri)
 
 	if uri[0] == '/' : uri = uri[1:]
-	if module_name : subdomain = module_name + '.'
-	else : 			 subdomain = ''
+	if module_name == '@' : subdomain = ''
+	else : 			 		subdomain = module_name + '.'
 
 	if module_name == 'assets' : module_name = None
 
-	app = Jikji.getinstance()
 
 	if 'production' in app.options :
 		return 'https://%smemento.live/%s' % (subdomain, uri)
@@ -27,13 +32,13 @@ def geturl(module_name='', uri='/') :
 	elif 'local' in app.options :
 		base = 'http://%slocal.memento.live:7000' % subdomain
 
-		if module_name :
+		if module_name and module_name != '@' :
 			return '%s/%s/%s' % (base, module_name, uri)
 		else :
 			return '%s/%s' % (base, uri)
 
 	else :
-		if module_name :
+		if module_name and module_name != '@' :
 			return '/%s/%s' % (module_name, uri)
 		else :
 			return '/%s' % (uri)
@@ -110,11 +115,12 @@ def image_url(image, css_mode=False, thumbnail=False) :
 	:param thumbnail: if True, use thumbnail (300x)
 	"""
 
-	if image is None :		rv = None
-	elif type(image) == str :	rv = image
-	elif 'path' in image : 	rv = image['path']
-	elif 'url' in image : 	rv = image['url']
-	else :					rv = None
+	if image is None :				rv = None
+	elif type(image) == str :		rv = image
+	elif 'path' in image : 			rv = image['path']
+	elif 'url' in image : 			rv = image['url']
+	elif 'source_link' in image : 	rv = image['source_link']
+	else :							rv = None
 
 	if rv is not None :
 		rv = ImageAPI.get(rv, ('300x' if thumbnail else 'original'))

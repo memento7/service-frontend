@@ -10,7 +10,7 @@ from views.event import EventPageGroup
 from lib.api import PublishAPI
 
 import requests
-import settings
+import time
 from datetime import datetime, timedelta
 
 
@@ -51,9 +51,9 @@ addpage(view='home.search')
 
 
 # Mockup data
-addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70001) ) ) # 가데이터 - 수지
-addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70002) ) ) # 가데이터 - 수지
-addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # 가데이터 - 김태희,비 결혼
+# addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70001) ) ) # 가데이터 - 수지
+# addpagegroup( PeoplePageGroup( model=People.register(_mockup.person70002) ) ) # 가데이터 - 수지
+# addpagegroup( EventPageGroup ( model=Event.register(_mockup.event80001) ) ) # 가데이터 - 김태희,비 결혼
 
 
 app = Jikji.getinstance()
@@ -63,7 +63,11 @@ pagelimit = int(app.options.get('pagelimit', -1))
 # Get updated entites and register pages
 page_num = 0
 while True :
-	result = PublishAPI.get('/entities/updated?page=%d' % page_num)
+	if 'allpeople' in app.options :
+		result = PublishAPI.get('/entities?page=%d' % page_num)
+	else :
+		result = PublishAPI.get('/entities/updated?page=%d' % page_num)
+
 	if type(result) is not list or len(result) == 0 : break
 
 	for data in result:
@@ -73,6 +77,7 @@ while True :
 	if pagelimit != -1 and pagelimit <= page_num :
 		break
 	page_num += 1
+	time.sleep(0.5)
 
 
 
@@ -89,16 +94,22 @@ while True :
 	if pagelimit != -1 and pagelimit <= page_num :
 		break
 	page_num += 1
+	time.sleep(0.5)
 
 
 addpage(view='weekly.recent_week')
 
+
+
+weekly_cnt = int(app.options.get('weeklycnt', 1))
+
 # Weekly memento
-for d in range(1, 40) :
+for d in range(1, weekly_cnt+1) :
 	today = datetime.now()
 	today = datetime(today.year, today.month, today.day)
 
 	year, month, week = WeeklyMemento.get_week( today - timedelta(days=d*7) )
 	addpage(view='weekly.weekly', params=(year, month, week))	
 
+	
 

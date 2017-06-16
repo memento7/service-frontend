@@ -167,13 +167,19 @@
 		</div>
 	</section>
 
-	<section id="pc-banner">
-		<a href="/about">
-			<div class="banner">
-				메멘토<br>
-				서비스 소개
-			</div>
-		</a>	
+	<section id="banner">
+		<div class="banner">
+			<a href="/about">
+				<img class="pc" src="{{ geturl('assets', '/images/shortcut/about.png') }}" width="290">
+				<img class="mobile" src="{{ geturl('assets', '/images/shortcut/about_long.png') }}" width="100%">
+			</a>
+		</div>
+		<div class="banner">
+			<a href="https://goo.gl/forms/0qvIgXMWZ96GB0sp1" target="_blank">
+				<img class="pc" src="{{ geturl('assets', '/images/shortcut/survery.png') }}" width="290">
+				<img class="mobile" src="{{ geturl('assets', '/images/shortcut/survery_long.png') }}" width="100%">
+			</a>
+		</div>
 	</section>
 
 {% endblock %}

@@ -13,6 +13,8 @@
 		{% block meta %}{% endblock %}
 
 		<link rel="shortcut icon" href="{{ geturl('assets', '/favicon.ico') }}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ geturl('assets', '/images/iconx180.png') }}">
+
 		<link rel="stylesheet" href="{{ geturl('assets', '/css/global.css') }}">
 		<link rel="stylesheet" href="{{ geturl('assets', '/css/components.css') }}">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,6 +25,16 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 		<script src="https://npmcdn.com/minigrid@3.0.1/dist/minigrid.min.js"></script>
 
+		<script type="text/javascript">
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-100815819-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		
 		<script type="text/javascript">
 			var baseUrls = {
 				'main': "{{ geturl() }}",
@@ -62,7 +74,7 @@
 					<div class="logo"></div>
 				</a>
 
-				<form name="searchg" class="search-form" action="{{ geturl('', 'search') }}" method="GET" onsubmit="return searchSubmit(this);">
+				<form name="searchg" class="search-form" action="{{ geturl('@', 'search') }}" method="GET" onsubmit="return searchSubmit(this);">
 					<div class="search-box clearfix">
 						<input class="fl" type="text" name="q" onfocus="$(this).parent().addClass('focused')" onblur="$(this).parent().removeClass('focused')">
 						<button class="search">
@@ -94,7 +106,7 @@
 						<a href="{{ ../baseUrls.event }}{{ this.id }}">{{ truncate this.title 35 }}</a>
 					</h4>
 					<div class="labels emotion-bubbles">
-						<span class="issue-label {{ rank this.issue_data.top_percentile }}-rank"></span>
+						<span class="issue-label {{ rank this.issue_data }}-rank"></span>
 						<span class="category-label category-{{ replace this.type '/' '-' }}"></span>
 						
 						{{# if this.emotions.[0] }}

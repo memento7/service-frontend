@@ -232,6 +232,21 @@ var sidebar = (function () {
 
 })();
 
+function image_url(value, css_mode, options) {
+	if (value === undefined || value == null) rv = null;
+	else if (typeof value == 'string')		  rv = value;
+	else if ('path' in value) 				  rv = value['path'];
+	else if ('url' in value) 				  rv = value['url'];
+	else if ('source_link' in value) 		  rv = value['source_link'];
+	else									  rv = null;
+
+	if (css_mode) {
+		if (rv == null) return '';
+		else  			return "background-image: url('" + rv + "')";
+	}else
+		return rv;
+}
+
 (function() {
 	/**
 	 * Handlebar helpers
@@ -255,27 +270,20 @@ var sidebar = (function () {
 	});
 
 	Handlebars.registerHelper('rank', function(value, options) {
-		if (value === undefined)	return '?';
-		else if (value <= 2 )		return 's';
-		else if (value <= 10)		return 'a';
-		else if (value <= 50)		return 'b';
+		//if (value === undefined)	return '?';
+		if (value.top_percentile === undefined) {
+			if (value.issue_score >= 1072)				return 's';
+			else if (value.issue_score >= 304)		return 'a';
+			else if (value.issue_score >= 18)		return 'b';
+			else 									return 'c';
+		}
+		else if (value.top_percentile <= 2 )		return 's';
+		else if (value.top_percentile <= 10)		return 'a';
+		else if (value.top_percentile <= 50)		return 'b';
 		else 						return 'c';
 	});
 
 
-	function image_url(value, css_mode, options) {
-		if (value === undefined || value == null) rv = null;
-		else if (typeof value == 'string')		  rv = value;
-		else if ('path' in value) 				  rv = value['path'];
-		else if ('url' in value) 				  rv = value['url'];
-		else									  rv = null;
-
-		if (css_mode) {
-			if (rv == null) return '';
-			else  			return "background-image: url('" + rv + "')";
-		}else
-			return rv;
-	}
 	Handlebars.registerHelper('image_url', image_url);
 
 

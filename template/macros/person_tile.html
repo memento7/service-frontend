@@ -7,7 +7,7 @@
 			<h4>
 				<span>{{ person.nickname }}</span>
 				{% if person.realname and person.realname != person.nickname %}
-				<br><span class="sub">({{ person.realname }})</span>
+				<span class="sub">({{ person.realname }})</span>
 				{% endif %}
 			</h4>
 			<div class="role">{{ person.get_roles() | join(',') }}</div>
