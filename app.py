@@ -99,17 +99,17 @@ while True :
 
 addpage(view='weekly.recent_week')
 
-page_num = 0
+
+
+weekly_cnt = int(app.options.get('weeklycnt', 1))
+
 # Weekly memento
-for d in range(1, 40) :
+for d in range(1, weekly_cnt+1) :
 	today = datetime.now()
 	today = datetime(today.year, today.month, today.day)
 
 	year, month, week = WeeklyMemento.get_week( today - timedelta(days=d*7) )
 	addpage(view='weekly.weekly', params=(year, month, week))	
 
-	if pagelimit != -1 and pagelimit <= page_num :
-		break
-	page_num += 1
-
+	
 
