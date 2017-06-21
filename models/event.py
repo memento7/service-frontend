@@ -190,5 +190,5 @@ class EventArticle :
 	def repr_image(self, css=False) :
 		""" Get representative image of person
 		"""
-		return functions.first_image(self.images, css)
+		return functions.first_image(self.images, css, forbid_caching=True)
 
