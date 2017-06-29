@@ -5,7 +5,9 @@ from lib import security
 
 import boto3, mimetypes
 import requests
-from multiprocessing import Pool
+#from multiprocessing import Pool
+#import threading
+from multiprocessing.pool import ThreadPool
 
 s3 = boto3.resource('s3')
 
@@ -138,14 +140,6 @@ class MementoPublisher(Publisher) :
 
 			if not content_type :
 				content_type = 'binary/octet-stream'
-
-			# cprint.okb('UPLOAD ' + bucket_name + '  ' + object_key)
-			# s3.Object(bucket_name, object_key).put(
-			# 	Body = open(file, 'rb'),
-			# 	ACL = 'public-read',
-			# 	ContentType = content_type,
-			# )
-
 			pagedatas.append({
 				'bucket_name': bucket_name,
 				'object_key': object_key,
@@ -158,7 +152,7 @@ class MementoPublisher(Publisher) :
 
 		processes_cnt = generator.app.settings.__dict__.get('PROCESSES', 4)
 
-		pool = Pool(processes=processes_cnt)
+		pool = ThreadPool(processes=processes_cnt)
 		pool.map(publish_work, pagedatas)
 		
 		#self.purge_cloudflare_cache(all_urls)
