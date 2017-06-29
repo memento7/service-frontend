@@ -84,7 +84,7 @@ while True :
 # Get updated events and register pages
 page_num = 0
 while True :
-	result = PublishAPI.get('/events/updated?page=%d&page=100' % page_num)
+	result = PublishAPI.get('/events/updated?page=%d&size=100' % page_num)
 	if type(result) is not list or len(result) == 0 : break
 
 	for data in result:
