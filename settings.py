@@ -41,7 +41,7 @@ GLOBALS = ROOT_PATH + '/lib/functions.py'
 
 
 # Process Core cnt
-PROCESSES = 20
+PROCESSES = 8
 
 
 BASIC_AUTH_KEY = security.BASIC_AUTH_KEY

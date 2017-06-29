@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 @register_view
 def home() :
 
-	rank_limit = 12
+	people_rank_limit = 18
 	now = datetime.now()
 	#since = now - timedelta(days=20)
 
@@ -18,7 +18,7 @@ def home() :
 	trendy_people = []
 	for entity in PublishAPI.get('/entities/toprank?sinceDate=%s&rankLimit=%d' % (
 					(now - timedelta(days=60)).strftime('%Y-%m-%d'),
-					rank_limit)) :
+					people_rank_limit)) :
 		trendy_people.append( People(**entity) )
 
 
@@ -27,7 +27,7 @@ def home() :
 	for event_data in PublishAPI.get('/events/toprank?fromDate=%s&toDate=%s&rankLimit=%d' % (
 					(now - timedelta(days=20)).strftime('%Y-%m-%d'),
 					now.strftime('%Y-%m-%d'),
-					18)) :
+					30)) :
 		event = Event(**event_data)
 		if event.repr_image() :
 			watchable_events.append( event )

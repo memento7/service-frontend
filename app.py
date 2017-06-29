@@ -64,9 +64,9 @@ pagelimit = int(app.options.get('pagelimit', -1))
 page_num = 0
 while True :
 	if 'allpeople' in app.options :
-		result = PublishAPI.get('/entities?page=%d' % page_num)
+		result = PublishAPI.get('/entities?page=%d&fillEventTopRankAndQuotation=True' % page_num)
 	else :
-		result = PublishAPI.get('/entities/updated?page=%d' % page_num)
+		result = PublishAPI.get('/entities/updated?page=%d&fillEventTopRankAndQuotation=True' % page_num)
 
 	if type(result) is not list or len(result) == 0 : break
 
@@ -84,7 +84,7 @@ while True :
 # Get updated events and register pages
 page_num = 0
 while True :
-	result = PublishAPI.get('/events/updated?page=%d' % page_num)
+	result = PublishAPI.get('/events/updated?page=%d&page=100' % page_num)
 	if type(result) is not list or len(result) == 0 : break
 
 	for data in result:

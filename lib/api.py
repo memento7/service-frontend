@@ -235,8 +235,9 @@ class ImageAPI :
 	@staticmethod
 	def get(url, size_mode='original') :
 		app = Jikji.getinstance()
-		if 'production' not in app.options and 'cacheimg' not in app.options :
+		if ('production' not in app.options and 'cacheimg' not in app.options) or 'forbidcacheimg' in app.options :
 			# Only Upload images if app has 'production' option or 'cacheimg' option
+			# If forbidcacheimg, always forbid image upload
 			return url
 
 		filehash = hashlib.sha1(url.encode()).hexdigest()
