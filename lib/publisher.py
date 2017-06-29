@@ -31,7 +31,8 @@ class MementoPublisher(Publisher) :
 	def __init__(self) :
 		""" Constructor of Publisher
 		"""
-		pass
+		self.pagedatas = []
+		#pass
 	
 
 	def publish(self, generator, generation_result=None) :
@@ -63,11 +64,16 @@ class MementoPublisher(Publisher) :
 							self.upload_to_production(generator, '@', page)
 
 
+			# Upload with multi process
+			processes_cnt = generator.app.settings.__dict__.get('PROCESSES', 4)
+
+			pool = ThreadPool(processes=processes_cnt)
+			pool.map(publish_work, self.pagedatas)
+
+
 			# Purge Cloudflare Cache
 			from lib import functions
-
 			assets_s, assets_f, assets_i, _ = generation_result[-1]
-
 			purging_urls = []
 			for pageurl in assets_s :
 				purging_urls.append( functions.geturl('assets', pageurl) )
@@ -120,8 +126,7 @@ class MementoPublisher(Publisher) :
 		#s3 = boto3.resource('s3')
 
 		#all_urls = []
-		pagedatas = []
-
+		
 		for pageurl in pages :
 			file = generator.get_tmp_filepath(pageurl)
 
@@ -140,7 +145,8 @@ class MementoPublisher(Publisher) :
 
 			if not content_type :
 				content_type = 'binary/octet-stream'
-			pagedatas.append({
+
+			self.pagedatas.append({
 				'bucket_name': bucket_name,
 				'object_key': object_key,
 				'file': file,
@@ -150,10 +156,10 @@ class MementoPublisher(Publisher) :
 			# all_urls.append( functions.geturl(subdomain, pageurl) )
 
 
-		processes_cnt = 10 #generator.app.settings.__dict__.get('PROCESSES', 4)
+		# processes_cnt = 10 #generator.app.settings.__dict__.get('PROCESSES', 4)
 
-		pool = ThreadPool(processes=processes_cnt)
-		pool.map(publish_work, pagedatas)
+		# pool = ThreadPool(processes=processes_cnt)
+		# pool.map(publish_work, pagedatas)
 		
 		#self.purge_cloudflare_cache(all_urls)
 
