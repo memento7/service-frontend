@@ -106,7 +106,7 @@ def circular_number(number) :
 
 
 
-def image_url(image, css_mode=False, thumbnail=False) :
+def image_url(image, css_mode=False, thumbnail=False, forbid_caching=False) :
 	""" Get image's path with exception handling
 
 	:param images: image object
@@ -122,7 +122,7 @@ def image_url(image, css_mode=False, thumbnail=False) :
 	elif 'source_link' in image : 	rv = image['source_link']
 	else :							rv = None
 
-	if rv is not None :
+	if (rv is not None) and not forbid_caching :
 		rv = ImageAPI.get(rv, ('300x' if thumbnail else 'original'))
 		
 
@@ -133,14 +133,14 @@ def image_url(image, css_mode=False, thumbnail=False) :
 		return rv
 
 
-def first_image(images, css_mode=False, thumbnail=False) :
+def first_image(images, css_mode=False, thumbnail=False, forbid_caching=False) :
 	""" Get first image's path on list of images with exception handling
 	"""
 
 	if not images or len(images) == 0 :
-		return image_url(None, css_mode, thumbnail)
+		return image_url(None, css_mode, thumbnail, forbid_caching)
 	else :
-		return image_url(images[0], css_mode, thumbnail)
+		return image_url(images[0], css_mode, thumbnail, forbid_caching)
 
 
 

@@ -12,26 +12,43 @@ def get_trend_data(name) :
 	import requests, json
 
 	keyword = name
-	url = 'http://ca.datalab.naver.com/ca/step1/process.naver'
+	url = 'http://datalab.naver.com/qcHash.naver'
 
 	today = datetime.now()
+	
+	data = {
+	    'qcType': 'N',
+	    'queryGroups': '%s__SZLIG__%s' % (name, keyword),
+	#   'startDate': (today - timedelta(days=365*4)).strftime('%Y%m%d'),
+	    'startDate': '20160101',
+	    'endDate': today.strftime('%Y%m%d'),
+	    'timeUnit': 'date',
+	}
 
 	r = requests.post(
 		url = url,
-		data = {
-			'qcType': 'N',
-			'queryGroups': '%s__SZLIG__%s' % (name, keyword),
-			'startDate': (today - timedelta(days=365*4)).strftime('%Y%m%d'), #'20130331',
-			'endDate': today.strftime('%Y%m%d'),#'20170331',
-		},
+		data = data,
 		headers={
-			'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36',
-			'Referer': 'http://ca.datalab.naver.com/ca/step1.naver?'
+			'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+			'Origin': 'http://datalab.naver.com',
+			'Referer': 'http://datalab.naver.com/',
+			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+			'X-Requested-With': 'XMLHttpRequest',
 		}
 	)
 	
 	data = json.loads(r.text)
-	gdata = data['result'][0]['data']
+	hashKey = data['hashKey']
+	
+	url = 'http://datalab.naver.com/keyword/trendResult.naver?hashKey=' + hashKey
+	r = requests.get(url)
+	html = r.text
+	html = html.split('<div id="graph_data" style="display:none">')[1].split('</div>')[0]
+	
+	d = json.loads(html)
+	gdata = d[0]['data']
+	# gdata = data['result'][0]['data']
+	
 	result = []
 	max_value = 100
 	MERGE_CNT = 5
@@ -92,17 +109,28 @@ class PeoplePageGroup(PageGroup) :
 		top_trend_graph = sorted_trend[0:4] # 전체 그래프중 가장 높은 4개 날짜
 
 		top_trends = {}
+		used_events = {}
 
-		for event in self.model.events :
+		events = sorted(self.model.events, key=lambda e: e.issue_data.issue_score)
+
+		for event in events :
 			for index, tt in enumerate(top_trend_graph) :
 				# Similar date
 				if -15 <= (tt['period'] - event.date).days <= 15 :
 					if index not in top_trends or top_trends[index]['event'].issue_data.issue_score < event.issue_data.issue_score : 
 						# Update
+						if event.id in used_events :
+							continue
+
+						if index in top_trends :
+							used_events[ top_trends[index]['event'].id ] = False
+
 						top_trends[index] = {
 							'event': event,
 							'graph_data': tt,
 						}
+						
+						used_events[event.id] = True
 
 
 		return render_template('people_magazine/summary.html',

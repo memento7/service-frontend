@@ -33,7 +33,7 @@
 		<ul class="image-container">
 			{% for image in event.images %}
 				<li class="grid-image-tile">
-					<img src="{{ image_url(image) }}">
+					<img src="{{ image_url(image, forbid_caching=True) }}">
 					<!-- <div class="background-filter"></div> -->
 				</li>
 			{% endfor %}
