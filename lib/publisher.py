@@ -150,7 +150,7 @@ class MementoPublisher(Publisher) :
 			# all_urls.append( functions.geturl(subdomain, pageurl) )
 
 
-		processes_cnt = generator.app.settings.__dict__.get('PROCESSES', 4)
+		processes_cnt = 10 #generator.app.settings.__dict__.get('PROCESSES', 4)
 
 		pool = ThreadPool(processes=processes_cnt)
 		pool.map(publish_work, pagedatas)

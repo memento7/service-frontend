@@ -109,17 +109,28 @@ class PeoplePageGroup(PageGroup) :
 		top_trend_graph = sorted_trend[0:4] # 전체 그래프중 가장 높은 4개 날짜
 
 		top_trends = {}
+		used_events = {}
 
-		for event in self.model.events :
+		events = sorted(self.model.events, key=lambda e: e.issue_data.issue_score)
+
+		for event in events :
 			for index, tt in enumerate(top_trend_graph) :
 				# Similar date
 				if -15 <= (tt['period'] - event.date).days <= 15 :
 					if index not in top_trends or top_trends[index]['event'].issue_data.issue_score < event.issue_data.issue_score : 
 						# Update
+						if event.id in used_events :
+							continue
+
+						if index in top_trends :
+							used_events[ top_trends[index]['event'].id ] = False
+
 						top_trends[index] = {
 							'event': event,
 							'graph_data': tt,
 						}
+						
+						used_events[event.id] = True
 
 
 		return render_template('people_magazine/summary.html',
