@@ -88,6 +88,17 @@ var memento = (function () {
 					loginCallbacks[i](loginedUser);
 			}, null, true);
 
+			if (!result.id) {
+				loginedUser = {
+					'loggined': false,
+					'id': -1,
+					'favorites': [],
+				};
+
+				for (var i = 0; i < loginCallbacks.length; i++)
+					loginCallbacks[i](loginedUser);
+			}
+
 		}, function(error) {
 			// not loggined
 			console.log(error);
