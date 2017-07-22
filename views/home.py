@@ -17,7 +17,7 @@ def home() :
 	# Process trendy people
 	trendy_people = []
 	for entity in PublishAPI.get('/entities/toprank?sinceDate=%s&rankLimit=%d' % (
-					(now - timedelta(days=60)).strftime('%Y-%m-%d'),
+					(now - timedelta(days=70)).strftime('%Y-%m-%d'),
 					people_rank_limit)) :
 		trendy_people.append( People(**entity) )
 
@@ -25,7 +25,7 @@ def home() :
 	# Process watchable events
 	watchable_events = []
 	for event_data in PublishAPI.get('/events/toprank?fromDate=%s&toDate=%s&rankLimit=%d' % (
-					(now - timedelta(days=20)).strftime('%Y-%m-%d'),
+					(now - timedelta(days=45)).strftime('%Y-%m-%d'),
 					now.strftime('%Y-%m-%d'),
 					30)) :
 		event = Event(**event_data)
